@@ -121,5 +121,10 @@ namespace wfZenova
         {
             OpenChildForm(new frmCompetencias());
         }
+
+        private void btnMotivacion_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmMotivacion());
+        }
     }
 }

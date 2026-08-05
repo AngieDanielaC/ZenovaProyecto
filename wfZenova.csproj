@@ -100,6 +100,30 @@
     <Compile Include="frmInicioDeSesion.Designer.cs">
       <DependentUpon>frmInicioDeSesion.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMotAsistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMotAsistencia.Designer.cs">
+      <DependentUpon>frmMotAsistencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMotDestacado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMotDestacado.Designer.cs">
+      <DependentUpon>frmMotDestacado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMotivacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMotivacion.Designer.cs">
+      <DependentUpon>frmMotivacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMotRecordatorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMotRecordatorios.Designer.cs">
+      <DependentUpon>frmMotRecordatorios.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNuevoDeportista.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +194,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmInicioDeSesion.resx">
       <DependentUpon>frmInicioDeSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMotAsistencia.resx">
+      <DependentUpon>frmMotAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMotDestacado.resx">
+      <DependentUpon>frmMotDestacado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMotivacion.resx">
+      <DependentUpon>frmMotivacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMotRecordatorios.resx">
+      <DependentUpon>frmMotRecordatorios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoDeportista.resx">
       <DependentUpon>frmNuevoDeportista.cs</DependentUpon>
@@ -367,6 +403,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\lupa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MotivacionMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MotivacionImg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MotivacionImg2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MotivacionImg3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ButtonAñadir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MotivacionImg21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MotivacionExpandir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MotivacionImg11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MotivacionEstrella.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MotivacionImg31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comp51.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
