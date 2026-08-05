@@ -57,7 +57,7 @@ namespace wfZenova
 
         private void btnControl_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new frmControles());
         }
 
         private void btnDepor_Click(object sender, EventArgs e)
@@ -67,12 +67,12 @@ namespace wfZenova
 
         private void btnGestion_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new frmGestionTecnica());
         }
 
         private void btnRegistrodeDatos_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new frmRegistroDatosMonitoreo());
         }
 
         private void btnBienestar_Click(object sender, EventArgs e)

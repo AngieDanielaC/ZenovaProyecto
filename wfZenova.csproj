@@ -82,6 +82,12 @@
     <Compile Include="frmGastoCalorico.Designer.cs">
       <DependentUpon>frmGastoCalorico.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGestionTecnica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionTecnica.Designer.cs">
+      <DependentUpon>frmGestionTecnica.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,12 @@
     </Compile>
     <Compile Include="frmRegistrarCompetencia.Designer.cs">
       <DependentUpon>frmRegistrarCompetencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistroDatosMonitoreo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistroDatosMonitoreo.Designer.cs">
+      <DependentUpon>frmRegistroDatosMonitoreo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRiego.cs">
       <SubType>Form</SubType>
@@ -150,6 +162,9 @@
     <EmbeddedResource Include="frmGastoCalorico.resx">
       <DependentUpon>frmGastoCalorico.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionTecnica.resx">
+      <DependentUpon>frmGestionTecnica.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarCompetencia.resx">
       <DependentUpon>frmRegistrarCompetencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistroDatosMonitoreo.resx">
+      <DependentUpon>frmRegistroDatosMonitoreo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRiego.resx">
       <DependentUpon>frmRiego.cs</DependentUpon>
@@ -319,6 +337,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\luparoja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xdf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xdh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\corazonpunto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pensador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BARRAS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VISTO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
