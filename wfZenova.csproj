@@ -100,6 +100,12 @@
     <Compile Include="frmInicioDeSesion.Designer.cs">
       <DependentUpon>frmInicioDeSesion.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMoniDeportistas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMoniDeportistas.Designer.cs">
+      <DependentUpon>frmMoniDeportistas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMotAsistencia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmInicioDeSesion.resx">
       <DependentUpon>frmInicioDeSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMoniDeportistas.resx">
+      <DependentUpon>frmMoniDeportistas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMotAsistencia.resx">
       <DependentUpon>frmMotAsistencia.cs</DependentUpon>

@@ -62,7 +62,7 @@ namespace wfZenova
 
         private void btnDepor_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new frmMoniDeportistas());
         }
 
         private void btnGestion_Click(object sender, EventArgs e)
