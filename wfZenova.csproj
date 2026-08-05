@@ -64,6 +64,12 @@
     <Compile Include="frmCompetencias.Designer.cs">
       <DependentUpon>frmCompetencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmControles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmControles.Designer.cs">
+      <DependentUpon>frmControles.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDeportistas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCompetencias.resx">
       <DependentUpon>frmCompetencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmControles.resx">
+      <DependentUpon>frmControles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDeportistas.resx">
       <DependentUpon>frmDeportistas.cs</DependentUpon>
@@ -307,6 +316,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btnRegistrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\luparoja.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

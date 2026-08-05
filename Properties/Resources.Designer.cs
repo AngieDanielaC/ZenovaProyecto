@@ -433,6 +433,16 @@ namespace wfZenova.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap luparoja {
+            get {
+                object obj = ResourceManager.GetObject("luparoja", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap raBlanco {
             get {
                 object obj = ResourceManager.GetObject("raBlanco", resourceCulture);
