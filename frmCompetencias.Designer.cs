@@ -208,7 +208,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(684, 515);
+            this.button1.Location = new System.Drawing.Point(684, 514);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(201, 39);
             this.button1.TabIndex = 18;
@@ -228,7 +228,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::wfZenova.Properties.Resources.Circulo;
+            this.pictureBox1.Image = global::wfZenova.Properties.Resources.icoComp;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(70, 65);

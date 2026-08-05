@@ -57,12 +57,12 @@ namespace wfZenova
 
         private void btnControl_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmControles());
+            OpenChildForm(new frmMoniDeportistas());
         }
 
         private void btnDepor_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmMoniDeportistas());
+            OpenChildForm(new frmControles());
         }
 
         private void btnGestion_Click(object sender, EventArgs e)
@@ -114,7 +114,7 @@ namespace wfZenova
 
         private void btnEntrenamientos_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new frmEntrenamientos());
         }
 
         private void btnCompetencias_Click(object sender, EventArgs e)

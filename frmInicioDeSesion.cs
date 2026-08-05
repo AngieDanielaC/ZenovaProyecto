@@ -65,5 +65,16 @@ namespace wfZenova
                 txtContraseña.UseSystemPasswordChar = false;
             }
         }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            frmRegistroEntrenador menu = new frmRegistroEntrenador();
+
+            this.Hide();
+
+            menu.ShowDialog();
+
+            this.Close();
+        }
     }
 }

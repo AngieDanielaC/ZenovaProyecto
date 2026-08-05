@@ -76,6 +76,12 @@
     <Compile Include="frmDeportistas.Designer.cs">
       <DependentUpon>frmDeportistas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEntrenamientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEntrenamientos.Designer.cs">
+      <DependentUpon>frmEntrenamientos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGastoCalorico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,12 @@
     <Compile Include="frmNuevoDeportista.Designer.cs">
       <DependentUpon>frmNuevoDeportista.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPruebasFisicas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPruebasFisicas.Designer.cs">
+      <DependentUpon>frmPruebasFisicas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRegistrarCompetencia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +160,12 @@
     <Compile Include="frmRegistroDatosMonitoreo.Designer.cs">
       <DependentUpon>frmRegistroDatosMonitoreo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRegistroEntrenador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistroEntrenador.Designer.cs">
+      <DependentUpon>frmRegistroEntrenador.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRiego.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +177,12 @@
     </Compile>
     <Compile Include="frmSubCompetencia.Designer.cs">
       <DependentUpon>frmSubCompetencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSubEntrenamientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSubEntrenamientos.Designer.cs">
+      <DependentUpon>frmSubEntrenamientos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVerCompetencias.cs">
       <SubType>Form</SubType>
@@ -188,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDeportistas.resx">
       <DependentUpon>frmDeportistas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEntrenamientos.resx">
+      <DependentUpon>frmEntrenamientos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGastoCalorico.resx">
       <DependentUpon>frmGastoCalorico.cs</DependentUpon>
@@ -219,17 +246,26 @@
     <EmbeddedResource Include="frmNuevoDeportista.resx">
       <DependentUpon>frmNuevoDeportista.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPruebasFisicas.resx">
+      <DependentUpon>frmPruebasFisicas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarCompetencia.resx">
       <DependentUpon>frmRegistrarCompetencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistroDatosMonitoreo.resx">
       <DependentUpon>frmRegistroDatosMonitoreo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistroEntrenador.resx">
+      <DependentUpon>frmRegistroEntrenador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRiego.resx">
       <DependentUpon>frmRiego.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSubCompetencia.resx">
       <DependentUpon>frmSubCompetencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSubEntrenamientos.resx">
+      <DependentUpon>frmSubEntrenamientos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerCompetencias.resx">
       <DependentUpon>frmVerCompetencias.cs</DependentUpon>
@@ -445,6 +481,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\comp51.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icoComp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImClaves.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fotoDepo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnSubiFoto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\entrenamient1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\peso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\listaaaa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asistenciaestadistica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\registarpruena.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\relaizarpruebas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wii.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cuadroRegistroo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

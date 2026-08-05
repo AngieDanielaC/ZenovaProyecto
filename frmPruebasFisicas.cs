@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace wfZenova
 {
-    public partial class frmMotDestacado : Form
+    public partial class frmPruebasFisicas : Form
     {
-        public frmMotDestacado()
+        public frmPruebasFisicas()
         {
             InitializeComponent();
         }
@@ -27,7 +27,7 @@ namespace wfZenova
                 return;
             }
 
-            frmMotivacion frmSubCompetencia = new frmMotivacion();
+            frmEntrenamientos frmSubCompetencia = new frmEntrenamientos();
 
             frmSubCompetencia.TopLevel = false;
             frmSubCompetencia.FormBorderStyle = FormBorderStyle.None;
