@@ -46,8 +46,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -59,6 +57,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnGuardarDep = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -244,31 +244,12 @@
             this.label8.TabIndex = 16;
             this.label8.Text = "Altura (cm):";
             // 
-            // textBox7
-            // 
-            this.textBox7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(30, 466);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(201, 31);
-            this.textBox7.TabIndex = 19;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label9.Location = new System.Drawing.Point(12, 444);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(108, 19);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "Nivel/Grupo:";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label10.Location = new System.Drawing.Point(268, 434);
+            this.label10.Location = new System.Drawing.Point(268, 445);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(182, 19);
             this.label10.TabIndex = 20;
@@ -280,7 +261,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(594, 19);
+            this.panel1.Size = new System.Drawing.Size(601, 19);
             this.panel1.TabIndex = 24;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -288,7 +269,7 @@
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(272, 465);
+            this.dateTimePicker1.Location = new System.Drawing.Point(272, 476);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(242, 22);
             this.dateTimePicker1.TabIndex = 53;
@@ -296,7 +277,7 @@
             // textBox8
             // 
             this.textBox8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(30, 531);
+            this.textBox8.Location = new System.Drawing.Point(30, 470);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(201, 31);
             this.textBox8.TabIndex = 55;
@@ -306,16 +287,16 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label11.Location = new System.Drawing.Point(12, 509);
+            this.label11.Location = new System.Drawing.Point(12, 448);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(108, 19);
+            this.label11.Size = new System.Drawing.Size(78, 19);
             this.label11.TabIndex = 54;
-            this.label11.Text = "Nivel/Grupo:";
+            this.label11.Text = "Teléfono:";
             // 
             // textBox9
             // 
             this.textBox9.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(286, 531);
+            this.textBox9.Location = new System.Drawing.Point(286, 542);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(201, 31);
             this.textBox9.TabIndex = 57;
@@ -325,11 +306,11 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label12.Location = new System.Drawing.Point(268, 509);
+            this.label12.Location = new System.Drawing.Point(268, 520);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(108, 19);
+            this.label12.Size = new System.Drawing.Size(87, 19);
             this.label12.TabIndex = 56;
-            this.label12.Text = "Nivel/Grupo:";
+            this.label12.Text = "Dirección:";
             // 
             // button1
             // 
@@ -339,7 +320,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(50)))), ((int)(((byte)(222)))));
-            this.button1.Location = new System.Drawing.Point(334, 82);
+            this.button1.Location = new System.Drawing.Point(338, 82);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(127, 35);
             this.button1.TabIndex = 59;
@@ -364,7 +345,7 @@
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(61)))), ((int)(((byte)(228)))));
-            this.btnCerrar.Location = new System.Drawing.Point(43, 579);
+            this.btnCerrar.Location = new System.Drawing.Point(43, 595);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(188, 42);
             this.btnCerrar.TabIndex = 23;
@@ -380,7 +361,7 @@
             this.btnGuardarDep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarDep.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarDep.ForeColor = System.Drawing.Color.Transparent;
-            this.btnGuardarDep.Location = new System.Drawing.Point(308, 579);
+            this.btnGuardarDep.Location = new System.Drawing.Point(313, 595);
             this.btnGuardarDep.Name = "btnGuardarDep";
             this.btnGuardarDep.Size = new System.Drawing.Size(201, 42);
             this.btnGuardarDep.TabIndex = 22;
@@ -388,12 +369,34 @@
             this.btnGuardarDep.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardarDep.UseVisualStyleBackColor = true;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.label13.Location = new System.Drawing.Point(18, 507);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(79, 19);
+            this.label13.TabIndex = 60;
+            this.label13.Text = "Jornada:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(34, 533);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(197, 29);
+            this.comboBox1.TabIndex = 61;
+            // 
             // frmNuevoDeportista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(594, 637);
+            this.ClientSize = new System.Drawing.Size(601, 670);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox9);
@@ -405,8 +408,6 @@
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnGuardarDep);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox5);
@@ -455,8 +456,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnGuardarDep;
         private System.Windows.Forms.Button btnCerrar;
@@ -468,5 +467,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

@@ -54,9 +54,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnVolver = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label25 = new System.Windows.Forms.Label();
@@ -80,8 +80,8 @@
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -291,7 +291,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(158, 29);
             this.button4.TabIndex = 41;
-            this.button4.Text = "Guardar entrenamiento";
+            this.button4.Text = "Guardar Prueba";
             this.button4.UseVisualStyleBackColor = false;
             // 
             // label24
@@ -384,6 +384,16 @@
             this.panel2.Size = new System.Drawing.Size(922, 157);
             this.panel2.TabIndex = 36;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::wfZenova.Properties.Resources.wii;
+            this.pictureBox1.Location = new System.Drawing.Point(38, 91);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(47, 42);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
@@ -404,16 +414,6 @@
             this.label3.Size = new System.Drawing.Size(119, 19);
             this.label3.TabIndex = 39;
             this.label3.Text = "2. RESULTADOS";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::wfZenova.Properties.Resources.wii;
-            this.pictureBox1.Location = new System.Drawing.Point(38, 91);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(47, 42);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // btnVolver
             // 
@@ -665,9 +665,9 @@
             this.panel5.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

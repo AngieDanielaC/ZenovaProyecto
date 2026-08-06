@@ -78,9 +78,9 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvEjercicios = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.dgvEjercicios = new System.Windows.Forms.DataGridView();
             this.btnVolver = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -383,9 +383,9 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(63)))), ((int)(((byte)(112)))));
             this.label4.Location = new System.Drawing.Point(24, 12);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(244, 19);
+            this.label4.Size = new System.Drawing.Size(277, 19);
             this.label4.TabIndex = 7;
-            this.label4.Text = "3. PERCEPCIÓN DEL DEPORTISTA";
+            this.label4.Text = "3. PERCEPCIÓN DE LOS DEPORTISTAS";
             // 
             // button3
             // 
@@ -623,9 +623,9 @@
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(51, 50);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 15);
+            this.label8.Size = new System.Drawing.Size(66, 15);
             this.label8.TabIndex = 10;
-            this.label8.Text = "Deportista";
+            this.label8.Text = "Deportistas";
             // 
             // comboBox5
             // 
@@ -694,6 +694,14 @@
             this.panel2.Size = new System.Drawing.Size(916, 243);
             this.panel2.TabIndex = 15;
             // 
+            // dgvEjercicios
+            // 
+            this.dgvEjercicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEjercicios.Location = new System.Drawing.Point(27, 46);
+            this.dgvEjercicios.Name = "dgvEjercicios";
+            this.dgvEjercicios.Size = new System.Drawing.Size(692, 148);
+            this.dgvEjercicios.TabIndex = 12;
+            // 
             // button1
             // 
             this.button1.FlatAppearance.BorderSize = 0;
@@ -716,14 +724,6 @@
             this.label3.Size = new System.Drawing.Size(253, 23);
             this.label3.TabIndex = 6;
             this.label3.Text = "2. EJERCICIOS REALIZADOS\r\n";
-            // 
-            // dgvEjercicios
-            // 
-            this.dgvEjercicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEjercicios.Location = new System.Drawing.Point(27, 46);
-            this.dgvEjercicios.Name = "dgvEjercicios";
-            this.dgvEjercicios.Size = new System.Drawing.Size(692, 148);
-            this.dgvEjercicios.TabIndex = 12;
             // 
             // btnVolver
             // 

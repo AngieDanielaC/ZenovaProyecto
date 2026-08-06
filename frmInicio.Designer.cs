@@ -185,9 +185,9 @@
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(7)))), ((int)(((byte)(63)))));
             this.label11.Location = new System.Drawing.Point(1035, 340);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(108, 18);
+            this.label11.Size = new System.Drawing.Size(111, 18);
             this.label11.TabIndex = 13;
-            this.label11.Text = "Metas activas";
+            this.label11.Text = "Recordatorios";
             // 
             // label7
             // 
@@ -328,13 +328,13 @@
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.White;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(7)))), ((int)(((byte)(63)))));
-            this.label18.Location = new System.Drawing.Point(719, 578);
+            this.label18.Location = new System.Drawing.Point(746, 572);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(184, 18);
+            this.label18.Size = new System.Drawing.Size(110, 32);
             this.label18.TabIndex = 22;
-            this.label18.Text = "Cumplimiento de metas";
+            this.label18.Text = "Cumplimiento de \r\nentrenamientos";
             // 
             // label19
             // 
@@ -382,7 +382,7 @@
             this.label22.BackColor = System.Drawing.Color.White;
             this.label22.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(7)))), ((int)(((byte)(63)))));
-            this.label22.Location = new System.Drawing.Point(780, 597);
+            this.label22.Location = new System.Drawing.Point(780, 610);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(72, 44);
             this.label22.TabIndex = 26;
