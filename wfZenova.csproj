@@ -118,6 +118,12 @@
     <Compile Include="frmGestionTecnica.Designer.cs">
       <DependentUpon>frmGestionTecnica.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInactivarEntrenador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInactivarEntrenador.Designer.cs">
+      <DependentUpon>frmInactivarEntrenador.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +220,12 @@
     <Compile Include="frmRegistroEntrenadoresAdm.Designer.cs">
       <DependentUpon>frmRegistroEntrenadoresAdm.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRestablecerContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRestablecerContraseña.Designer.cs">
+      <DependentUpon>frmRestablecerContraseña.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRiego.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +294,9 @@
     <EmbeddedResource Include="frmGestionTecnica.resx">
       <DependentUpon>frmGestionTecnica.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInactivarEntrenador.resx">
+      <DependentUpon>frmInactivarEntrenador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -329,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistroEntrenadoresAdm.resx">
       <DependentUpon>frmRegistroEntrenadoresAdm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRestablecerContraseña.resx">
+      <DependentUpon>frmRestablecerContraseña.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRiego.resx">
       <DependentUpon>frmRiego.cs</DependentUpon>

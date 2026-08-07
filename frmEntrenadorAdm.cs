@@ -167,5 +167,17 @@ namespace wfZenova
 
             this.Close();
         }
+
+        private void btnInactivar_Click(object sender, EventArgs e)
+        {
+            frmInactivarEntrenador frm = new frmInactivarEntrenador();
+            frm.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmRestablecerContraseña frm = new frmRestablecerContraseña();
+            frm.Show();
+        }
     }
 }

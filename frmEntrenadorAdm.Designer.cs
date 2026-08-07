@@ -31,6 +31,9 @@
             this.dgvEntrenadores = new System.Windows.Forms.DataGridView();
             this.txtBuscarComp = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnInactivar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -69,6 +72,53 @@
             this.label13.Size = new System.Drawing.Size(296, 28);
             this.label13.TabIndex = 74;
             this.label13.Text = "Gestión de Entrenadores";
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::wfZenova.Properties.Resources.btnCompe;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(943, 651);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(203, 29);
+            this.button2.TabIndex = 82;
+            this.button2.Text = "Restablecer Contraseña";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::wfZenova.Properties.Resources.btnCompe;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(465, 651);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(203, 29);
+            this.button1.TabIndex = 81;
+            this.button1.Text = "Editar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnInactivar
+            // 
+            this.btnInactivar.BackgroundImage = global::wfZenova.Properties.Resources.btnCompe;
+            this.btnInactivar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnInactivar.FlatAppearance.BorderSize = 0;
+            this.btnInactivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInactivar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInactivar.ForeColor = System.Drawing.Color.White;
+            this.btnInactivar.Location = new System.Drawing.Point(705, 651);
+            this.btnInactivar.Name = "btnInactivar";
+            this.btnInactivar.Size = new System.Drawing.Size(203, 29);
+            this.btnInactivar.TabIndex = 80;
+            this.btnInactivar.Text = "Inactivar";
+            this.btnInactivar.UseVisualStyleBackColor = true;
+            this.btnInactivar.Click += new System.EventHandler(this.btnInactivar_Click);
             // 
             // btnNuevo
             // 
@@ -122,6 +172,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 768);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnInactivar);
             this.Controls.Add(this.dgvEntrenadores);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.txtBuscarComp);
@@ -150,5 +203,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button btnInactivar;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
