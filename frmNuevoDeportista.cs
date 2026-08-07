@@ -38,5 +38,10 @@ namespace wfZenova
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xF012, 0);
         }
+
+        private void btnGuardarDep_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

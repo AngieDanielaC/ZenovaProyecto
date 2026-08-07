@@ -193,6 +193,16 @@ namespace wfZenova.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnCuadro {
+            get {
+                object obj = ResourceManager.GetObject("btnCuadro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnGuardarDep {
             get {
                 object obj = ResourceManager.GetObject("btnGuardarDep", resourceCulture);
@@ -216,6 +226,16 @@ namespace wfZenova.Properties {
         internal static System.Drawing.Bitmap btnRegistrar {
             get {
                 object obj = ResourceManager.GetObject("btnRegistrar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnRojo {
+            get {
+                object obj = ResourceManager.GetObject("btnRojo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -473,6 +493,56 @@ namespace wfZenova.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icEntrAdm {
+            get {
+                object obj = ResourceManager.GetObject("icEntrAdm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icJudo {
+            get {
+                object obj = ResourceManager.GetObject("icJudo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icKarate {
+            get {
+                object obj = ResourceManager.GetObject("icKarate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icLupaMenAd {
+            get {
+                object obj = ResourceManager.GetObject("icLupaMenAd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icMenuAdmin {
+            get {
+                object obj = ResourceManager.GetObject("icMenuAdmin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icoComp {
             get {
                 object obj = ResourceManager.GetObject("icoComp", resourceCulture);
@@ -486,6 +556,16 @@ namespace wfZenova.Properties {
         internal static System.Drawing.Bitmap ImClaves {
             get {
                 object obj = ResourceManager.GetObject("ImClaves", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imgCuadroBlanco {
+            get {
+                object obj = ResourceManager.GetObject("imgCuadroBlanco", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

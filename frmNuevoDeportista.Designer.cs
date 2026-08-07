@@ -368,6 +368,7 @@
             this.btnGuardarDep.Text = "Guardar Deportista";
             this.btnGuardarDep.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardarDep.UseVisualStyleBackColor = true;
+            this.btnGuardarDep.Click += new System.EventHandler(this.btnGuardarDep_Click);
             // 
             // label13
             // 

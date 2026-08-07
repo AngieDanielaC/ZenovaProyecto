@@ -12,13 +12,64 @@ namespace wfZenova
 {
     public partial class Form1 : Form
     {
+        public string RolUsuario;
+
         public Form1()
         {
             InitializeComponent();
+            RolUsuario = "";
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (RolUsuario == "Administrador")
+            {
+                MenuAdministrador();
+            }
+            else
+            {
+                MenuEntrenador();
+            }
+        }
+        private void MenuAdministrador()
+        {
+            // Ocultar entrenador
+            btnInicio.Visible = false;
+            btnDeportistas.Visible = false;
+            btnMonitoreo.Visible = false;
+
+            btnEntrenamientos.Visible = false;
+            btnCompetencias.Visible = false;
+            btnBienestar.Visible = false;
+            btnMotivacion.Visible = false;
+            btnReportes.Visible = false;
+
+
+            // Mostrar administrador
+            btnInicioAdm.Visible = true;
+            btnDeportistasAdm.Visible = true;
+            btnEntrenadoresAdm.Visible = true;
+            btnAsignacionAdm.Visible = true;
+            btnConsultaAdm.Visible = true;
+        }
+        private void MenuEntrenador()
+        {
+            // Mostrar entrenador
+            btnInicio.Visible = true;
+            btnDeportistas.Visible = true;
+            btnMonitoreo.Visible = true;
+            btnEntrenamientos.Visible = true;
+            btnCompetencias.Visible = true;
+            btnBienestar.Visible = true;
+            btnMotivacion.Visible = true;
+
+
+            // Ocultar administrador
+
+            btnInicioAdm.Visible = false;
+            btnDeportistasAdm.Visible = false;
+            btnEntrenadoresAdm.Visible = false;
+            btnAsignacionAdm.Visible = false;
+            btnConsultaAdm.Visible = false;
         }
         private Form currentForm = null;
         private void OpenChildForm(Form childForm)
@@ -125,6 +176,26 @@ namespace wfZenova
         private void btnMotivacion_Click(object sender, EventArgs e)
         {
             OpenChildForm(new frmMotivacion());
+        }
+
+        private void btnDeportistasAdm_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmDepAdm());
+        }
+
+        private void btnEntrenadoresAdm_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmEntrenadorAdm());
+        }
+
+        private void btnAsignacionAdm_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmAsignacionesAdm());
+        }
+
+        private void btnConsultaAdm_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmConsultaAdm());
         }
     }
 }
