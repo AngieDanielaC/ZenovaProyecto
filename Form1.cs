@@ -17,7 +17,7 @@ namespace wfZenova
         public Form1()
         {
             InitializeComponent();
-            RolUsuario = "";
+            RolUsuario = "Administrador";
         }
         private void Form1_Load(object sender, EventArgs e)
         {

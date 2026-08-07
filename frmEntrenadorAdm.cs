@@ -26,12 +26,14 @@ namespace wfZenova
 
             // Crear columnas
             dgvEntrenadores.Columns.Add("ID", "ID");
-            dgvEntrenadores.Columns.Add("Nombre", "NOMBRE");
-            dgvEntrenadores.Columns.Add("Usuario", "USUARIO");
-            dgvEntrenadores.Columns.Add("Especialidad", "ESPECIALIDAD");
+            dgvEntrenadores.Columns.Add("Nombre", "NOMBRE COMPLETO");
+            dgvEntrenadores.Columns.Add("Edad", "EDAD");
+            dgvEntrenadores.Columns.Add("Telefono", "TELÉFONO");
+            dgvEntrenadores.Columns.Add("Deporte", "DEPORTE");
             dgvEntrenadores.Columns.Add("Estado", "ESTADO");
-            dgvEntrenadores.Columns.Add("Asignaciones", "ASIGNACIONES\nACTIVAS");
-            dgvEntrenadores.Columns.Add("Accion", "ACCIÓN");
+            dgvEntrenadores.Columns.Add("Deportistas", "DEPORTISTAS\nACTIVOS");
+            dgvEntrenadores.Columns.Add("Accion", "ACCIONES");
+
 
 
             // Estilo general
@@ -43,6 +45,7 @@ namespace wfZenova
 
             dgvEntrenadores.GridColor =
                 Color.FromArgb(235, 235, 235);
+
 
 
             // Encabezado
@@ -106,13 +109,15 @@ namespace wfZenova
 
             dgvEntrenadores.Columns["Nombre"].FillWeight = 25;
 
-            dgvEntrenadores.Columns["Usuario"].FillWeight = 18;
+            dgvEntrenadores.Columns["Edad"].FillWeight = 10;
 
-            dgvEntrenadores.Columns["Especialidad"].FillWeight = 22;
+            dgvEntrenadores.Columns["Telefono"].FillWeight = 18;
+
+            dgvEntrenadores.Columns["Deporte"].FillWeight = 22;
 
             dgvEntrenadores.Columns["Estado"].FillWeight = 15;
 
-            dgvEntrenadores.Columns["Asignaciones"].FillWeight = 18;
+            dgvEntrenadores.Columns["Deportistas"].FillWeight = 18;
 
             dgvEntrenadores.Columns["Accion"].FillWeight = 12;
 
@@ -120,8 +125,11 @@ namespace wfZenova
 
             // Bloquear edición
             dgvEntrenadores.AllowUserToAddRows = false;
+
             dgvEntrenadores.AllowUserToDeleteRows = false;
+
             dgvEntrenadores.AllowUserToResizeRows = false;
+
             dgvEntrenadores.AllowUserToResizeColumns = false;
 
 
@@ -132,10 +140,6 @@ namespace wfZenova
 
             dgvEntrenadores.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
-
-
-
-            
 
             dgvEntrenadores.ClearSelection();
         }
