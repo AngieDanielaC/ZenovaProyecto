@@ -11,11 +11,16 @@ using System.Windows.Forms;
 
 namespace wfZenova
 {
-    public partial class frmRestablecerContraseña : Form
+    public partial class frmVerUsuario : Form
     {
-        public frmRestablecerContraseña()
+        public frmVerUsuario()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private static extern void ReleaseCapture();
@@ -23,20 +28,15 @@ namespace wfZenova
         [DllImport("user32.dll", EntryPoint = "SendMessage")]
         private static extern void SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xF012, 0);
-        }
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
-
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xF012, 0);
         }
     }
 }

@@ -87,6 +87,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(275, 31);
             this.textBox2.TabIndex = 76;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label2
             // 
@@ -98,6 +99,7 @@
             this.label2.Size = new System.Drawing.Size(85, 19);
             this.label2.TabIndex = 75;
             this.label2.Text = "Apellidos:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox1
             // 
@@ -106,6 +108,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(247, 31);
             this.textBox1.TabIndex = 74;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label3
             // 
@@ -117,6 +120,7 @@
             this.label3.Size = new System.Drawing.Size(83, 19);
             this.label3.TabIndex = 73;
             this.label3.Text = "Nombres:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // textBox3
             // 
@@ -125,6 +129,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(247, 31);
             this.textBox3.TabIndex = 78;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label4
             // 
@@ -136,6 +141,7 @@
             this.label4.Size = new System.Drawing.Size(71, 19);
             this.label4.TabIndex = 77;
             this.label4.Text = "Cédula:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -147,6 +153,7 @@
             this.label5.Size = new System.Drawing.Size(180, 19);
             this.label5.TabIndex = 79;
             this.label5.Text = "Fecha de nacimiento:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // dateTimePicker1
             // 
@@ -157,6 +164,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(275, 31);
             this.dateTimePicker1.TabIndex = 81;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // radioButton2
             // 
@@ -170,6 +178,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Femenino";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
@@ -183,6 +192,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Masculino";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // label6
             // 
@@ -194,6 +204,7 @@
             this.label6.Size = new System.Drawing.Size(71, 19);
             this.label6.TabIndex = 82;
             this.label6.Text = "Género:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // textBox4
             // 
@@ -202,6 +213,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(247, 31);
             this.textBox4.TabIndex = 86;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label7
             // 
@@ -213,6 +225,7 @@
             this.label7.Size = new System.Drawing.Size(78, 19);
             this.label7.TabIndex = 85;
             this.label7.Text = "Teléfono:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // textBox5
             // 
@@ -221,6 +234,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(247, 31);
             this.textBox5.TabIndex = 88;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // label8
             // 
@@ -232,6 +246,7 @@
             this.label8.Size = new System.Drawing.Size(202, 19);
             this.label8.TabIndex = 87;
             this.label8.Text = "Teléfono de Emergencia:";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // textBox6
             // 
@@ -240,6 +255,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(275, 31);
             this.textBox6.TabIndex = 90;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // label9
             // 
@@ -251,6 +267,7 @@
             this.label9.Size = new System.Drawing.Size(87, 19);
             this.label9.TabIndex = 89;
             this.label9.Text = "Dirección:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // textBox7
             // 
@@ -259,6 +276,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(275, 31);
             this.textBox7.TabIndex = 92;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label10
             // 
@@ -270,6 +288,7 @@
             this.label10.Size = new System.Drawing.Size(154, 19);
             this.label10.TabIndex = 91;
             this.label10.Text = "Correo Electrónico:";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // button1
             // 
@@ -285,6 +304,7 @@
             this.button1.TabIndex = 96;
             this.button1.Text = "Subir Foto";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
@@ -295,6 +315,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 95;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnCerrar
             // 

@@ -52,6 +52,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAgregarActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarActividad.Designer.cs">
+      <DependentUpon>frmAgregarActividad.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAsignacionesAdm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,18 @@
     <Compile Include="frmDeportistas.Designer.cs">
       <DependentUpon>frmDeportistas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditarAct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarAct.Designer.cs">
+      <DependentUpon>frmEditarAct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditarUsuariocs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarUsuariocs.Designer.cs">
+      <DependentUpon>frmEditarUsuariocs.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEntrenadorAdm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +129,12 @@
     </Compile>
     <Compile Include="frmGastoCalorico.Designer.cs">
       <DependentUpon>frmGastoCalorico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionDeUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionDeUsuarios.Designer.cs">
+      <DependentUpon>frmGestionDeUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="frmGestionTecnica.cs">
       <SubType>Form</SubType>
@@ -184,6 +208,18 @@
     <Compile Include="frmNuevoDeportista.Designer.cs">
       <DependentUpon>frmNuevoDeportista.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNuevoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoUsuario.Designer.cs">
+      <DependentUpon>frmNuevoUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPlanificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPlanificacion.Designer.cs">
+      <DependentUpon>frmPlanificacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPruebasFisicas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +286,12 @@
     <Compile Include="frmVerCompetencias.Designer.cs">
       <DependentUpon>frmVerCompetencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVerUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerUsuario.Designer.cs">
+      <DependentUpon>frmVerUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVisualizarDatosBienestar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +302,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarActividad.resx">
+      <DependentUpon>frmAgregarActividad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAsignacionesAdm.resx">
       <DependentUpon>frmAsignacionesAdm.cs</DependentUpon>
@@ -282,6 +327,12 @@
     <EmbeddedResource Include="frmDeportistas.resx">
       <DependentUpon>frmDeportistas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarAct.resx">
+      <DependentUpon>frmEditarAct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarUsuariocs.resx">
+      <DependentUpon>frmEditarUsuariocs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEntrenadorAdm.resx">
       <DependentUpon>frmEntrenadorAdm.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGastoCalorico.resx">
       <DependentUpon>frmGastoCalorico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionDeUsuarios.resx">
+      <DependentUpon>frmGestionDeUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionTecnica.resx">
       <DependentUpon>frmGestionTecnica.cs</DependentUpon>
@@ -327,6 +381,12 @@
     <EmbeddedResource Include="frmNuevoDeportista.resx">
       <DependentUpon>frmNuevoDeportista.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoUsuario.resx">
+      <DependentUpon>frmNuevoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPlanificacion.resx">
+      <DependentUpon>frmPlanificacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPruebasFisicas.resx">
       <DependentUpon>frmPruebasFisicas.cs</DependentUpon>
     </EmbeddedResource>
@@ -359,6 +419,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerCompetencias.resx">
       <DependentUpon>frmVerCompetencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerUsuario.resx">
+      <DependentUpon>frmVerUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVisualizarDatosBienestar.resx">
       <DependentUpon>frmVisualizarDatosBienestar.cs</DependentUpon>
@@ -631,6 +694,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btnRojo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CuadroBlanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icoClave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icoVer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icoActivo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icoEditar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icoDesactivo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fotoUsuario.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

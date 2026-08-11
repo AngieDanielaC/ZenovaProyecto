@@ -33,16 +33,6 @@ namespace wfZenova
         private void MenuAdministrador()
         {
             // Ocultar entrenador
-            btnInicio.Visible = false;
-            btnDeportistas.Visible = false;
-            btnMonitoreo.Visible = false;
-
-            btnEntrenamientos.Visible = false;
-            btnCompetencias.Visible = false;
-            btnBienestar.Visible = false;
-            btnMotivacion.Visible = false;
-            btnReportes.Visible = false;
-
 
             // Mostrar administrador
             btnInicioAdm.Visible = true;
@@ -196,6 +186,11 @@ namespace wfZenova
         private void btnConsultaAdm_Click(object sender, EventArgs e)
         {
             OpenChildForm(new frmConsultaAdm());
+        }
+
+        private void btnGestionDeUsuarios_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmGestionDeUsuarios());
         }
     }
 }
