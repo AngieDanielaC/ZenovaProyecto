@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.txtContrasena = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.lblIniciaSesionParaContinuar = new System.Windows.Forms.Label();
             this.lblBienvenidoDeNuevo = new System.Windows.Forms.Label();
@@ -42,18 +42,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtContraseña
+            // txtContrasena
             // 
-            this.txtContraseña.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(209)))), ((int)(((byte)(239)))));
-            this.txtContraseña.Location = new System.Drawing.Point(753, 311);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(221, 28);
-            this.txtContraseña.TabIndex = 19;
-            this.txtContraseña.Text = "Contraseña";
-            this.txtContraseña.Enter += new System.EventHandler(this.txtContraseña_Enter);
-            this.txtContraseña.Leave += new System.EventHandler(this.txtContraseña_Leave);
+            this.txtContrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContrasena.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(209)))), ((int)(((byte)(239)))));
+            this.txtContrasena.Location = new System.Drawing.Point(753, 311);
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.Size = new System.Drawing.Size(221, 28);
+            this.txtContrasena.TabIndex = 19;
+            this.txtContrasena.Text = "Contraseña";
+            this.txtContrasena.Enter += new System.EventHandler(this.txtContraseña_Enter);
+            this.txtContrasena.Leave += new System.EventHandler(this.txtContraseña_Leave);
             // 
             // txtUsuario
             // 
@@ -167,7 +167,7 @@
             this.ClientSize = new System.Drawing.Size(1136, 585);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.btnIniciarSesion);
-            this.Controls.Add(this.txtContraseña);
+            this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblIniciaSesionParaContinuar);
             this.Controls.Add(this.lblBienvenidoDeNuevo);
@@ -188,7 +188,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtContraseña;
+        private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label lblIniciaSesionParaContinuar;
         private System.Windows.Forms.Label lblBienvenidoDeNuevo;

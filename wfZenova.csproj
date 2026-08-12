@@ -66,6 +66,12 @@
     <Compile Include="frmAsignacionesAdm.Designer.cs">
       <DependentUpon>frmAsignacionesAdm.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCambiarEntrenador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCambiarEntrenador.Designer.cs">
+      <DependentUpon>frmCambiarEntrenador.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCompararCompetencias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,12 @@
     </Compile>
     <Compile Include="frmEditarAct.Designer.cs">
       <DependentUpon>frmEditarAct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditarDeportista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarDeportista.Designer.cs">
+      <DependentUpon>frmEditarDeportista.cs</DependentUpon>
     </Compile>
     <Compile Include="frmEditarUsuariocs.cs">
       <SubType>Form</SubType>
@@ -258,6 +270,12 @@
     <Compile Include="frmRegistroEntrenadoresAdm.Designer.cs">
       <DependentUpon>frmRegistroEntrenadoresAdm.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRemplazarEntrenador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRemplazarEntrenador.Designer.cs">
+      <DependentUpon>frmRemplazarEntrenador.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRestablecerContraseña.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,6 +306,12 @@
     <Compile Include="frmVerCompetencias.Designer.cs">
       <DependentUpon>frmVerCompetencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVerDeportista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerDeportista.Designer.cs">
+      <DependentUpon>frmVerDeportista.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVerUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +335,9 @@
     <EmbeddedResource Include="frmAsignacionesAdm.resx">
       <DependentUpon>frmAsignacionesAdm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCambiarEntrenador.resx">
+      <DependentUpon>frmCambiarEntrenador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCompararCompetencias.resx">
       <DependentUpon>frmCompararCompetencias.cs</DependentUpon>
     </EmbeddedResource>
@@ -331,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarAct.resx">
       <DependentUpon>frmEditarAct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarDeportista.resx">
+      <DependentUpon>frmEditarDeportista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarUsuariocs.resx">
       <DependentUpon>frmEditarUsuariocs.cs</DependentUpon>
@@ -407,6 +437,9 @@
     <EmbeddedResource Include="frmRegistroEntrenadoresAdm.resx">
       <DependentUpon>frmRegistroEntrenadoresAdm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRemplazarEntrenador.resx">
+      <DependentUpon>frmRemplazarEntrenador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRestablecerContraseña.resx">
       <DependentUpon>frmRestablecerContraseña.cs</DependentUpon>
     </EmbeddedResource>
@@ -421,6 +454,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerCompetencias.resx">
       <DependentUpon>frmVerCompetencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerDeportista.resx">
+      <DependentUpon>frmVerDeportista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerUsuario.resx">
       <DependentUpon>frmVerUsuario.cs</DependentUpon>
