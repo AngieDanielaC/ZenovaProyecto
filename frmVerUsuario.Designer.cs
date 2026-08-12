@@ -42,10 +42,20 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.picFoto = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblCedula = new System.Windows.Forms.Label();
+            this.lblFechaNacimiento = new System.Windows.Forms.Label();
+            this.lblGenero = new System.Windows.Forms.Label();
+            this.lblTelefono = new System.Windows.Forms.Label();
+            this.lblCorreo = new System.Windows.Forms.Label();
+            this.lblDireccion = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.lblRol = new System.Windows.Forms.Label();
+            this.lblEstado = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -221,15 +231,15 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // pictureBox2
+            // picFoto
             // 
-            this.pictureBox2.Image = global::wfZenova.Properties.Resources.fotoDepo;
-            this.pictureBox2.Location = new System.Drawing.Point(165, 54);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(167, 183);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 119;
-            this.pictureBox2.TabStop = false;
+            this.picFoto.Image = global::wfZenova.Properties.Resources.fotoDepo;
+            this.picFoto.Location = new System.Drawing.Point(165, 54);
+            this.picFoto.Name = "picFoto";
+            this.picFoto.Size = new System.Drawing.Size(167, 183);
+            this.picFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picFoto.TabIndex = 119;
+            this.picFoto.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -251,15 +261,125 @@
             this.panel1.TabIndex = 121;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
+            // lblNombre
+            // 
+            this.lblNombre.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblNombre.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblNombre.Location = new System.Drawing.Point(248, 293);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(279, 29);
+            this.lblNombre.TabIndex = 124;
+            // 
+            // lblCedula
+            // 
+            this.lblCedula.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblCedula.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCedula.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblCedula.Location = new System.Drawing.Point(248, 325);
+            this.lblCedula.Name = "lblCedula";
+            this.lblCedula.Size = new System.Drawing.Size(279, 30);
+            this.lblCedula.TabIndex = 125;
+            // 
+            // lblFechaNacimiento
+            // 
+            this.lblFechaNacimiento.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblFechaNacimiento.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaNacimiento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblFechaNacimiento.Location = new System.Drawing.Point(248, 357);
+            this.lblFechaNacimiento.Name = "lblFechaNacimiento";
+            this.lblFechaNacimiento.Size = new System.Drawing.Size(279, 27);
+            this.lblFechaNacimiento.TabIndex = 126;
+            // 
+            // lblGenero
+            // 
+            this.lblGenero.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblGenero.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGenero.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblGenero.Location = new System.Drawing.Point(248, 386);
+            this.lblGenero.Name = "lblGenero";
+            this.lblGenero.Size = new System.Drawing.Size(279, 30);
+            this.lblGenero.TabIndex = 127;
+            // 
+            // lblTelefono
+            // 
+            this.lblTelefono.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblTelefono.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblTelefono.Location = new System.Drawing.Point(248, 418);
+            this.lblTelefono.Name = "lblTelefono";
+            this.lblTelefono.Size = new System.Drawing.Size(279, 30);
+            this.lblTelefono.TabIndex = 128;
+            // 
+            // lblCorreo
+            // 
+            this.lblCorreo.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblCorreo.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblCorreo.Location = new System.Drawing.Point(248, 449);
+            this.lblCorreo.Name = "lblCorreo";
+            this.lblCorreo.Size = new System.Drawing.Size(279, 30);
+            this.lblCorreo.TabIndex = 129;
+            // 
+            // lblDireccion
+            // 
+            this.lblDireccion.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblDireccion.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblDireccion.Location = new System.Drawing.Point(248, 483);
+            this.lblDireccion.Name = "lblDireccion";
+            this.lblDireccion.Size = new System.Drawing.Size(279, 30);
+            this.lblDireccion.TabIndex = 130;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblUsuario.Location = new System.Drawing.Point(248, 554);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(279, 30);
+            this.lblUsuario.TabIndex = 131;
+            // 
+            // lblRol
+            // 
+            this.lblRol.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblRol.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblRol.Location = new System.Drawing.Point(248, 585);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(279, 30);
+            this.lblRol.TabIndex = 132;
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblEstado.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblEstado.Location = new System.Drawing.Point(248, 616);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(279, 30);
+            this.lblEstado.TabIndex = 133;
+            // 
             // frmVerUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(556, 737);
+            this.Controls.Add(this.lblEstado);
+            this.Controls.Add(this.lblRol);
+            this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.lblDireccion);
+            this.Controls.Add(this.lblCorreo);
+            this.Controls.Add(this.lblTelefono);
+            this.Controls.Add(this.lblGenero);
+            this.Controls.Add(this.lblFechaNacimiento);
+            this.Controls.Add(this.lblCedula);
+            this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.picFoto);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -278,7 +398,7 @@
             this.Name = "frmVerUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -301,8 +421,18 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox picFoto;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblCedula;
+        private System.Windows.Forms.Label lblFechaNacimiento;
+        private System.Windows.Forms.Label lblGenero;
+        private System.Windows.Forms.Label lblTelefono;
+        private System.Windows.Forms.Label lblCorreo;
+        private System.Windows.Forms.Label lblDireccion;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Label lblRol;
+        private System.Windows.Forms.Label lblEstado;
     }
 }

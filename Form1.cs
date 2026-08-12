@@ -33,9 +33,9 @@ namespace wfZenova
         private void MenuAdministrador()
         {
             // Ocultar entrenador
-
+            btnInicio.Visible = false;
             // Mostrar administrador
-            btnInicioAdm.Visible = true;
+            btnInicioAdm.Visible = false;
             btnDeportistasAdm.Visible = true;
             btnEntrenadoresAdm.Visible = true;
             btnAsignacionAdm.Visible = true;

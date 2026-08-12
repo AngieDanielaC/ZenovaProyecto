@@ -31,10 +31,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNuevaContrasena = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnGuardarDep = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnRestablecer = new System.Windows.Forms.Button();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panel1
@@ -71,13 +72,13 @@
             this.label1.TabIndex = 62;
             this.label1.Text = "Usuario:";
             // 
-            // textBox1
+            // txtNuevaContrasena
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(273, 96);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(315, 31);
-            this.textBox1.TabIndex = 64;
+            this.txtNuevaContrasena.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNuevaContrasena.Location = new System.Drawing.Point(273, 96);
+            this.txtNuevaContrasena.Name = "txtNuevaContrasena";
+            this.txtNuevaContrasena.Size = new System.Drawing.Size(315, 31);
+            this.txtNuevaContrasena.TabIndex = 64;
             // 
             // label2
             // 
@@ -90,36 +91,47 @@
             this.label2.TabIndex = 63;
             this.label2.Text = "Nueva contraseña temporal:";
             // 
-            // btnCerrar
+            // btnCancelar
             // 
-            this.btnCerrar.BackgroundImage = global::wfZenova.Properties.Resources.CerrarBtn;
-            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(61)))), ((int)(((byte)(228)))));
-            this.btnCerrar.Location = new System.Drawing.Point(46, 154);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(188, 42);
-            this.btnCerrar.TabIndex = 133;
-            this.btnCerrar.Text = "Cancelar";
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCancelar.BackgroundImage = global::wfZenova.Properties.Resources.CerrarBtn;
+            this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(61)))), ((int)(((byte)(228)))));
+            this.btnCancelar.Location = new System.Drawing.Point(46, 154);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(188, 42);
+            this.btnCancelar.TabIndex = 133;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // btnGuardarDep
+            // btnRestablecer
             // 
-            this.btnGuardarDep.BackgroundImage = global::wfZenova.Properties.Resources.btnGuardarDep;
-            this.btnGuardarDep.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGuardarDep.FlatAppearance.BorderSize = 0;
-            this.btnGuardarDep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarDep.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarDep.ForeColor = System.Drawing.Color.Transparent;
-            this.btnGuardarDep.Location = new System.Drawing.Point(290, 154);
-            this.btnGuardarDep.Name = "btnGuardarDep";
-            this.btnGuardarDep.Size = new System.Drawing.Size(218, 42);
-            this.btnGuardarDep.TabIndex = 132;
-            this.btnGuardarDep.Text = "Restablecer";
-            this.btnGuardarDep.UseVisualStyleBackColor = true;
+            this.btnRestablecer.BackgroundImage = global::wfZenova.Properties.Resources.btnGuardarDep;
+            this.btnRestablecer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRestablecer.FlatAppearance.BorderSize = 0;
+            this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestablecer.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestablecer.ForeColor = System.Drawing.Color.Transparent;
+            this.btnRestablecer.Location = new System.Drawing.Point(290, 154);
+            this.btnRestablecer.Name = "btnRestablecer";
+            this.btnRestablecer.Size = new System.Drawing.Size(218, 42);
+            this.btnRestablecer.TabIndex = 132;
+            this.btnRestablecer.Text = "Restablecer";
+            this.btnRestablecer.UseVisualStyleBackColor = true;
+            this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblUsuario.Location = new System.Drawing.Point(42, 98);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(192, 30);
+            this.lblUsuario.TabIndex = 134;
             // 
             // frmRestablecerContraseña
             // 
@@ -127,10 +139,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(639, 232);
+            this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.btnGuardarDep);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnRestablecer);
+            this.Controls.Add(this.txtNuevaContrasena);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -148,9 +161,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNuevaContrasena;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.Button btnGuardarDep;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnRestablecer;
+        private System.Windows.Forms.Label lblUsuario;
     }
 }

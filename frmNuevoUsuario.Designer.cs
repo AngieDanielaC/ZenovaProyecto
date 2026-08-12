@@ -32,45 +32,50 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbRol = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnSeleccionarFoto = new System.Windows.Forms.Button();
+            this.picFoto = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnGuardarDep = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbFemenino = new System.Windows.Forms.RadioButton();
+            this.rbMasculino = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCedula = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtApellidos = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombres = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.lblContrasena = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.pnlDatosEntrenador = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
+            this.cmbDeporte = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.btnAgregarDeporte = new System.Windows.Forms.Button();
+            this.lstDeportes = new System.Windows.Forms.ListBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.btnQuitarDeporte = new System.Windows.Forms.Button();
+            this.btnGenerarCredenciales = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnlDatosEntrenador.SuspendLayout();
             this.SuspendLayout();
             // 
             // label13
@@ -116,14 +121,15 @@
             this.label2.TabIndex = 71;
             this.label2.Text = "Rol";
             // 
-            // comboBox1
+            // cmbRol
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(185, 497);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(337, 33);
-            this.comboBox1.TabIndex = 72;
+            this.cmbRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbRol.FormattingEnabled = true;
+            this.cmbRol.Location = new System.Drawing.Point(185, 497);
+            this.cmbRol.Name = "cmbRol";
+            this.cmbRol.Size = new System.Drawing.Size(337, 33);
+            this.cmbRol.TabIndex = 72;
+            this.cmbRol.SelectedIndexChanged += new System.EventHandler(this.cmbRol_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -136,30 +142,31 @@
             this.label3.TabIndex = 73;
             this.label3.Text = "Información";
             // 
-            // button1
+            // btnSeleccionarFoto
             // 
-            this.button1.BackgroundImage = global::wfZenova.Properties.Resources.btnSubiFoto;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(50)))), ((int)(((byte)(222)))));
-            this.button1.Location = new System.Drawing.Point(151, 369);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(177, 35);
-            this.button1.TabIndex = 119;
-            this.button1.Text = "Subir Foto";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSeleccionarFoto.BackgroundImage = global::wfZenova.Properties.Resources.btnSubiFoto;
+            this.btnSeleccionarFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSeleccionarFoto.FlatAppearance.BorderSize = 0;
+            this.btnSeleccionarFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeleccionarFoto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeleccionarFoto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(50)))), ((int)(((byte)(222)))));
+            this.btnSeleccionarFoto.Location = new System.Drawing.Point(151, 369);
+            this.btnSeleccionarFoto.Name = "btnSeleccionarFoto";
+            this.btnSeleccionarFoto.Size = new System.Drawing.Size(177, 35);
+            this.btnSeleccionarFoto.TabIndex = 119;
+            this.btnSeleccionarFoto.Text = "Subir Foto";
+            this.btnSeleccionarFoto.UseVisualStyleBackColor = true;
+            this.btnSeleccionarFoto.Click += new System.EventHandler(this.btnSeleccionarFoto_Click);
             // 
-            // pictureBox2
+            // picFoto
             // 
-            this.pictureBox2.Image = global::wfZenova.Properties.Resources.fotoDepo;
-            this.pictureBox2.Location = new System.Drawing.Point(123, 114);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(222, 249);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 118;
-            this.pictureBox2.TabStop = false;
+            this.picFoto.Image = global::wfZenova.Properties.Resources.fotoDepo;
+            this.picFoto.Location = new System.Drawing.Point(123, 114);
+            this.picFoto.Name = "picFoto";
+            this.picFoto.Size = new System.Drawing.Size(222, 249);
+            this.picFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picFoto.TabIndex = 118;
+            this.picFoto.TabStop = false;
             // 
             // btnCerrar
             // 
@@ -176,28 +183,29 @@
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
             // 
-            // btnGuardarDep
+            // btnGuardar
             // 
-            this.btnGuardarDep.BackgroundImage = global::wfZenova.Properties.Resources.btnGuardarDep;
-            this.btnGuardarDep.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGuardarDep.FlatAppearance.BorderSize = 0;
-            this.btnGuardarDep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarDep.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarDep.ForeColor = System.Drawing.Color.Transparent;
-            this.btnGuardarDep.Location = new System.Drawing.Point(893, 724);
-            this.btnGuardarDep.Name = "btnGuardarDep";
-            this.btnGuardarDep.Size = new System.Drawing.Size(191, 42);
-            this.btnGuardarDep.TabIndex = 116;
-            this.btnGuardarDep.Text = "       Guardar Usuario";
-            this.btnGuardarDep.UseVisualStyleBackColor = true;
+            this.btnGuardar.BackgroundImage = global::wfZenova.Properties.Resources.btnGuardarDep;
+            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.Transparent;
+            this.btnGuardar.Location = new System.Drawing.Point(893, 724);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(191, 42);
+            this.btnGuardar.TabIndex = 116;
+            this.btnGuardar.Text = "       Guardar Usuario";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
             // 
-            // textBox7
+            // txtCorreo
             // 
-            this.textBox7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(800, 332);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(275, 31);
-            this.textBox7.TabIndex = 115;
+            this.txtCorreo.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreo.Location = new System.Drawing.Point(800, 332);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(275, 31);
+            this.txtCorreo.TabIndex = 115;
             // 
             // label10
             // 
@@ -210,13 +218,13 @@
             this.label10.TabIndex = 114;
             this.label10.Text = "Correo Electrónico:";
             // 
-            // textBox6
+            // txtDireccion
             // 
-            this.textBox6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(800, 276);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(275, 31);
-            this.textBox6.TabIndex = 113;
+            this.txtDireccion.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.Location = new System.Drawing.Point(800, 276);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(275, 31);
+            this.txtDireccion.TabIndex = 113;
             // 
             // label9
             // 
@@ -229,13 +237,14 @@
             this.label9.TabIndex = 112;
             this.label9.Text = "Dirección:";
             // 
-            // textBox4
+            // txtTelefono
             // 
-            this.textBox4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(462, 332);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(247, 31);
-            this.textBox4.TabIndex = 109;
+            this.txtTelefono.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(462, 332);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(247, 31);
+            this.txtTelefono.TabIndex = 109;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label7
             // 
@@ -248,31 +257,31 @@
             this.label7.TabIndex = 108;
             this.label7.Text = "Teléfono:";
             // 
-            // radioButton2
+            // rbFemenino
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.ForeColor = System.Drawing.Color.Black;
-            this.radioButton2.Location = new System.Drawing.Point(591, 286);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(104, 25);
-            this.radioButton2.TabIndex = 107;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Femenino";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbFemenino.AutoSize = true;
+            this.rbFemenino.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbFemenino.ForeColor = System.Drawing.Color.Black;
+            this.rbFemenino.Location = new System.Drawing.Point(591, 286);
+            this.rbFemenino.Name = "rbFemenino";
+            this.rbFemenino.Size = new System.Drawing.Size(104, 25);
+            this.rbFemenino.TabIndex = 107;
+            this.rbFemenino.TabStop = true;
+            this.rbFemenino.Text = "Femenino";
+            this.rbFemenino.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbMasculino
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.ForeColor = System.Drawing.Color.Black;
-            this.radioButton1.Location = new System.Drawing.Point(462, 286);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(106, 25);
-            this.radioButton1.TabIndex = 106;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Masculino";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbMasculino.AutoSize = true;
+            this.rbMasculino.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbMasculino.ForeColor = System.Drawing.Color.Black;
+            this.rbMasculino.Location = new System.Drawing.Point(462, 286);
+            this.rbMasculino.Name = "rbMasculino";
+            this.rbMasculino.Size = new System.Drawing.Size(106, 25);
+            this.rbMasculino.TabIndex = 106;
+            this.rbMasculino.TabStop = true;
+            this.rbMasculino.Text = "Masculino";
+            this.rbMasculino.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -285,15 +294,15 @@
             this.label6.TabIndex = 105;
             this.label6.Text = "Género:";
             // 
-            // dateTimePicker1
+            // dtpFechaNacimiento
             // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(800, 209);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(275, 31);
-            this.dateTimePicker1.TabIndex = 104;
+            this.dtpFechaNacimiento.CustomFormat = "dd/MM/yyyy";
+            this.dtpFechaNacimiento.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(800, 209);
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(275, 31);
+            this.dtpFechaNacimiento.TabIndex = 104;
             // 
             // label5
             // 
@@ -306,13 +315,14 @@
             this.label5.TabIndex = 103;
             this.label5.Text = "Fecha de nacimiento:";
             // 
-            // textBox3
+            // txtCedula
             // 
-            this.textBox3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(462, 209);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(247, 31);
-            this.textBox3.TabIndex = 102;
+            this.txtCedula.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedula.Location = new System.Drawing.Point(462, 209);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(247, 31);
+            this.txtCedula.TabIndex = 102;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // label4
             // 
@@ -325,13 +335,13 @@
             this.label4.TabIndex = 101;
             this.label4.Text = "Cédula:";
             // 
-            // textBox2
+            // txtApellidos
             // 
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(800, 136);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(275, 31);
-            this.textBox2.TabIndex = 100;
+            this.txtApellidos.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellidos.Location = new System.Drawing.Point(800, 136);
+            this.txtApellidos.Name = "txtApellidos";
+            this.txtApellidos.Size = new System.Drawing.Size(275, 31);
+            this.txtApellidos.TabIndex = 100;
             // 
             // label11
             // 
@@ -344,13 +354,13 @@
             this.label11.TabIndex = 99;
             this.label11.Text = "Apellidos:";
             // 
-            // textBox1
+            // txtNombres
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(462, 136);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(247, 31);
-            this.textBox1.TabIndex = 98;
+            this.txtNombres.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombres.Location = new System.Drawing.Point(462, 136);
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.Size = new System.Drawing.Size(247, 31);
+            this.txtNombres.TabIndex = 98;
             // 
             // label12
             // 
@@ -385,25 +395,25 @@
             this.label14.TabIndex = 122;
             this.label14.Text = "Contraseña:";
             // 
-            // label15
+            // lblUsuario
             // 
-            this.label15.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label15.Location = new System.Drawing.Point(131, 632);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(279, 29);
-            this.label15.TabIndex = 123;
+            this.lblUsuario.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblUsuario.Location = new System.Drawing.Point(131, 632);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(279, 29);
+            this.lblUsuario.TabIndex = 123;
             // 
-            // label16
+            // lblContrasena
             // 
-            this.label16.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label16.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label16.Location = new System.Drawing.Point(131, 708);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(279, 29);
-            this.label16.TabIndex = 124;
+            this.lblContrasena.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblContrasena.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContrasena.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblContrasena.Location = new System.Drawing.Point(131, 708);
+            this.lblContrasena.Name = "lblContrasena";
+            this.lblContrasena.Size = new System.Drawing.Size(279, 29);
+            this.lblContrasena.TabIndex = 124;
             // 
             // pictureBox3
             // 
@@ -420,7 +430,7 @@
             this.pictureBox4.Image = global::wfZenova.Properties.Resources.CuadroBlanco;
             this.pictureBox4.Location = new System.Drawing.Point(52, 554);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(445, 227);
+            this.pictureBox4.Size = new System.Drawing.Size(445, 238);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 127;
             this.pictureBox4.TabStop = false;
@@ -436,37 +446,21 @@
             this.label17.TabIndex = 128;
             this.label17.Text = "Datos de Acceso";
             // 
-            // panel1
+            // pnlDatosEntrenador
             // 
-            this.panel1.BackgroundImage = global::wfZenova.Properties.Resources.CuadroBlanco;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Location = new System.Drawing.Point(494, 554);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(740, 139);
-            this.panel1.TabIndex = 129;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(35)))), ((int)(((byte)(170)))));
-            this.label18.Location = new System.Drawing.Point(24, 15);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(215, 23);
-            this.label18.TabIndex = 130;
-            this.label18.Text = "Informacion Adicional";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(67, 75);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(337, 33);
-            this.comboBox2.TabIndex = 130;
+            this.pnlDatosEntrenador.BackgroundImage = global::wfZenova.Properties.Resources.CuadroBlanco;
+            this.pnlDatosEntrenador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlDatosEntrenador.Controls.Add(this.btnQuitarDeporte);
+            this.pnlDatosEntrenador.Controls.Add(this.label20);
+            this.pnlDatosEntrenador.Controls.Add(this.lstDeportes);
+            this.pnlDatosEntrenador.Controls.Add(this.btnAgregarDeporte);
+            this.pnlDatosEntrenador.Controls.Add(this.label19);
+            this.pnlDatosEntrenador.Controls.Add(this.cmbDeporte);
+            this.pnlDatosEntrenador.Controls.Add(this.label18);
+            this.pnlDatosEntrenador.Location = new System.Drawing.Point(494, 554);
+            this.pnlDatosEntrenador.Name = "pnlDatosEntrenador";
+            this.pnlDatosEntrenador.Size = new System.Drawing.Size(740, 139);
+            this.pnlDatosEntrenador.TabIndex = 129;
             // 
             // label19
             // 
@@ -479,41 +473,131 @@
             this.label19.TabIndex = 130;
             this.label19.Text = "Seleccionar deportes:";
             // 
+            // cmbDeporte
+            // 
+            this.cmbDeporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDeporte.FormattingEnabled = true;
+            this.cmbDeporte.Location = new System.Drawing.Point(67, 75);
+            this.cmbDeporte.Name = "cmbDeporte";
+            this.cmbDeporte.Size = new System.Drawing.Size(208, 33);
+            this.cmbDeporte.TabIndex = 130;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(35)))), ((int)(((byte)(170)))));
+            this.label18.Location = new System.Drawing.Point(24, 15);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(215, 23);
+            this.label18.TabIndex = 130;
+            this.label18.Text = "Informacion Adicional";
+            // 
+            // btnAgregarDeporte
+            // 
+            this.btnAgregarDeporte.BackgroundImage = global::wfZenova.Properties.Resources.BotonMas;
+            this.btnAgregarDeporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAgregarDeporte.FlatAppearance.BorderSize = 0;
+            this.btnAgregarDeporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarDeporte.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarDeporte.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarDeporte.Location = new System.Drawing.Point(292, 57);
+            this.btnAgregarDeporte.Name = "btnAgregarDeporte";
+            this.btnAgregarDeporte.Size = new System.Drawing.Size(120, 29);
+            this.btnAgregarDeporte.TabIndex = 131;
+            this.btnAgregarDeporte.Text = "Agregar";
+            this.btnAgregarDeporte.UseVisualStyleBackColor = true;
+            this.btnAgregarDeporte.Click += new System.EventHandler(this.btnAgregarDeporte_Click);
+            // 
+            // lstDeportes
+            // 
+            this.lstDeportes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstDeportes.FormattingEnabled = true;
+            this.lstDeportes.ItemHeight = 21;
+            this.lstDeportes.Location = new System.Drawing.Point(443, 57);
+            this.lstDeportes.Name = "lstDeportes";
+            this.lstDeportes.Size = new System.Drawing.Size(253, 67);
+            this.lstDeportes.TabIndex = 132;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.label20.Location = new System.Drawing.Point(471, 22);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(196, 19);
+            this.label20.TabIndex = 133;
+            this.label20.Text = "Deportes seleccionados:";
+            // 
+            // btnQuitarDeporte
+            // 
+            this.btnQuitarDeporte.BackgroundImage = global::wfZenova.Properties.Resources.btnCompe;
+            this.btnQuitarDeporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnQuitarDeporte.FlatAppearance.BorderSize = 0;
+            this.btnQuitarDeporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuitarDeporte.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarDeporte.ForeColor = System.Drawing.Color.White;
+            this.btnQuitarDeporte.Location = new System.Drawing.Point(292, 92);
+            this.btnQuitarDeporte.Name = "btnQuitarDeporte";
+            this.btnQuitarDeporte.Size = new System.Drawing.Size(120, 29);
+            this.btnQuitarDeporte.TabIndex = 134;
+            this.btnQuitarDeporte.Text = "Quitar";
+            this.btnQuitarDeporte.UseVisualStyleBackColor = true;
+            this.btnQuitarDeporte.Click += new System.EventHandler(this.btnQuitarDeporte_Click);
+            // 
+            // btnGenerarCredenciales
+            // 
+            this.btnGenerarCredenciales.BackgroundImage = global::wfZenova.Properties.Resources.btnCompe;
+            this.btnGenerarCredenciales.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnGenerarCredenciales.FlatAppearance.BorderSize = 0;
+            this.btnGenerarCredenciales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerarCredenciales.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerarCredenciales.ForeColor = System.Drawing.Color.White;
+            this.btnGenerarCredenciales.Location = new System.Drawing.Point(225, 740);
+            this.btnGenerarCredenciales.Name = "btnGenerarCredenciales";
+            this.btnGenerarCredenciales.Size = new System.Drawing.Size(120, 29);
+            this.btnGenerarCredenciales.TabIndex = 135;
+            this.btnGenerarCredenciales.Text = "Generar";
+            this.btnGenerarCredenciales.UseVisualStyleBackColor = true;
+            this.btnGenerarCredenciales.Click += new System.EventHandler(this.btnGenerarCredenciales_Click);
+            // 
             // frmNuevoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 793);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnGenerarCredenciales);
+            this.Controls.Add(this.pnlDatosEntrenador);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label15);
+            this.Controls.Add(this.lblContrasena);
+            this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.btnSeleccionarFoto);
+            this.Controls.Add(this.picFoto);
             this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.btnGuardarDep);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.rbFemenino);
+            this.Controls.Add(this.rbMasculino);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpFechaNacimiento);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtApellidos);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNombres);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbRol);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -523,12 +607,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmNuevoUsuario";
             this.Text = "frmNuevoUsuario";
+            this.Load += new System.EventHandler(this.frmNuevoUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlDatosEntrenador.ResumeLayout(false);
+            this.pnlDatosEntrenador.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -540,39 +625,44 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbRol;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnSeleccionarFoto;
+        private System.Windows.Forms.PictureBox picFoto;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.Button btnGuardarDep;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbFemenino;
+        private System.Windows.Forms.RadioButton rbMasculino;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtApellidos;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombres;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Label lblContrasena;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlDatosEntrenador;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbDeporte;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ListBox lstDeportes;
+        private System.Windows.Forms.Button btnAgregarDeporte;
+        private System.Windows.Forms.Button btnQuitarDeporte;
+        private System.Windows.Forms.Button btnGenerarCredenciales;
     }
 }
