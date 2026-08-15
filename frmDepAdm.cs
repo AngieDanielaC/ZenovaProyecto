@@ -18,7 +18,7 @@ namespace wfZenova
         {
             InitializeComponent();
             ConfigurarTablaDeportistas();
-            CargarDeportistas();
+
         }
         private void ConfigurarTablaDeportistas()
         {
@@ -200,158 +200,10 @@ namespace wfZenova
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            Control contenedor = this.Parent;
-
-            if (contenedor == null)
-            {
-                MessageBox.Show("No se encontró el contenedor del formulario.");
-                return;
-            }
-
-            frmRegistroDeportistaAdm frmVerCompetencias = new frmRegistroDeportistaAdm();
-
-            frmVerCompetencias.TopLevel = false;
-            frmVerCompetencias.FormBorderStyle = FormBorderStyle.None;
-            frmVerCompetencias.Dock = DockStyle.Fill;
-
-            contenedor.Controls.Remove(this);
-            contenedor.Controls.Add(frmVerCompetencias);
-
-            frmVerCompetencias.Show();
-            CargarDeportistas();
-            this.Close();
+            
         }
-        private void CargarDeportistas()
-        {
-            // Limpiar datos anteriores
-            dgvDeportistas.Rows.Clear();
-
-            csConectaSQL conexion = new csConectaSQL();
-
-            if (conexion.abrirConexion())
-            {
-                try
-                {
-                    string consulta = @"
-                SELECT
-                    IdDeportista,
-                    Foto,
-                    Nombres,
-                    Apellidos,
-                    Cedula,
-                    FechaNacimiento,
-                    Estado
-                FROM Deportistas
-                ORDER BY Nombres, Apellidos;
-            ";
-
-                    SqlCommand comando =
-                        new SqlCommand(consulta, conexion.oCon);
-
-                    SqlDataReader lector =
-                        comando.ExecuteReader();
-
-                    while (lector.Read())
-                    {
-                        // =====================================
-                        // NOMBRE COMPLETO
-                        // =====================================
-                        string nombreCompleto =
-                            lector["Nombres"].ToString() + " " +
-                            lector["Apellidos"].ToString();
-
-
-                        // =====================================
-                        // EDAD
-                        // =====================================
-                        DateTime fechaNacimiento =
-                            Convert.ToDateTime(
-                                lector["FechaNacimiento"]);
-
-                        int edad =
-                            DateTime.Today.Year -
-                            fechaNacimiento.Year;
-
-                        if (fechaNacimiento.Date >
-                            DateTime.Today.AddYears(-edad))
-                        {
-                            edad--;
-                        }
-
-
-                        // =====================================
-                        // ESTADO
-                        // =====================================
-                        bool activo =
-                            Convert.ToBoolean(
-                                lector["Estado"]);
-
-                        string estado =
-                            activo ? "Activo" : "Inactivo";
-
-
-                        // =====================================
-                        // FOTO
-                        // =====================================
-                        Image foto = null;
-
-                        if (lector["Foto"] != DBNull.Value)
-                        {
-                            byte[] bytesFoto =
-                                (byte[])lector["Foto"];
-
-                            using (MemoryStream ms =
-                                   new MemoryStream(bytesFoto))
-                            {
-                                using (Image imagen =
-                                       Image.FromStream(ms))
-                                {
-                                    foto =
-                                        new Bitmap(imagen);
-                                }
-                            }
-                        }
-
-
-                        // =====================================
-                        // AGREGAR FILA
-                        // =====================================
-                        int indice =
-                            dgvDeportistas.Rows.Add(
-                                foto,
-                                nombreCompleto,
-                                lector["Cedula"].ToString(),
-                                edad,
-                                "Sin asignar",
-                                estado
-                            );
-
-
-                        // Guardamos el ID ocultamente en la fila
-                        dgvDeportistas.Rows[indice].Tag =
-                            Convert.ToInt32(
-                                lector["IdDeportista"]);
-                    }
-
-                    lector.Close();
-
-                    dgvDeportistas.ClearSelection();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(
-                        "Error al cargar los deportistas:\n\n" +
-                        ex.Message,
-                        "ZENOVA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    conexion.cerrarConexion();
-                }
-            }
-        }
+      
+        
         private void frmDepAdm_Load(object sender, EventArgs e)
         {
 
@@ -359,176 +211,17 @@ namespace wfZenova
 
         private void btnVer_Click(object sender, EventArgs e)
         {
-            if (dgvDeportistas.SelectedRows.Count == 0)
-            {
-                MessageBox.Show(
-                    "Seleccione un deportista de la tabla.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
-            }
-
-            int idDeportista =
-                Convert.ToInt32(
-                    dgvDeportistas.SelectedRows[0].Tag);
-
-            frmVerDeportista frm =
-                new frmVerDeportista(idDeportista);
-
-            frm.ShowDialog();
+           
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (dgvDeportistas.SelectedRows.Count == 0)
-            {
-                MessageBox.Show(
-                    "Seleccione un deportista de la tabla.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
-            }
-
-            int idDeportista =
-                Convert.ToInt32(
-                    dgvDeportistas.SelectedRows[0].Tag);
-
-            frmEditarDeportista frm =
-                new frmEditarDeportista(idDeportista);
-
-            frm.ShowDialog();
-
-            CargarDeportistas();
+            
         }
 
         private void btnAcDes_Click(object sender, EventArgs e)
         {
-            if (dgvDeportistas.SelectedRows.Count == 0)
-            {
-                MessageBox.Show(
-                    "Seleccione un deportista de la tabla.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
-            }
-
-            DataGridViewRow fila =
-                dgvDeportistas.SelectedRows[0];
-
-            int idDeportista =
-                Convert.ToInt32(fila.Tag);
-
-            string nombre =
-                fila.Cells["Nombre"].Value.ToString();
-
-            string estadoActual =
-                fila.Cells["Estado"].Value.ToString();
-
-
-            bool estaActivo =
-                estadoActual == "Activo";
-
-            string mensaje;
-
-            if (estaActivo)
-            {
-                mensaje =
-                    "¿Está seguro de que desea desactivar al deportista " +
-                    nombre + "?\n\n" +
-                    "El deportista quedará inactivo, pero su información " +
-                    "e historial permanecerán registrados.";
-            }
-            else
-            {
-                mensaje =
-                    "¿Está seguro de que desea activar nuevamente al deportista " +
-                    nombre + "?";
-            }
-
-
-            DialogResult respuesta =
-                MessageBox.Show(
-                    mensaje,
-                    estaActivo
-                        ? "Desactivar deportista"
-                        : "Activar deportista",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
-
-            if (respuesta != DialogResult.Yes)
-            {
-                return;
-            }
-
-            csConectaSQL conexion =
-                new csConectaSQL();
-
-            if (!conexion.abrirConexion())
-            {
-                return;
-            }
-
-
-            try
-            {
-                string consulta = @"
-            UPDATE Deportistas
-            SET Estado = @Estado
-            WHERE IdDeportista = @IdDeportista;
-        ";
-
-
-                SqlCommand comando =
-                    new SqlCommand(
-                        consulta,
-                        conexion.oCon);
-
-
-                // Si estaba activo -> 0
-                // Si estaba inactivo -> 1
-                comando.Parameters.AddWithValue(
-                    "@Estado",
-                    estaActivo ? 0 : 1);
-
-
-                comando.Parameters.AddWithValue(
-                    "@IdDeportista",
-                    idDeportista);
-
-
-                comando.ExecuteNonQuery();
-
-
-                MessageBox.Show(
-                    estaActivo
-                        ? "El deportista fue desactivado correctamente."
-                        : "El deportista fue activado correctamente.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-
-                CargarDeportistas();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    "Error al cambiar el estado del deportista:\n\n" +
-                    ex.Message,
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conexion.cerrarConexion();
-            }
+           
         }
     }
 }

@@ -17,7 +17,6 @@ namespace wfZenova
         {
             InitializeComponent();
             ConfigurarTablaEntrenadores();
-            CargarEntrenadores();
         }
         private void ConfigurarTablaEntrenadores()
         {
@@ -220,208 +219,11 @@ namespace wfZenova
 
             dgvEntrenadores.ClearSelection();
         }
-        private void CargarEntrenadores()
-        {
-            dgvEntrenadores.Rows.Clear();
-
-            csConectaSQL conexion =
-                new csConectaSQL();
-
-            if (!conexion.abrirConexion())
-                return;
-
-            try
-            {
-                string consulta = @"
-                    SELECT
-                        E.IdEntrenador,
-
-                        U.Nombres + ' ' +
-                        U.Apellidos
-                        AS NombreCompleto,
-
-                        U.FechaNacimiento,
-
-                        U.Telefono,
-
-                        E.EstadoEntrenador,
-
-                        ISNULL(
-                        STUFF(
-                        (
-                            SELECT DISTINCT
-                                ', ' + D.NombreDeporte
-
-                            FROM EntrenadorDeporte ED2
-
-                            INNER JOIN Deportes D
-                                ON ED2.IdDeporte =
-                                   D.IdDeporte
-
-                            WHERE
-                                ED2.IdEntrenador =
-                                E.IdEntrenador
-
-                                AND ED2.Activo = 1
-
-                            FOR XML PATH(''),
-                            TYPE
-                        ).value(
-                            '.',
-                            'NVARCHAR(MAX)'
-                        ),
-                        1,
-                        2,
-                        ''),
-                        'Sin deportes'
-                        ) AS Deportes,
-
-                        (
-                            SELECT
-                                COUNT(
-                                    DISTINCT
-                                    I.IdDeportista
-                                )
-
-                            FROM Inscripciones I
-
-                            INNER JOIN
-                                EntrenadorDeporte ED3
-
-                                ON I.IdEntrenadorDeporte =
-                                   ED3.IdEntrenadorDeporte
-
-                            INNER JOIN Deportistas DEP
-
-                                ON I.IdDeportista =
-                                   DEP.IdDeportista
-
-                            WHERE
-                                ED3.IdEntrenador =
-                                E.IdEntrenador
-
-                                AND I.Estado = 'Activa'
-
-                                AND DEP.Estado = 1
-
-                        ) AS DeportistasActivos
-
-                    FROM Entrenadores E
-
-                    INNER JOIN Usuarios U
-                        ON E.IdUsuario =
-                           U.IdUsuario
-
-                    ORDER BY
-                        U.Nombres,
-                        U.Apellidos;
-                ";
-
-
-                SqlCommand comando =
-                    new SqlCommand(
-                        consulta,
-                        conexion.oCon);
-
-                SqlDataReader lector =
-                    comando.ExecuteReader();
-
-
-                while (lector.Read())
-                {
-                    // ==================================
-                    // EDAD
-                    // ==================================
-                    DateTime fechaNacimiento =
-                        Convert.ToDateTime(
-                            lector["FechaNacimiento"]);
-
-                    int edad =
-                        DateTime.Today.Year -
-                        fechaNacimiento.Year;
-
-                    if (fechaNacimiento.Date >
-                        DateTime.Today.AddYears(-edad))
-                    {
-                        edad--;
-                    }
-
-
-                    // ==================================
-                    // ESTADO
-                    // ==================================
-                    string estado =
-                        lector["EstadoEntrenador"]
-                        .ToString();
-
-
-                    // ==================================
-                    // AGREGAR FILA
-                    // ==================================
-                    dgvEntrenadores.Rows.Add(
-
-                        lector["IdEntrenador"],
-
-                        lector["NombreCompleto"]
-                            .ToString(),
-
-                        edad,
-
-                        lector["Telefono"]
-                            .ToString(),
-
-                        lector["Deportes"]
-                            .ToString(),
-
-                        estado,
-
-                        lector["DeportistasActivos"]
-                            .ToString()
-                    );
-                }
-
-
-                lector.Close();
-
-                dgvEntrenadores.ClearSelection();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    "Error al cargar los entrenadores:\n\n" +
-                    ex.Message,
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conexion.cerrarConexion();
-            }
-        }
+        
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            Control contenedor = this.Parent;
-
-            if (contenedor == null)
-            {
-                MessageBox.Show("No se encontró el contenedor del formulario.");
-                return;
-            }
-
-            frmRegistroEntrenadoresAdm frmVerCompetencias = new frmRegistroEntrenadoresAdm();
-
-            frmVerCompetencias.TopLevel = false;
-            frmVerCompetencias.FormBorderStyle = FormBorderStyle.None;
-            frmVerCompetencias.Dock = DockStyle.Fill;
-
-            contenedor.Controls.Remove(this);
-            contenedor.Controls.Add(frmVerCompetencias);
-
-            frmVerCompetencias.Show();
-
-            this.Close();
+            
         }
 
         private void btnInactivar_Click(object sender, EventArgs e)
@@ -437,38 +239,13 @@ namespace wfZenova
 
         private void btnRemplazar_Click(object sender, EventArgs e)
         {
-            if (dgvEntrenadores
-                .SelectedRows.Count == 0)
-            {
-                MessageBox.Show(
-                    "Seleccione un entrenador de la tabla.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
-            }
-
-
-            int idEntrenador =
-                Convert.ToInt32(
-                    dgvEntrenadores
-                    .SelectedRows[0]
-                    .Cells["IdEntrenador"]
-                    .Value);
-
-
-            frmRemplazarEntrenador frm =
-                new frmRemplazarEntrenador(
-                    idEntrenador);
-
-            frm.ShowDialog();
-
-
-            // Actualizar después del reemplazo
-            CargarEntrenadores();
+            
         }
 
+        private void btnVer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

@@ -127,9 +127,9 @@
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
             this.label13.Location = new System.Drawing.Point(12, 50);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(150, 25);
+            this.label13.Size = new System.Drawing.Size(177, 25);
             this.label13.TabIndex = 139;
-            this.label13.Text = "Editar Usuario";
+            this.label13.Text = "Editar Deportista";
             // 
             // txtCorreo
             // 
