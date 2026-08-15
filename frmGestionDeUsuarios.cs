@@ -146,5 +146,28 @@ namespace wfZenova
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            csConectaSQL conexion = new csConectaSQL();
+
+            if (conexion.abrirConexion())
+            {
+                MessageBox.Show(
+                    "Conexión realizada correctamente.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                conexion.cerrarConexion();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "No se pudo conectar con la base de datos.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
     }
 }

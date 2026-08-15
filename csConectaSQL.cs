@@ -11,31 +11,39 @@ namespace wfZenova
 {
     internal class csConectaSQL
     {
-        public SqlConnection oCon;
-
-        private string Server;
-        private string Database;
-        private string Cadena;
-
+        SqlConnection oCon;
+        string Server;
+        string Database;
+        string Usuario;
+        string Clave;
+        string Cadena;
+        DataTable ODT;
+        SqlCommand oCom;
+        SqlDataAdapter oDA;
         public csConectaSQL()
         {
-            Server = @"DESKTOP-01HFO8T\SQLEXPRESS";
-            Database = "ZenovaGestionDB";
+            Server = @"LAPTOP-9VS1C12U\SQLEXPRESS";
+            Database = "Zenova";
+            Usuario = "sa";
+            Clave = "Piguave67XD12!#";
+        }
+
+        public csConectaSQL(string Server, string Database, string Usuario, string Clave)
+        {
+            this.Server = Server;
+            this.Database = Database;
+            this.Usuario = Usuario;
+            this.Clave = Clave;
         }
 
         public bool abrirConexion()
         {
             try
             {
-                Cadena =
-                    "Server=" + Server +
-                    ";Database=" + Database +
-                    ";Integrated Security=True;" +
-                    "TrustServerCertificate=True;";
-
-                oCon = new SqlConnection(Cadena);
+                oCon = new SqlConnection();
+                oCon.ConnectionString = Cadena = "Server=" + Server + "; Database=" + Database
+                    + "; User id=" + Usuario + "; Password=" + Clave + ";";
                 oCon.Open();
-
                 return true;
             }
             catch (Exception ex)
@@ -49,12 +57,8 @@ namespace wfZenova
         {
             try
             {
-                if (oCon != null &&
-                    oCon.State == ConnectionState.Open)
-                {
+                if (oCon != null)
                     oCon.Close();
-                }
-
                 return true;
             }
             catch (Exception ex)
@@ -62,6 +66,102 @@ namespace wfZenova
                 MessageBox.Show(ex.Message);
                 return false;
             }
+        }
+
+        public DataTable RetornaRegistros(string sql)
+        {
+            try
+            {
+                if (abrirConexion())
+                {
+                    oDA = new SqlDataAdapter(sql, oCon);
+                    ODT = new DataTable();
+                    oDA.Fill(ODT);
+                    cerrarConexion();
+                    return ODT;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+        public bool insertDatos(string tabla, string campos, string datos)
+        {
+            try
+            {
+                if (abrirConexion())
+                {
+                    Cadena = "insert into " + tabla + " (" + campos + ") values (" + datos + ")";
+                    oCom = new SqlCommand(Cadena, oCon);
+                    oCom.ExecuteNonQuery();
+                    cerrarConexion();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        public bool ActualizarDatos(string tabla, string campo, string condicion)
+        {
+            try
+            {
+                abrirConexion();
+                Cadena = "Update" + tabla + " set " + campo + " where " + condicion;
+                oCom = new SqlCommand(Cadena, oCon);
+                oCom.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        public bool EliminadDatos(string tabla, string condicion)
+        {
+            try
+            {
+                abrirConexion();
+                Cadena = "Delete" + tabla + " where " + condicion;
+                oCom = new SqlCommand(Cadena, oCon);
+                oCom.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        public bool EjecutaSentenciaSRD(string sentencia)
+        {
+            try
+            {
+                abrirConexion();
+                oCom = new SqlCommand(sentencia, oCon);
+                oCom.ExecuteNonQuery();
+                cerrarConexion();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+
         }
     }
 }
