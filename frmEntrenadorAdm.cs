@@ -249,9 +249,27 @@ namespace wfZenova
 
         private void btnRegistrarEntrenador_Click(object sender, EventArgs e)
         {
-            frmRegistroEntrenadoresAdm RegistroEntrenador = new frmRegistroEntrenadoresAdm();
-            RegistroEntrenador.ShowDialog();
-            
+            Control contenedor = this.Parent;
+
+            if (contenedor == null)
+            {
+                MessageBox.Show("No se encontró el contenedor del formulario.");
+                return;
+            }
+
+            frmRegistroEntrenadoresAdm frmSubCompetencia = new frmRegistroEntrenadoresAdm();
+
+            frmSubCompetencia.TopLevel = false;
+            frmSubCompetencia.FormBorderStyle = FormBorderStyle.None;
+            frmSubCompetencia.Dock = DockStyle.Fill;
+
+            contenedor.Controls.Remove(this);
+            contenedor.Controls.Add(frmSubCompetencia);
+
+            frmSubCompetencia.Show();
+
+            this.Close();
+
         }
     }
 
