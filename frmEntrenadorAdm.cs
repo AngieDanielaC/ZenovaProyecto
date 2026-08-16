@@ -246,6 +246,13 @@ namespace wfZenova
         {
 
         }
+
+        private void btnRegistrarEntrenador_Click(object sender, EventArgs e)
+        {
+            frmRegistroEntrenadoresAdm RegistroEntrenador = new frmRegistroEntrenadoresAdm();
+            RegistroEntrenador.ShowDialog();
+            
+        }
     }
 
 }

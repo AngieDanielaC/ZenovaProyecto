@@ -37,6 +37,7 @@
             this.btnVer = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnRemplazar = new System.Windows.Forms.Button();
+            this.btnRegistrarEntrenador = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntrenadores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -155,12 +156,30 @@
             this.btnRemplazar.UseVisualStyleBackColor = true;
             this.btnRemplazar.Click += new System.EventHandler(this.btnRemplazar_Click);
             // 
+            // btnRegistrarEntrenador
+            // 
+            this.btnRegistrarEntrenador.BackgroundImage = global::wfZenova.Properties.Resources.btnCuadro;
+            this.btnRegistrarEntrenador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRegistrarEntrenador.FlatAppearance.BorderSize = 0;
+            this.btnRegistrarEntrenador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarEntrenador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarEntrenador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
+            this.btnRegistrarEntrenador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistrarEntrenador.Location = new System.Drawing.Point(58, 203);
+            this.btnRegistrarEntrenador.Name = "btnRegistrarEntrenador";
+            this.btnRegistrarEntrenador.Size = new System.Drawing.Size(177, 39);
+            this.btnRegistrarEntrenador.TabIndex = 83;
+            this.btnRegistrarEntrenador.Text = "Nuevo";
+            this.btnRegistrarEntrenador.UseVisualStyleBackColor = true;
+            this.btnRegistrarEntrenador.Click += new System.EventHandler(this.btnRegistrarEntrenador_Click);
+            // 
             // frmEntrenadorAdm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 768);
+            this.Controls.Add(this.btnRegistrarEntrenador);
             this.Controls.Add(this.btnVer);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnRemplazar);
@@ -193,5 +212,6 @@
         private System.Windows.Forms.Button btnVer;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnRemplazar;
+        private System.Windows.Forms.Button btnRegistrarEntrenador;
     }
 }
