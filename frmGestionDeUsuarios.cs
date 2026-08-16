@@ -21,17 +21,48 @@ namespace wfZenova
         }
         private void ConfigurarTablaUsuarios()
         {
-            // ==========================================
-            // LIMPIAR COLUMNAS
-            // ==========================================
+            // LIMPIAR TABLA
             dgvUsuarios.Columns.Clear();
+            dgvUsuarios.Rows.Clear();
 
-            // ==========================================
-            // CONFIGURACIÓN GENERAL
-            // ==========================================
+            // CREAR COLUMNAS
+
+            DataGridViewImageColumn columnaFoto =
+                new DataGridViewImageColumn();
+
+            columnaFoto.Name = "Foto";
+            columnaFoto.HeaderText = "FOTO";
+            columnaFoto.ImageLayout =
+                DataGridViewImageCellLayout.Zoom;
+
+            dgvUsuarios.Columns.Add(columnaFoto);
+
+
+            dgvUsuarios.Columns.Add(
+                "Nombre",
+                "NOMBRE COMPLETO");
+
+            dgvUsuarios.Columns.Add(
+                "Usuario",
+                "USUARIO");
+
+            dgvUsuarios.Columns.Add(
+                "Rol",
+                "ROL");
+
+            dgvUsuarios.Columns.Add(
+                "Estado",
+                "ESTADO");
+
+            dgvUsuarios.Columns.Add(
+                "Correo",
+                "CORREO ELECTRÓNICO");
+
+            // ESTILO GENERAL
             dgvUsuarios.BackgroundColor = Color.White;
 
-            dgvUsuarios.BorderStyle = BorderStyle.None;
+            dgvUsuarios.BorderStyle =
+                BorderStyle.None;
 
             dgvUsuarios.CellBorderStyle =
                 DataGridViewCellBorderStyle.SingleHorizontal;
@@ -41,27 +72,11 @@ namespace wfZenova
 
             dgvUsuarios.RowHeadersVisible = false;
 
-            dgvUsuarios.AllowUserToAddRows = false;
-            dgvUsuarios.AllowUserToDeleteRows = false;
-            dgvUsuarios.AllowUserToResizeRows = false;
-            dgvUsuarios.AllowUserToResizeColumns = false;
-
-            dgvUsuarios.ReadOnly = true;
-
-            dgvUsuarios.SelectionMode =
-                DataGridViewSelectionMode.FullRowSelect;
-
-            dgvUsuarios.MultiSelect = false;
-
             dgvUsuarios.AutoSizeColumnsMode =
                 DataGridViewAutoSizeColumnsMode.Fill;
 
-            dgvUsuarios.RowTemplate.Height = 60;
 
-
-            // ==========================================
             // ENCABEZADO
-            // ==========================================
             dgvUsuarios.EnableHeadersVisualStyles = false;
 
             dgvUsuarios.ColumnHeadersDefaultCellStyle.BackColor =
@@ -73,9 +88,8 @@ namespace wfZenova
             dgvUsuarios.ColumnHeadersDefaultCellStyle.Font =
                 new Font(
                     "Century Gothic",
-                    12,
-                    FontStyle.Bold
-                );
+                    11F,
+                    FontStyle.Bold);
 
             dgvUsuarios.ColumnHeadersDefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
@@ -89,9 +103,9 @@ namespace wfZenova
                 DataGridViewHeaderBorderStyle.None;
 
 
-            // ==========================================
             // FILAS
-            // ==========================================
+            dgvUsuarios.RowTemplate.Height = 60;
+
             dgvUsuarios.DefaultCellStyle.BackColor =
                 Color.White;
 
@@ -101,9 +115,8 @@ namespace wfZenova
             dgvUsuarios.DefaultCellStyle.Font =
                 new Font(
                     "Century Gothic",
-                    10,
-                    FontStyle.Regular
-                );
+                    10F,
+                    FontStyle.Regular);
 
             dgvUsuarios.DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
@@ -113,6 +126,41 @@ namespace wfZenova
 
             dgvUsuarios.DefaultCellStyle.SelectionForeColor =
                 Color.FromArgb(25, 40, 95);
+
+
+            
+            // TAMAÑO DE COLUMNAS
+            dgvUsuarios.Columns["Foto"].FillWeight = 45;
+            dgvUsuarios.Columns["Nombre"].FillWeight = 140;
+            dgvUsuarios.Columns["Usuario"].FillWeight = 90;
+            dgvUsuarios.Columns["Rol"].FillWeight = 100;
+            dgvUsuarios.Columns["Estado"].FillWeight = 70;
+            dgvUsuarios.Columns["Correo"].FillWeight = 140;
+
+
+            // ALINEACIÓN
+            dgvUsuarios.Columns["Nombre"]
+                .DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleLeft;
+
+            dgvUsuarios.Columns["Correo"]
+                .DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleLeft;
+
+
+            // BLOQUEAR EDICIÓN
+            dgvUsuarios.AllowUserToAddRows = false;
+            dgvUsuarios.AllowUserToDeleteRows = false;
+            dgvUsuarios.AllowUserToResizeRows = false;
+            dgvUsuarios.AllowUserToResizeColumns = false;
+
+            dgvUsuarios.ReadOnly = true;
+            dgvUsuarios.MultiSelect = false;
+
+            dgvUsuarios.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
+            dgvUsuarios.ClearSelection();
 
 
         }
@@ -148,26 +196,7 @@ namespace wfZenova
 
         private void button1_Click(object sender, EventArgs e)
         {
-            csConectaSQL conexion = new csConectaSQL();
 
-            if (conexion.abrirConexion())
-            {
-                MessageBox.Show(
-                    "Conexión realizada correctamente.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-
-                conexion.cerrarConexion();
-            }
-            else
-            {
-                MessageBox.Show(
-                    "No se pudo conectar con la base de datos.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
         }
     }
 }
