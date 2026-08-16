@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCambiarEntrenador));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.lblEntrenadorActual = new System.Windows.Forms.Label();
@@ -38,6 +39,8 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.cmbNuevoEntrenador = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblDeportista = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panel1
@@ -66,7 +69,7 @@
             this.lblEntrenadorActual.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblEntrenadorActual.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEntrenadorActual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.lblEntrenadorActual.Location = new System.Drawing.Point(175, 100);
+            this.lblEntrenadorActual.Location = new System.Drawing.Point(175, 135);
             this.lblEntrenadorActual.Name = "lblEntrenadorActual";
             this.lblEntrenadorActual.Size = new System.Drawing.Size(245, 30);
             this.lblEntrenadorActual.TabIndex = 129;
@@ -76,7 +79,7 @@
             this.lblDisciplina.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblDisciplina.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDisciplina.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.lblDisciplina.Location = new System.Drawing.Point(175, 68);
+            this.lblDisciplina.Location = new System.Drawing.Point(175, 103);
             this.lblDisciplina.Name = "lblDisciplina";
             this.lblDisciplina.Size = new System.Drawing.Size(245, 29);
             this.lblDisciplina.TabIndex = 128;
@@ -87,7 +90,7 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(13, 104);
+            this.label2.Location = new System.Drawing.Point(13, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(151, 19);
             this.label2.TabIndex = 127;
@@ -99,21 +102,21 @@
             this.label12.BackColor = System.Drawing.Color.White;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label12.Location = new System.Drawing.Point(13, 71);
+            this.label12.Location = new System.Drawing.Point(13, 106);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(74, 19);
+            this.label12.Size = new System.Drawing.Size(88, 19);
             this.label12.TabIndex = 126;
-            this.label12.Text = "Deporte:";
+            this.label12.Text = "Disciplina:";
             // 
             // btnGuardar
             // 
-            this.btnGuardar.BackgroundImage = global::wfZenova.Properties.Resources.btnGuardarDep;
+            this.btnGuardar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnGuardar.BackgroundImage")));
             this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnGuardar.FlatAppearance.BorderSize = 0;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Transparent;
-            this.btnGuardar.Location = new System.Drawing.Point(235, 222);
+            this.btnGuardar.Location = new System.Drawing.Point(235, 257);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(161, 33);
             this.btnGuardar.TabIndex = 137;
@@ -123,13 +126,13 @@
             // 
             // btnCerrar
             // 
-            this.btnCerrar.BackgroundImage = global::wfZenova.Properties.Resources.CerrarBtn;
+            this.btnCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCerrar.BackgroundImage")));
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(61)))), ((int)(((byte)(228)))));
-            this.btnCerrar.Location = new System.Drawing.Point(37, 222);
+            this.btnCerrar.Location = new System.Drawing.Point(37, 257);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(177, 33);
             this.btnCerrar.TabIndex = 136;
@@ -139,9 +142,11 @@
             // 
             // cmbNuevoEntrenador
             // 
+            this.cmbNuevoEntrenador.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbNuevoEntrenador.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbNuevoEntrenador.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNuevoEntrenador.FormattingEnabled = true;
-            this.cmbNuevoEntrenador.Location = new System.Drawing.Point(37, 176);
+            this.cmbNuevoEntrenador.Location = new System.Drawing.Point(37, 211);
             this.cmbNuevoEntrenador.Name = "cmbNuevoEntrenador";
             this.cmbNuevoEntrenador.Size = new System.Drawing.Size(275, 33);
             this.cmbNuevoEntrenador.TabIndex = 135;
@@ -152,18 +157,42 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
-            this.label1.Location = new System.Drawing.Point(18, 145);
+            this.label1.Location = new System.Drawing.Point(18, 180);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 19);
+            this.label1.Size = new System.Drawing.Size(97, 19);
             this.label1.TabIndex = 134;
-            this.label1.Text = "Rol";
+            this.label1.Text = "Entrenador:";
+            // 
+            // lblDeportista
+            // 
+            this.lblDeportista.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblDeportista.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeportista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblDeportista.Location = new System.Drawing.Point(175, 70);
+            this.lblDeportista.Name = "lblDeportista";
+            this.lblDeportista.Size = new System.Drawing.Size(245, 29);
+            this.lblDeportista.TabIndex = 139;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.label4.Location = new System.Drawing.Point(13, 73);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 19);
+            this.label4.TabIndex = 138;
+            this.label4.Text = "Deportista:";
             // 
             // frmCambiarEntrenador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(432, 299);
+            this.ClientSize = new System.Drawing.Size(432, 318);
+            this.Controls.Add(this.lblDeportista);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.cmbNuevoEntrenador);
@@ -195,5 +224,7 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.ComboBox cmbNuevoEntrenador;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblDeportista;
+        private System.Windows.Forms.Label label4;
     }
 }

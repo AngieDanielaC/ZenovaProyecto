@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAsignacionesAdm));
             this.label13 = new System.Windows.Forms.Label();
             this.cmbDeportista = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -53,6 +54,10 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmbTipoInscripcion = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtFiltro = new System.Windows.Forms.TextBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsignaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDeportista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -74,6 +79,8 @@
             // 
             // cmbDeportista
             // 
+            this.cmbDeportista.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbDeportista.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbDeportista.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDeportista.FormattingEnabled = true;
             this.cmbDeportista.Location = new System.Drawing.Point(56, 115);
@@ -139,8 +146,14 @@
             // 
             // cmbDisciplina
             // 
+            this.cmbDisciplina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDisciplina.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDisciplina.FormattingEnabled = true;
+            this.cmbDisciplina.Items.AddRange(new object[] {
+            "Karate",
+            "Judo",
+            "Taewook",
+            "Boxeo"});
             this.cmbDisciplina.Location = new System.Drawing.Point(401, 144);
             this.cmbDisciplina.Name = "cmbDisciplina";
             this.cmbDisciplina.Size = new System.Drawing.Size(247, 30);
@@ -160,19 +173,21 @@
             // 
             // cmbEntrenador
             // 
+            this.cmbEntrenador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEntrenador.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEntrenador.FormattingEnabled = true;
-            this.cmbEntrenador.Location = new System.Drawing.Point(727, 144);
+            this.cmbEntrenador.Location = new System.Drawing.Point(710, 142);
             this.cmbEntrenador.Name = "cmbEntrenador";
             this.cmbEntrenador.Size = new System.Drawing.Size(247, 30);
             this.cmbEntrenador.TabIndex = 135;
+            this.cmbEntrenador.SelectedIndexChanged += new System.EventHandler(this.cmbEntrenador_SelectedIndexChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label6.Location = new System.Drawing.Point(716, 120);
+            this.label6.Location = new System.Drawing.Point(698, 120);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(97, 19);
             this.label6.TabIndex = 134;
@@ -217,13 +232,14 @@
             this.dgvAsignaciones.Name = "dgvAsignaciones";
             this.dgvAsignaciones.Size = new System.Drawing.Size(1051, 277);
             this.dgvAsignaciones.TabIndex = 159;
+            this.dgvAsignaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAsignaciones_CellContentClick);
             // 
             // dtpFechaFin
             // 
             this.dtpFechaFin.CustomFormat = "dd/MM/yyyy";
             this.dtpFechaFin.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaFin.Location = new System.Drawing.Point(727, 203);
+            this.dtpFechaFin.Location = new System.Drawing.Point(710, 202);
             this.dtpFechaFin.Name = "dtpFechaFin";
             this.dtpFechaFin.Size = new System.Drawing.Size(247, 31);
             this.dtpFechaFin.TabIndex = 161;
@@ -233,7 +249,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label22.Location = new System.Drawing.Point(716, 181);
+            this.label22.Location = new System.Drawing.Point(698, 181);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(109, 19);
             this.label22.TabIndex = 160;
@@ -241,7 +257,7 @@
             // 
             // btnFinalizar
             // 
-            this.btnFinalizar.BackgroundImage = global::wfZenova.Properties.Resources.btnRojo;
+            this.btnFinalizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFinalizar.BackgroundImage")));
             this.btnFinalizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnFinalizar.FlatAppearance.BorderSize = 0;
             this.btnFinalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -257,7 +273,7 @@
             // 
             // btnCambiarEntrenador
             // 
-            this.btnCambiarEntrenador.BackgroundImage = global::wfZenova.Properties.Resources.btnCuadro;
+            this.btnCambiarEntrenador.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCambiarEntrenador.BackgroundImage")));
             this.btnCambiarEntrenador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCambiarEntrenador.FlatAppearance.BorderSize = 0;
             this.btnCambiarEntrenador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -273,13 +289,13 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.BackgroundImage = global::wfZenova.Properties.Resources.BotonMas;
+            this.btnAgregar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgregar.BackgroundImage")));
             this.btnAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAgregar.FlatAppearance.BorderSize = 0;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(993, 171);
+            this.btnAgregar.Location = new System.Drawing.Point(995, 204);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(201, 29);
             this.btnAgregar.TabIndex = 138;
@@ -289,7 +305,7 @@
             // 
             // picDeportista
             // 
-            this.picDeportista.Image = global::wfZenova.Properties.Resources.fotoDepo;
+            this.picDeportista.Image = ((System.Drawing.Image)(resources.GetObject("picDeportista.Image")));
             this.picDeportista.Location = new System.Drawing.Point(56, 160);
             this.picDeportista.Name = "picDeportista";
             this.picDeportista.Size = new System.Drawing.Size(83, 69);
@@ -299,7 +315,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::wfZenova.Properties.Resources.comp5;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(49, 151);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(260, 88);
@@ -309,7 +325,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::wfZenova.Properties.Resources.imgCuadroBlanco;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(31, 273);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(1203, 515);
@@ -319,7 +335,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::wfZenova.Properties.Resources.imgCuadroBlanco;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(332, 62);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(902, 214);
@@ -329,7 +345,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::wfZenova.Properties.Resources.imgCuadroBlanco;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(31, 62);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(295, 214);
@@ -337,12 +353,63 @@
             this.pictureBox1.TabIndex = 99;
             this.pictureBox1.TabStop = false;
             // 
+            // cmbTipoInscripcion
+            // 
+            this.cmbTipoInscripcion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoInscripcion.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTipoInscripcion.FormattingEnabled = true;
+            this.cmbTipoInscripcion.Items.AddRange(new object[] {
+            "Ordinaria",
+            "Vacacional"});
+            this.cmbTipoInscripcion.Location = new System.Drawing.Point(991, 142);
+            this.cmbTipoInscripcion.Name = "cmbTipoInscripcion";
+            this.cmbTipoInscripcion.Size = new System.Drawing.Size(205, 30);
+            this.cmbTipoInscripcion.TabIndex = 163;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.label1.Location = new System.Drawing.Point(979, 120);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 19);
+            this.label1.TabIndex = 162;
+            this.label1.Text = "Inscripición:";
+            // 
+            // txtFiltro
+            // 
+            this.txtFiltro.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFiltro.Location = new System.Drawing.Point(449, 334);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(255, 31);
+            this.txtFiltro.TabIndex = 164;
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFiltrar.BackgroundImage")));
+            this.btnFiltrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFiltrar.FlatAppearance.BorderSize = 0;
+            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrar.ForeColor = System.Drawing.Color.White;
+            this.btnFiltrar.Location = new System.Drawing.Point(711, 332);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(46, 35);
+            this.btnFiltrar.TabIndex = 165;
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
             // frmAsignacionesAdm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 768);
+            this.Controls.Add(this.btnFiltrar);
+            this.Controls.Add(this.txtFiltro);
+            this.Controls.Add(this.cmbTipoInscripcion);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpFechaFin);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.dgvAsignaciones);
@@ -410,5 +477,9 @@
         private System.Windows.Forms.DataGridView dgvAsignaciones;
         private System.Windows.Forms.DateTimePicker dtpFechaFin;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ComboBox cmbTipoInscripcion;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtFiltro;
+        private System.Windows.Forms.Button btnFiltrar;
     }
 }
