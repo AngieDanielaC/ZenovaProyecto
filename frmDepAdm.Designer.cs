@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.dgvDeportistas = new System.Windows.Forms.DataGridView();
-            this.txtBuscarComp = new System.Windows.Forms.TextBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnVer = new System.Windows.Forms.Button();
@@ -39,6 +39,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnAcDes = new System.Windows.Forms.Button();
+            this.lblEstado = new System.Windows.Forms.Label();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeportistas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,15 +55,15 @@
             this.dgvDeportistas.Size = new System.Drawing.Size(1125, 454);
             this.dgvDeportistas.TabIndex = 71;
             // 
-            // txtBuscarComp
+            // txtBuscar
             // 
-            this.txtBuscarComp.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarComp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
-            this.txtBuscarComp.Location = new System.Drawing.Point(98, 112);
-            this.txtBuscarComp.Name = "txtBuscarComp";
-            this.txtBuscarComp.Size = new System.Drawing.Size(251, 31);
-            this.txtBuscarComp.TabIndex = 68;
-            this.txtBuscarComp.Text = "Buscar deportista";
+            this.txtBuscar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
+            this.txtBuscar.Location = new System.Drawing.Point(98, 112);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(251, 31);
+            this.txtBuscar.TabIndex = 68;
+            this.txtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyUp);
             // 
             // label13
             // 
@@ -95,7 +97,7 @@
             this.btnVer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
             this.btnVer.Image = global::wfZenova.Properties.Resources.icoVer;
             this.btnVer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVer.Location = new System.Drawing.Point(749, 185);
+            this.btnVer.Location = new System.Drawing.Point(171, 186);
             this.btnVer.Name = "btnVer";
             this.btnVer.Size = new System.Drawing.Size(105, 39);
             this.btnVer.TabIndex = 79;
@@ -114,7 +116,7 @@
             this.btnEditar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
             this.btnEditar.Image = global::wfZenova.Properties.Resources.icoEditar;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(860, 186);
+            this.btnEditar.Location = new System.Drawing.Point(282, 187);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(140, 39);
             this.btnEditar.TabIndex = 78;
@@ -130,7 +132,7 @@
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(943, 114);
+            this.btnNuevo.Location = new System.Drawing.Point(648, 115);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(240, 29);
             this.btnNuevo.TabIndex = 69;
@@ -177,7 +179,7 @@
             this.btnAcDes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcDes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
             this.btnAcDes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAcDes.Location = new System.Drawing.Point(1006, 186);
+            this.btnAcDes.Location = new System.Drawing.Point(428, 187);
             this.btnAcDes.Name = "btnAcDes";
             this.btnAcDes.Size = new System.Drawing.Size(177, 39);
             this.btnAcDes.TabIndex = 80;
@@ -185,18 +187,45 @@
             this.btnAcDes.UseVisualStyleBackColor = true;
             this.btnAcDes.Click += new System.EventHandler(this.btnAcDes_Click);
             // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
+            this.lblEstado.Location = new System.Drawing.Point(412, 117);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(77, 22);
+            this.lblEstado.TabIndex = 82;
+            this.lblEstado.Text = "Estado:";
+            // 
+            // cmbEstado
+            // 
+            this.cmbEstado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "Todos",
+            "Activos",
+            "Inactivos"});
+            this.cmbEstado.Location = new System.Drawing.Point(495, 119);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(121, 25);
+            this.cmbEstado.TabIndex = 83;
+            this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
+            // 
             // frmDepAdm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 768);
+            this.Controls.Add(this.cmbEstado);
+            this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.btnAcDes);
             this.Controls.Add(this.btnVer);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dgvDeportistas);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.txtBuscarComp);
+            this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label2);
@@ -219,7 +248,7 @@
 
         private System.Windows.Forms.DataGridView dgvDeportistas;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.TextBox txtBuscarComp;
+        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label2;
@@ -228,5 +257,7 @@
         private System.Windows.Forms.Button btnVer;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnAcDes;
+        private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.ComboBox cmbEstado;
     }
 }

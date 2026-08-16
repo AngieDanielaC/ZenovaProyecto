@@ -36,24 +36,30 @@
             this.lblCedula = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.picFoto = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblDirecc = new System.Windows.Forms.Label();
+            this.lblCE = new System.Windows.Forms.Label();
+            this.lbTele = new System.Windows.Forms.Label();
+            this.lblGne = new System.Windows.Forms.Label();
+            this.lblFechaN = new System.Windows.Forms.Label();
+            this.lblCdu = new System.Windows.Forms.Label();
+            this.lblNcompleto = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblTituloCE = new System.Windows.Forms.Label();
+            this.lblParentescoE = new System.Windows.Forms.Label();
+            this.lblTeleEmer = new System.Windows.Forms.Label();
+            this.lblNombreEmer = new System.Windows.Forms.Label();
             this.lblParentesco = new System.Windows.Forms.Label();
             this.lblTelefonoEmergencia = new System.Windows.Forms.Label();
             this.lblNombreContacto = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.picFoto = new System.Windows.Forms.PictureBox();
+            this.lblEstadoDeportista = new System.Windows.Forms.Label();
+            this.lblEstado = new System.Windows.Forms.Label();
+            this.lblFechaDesactivacion = new System.Windows.Forms.Label();
+            this.lblDesactivcion = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblMotivoDesactivacion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,103 +139,93 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(556, 26);
+            this.panel1.Size = new System.Drawing.Size(900, 26);
             this.panel1.TabIndex = 141;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
-            // picFoto
+            // lblDirecc
             // 
-            this.picFoto.Image = global::wfZenova.Properties.Resources.fotoDepo;
-            this.picFoto.Location = new System.Drawing.Point(162, 59);
-            this.picFoto.Name = "picFoto";
-            this.picFoto.Size = new System.Drawing.Size(167, 183);
-            this.picFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picFoto.TabIndex = 140;
-            this.picFoto.TabStop = false;
+            this.lblDirecc.AutoSize = true;
+            this.lblDirecc.BackColor = System.Drawing.Color.White;
+            this.lblDirecc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDirecc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblDirecc.Location = new System.Drawing.Point(23, 499);
+            this.lblDirecc.Name = "lblDirecc";
+            this.lblDirecc.Size = new System.Drawing.Size(87, 19);
+            this.lblDirecc.TabIndex = 139;
+            this.lblDirecc.Text = "Dirección:";
             // 
-            // label8
+            // lblCE
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label8.Location = new System.Drawing.Point(23, 499);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(87, 19);
-            this.label8.TabIndex = 139;
-            this.label8.Text = "Dirección:";
+            this.lblCE.AutoSize = true;
+            this.lblCE.BackColor = System.Drawing.Color.White;
+            this.lblCE.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblCE.Location = new System.Drawing.Point(23, 465);
+            this.lblCE.Name = "lblCE";
+            this.lblCE.Size = new System.Drawing.Size(156, 19);
+            this.lblCE.TabIndex = 138;
+            this.lblCE.Text = "Correo electrónico:";
             // 
-            // label7
+            // lbTele
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label7.Location = new System.Drawing.Point(23, 465);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(156, 19);
-            this.label7.TabIndex = 138;
-            this.label7.Text = "Correo electrónico:";
+            this.lbTele.AutoSize = true;
+            this.lbTele.BackColor = System.Drawing.Color.White;
+            this.lbTele.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTele.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lbTele.Location = new System.Drawing.Point(23, 434);
+            this.lbTele.Name = "lbTele";
+            this.lbTele.Size = new System.Drawing.Size(74, 19);
+            this.lbTele.TabIndex = 137;
+            this.lbTele.Text = "Teléfono";
             // 
-            // label6
+            // lblGne
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label6.Location = new System.Drawing.Point(23, 434);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 19);
-            this.label6.TabIndex = 137;
-            this.label6.Text = "Teléfono";
+            this.lblGne.AutoSize = true;
+            this.lblGne.BackColor = System.Drawing.Color.White;
+            this.lblGne.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGne.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblGne.Location = new System.Drawing.Point(23, 402);
+            this.lblGne.Name = "lblGne";
+            this.lblGne.Size = new System.Drawing.Size(71, 19);
+            this.lblGne.TabIndex = 136;
+            this.lblGne.Text = "Género:";
             // 
-            // label5
+            // lblFechaN
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label5.Location = new System.Drawing.Point(23, 402);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 19);
-            this.label5.TabIndex = 136;
-            this.label5.Text = "Género:";
+            this.lblFechaN.AutoSize = true;
+            this.lblFechaN.BackColor = System.Drawing.Color.White;
+            this.lblFechaN.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblFechaN.Location = new System.Drawing.Point(23, 372);
+            this.lblFechaN.Name = "lblFechaN";
+            this.lblFechaN.Size = new System.Drawing.Size(180, 19);
+            this.lblFechaN.TabIndex = 135;
+            this.lblFechaN.Text = "Fecha de nacimiento:";
             // 
-            // label4
+            // lblCdu
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label4.Location = new System.Drawing.Point(23, 372);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(180, 19);
-            this.label4.TabIndex = 135;
-            this.label4.Text = "Fecha de nacimiento:";
+            this.lblCdu.AutoSize = true;
+            this.lblCdu.BackColor = System.Drawing.Color.White;
+            this.lblCdu.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCdu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblCdu.Location = new System.Drawing.Point(23, 342);
+            this.lblCdu.Name = "lblCdu";
+            this.lblCdu.Size = new System.Drawing.Size(71, 19);
+            this.lblCdu.TabIndex = 134;
+            this.lblCdu.Text = "Cédula:";
             // 
-            // label2
+            // lblNcompleto
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(23, 342);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 19);
-            this.label2.TabIndex = 134;
-            this.label2.Text = "Cédula:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.White;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label12.Location = new System.Drawing.Point(23, 309);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(156, 19);
-            this.label12.TabIndex = 133;
-            this.label12.Text = "Nombre completo:";
+            this.lblNcompleto.AutoSize = true;
+            this.lblNcompleto.BackColor = System.Drawing.Color.White;
+            this.lblNcompleto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNcompleto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblNcompleto.Location = new System.Drawing.Point(23, 309);
+            this.lblNcompleto.Name = "lblNcompleto";
+            this.lblNcompleto.Size = new System.Drawing.Size(156, 19);
+            this.lblNcompleto.TabIndex = 133;
+            this.lblNcompleto.Text = "Nombre completo:";
             // 
             // label1
             // 
@@ -254,50 +250,50 @@
             this.label13.TabIndex = 131;
             this.label13.Text = "Detalles de Deportista";
             // 
-            // label3
+            // lblTituloCE
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(35)))), ((int)(((byte)(170)))));
-            this.label3.Location = new System.Drawing.Point(23, 537);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(246, 23);
-            this.label3.TabIndex = 149;
-            this.label3.Text = "Contacto de emergencia";
+            this.lblTituloCE.AutoSize = true;
+            this.lblTituloCE.BackColor = System.Drawing.Color.White;
+            this.lblTituloCE.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloCE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(35)))), ((int)(((byte)(170)))));
+            this.lblTituloCE.Location = new System.Drawing.Point(23, 537);
+            this.lblTituloCE.Name = "lblTituloCE";
+            this.lblTituloCE.Size = new System.Drawing.Size(246, 23);
+            this.lblTituloCE.TabIndex = 149;
+            this.lblTituloCE.Text = "Contacto de emergencia";
             // 
-            // label14
+            // lblParentescoE
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label14.Location = new System.Drawing.Point(23, 631);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(98, 19);
-            this.label14.TabIndex = 152;
-            this.label14.Text = "Parentesco:";
+            this.lblParentescoE.AutoSize = true;
+            this.lblParentescoE.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblParentescoE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblParentescoE.Location = new System.Drawing.Point(23, 631);
+            this.lblParentescoE.Name = "lblParentescoE";
+            this.lblParentescoE.Size = new System.Drawing.Size(98, 19);
+            this.lblParentescoE.TabIndex = 152;
+            this.lblParentescoE.Text = "Parentesco:";
             // 
-            // label9
+            // lblTeleEmer
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label9.Location = new System.Drawing.Point(24, 598);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(78, 19);
-            this.label9.TabIndex = 151;
-            this.label9.Text = "Telefono:";
+            this.lblTeleEmer.AutoSize = true;
+            this.lblTeleEmer.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTeleEmer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblTeleEmer.Location = new System.Drawing.Point(24, 598);
+            this.lblTeleEmer.Name = "lblTeleEmer";
+            this.lblTeleEmer.Size = new System.Drawing.Size(78, 19);
+            this.lblTeleEmer.TabIndex = 151;
+            this.lblTeleEmer.Text = "Telefono:";
             // 
-            // label10
+            // lblNombreEmer
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label10.Location = new System.Drawing.Point(24, 569);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(179, 19);
-            this.label10.TabIndex = 150;
-            this.label10.Text = "Nombre del contacto:";
+            this.lblNombreEmer.AutoSize = true;
+            this.lblNombreEmer.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreEmer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblNombreEmer.Location = new System.Drawing.Point(24, 569);
+            this.lblNombreEmer.Name = "lblNombreEmer";
+            this.lblNombreEmer.Size = new System.Drawing.Size(179, 19);
+            this.lblNombreEmer.TabIndex = 150;
+            this.lblNombreEmer.Text = "Nombre del contacto:";
             // 
             // lblParentesco
             // 
@@ -345,20 +341,108 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // picFoto
+            // 
+            this.picFoto.Image = global::wfZenova.Properties.Resources.fotoDepo;
+            this.picFoto.Location = new System.Drawing.Point(200, 81);
+            this.picFoto.Name = "picFoto";
+            this.picFoto.Size = new System.Drawing.Size(198, 183);
+            this.picFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picFoto.TabIndex = 140;
+            this.picFoto.TabStop = false;
+            // 
+            // lblEstadoDeportista
+            // 
+            this.lblEstadoDeportista.AutoSize = true;
+            this.lblEstadoDeportista.BackColor = System.Drawing.Color.White;
+            this.lblEstadoDeportista.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstadoDeportista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblEstadoDeportista.Location = new System.Drawing.Point(624, 298);
+            this.lblEstadoDeportista.Name = "lblEstadoDeportista";
+            this.lblEstadoDeportista.Size = new System.Drawing.Size(211, 23);
+            this.lblEstadoDeportista.TabIndex = 157;
+            this.lblEstadoDeportista.Text = "Estado del Deportista:";
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblEstado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblEstado.Location = new System.Drawing.Point(645, 334);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Padding = new System.Windows.Forms.Padding(8);
+            this.lblEstado.Size = new System.Drawing.Size(170, 36);
+            this.lblEstado.TabIndex = 158;
+            this.lblEstado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblFechaDesactivacion
+            // 
+            this.lblFechaDesactivacion.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblFechaDesactivacion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaDesactivacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblFechaDesactivacion.Location = new System.Drawing.Point(591, 412);
+            this.lblFechaDesactivacion.Name = "lblFechaDesactivacion";
+            this.lblFechaDesactivacion.Padding = new System.Windows.Forms.Padding(8);
+            this.lblFechaDesactivacion.Size = new System.Drawing.Size(270, 41);
+            this.lblFechaDesactivacion.TabIndex = 159;
+            this.lblFechaDesactivacion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDesactivcion
+            // 
+            this.lblDesactivcion.AutoSize = true;
+            this.lblDesactivcion.BackColor = System.Drawing.Color.White;
+            this.lblDesactivcion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesactivcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblDesactivcion.Location = new System.Drawing.Point(595, 391);
+            this.lblDesactivcion.Name = "lblDesactivcion";
+            this.lblDesactivcion.Size = new System.Drawing.Size(196, 18);
+            this.lblDesactivcion.TabIndex = 160;
+            this.lblDesactivcion.Text = "Fecha de Desactivación: ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.label2.Location = new System.Drawing.Point(591, 466);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(200, 18);
+            this.label2.TabIndex = 161;
+            this.label2.Text = "Motivo de Desactivación: ";
+            // 
+            // lblMotivoDesactivacion
+            // 
+            this.lblMotivoDesactivacion.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblMotivoDesactivacion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMotivoDesactivacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblMotivoDesactivacion.Location = new System.Drawing.Point(591, 488);
+            this.lblMotivoDesactivacion.Name = "lblMotivoDesactivacion";
+            this.lblMotivoDesactivacion.Padding = new System.Windows.Forms.Padding(8);
+            this.lblMotivoDesactivacion.Size = new System.Drawing.Size(270, 100);
+            this.lblMotivoDesactivacion.TabIndex = 162;
+            this.lblMotivoDesactivacion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmVerDeportista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(556, 737);
+            this.ClientSize = new System.Drawing.Size(900, 737);
+            this.Controls.Add(this.lblMotivoDesactivacion);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblDesactivcion);
+            this.Controls.Add(this.lblFechaDesactivacion);
+            this.Controls.Add(this.lblEstado);
+            this.Controls.Add(this.lblEstadoDeportista);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.lblParentesco);
             this.Controls.Add(this.lblTelefonoEmergencia);
             this.Controls.Add(this.lblNombreContacto);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblParentescoE);
+            this.Controls.Add(this.lblTeleEmer);
+            this.Controls.Add(this.lblNombreEmer);
+            this.Controls.Add(this.lblTituloCE);
             this.Controls.Add(this.lblDireccion);
             this.Controls.Add(this.lblCorreo);
             this.Controls.Add(this.lblTelefono);
@@ -368,18 +452,19 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.picFoto);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.lblDirecc);
+            this.Controls.Add(this.lblCE);
+            this.Controls.Add(this.lbTele);
+            this.Controls.Add(this.lblGne);
+            this.Controls.Add(this.lblFechaN);
+            this.Controls.Add(this.lblCdu);
+            this.Controls.Add(this.lblNcompleto);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label13);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmVerDeportista";
             this.Text = "frmVerDeportista";
+            this.Load += new System.EventHandler(this.frmVerDeportista_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -397,22 +482,28 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox picFoto;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblDirecc;
+        private System.Windows.Forms.Label lblCE;
+        private System.Windows.Forms.Label lbTele;
+        private System.Windows.Forms.Label lblGne;
+        private System.Windows.Forms.Label lblFechaN;
+        private System.Windows.Forms.Label lblCdu;
+        private System.Windows.Forms.Label lblNcompleto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblTituloCE;
+        private System.Windows.Forms.Label lblParentescoE;
+        private System.Windows.Forms.Label lblTeleEmer;
+        private System.Windows.Forms.Label lblNombreEmer;
         private System.Windows.Forms.Label lblParentesco;
         private System.Windows.Forms.Label lblTelefonoEmergencia;
         private System.Windows.Forms.Label lblNombreContacto;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Label lblEstadoDeportista;
+        private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.Label lblFechaDesactivacion;
+        private System.Windows.Forms.Label lblDesactivcion;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblMotivoDesactivacion;
     }
 }
