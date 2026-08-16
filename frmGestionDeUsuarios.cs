@@ -9,60 +9,137 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
+using System.Diagnostics;
 
 namespace wfZenova
 {
     public partial class frmGestionDeUsuarios : Form
     {
+        csConectaSQL conSQL = new csConectaSQL();
         public frmGestionDeUsuarios()
         {
             InitializeComponent();
             ConfigurarTablaUsuarios();
+            CargarUsuarios();
         }
+
+        private void CargarUsuarios()
+        {
+            DataTable tabla =
+                conSQL.RetornaRegistros(
+                    @"SELECT
+                U.IdUsuario,
+                U.Nombres + ' ' + U.Apellidos AS Nombre,
+                U.NombreUsuario AS Usuario,
+                R.NombreRol AS Rol,
+                CASE
+                    WHEN U.EstadoCuenta = 1 THEN 'Activo'
+                    ELSE 'Inactivo'
+                END AS Estado,
+                U.Correo
+              FROM Usuarios U
+              INNER JOIN Roles R
+                  ON U.IdRol = R.IdRol
+              ORDER BY U.Nombres, U.Apellidos"
+                );
+
+            if (tabla == null)
+                return;
+
+            dgvUsuarios.DataSource = tabla;
+
+            dgvUsuarios.Columns["IdUsuario"].Visible = false;
+
+            dgvUsuarios.Columns["Nombre"].HeaderText =
+                "NOMBRE COMPLETO";
+
+            dgvUsuarios.Columns["Usuario"].HeaderText =
+                "USUARIO";
+
+            dgvUsuarios.Columns["Rol"].HeaderText =
+                "ROL";
+
+            dgvUsuarios.Columns["Estado"].HeaderText =
+                "ESTADO";
+
+            dgvUsuarios.Columns["Correo"].HeaderText =
+                "CORREO ELECTRÓNICO";
+
+            dgvUsuarios.Columns["Nombre"].FillWeight = 150;
+            dgvUsuarios.Columns["Usuario"].FillWeight = 90;
+            dgvUsuarios.Columns["Rol"].FillWeight = 110;
+            dgvUsuarios.Columns["Estado"].FillWeight = 80;
+            dgvUsuarios.Columns["Correo"].FillWeight = 150;
+
+            dgvUsuarios.Columns["Nombre"]
+                .DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleLeft;
+
+            dgvUsuarios.Columns["Correo"]
+                .DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleLeft;
+
+            dgvUsuarios.ClearSelection();
+        }
+        private void CargarFotosUsuarios()
+        {
+            foreach (DataGridViewRow fila in dgvUsuarios.Rows)
+            {
+                int idUsuario =
+                    Convert.ToInt32(
+                        fila.Cells["IdUsuario"].Value);
+
+                DataTable tablaFoto =
+                    conSQL.RetornaRegistros(
+                        "SELECT Foto " +
+                        "FROM Usuarios " +
+                        "WHERE IdUsuario = " +
+                        idUsuario
+                    );
+
+                if (tablaFoto == null ||
+                    tablaFoto.Rows.Count == 0)
+                {
+                    continue;
+                }
+
+                if (tablaFoto.Rows[0]["Foto"] ==
+                    DBNull.Value)
+                {
+                    continue;
+                }
+
+                try
+                {
+                    byte[] bytesFoto =
+                        (byte[])tablaFoto.Rows[0]["Foto"];
+
+                    using (MemoryStream ms =
+                           new MemoryStream(bytesFoto))
+                    {
+                        using (Image imagen =
+                               Image.FromStream(ms))
+                        {
+                            fila.Cells["FotoUsuario"].Value =
+                                new Bitmap(
+                                    imagen,
+                                    new Size(45, 45));
+                        }
+                    }
+                }
+                catch
+                {
+                    fila.Cells["FotoUsuario"].Value =
+                        null;
+                }
+            }
+        }
+
         private void ConfigurarTablaUsuarios()
         {
-            // LIMPIAR TABLA
-            dgvUsuarios.Columns.Clear();
-            dgvUsuarios.Rows.Clear();
-
-            // CREAR COLUMNAS
-
-            DataGridViewImageColumn columnaFoto =
-                new DataGridViewImageColumn();
-
-            columnaFoto.Name = "Foto";
-            columnaFoto.HeaderText = "FOTO";
-            columnaFoto.ImageLayout =
-                DataGridViewImageCellLayout.Zoom;
-
-            dgvUsuarios.Columns.Add(columnaFoto);
-
-
-            dgvUsuarios.Columns.Add(
-                "Nombre",
-                "NOMBRE COMPLETO");
-
-            dgvUsuarios.Columns.Add(
-                "Usuario",
-                "USUARIO");
-
-            dgvUsuarios.Columns.Add(
-                "Rol",
-                "ROL");
-
-            dgvUsuarios.Columns.Add(
-                "Estado",
-                "ESTADO");
-
-            dgvUsuarios.Columns.Add(
-                "Correo",
-                "CORREO ELECTRÓNICO");
-
-            // ESTILO GENERAL
             dgvUsuarios.BackgroundColor = Color.White;
-
-            dgvUsuarios.BorderStyle =
-                BorderStyle.None;
+            dgvUsuarios.BorderStyle = BorderStyle.None;
 
             dgvUsuarios.CellBorderStyle =
                 DataGridViewCellBorderStyle.SingleHorizontal;
@@ -72,8 +149,22 @@ namespace wfZenova
 
             dgvUsuarios.RowHeadersVisible = false;
 
+            dgvUsuarios.AllowUserToAddRows = false;
+            dgvUsuarios.AllowUserToDeleteRows = false;
+            dgvUsuarios.AllowUserToResizeRows = false;
+            dgvUsuarios.AllowUserToResizeColumns = false;
+
+            dgvUsuarios.ReadOnly = true;
+
+            dgvUsuarios.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
+            dgvUsuarios.MultiSelect = false;
+
             dgvUsuarios.AutoSizeColumnsMode =
                 DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvUsuarios.RowTemplate.Height = 55;
 
 
             // ENCABEZADO
@@ -104,8 +195,6 @@ namespace wfZenova
 
 
             // FILAS
-            dgvUsuarios.RowTemplate.Height = 60;
-
             dgvUsuarios.DefaultCellStyle.BackColor =
                 Color.White;
 
@@ -126,67 +215,196 @@ namespace wfZenova
 
             dgvUsuarios.DefaultCellStyle.SelectionForeColor =
                 Color.FromArgb(25, 40, 95);
-
-
-            
-            // TAMAÑO DE COLUMNAS
-            dgvUsuarios.Columns["Foto"].FillWeight = 45;
-            dgvUsuarios.Columns["Nombre"].FillWeight = 140;
-            dgvUsuarios.Columns["Usuario"].FillWeight = 90;
-            dgvUsuarios.Columns["Rol"].FillWeight = 100;
-            dgvUsuarios.Columns["Estado"].FillWeight = 70;
-            dgvUsuarios.Columns["Correo"].FillWeight = 140;
-
-
-            // ALINEACIÓN
-            dgvUsuarios.Columns["Nombre"]
-                .DefaultCellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleLeft;
-
-            dgvUsuarios.Columns["Correo"]
-                .DefaultCellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleLeft;
-
-
-            // BLOQUEAR EDICIÓN
-            dgvUsuarios.AllowUserToAddRows = false;
-            dgvUsuarios.AllowUserToDeleteRows = false;
-            dgvUsuarios.AllowUserToResizeRows = false;
-            dgvUsuarios.AllowUserToResizeColumns = false;
-
-            dgvUsuarios.ReadOnly = true;
-            dgvUsuarios.MultiSelect = false;
-
-            dgvUsuarios.SelectionMode =
-                DataGridViewSelectionMode.FullRowSelect;
-
-            dgvUsuarios.ClearSelection();
-
-
         }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            Control contenedor = this.Parent;
 
+            if (contenedor == null)
+            {
+                MessageBox.Show("No se encontró el contenedor del formulario.");
+                return;
+            }
+
+            frmNuevoUsuario frm = new frmNuevoUsuario();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            contenedor.Controls.Remove(this);
+            contenedor.Controls.Add(frm);
+
+            frm.Show();
+
+            this.Close();
         }
 
         private void btnVer_Click(object sender, EventArgs e)
         {
-           
+            if (dgvUsuarios.CurrentRow == null)
+            {
+                MessageBox.Show(
+                    "Seleccione un usuario.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            int idUsuario =Convert.ToInt32(dgvUsuarios.CurrentRow.Cells["IdUsuario"].Value);
+
+            frmVerUsuario frm =new frmVerUsuario(idUsuario);
+
+            frm.ShowDialog();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            
+            if (dgvUsuarios.CurrentRow == null)
+            {
+                MessageBox.Show(
+                    "Seleccione un usuario de la tabla.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            int idUsuario =
+                Convert.ToInt32(
+                    dgvUsuarios.CurrentRow
+                    .Cells["IdUsuario"].Value);
+
+            frmEditarUsuariocs frm = new frmEditarUsuariocs(idUsuario);
+
+            frm.ShowDialog();
+
+            // Actualizar tabla al cerrar
+            CargarUsuarios();
+
+            dgvUsuarios.ClearSelection();
         }
 
         private void btnAcDes_Click(object sender, EventArgs e)
         {
-            
-        }
+            if (dgvUsuarios.CurrentRow == null)
+            {
+                MessageBox.Show(
+                    "Seleccione un usuario de la tabla.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
 
+                return;
+            }
+
+            int idUsuario =
+                Convert.ToInt32(
+                    dgvUsuarios.CurrentRow
+                    .Cells["IdUsuario"].Value);
+
+            DataTable tabla =
+                conSQL.RetornaRegistros(
+                    @"SELECT EstadoCuenta, Nombres, Apellidos
+              FROM Usuarios
+              WHERE IdUsuario = " + idUsuario
+                );
+
+            if (tabla == null || tabla.Rows.Count == 0)
+            {
+                MessageBox.Show(
+                    "No se encontró el usuario.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            bool estadoActual =
+                Convert.ToBoolean(
+                    tabla.Rows[0]["EstadoCuenta"]);
+
+            string nombreCompleto =
+                tabla.Rows[0]["Nombres"].ToString() +
+                " " +
+                tabla.Rows[0]["Apellidos"].ToString();
+
+            string accion =
+                estadoActual
+                ? "desactivar"
+                : "activar";
+
+            DialogResult respuesta =
+                MessageBox.Show(
+                    "¿Está seguro de que desea " +
+                    accion +
+                    " al usuario " +
+                    nombreCompleto + "?",
+                    "ZENOVA",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+            if (respuesta != DialogResult.Yes)
+                return;
+
+            int nuevoEstado =
+                estadoActual ? 0 : 1;
+
+            string sentencia =
+                "UPDATE Usuarios " +
+                "SET EstadoCuenta = " +
+                nuevoEstado +
+                " WHERE IdUsuario = " +
+                idUsuario;
+
+            if (conSQL.EjecutaSentenciaSRD(sentencia))
+            {
+                MessageBox.Show(
+                    "Usuario " +
+                    (nuevoEstado == 1
+                        ? "activado"
+                        : "desactivado") +
+                    " correctamente.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                CargarUsuarios();
+
+                dgvUsuarios.ClearSelection();
+            }
+        }
+        
         private void btnRestablecer_Click(object sender, EventArgs e)
         {
-            
+            if (dgvUsuarios.CurrentRow == null)
+            {
+                MessageBox.Show(
+                    "Seleccione un usuario de la tabla.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            int idUsuario =
+                Convert.ToInt32(
+                    dgvUsuarios.CurrentRow
+                    .Cells["IdUsuario"].Value);
+
+            string nombreUsuario =
+                dgvUsuarios.CurrentRow
+                .Cells["USUARIO"]
+                .Value.ToString();
+
+            frmRestablecerContraseña frm = new frmRestablecerContraseña(idUsuario,nombreUsuario);
+
+            frm.ShowDialog();
         }
 
         private void btnProbarConexion_Click(object sender, EventArgs e)

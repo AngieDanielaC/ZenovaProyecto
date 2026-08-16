@@ -30,7 +30,7 @@
         {
             this.label13 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSubirFoto = new System.Windows.Forms.Button();
             this.picFoto = new System.Windows.Forms.PictureBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -47,16 +47,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtNombres = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.pnlDatosEntrenador = new System.Windows.Forms.Panel();
-            this.btnQuitarDeporte = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.lstDeportes = new System.Windows.Forms.ListBox();
-            this.btnAgregarDeporte = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.cmbDeporte = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
-            this.pnlDatosEntrenador.SuspendLayout();
             this.SuspendLayout();
             // 
             // label13
@@ -80,21 +72,21 @@
             this.pictureBox1.TabIndex = 76;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnSubirFoto
             // 
-            this.button1.BackgroundImage = global::wfZenova.Properties.Resources.btnSubiFoto;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(50)))), ((int)(((byte)(222)))));
-            this.button1.Location = new System.Drawing.Point(29, 248);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(177, 35);
-            this.button1.TabIndex = 121;
-            this.button1.Text = "Subir Foto";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSubirFoto.BackgroundImage = global::wfZenova.Properties.Resources.btnSubiFoto;
+            this.btnSubirFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSubirFoto.FlatAppearance.BorderSize = 0;
+            this.btnSubirFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubirFoto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubirFoto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(50)))), ((int)(((byte)(222)))));
+            this.btnSubirFoto.Location = new System.Drawing.Point(29, 248);
+            this.btnSubirFoto.Name = "btnSubirFoto";
+            this.btnSubirFoto.Size = new System.Drawing.Size(177, 35);
+            this.btnSubirFoto.TabIndex = 121;
+            this.btnSubirFoto.Text = "Subir Foto";
+            this.btnSubirFoto.UseVisualStyleBackColor = true;
+            this.btnSubirFoto.Click += new System.EventHandler(this.button1_Click);
             // 
             // picFoto
             // 
@@ -268,101 +260,12 @@
             this.label12.TabIndex = 135;
             this.label12.Text = "Nombres:";
             // 
-            // pnlDatosEntrenador
-            // 
-            this.pnlDatosEntrenador.BackgroundImage = global::wfZenova.Properties.Resources.CuadroBlanco;
-            this.pnlDatosEntrenador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlDatosEntrenador.Controls.Add(this.btnQuitarDeporte);
-            this.pnlDatosEntrenador.Controls.Add(this.label20);
-            this.pnlDatosEntrenador.Controls.Add(this.lstDeportes);
-            this.pnlDatosEntrenador.Controls.Add(this.btnAgregarDeporte);
-            this.pnlDatosEntrenador.Controls.Add(this.label19);
-            this.pnlDatosEntrenador.Controls.Add(this.cmbDeporte);
-            this.pnlDatosEntrenador.Location = new System.Drawing.Point(0, 291);
-            this.pnlDatosEntrenador.Name = "pnlDatosEntrenador";
-            this.pnlDatosEntrenador.Size = new System.Drawing.Size(230, 278);
-            this.pnlDatosEntrenador.TabIndex = 139;
-            // 
-            // btnQuitarDeporte
-            // 
-            this.btnQuitarDeporte.BackgroundImage = global::wfZenova.Properties.Resources.btnCompe;
-            this.btnQuitarDeporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnQuitarDeporte.FlatAppearance.BorderSize = 0;
-            this.btnQuitarDeporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuitarDeporte.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitarDeporte.ForeColor = System.Drawing.Color.White;
-            this.btnQuitarDeporte.Location = new System.Drawing.Point(55, 121);
-            this.btnQuitarDeporte.Name = "btnQuitarDeporte";
-            this.btnQuitarDeporte.Size = new System.Drawing.Size(120, 29);
-            this.btnQuitarDeporte.TabIndex = 134;
-            this.btnQuitarDeporte.Text = "Quitar";
-            this.btnQuitarDeporte.UseVisualStyleBackColor = true;
-            this.btnQuitarDeporte.Click += new System.EventHandler(this.btnQuitarDeporte_Click);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label20.Location = new System.Drawing.Point(25, 158);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(164, 19);
-            this.label20.TabIndex = 133;
-            this.label20.Text = "Deportes asignados:";
-            // 
-            // lstDeportes
-            // 
-            this.lstDeportes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstDeportes.FormattingEnabled = true;
-            this.lstDeportes.ItemHeight = 21;
-            this.lstDeportes.Location = new System.Drawing.Point(29, 190);
-            this.lstDeportes.Name = "lstDeportes";
-            this.lstDeportes.Size = new System.Drawing.Size(192, 67);
-            this.lstDeportes.TabIndex = 132;
-            // 
-            // btnAgregarDeporte
-            // 
-            this.btnAgregarDeporte.BackgroundImage = global::wfZenova.Properties.Resources.BotonMas;
-            this.btnAgregarDeporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAgregarDeporte.FlatAppearance.BorderSize = 0;
-            this.btnAgregarDeporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarDeporte.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarDeporte.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarDeporte.Location = new System.Drawing.Point(55, 86);
-            this.btnAgregarDeporte.Name = "btnAgregarDeporte";
-            this.btnAgregarDeporte.Size = new System.Drawing.Size(120, 29);
-            this.btnAgregarDeporte.TabIndex = 131;
-            this.btnAgregarDeporte.Text = "Agregar";
-            this.btnAgregarDeporte.UseVisualStyleBackColor = true;
-            this.btnAgregarDeporte.Click += new System.EventHandler(this.btnAgregarDeporte_Click);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label19.Location = new System.Drawing.Point(30, 22);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(176, 19);
-            this.label19.TabIndex = 130;
-            this.label19.Text = "Seleccionar deportes:";
-            // 
-            // cmbDeporte
-            // 
-            this.cmbDeporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbDeporte.FormattingEnabled = true;
-            this.cmbDeporte.Location = new System.Drawing.Point(17, 47);
-            this.cmbDeporte.Name = "cmbDeporte";
-            this.cmbDeporte.Size = new System.Drawing.Size(189, 33);
-            this.cmbDeporte.TabIndex = 130;
-            // 
             // frmEditarUsuariocs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(660, 566);
-            this.Controls.Add(this.pnlDatosEntrenador);
             this.Controls.Add(this.txtApellidos);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtNombres);
@@ -370,7 +273,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnGuardarCambios);
             this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSubirFoto);
             this.Controls.Add(this.picFoto);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cmbRol);
@@ -389,8 +292,6 @@
             this.Load += new System.EventHandler(this.frmEditarUsuariocs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
-            this.pnlDatosEntrenador.ResumeLayout(false);
-            this.pnlDatosEntrenador.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,7 +301,7 @@
 
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSubirFoto;
         private System.Windows.Forms.PictureBox picFoto;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label10;
@@ -417,12 +318,5 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtNombres;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Panel pnlDatosEntrenador;
-        private System.Windows.Forms.Button btnQuitarDeporte;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ListBox lstDeportes;
-        private System.Windows.Forms.Button btnAgregarDeporte;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.ComboBox cmbDeporte;
     }
 }
