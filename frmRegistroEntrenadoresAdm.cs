@@ -12,11 +12,12 @@ namespace wfZenova
 {
     public partial class frmRegistroEntrenadoresAdm : Form
     {
+        
         public frmRegistroEntrenadoresAdm()
         {
             InitializeComponent();
         }
-
+        private Form formularioActivo = null;
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Control contenedor = this.Parent;
