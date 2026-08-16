@@ -31,13 +31,13 @@
             this.dgvEntrenadores = new System.Windows.Forms.DataGridView();
             this.txtBuscarComp = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnRegistrarEntrenador = new System.Windows.Forms.Button();
             this.btnVer = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnRemplazar = new System.Windows.Forms.Button();
-            this.btnRegistrarEntrenador = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntrenadores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -49,6 +49,8 @@
             this.dgvEntrenadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEntrenadores.Location = new System.Drawing.Point(58, 249);
             this.dgvEntrenadores.Name = "dgvEntrenadores";
+            this.dgvEntrenadores.ReadOnly = true;
+            this.dgvEntrenadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEntrenadores.Size = new System.Drawing.Size(1125, 396);
             this.dgvEntrenadores.TabIndex = 79;
             // 
@@ -73,35 +75,22 @@
             this.label13.TabIndex = 74;
             this.label13.Text = "Gestión de Entrenadores";
             // 
-            // pictureBox2
+            // btnRegistrarEntrenador
             // 
-            this.pictureBox2.Image = global::wfZenova.Properties.Resources.imgCuadroBlanco;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 81);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1225, 86);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 75;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::wfZenova.Properties.Resources.IcDEPORTISTAS;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(71, 66);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 72;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::wfZenova.Properties.Resources.CuadroBlanco;
-            this.pictureBox3.Location = new System.Drawing.Point(-8, 173);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(1245, 582);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 78;
-            this.pictureBox3.TabStop = false;
+            this.btnRegistrarEntrenador.BackgroundImage = global::wfZenova.Properties.Resources.btnCuadro;
+            this.btnRegistrarEntrenador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRegistrarEntrenador.FlatAppearance.BorderSize = 0;
+            this.btnRegistrarEntrenador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarEntrenador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarEntrenador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
+            this.btnRegistrarEntrenador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistrarEntrenador.Location = new System.Drawing.Point(58, 203);
+            this.btnRegistrarEntrenador.Name = "btnRegistrarEntrenador";
+            this.btnRegistrarEntrenador.Size = new System.Drawing.Size(177, 39);
+            this.btnRegistrarEntrenador.TabIndex = 83;
+            this.btnRegistrarEntrenador.Text = "Nuevo";
+            this.btnRegistrarEntrenador.UseVisualStyleBackColor = true;
+            this.btnRegistrarEntrenador.Click += new System.EventHandler(this.btnRegistrarEntrenador_Click);
             // 
             // btnVer
             // 
@@ -138,6 +127,7 @@
             this.btnEditar.TabIndex = 81;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnRemplazar
             // 
@@ -156,22 +146,35 @@
             this.btnRemplazar.UseVisualStyleBackColor = true;
             this.btnRemplazar.Click += new System.EventHandler(this.btnRemplazar_Click);
             // 
-            // btnRegistrarEntrenador
+            // pictureBox2
             // 
-            this.btnRegistrarEntrenador.BackgroundImage = global::wfZenova.Properties.Resources.btnCuadro;
-            this.btnRegistrarEntrenador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRegistrarEntrenador.FlatAppearance.BorderSize = 0;
-            this.btnRegistrarEntrenador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrarEntrenador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarEntrenador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
-            this.btnRegistrarEntrenador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrarEntrenador.Location = new System.Drawing.Point(58, 203);
-            this.btnRegistrarEntrenador.Name = "btnRegistrarEntrenador";
-            this.btnRegistrarEntrenador.Size = new System.Drawing.Size(177, 39);
-            this.btnRegistrarEntrenador.TabIndex = 83;
-            this.btnRegistrarEntrenador.Text = "Nuevo";
-            this.btnRegistrarEntrenador.UseVisualStyleBackColor = true;
-            this.btnRegistrarEntrenador.Click += new System.EventHandler(this.btnRegistrarEntrenador_Click);
+            this.pictureBox2.Image = global::wfZenova.Properties.Resources.imgCuadroBlanco;
+            this.pictureBox2.Location = new System.Drawing.Point(12, 81);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(1225, 86);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 75;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::wfZenova.Properties.Resources.IcDEPORTISTAS;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(71, 66);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 72;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::wfZenova.Properties.Resources.CuadroBlanco;
+            this.pictureBox3.Location = new System.Drawing.Point(-8, 173);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(1245, 582);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 78;
+            this.pictureBox3.TabStop = false;
             // 
             // frmEntrenadorAdm
             // 
@@ -192,6 +195,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmEntrenadorAdm";
             this.Text = "frmEntrenadorAdm";
+            this.Load += new System.EventHandler(this.frmEntrenadorAdm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntrenadores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

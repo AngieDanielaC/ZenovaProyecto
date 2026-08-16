@@ -28,43 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtCorreoEnt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtDirEnt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtTelefonoEnt = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rdbFemEnt = new System.Windows.Forms.RadioButton();
+            this.rdbMascEnt = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.DateEnt = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCedulaEnt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtApEnt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombreEn = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnImgEnt = new System.Windows.Forms.Button();
+            this.ImagenEnt = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnGuardarDep = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.cmbEspecialidadDeportiva = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.ImagenEnt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox7
+            // txtCorreoEnt
             // 
-            this.textBox7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(802, 427);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(275, 31);
-            this.textBox7.TabIndex = 118;
+            this.txtCorreoEnt.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreoEnt.Location = new System.Drawing.Point(802, 427);
+            this.txtCorreoEnt.Name = "txtCorreoEnt";
+            this.txtCorreoEnt.Size = new System.Drawing.Size(275, 31);
+            this.txtCorreoEnt.TabIndex = 118;
             // 
             // label10
             // 
@@ -77,13 +77,13 @@
             this.label10.TabIndex = 117;
             this.label10.Text = "Correo Electrónico:";
             // 
-            // textBox6
+            // txtDirEnt
             // 
-            this.textBox6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(802, 349);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(275, 31);
-            this.textBox6.TabIndex = 116;
+            this.txtDirEnt.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDirEnt.Location = new System.Drawing.Point(802, 349);
+            this.txtDirEnt.Name = "txtDirEnt";
+            this.txtDirEnt.Size = new System.Drawing.Size(275, 31);
+            this.txtDirEnt.TabIndex = 116;
             // 
             // label9
             // 
@@ -107,13 +107,15 @@
             this.label8.TabIndex = 113;
             this.label8.Text = "Especialidad deportiva:";
             // 
-            // textBox4
+            // txtTelefonoEnt
             // 
-            this.textBox4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(464, 427);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(247, 31);
-            this.textBox4.TabIndex = 112;
+            this.txtTelefonoEnt.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefonoEnt.Location = new System.Drawing.Point(464, 427);
+            this.txtTelefonoEnt.Name = "txtTelefonoEnt";
+            this.txtTelefonoEnt.Size = new System.Drawing.Size(247, 31);
+            this.txtTelefonoEnt.TabIndex = 112;
+            this.txtTelefonoEnt.TextChanged += new System.EventHandler(this.txtTelefonoEnt_TextChanged);
+            this.txtTelefonoEnt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefonoEnt_KeyPress);
             // 
             // label7
             // 
@@ -126,31 +128,31 @@
             this.label7.TabIndex = 111;
             this.label7.Text = "Teléfono:";
             // 
-            // radioButton2
+            // rdbFemEnt
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.ForeColor = System.Drawing.Color.Black;
-            this.radioButton2.Location = new System.Drawing.Point(593, 355);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(104, 25);
-            this.radioButton2.TabIndex = 110;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Femenino";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdbFemEnt.AutoSize = true;
+            this.rdbFemEnt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbFemEnt.ForeColor = System.Drawing.Color.Black;
+            this.rdbFemEnt.Location = new System.Drawing.Point(593, 355);
+            this.rdbFemEnt.Name = "rdbFemEnt";
+            this.rdbFemEnt.Size = new System.Drawing.Size(104, 25);
+            this.rdbFemEnt.TabIndex = 110;
+            this.rdbFemEnt.TabStop = true;
+            this.rdbFemEnt.Text = "Femenino";
+            this.rdbFemEnt.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rdbMascEnt
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.ForeColor = System.Drawing.Color.Black;
-            this.radioButton1.Location = new System.Drawing.Point(464, 355);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(106, 25);
-            this.radioButton1.TabIndex = 109;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Masculino";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdbMascEnt.AutoSize = true;
+            this.rdbMascEnt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbMascEnt.ForeColor = System.Drawing.Color.Black;
+            this.rdbMascEnt.Location = new System.Drawing.Point(464, 355);
+            this.rdbMascEnt.Name = "rdbMascEnt";
+            this.rdbMascEnt.Size = new System.Drawing.Size(106, 25);
+            this.rdbMascEnt.TabIndex = 109;
+            this.rdbMascEnt.TabStop = true;
+            this.rdbMascEnt.Text = "Masculino";
+            this.rdbMascEnt.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -163,15 +165,15 @@
             this.label6.TabIndex = 108;
             this.label6.Text = "Género:";
             // 
-            // dateTimePicker1
+            // DateEnt
             // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(802, 267);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(275, 31);
-            this.dateTimePicker1.TabIndex = 107;
+            this.DateEnt.CustomFormat = "dd/MM/yyyy";
+            this.DateEnt.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateEnt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DateEnt.Location = new System.Drawing.Point(802, 267);
+            this.DateEnt.Name = "DateEnt";
+            this.DateEnt.Size = new System.Drawing.Size(275, 31);
+            this.DateEnt.TabIndex = 107;
             // 
             // label5
             // 
@@ -184,13 +186,13 @@
             this.label5.TabIndex = 106;
             this.label5.Text = "Fecha de nacimiento:";
             // 
-            // textBox3
+            // txtCedulaEnt
             // 
-            this.textBox3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(464, 267);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(247, 31);
-            this.textBox3.TabIndex = 105;
+            this.txtCedulaEnt.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedulaEnt.Location = new System.Drawing.Point(464, 267);
+            this.txtCedulaEnt.Name = "txtCedulaEnt";
+            this.txtCedulaEnt.Size = new System.Drawing.Size(247, 31);
+            this.txtCedulaEnt.TabIndex = 105;
             // 
             // label4
             // 
@@ -203,13 +205,13 @@
             this.label4.TabIndex = 104;
             this.label4.Text = "Cédula:";
             // 
-            // textBox2
+            // txtApEnt
             // 
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(802, 185);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(275, 31);
-            this.textBox2.TabIndex = 103;
+            this.txtApEnt.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApEnt.Location = new System.Drawing.Point(802, 185);
+            this.txtApEnt.Name = "txtApEnt";
+            this.txtApEnt.Size = new System.Drawing.Size(275, 31);
+            this.txtApEnt.TabIndex = 103;
             // 
             // label2
             // 
@@ -222,13 +224,13 @@
             this.label2.TabIndex = 102;
             this.label2.Text = "Apellidos:";
             // 
-            // textBox1
+            // txtNombreEn
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(464, 185);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(247, 31);
-            this.textBox1.TabIndex = 101;
+            this.txtNombreEn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreEn.Location = new System.Drawing.Point(464, 185);
+            this.txtNombreEn.Name = "txtNombreEn";
+            this.txtNombreEn.Size = new System.Drawing.Size(247, 31);
+            this.txtNombreEn.TabIndex = 101;
             // 
             // label3
             // 
@@ -263,30 +265,31 @@
             this.label13.TabIndex = 97;
             this.label13.Text = "Registro de Entrenadores";
             // 
-            // button1
+            // btnImgEnt
             // 
-            this.button1.BackgroundImage = global::wfZenova.Properties.Resources.btnSubiFoto;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(50)))), ((int)(((byte)(222)))));
-            this.button1.Location = new System.Drawing.Point(127, 533);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(177, 35);
-            this.button1.TabIndex = 122;
-            this.button1.Text = "Subir Foto";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnImgEnt.BackgroundImage = global::wfZenova.Properties.Resources.btnSubiFoto;
+            this.btnImgEnt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnImgEnt.FlatAppearance.BorderSize = 0;
+            this.btnImgEnt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImgEnt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImgEnt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(50)))), ((int)(((byte)(222)))));
+            this.btnImgEnt.Location = new System.Drawing.Point(127, 533);
+            this.btnImgEnt.Name = "btnImgEnt";
+            this.btnImgEnt.Size = new System.Drawing.Size(177, 35);
+            this.btnImgEnt.TabIndex = 122;
+            this.btnImgEnt.Text = "Subir Foto";
+            this.btnImgEnt.UseVisualStyleBackColor = true;
+            this.btnImgEnt.Click += new System.EventHandler(this.btnImgEnt_Click);
             // 
-            // pictureBox1
+            // ImagenEnt
             // 
-            this.pictureBox1.Image = global::wfZenova.Properties.Resources.fotoDepo;
-            this.pictureBox1.Location = new System.Drawing.Point(79, 185);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(271, 318);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 121;
-            this.pictureBox1.TabStop = false;
+            this.ImagenEnt.Image = global::wfZenova.Properties.Resources.fotoDepo;
+            this.ImagenEnt.Location = new System.Drawing.Point(79, 185);
+            this.ImagenEnt.Name = "ImagenEnt";
+            this.ImagenEnt.Size = new System.Drawing.Size(271, 318);
+            this.ImagenEnt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ImagenEnt.TabIndex = 121;
+            this.ImagenEnt.TabStop = false;
             // 
             // btnCerrar
             // 
@@ -318,6 +321,7 @@
             this.btnGuardarDep.TabIndex = 119;
             this.btnGuardarDep.Text = "       Guardar Entrenador";
             this.btnGuardarDep.UseVisualStyleBackColor = true;
+            this.btnGuardarDep.Click += new System.EventHandler(this.btnGuardarDep_Click);
             // 
             // pictureBox3
             // 
@@ -329,14 +333,20 @@
             this.pictureBox3.TabIndex = 98;
             this.pictureBox3.TabStop = false;
             // 
-            // comboBox1
+            // cmbEspecialidadDeportiva
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(464, 502);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(247, 30);
-            this.comboBox1.TabIndex = 123;
+            this.cmbEspecialidadDeportiva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEspecialidadDeportiva.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEspecialidadDeportiva.FormattingEnabled = true;
+            this.cmbEspecialidadDeportiva.Items.AddRange(new object[] {
+            "Karate",
+            "Judo",
+            "Boxeo",
+            "Taekwondo"});
+            this.cmbEspecialidadDeportiva.Location = new System.Drawing.Point(464, 502);
+            this.cmbEspecialidadDeportiva.Name = "cmbEspecialidadDeportiva";
+            this.cmbEspecialidadDeportiva.Size = new System.Drawing.Size(247, 30);
+            this.cmbEspecialidadDeportiva.TabIndex = 123;
             // 
             // frmRegistroEntrenadoresAdm
             // 
@@ -344,28 +354,28 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 768);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.cmbEspecialidadDeportiva);
+            this.Controls.Add(this.btnImgEnt);
+            this.Controls.Add(this.ImagenEnt);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnGuardarDep);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.txtCorreoEnt);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtDirEnt);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtTelefonoEnt);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.rdbFemEnt);
+            this.Controls.Add(this.rdbMascEnt);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.DateEnt);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtCedulaEnt);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtApEnt);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNombreEn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label13);
@@ -373,7 +383,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRegistroEntrenadoresAdm";
             this.Text = "frmRegistroEntrenadoresAdm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImagenEnt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -382,31 +392,31 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnImgEnt;
+        private System.Windows.Forms.PictureBox ImagenEnt;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnGuardarDep;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtCorreoEnt;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtDirEnt;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtTelefonoEnt;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rdbFemEnt;
+        private System.Windows.Forms.RadioButton rdbMascEnt;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker DateEnt;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtCedulaEnt;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtApEnt;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombreEn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbEspecialidadDeportiva;
     }
 }

@@ -119,6 +119,12 @@
     <Compile Include="frmEditarDeportista.Designer.cs">
       <DependentUpon>frmEditarDeportista.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditarEntrenador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarEntrenador.Designer.cs">
+      <DependentUpon>frmEditarEntrenador.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditarUsuariocs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,12 @@
     <Compile Include="frmVerDeportista.Designer.cs">
       <DependentUpon>frmVerDeportista.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVerEntrenador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerEntrenador.Designer.cs">
+      <DependentUpon>frmVerEntrenador.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVerUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -366,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarDeportista.resx">
       <DependentUpon>frmEditarDeportista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarEntrenador.resx">
+      <DependentUpon>frmEditarEntrenador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarUsuariocs.resx">
       <DependentUpon>frmEditarUsuariocs.cs</DependentUpon>
@@ -465,6 +480,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerDeportista.resx">
       <DependentUpon>frmVerDeportista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerEntrenador.resx">
+      <DependentUpon>frmVerEntrenador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerUsuario.resx">
       <DependentUpon>frmVerUsuario.cs</DependentUpon>

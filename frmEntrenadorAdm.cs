@@ -13,6 +13,7 @@ namespace wfZenova
 {
     public partial class frmEntrenadorAdm : Form
     {
+        csConectaSQL oCon = new csConectaSQL(); 
         public frmEntrenadorAdm()
         {
             InitializeComponent();
@@ -27,40 +28,32 @@ namespace wfZenova
             // ======================================
             // COLUMNAS
             // ======================================
-
             // ID OCULTO
-            dgvEntrenadores.Columns.Add(
-                "IdEntrenador",
-                "ID");
 
-            dgvEntrenadores.Columns.Add(
-                "Nombre",
-                "NOMBRE COMPLETO");
+            dgvEntrenadores.Columns.Add("IdEntrenador", "ID");
+            dgvEntrenadores.Columns["IdEntrenador"].DataPropertyName = "IdEntrenador";
 
-            dgvEntrenadores.Columns.Add(
-                "Edad",
-                "EDAD");
+            dgvEntrenadores.Columns.Add("Nombre", "NOMBRE COMPLETO");
+            dgvEntrenadores.Columns["Nombre"].DataPropertyName = "NOMBRE COMPLETO";
 
-            dgvEntrenadores.Columns.Add(
-                "Telefono",
-                "TELÉFONO");
+            dgvEntrenadores.Columns.Add("Edad", "EDAD");
+            dgvEntrenadores.Columns["Edad"].DataPropertyName = "EDAD";
 
-            dgvEntrenadores.Columns.Add(
-                "Deporte",
-                "DEPORTES");
+            dgvEntrenadores.Columns.Add("Telefono", "TELÉFONO");
+            dgvEntrenadores.Columns["Telefono"].DataPropertyName = "TELÉFONO";
 
-            dgvEntrenadores.Columns.Add(
-                "Estado",
-                "ESTADO");
+            dgvEntrenadores.Columns.Add("Deporte", "DEPORTES");
+            dgvEntrenadores.Columns["Deporte"].DataPropertyName = "DEPORTES";
 
-            dgvEntrenadores.Columns.Add(
-                "Deportistas",
-                "DEPORTISTAS\nACTIVOS");
+            dgvEntrenadores.Columns.Add("Estado", "ESTADO");
+            dgvEntrenadores.Columns["Estado"].DataPropertyName = "ESTADO";
+
+            dgvEntrenadores.Columns.Add("Deportistas", "DEPORTISTAS\nACTIVOS");
+            dgvEntrenadores.Columns["Deportistas"].DataPropertyName = "DEPORTISTAS ACTIVOS";
 
 
             // Ocultar ID
-            dgvEntrenadores.Columns[
-                "IdEntrenador"].Visible = false;
+            dgvEntrenadores.Columns["IdEntrenador"].Visible = false;
 
 
             // ======================================
@@ -239,24 +232,38 @@ namespace wfZenova
 
         private void btnRemplazar_Click(object sender, EventArgs e)
         {
-            
+            Control Contenedor = this.Parent;
+            frmRemplazarEntrenador changedtrainer = new frmRemplazarEntrenador();
+            changedtrainer.TopLevel = false;
+            changedtrainer.FormBorderStyle= FormBorderStyle.None;
+            changedtrainer.Dock = DockStyle.Fill;
+
+            Contenedor.Controls.Remove(this);
+            Contenedor.Controls.Add (changedtrainer);
+            changedtrainer.Show();
+            this.Close();
         }
 
         private void btnVer_Click(object sender, EventArgs e)
         {
+            if (dgvEntrenadores.SelectedRows.Count > 0)
+            {
+                // Obtiene el ID oculto de la fila seleccionada
+                int idSeleccionado = Convert.ToInt32(dgvEntrenadores.SelectedRows[0].Cells["IdEntrenador"].Value);
 
+                // Instancia el formulario pasándole el ID
+                frmVerEntrenador frm = new frmVerEntrenador(idSeleccionado);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un entrenador de la tabla.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnRegistrarEntrenador_Click(object sender, EventArgs e)
         {
             Control contenedor = this.Parent;
-
-            if (contenedor == null)
-            {
-                MessageBox.Show("No se encontró el contenedor del formulario.");
-                return;
-            }
-
             frmRegistroEntrenadoresAdm frmSubCompetencia = new frmRegistroEntrenadoresAdm();
 
             frmSubCompetencia.TopLevel = false;
@@ -271,6 +278,65 @@ namespace wfZenova
             this.Close();
 
         }
-    }
+        private void CargarTablaEntrenadores(string filtro = "")
+        {
+            dgvEntrenadores.AutoGenerateColumns = false;
 
+            string query = @"
+        SELECT 
+            E.IdEntrenador,
+            (E.Nombres + ' ' + E.Apellidos) AS [NOMBRE COMPLETO],
+            DATEDIFF(YEAR, E.FechaNacimiento, GETDATE()) - 
+                CASE 
+                    WHEN DATEADD(YEAR, DATEDIFF(YEAR, E.FechaNacimiento, GETDATE()), E.FechaNacimiento) > GETDATE() 
+                    THEN 1 ELSE 0 
+                END AS EDAD,
+            E.Telefono AS TELÉFONO,
+            ISNULL(STRING_AGG(D.NombreDeporte, ', '), 'Sin Deporte') AS DEPORTES,
+            ISNULL(E.EstadoEntrenador, 'Inactivo') AS ESTADO,
+            COUNT(DISTINCT I.IdInscripcion) AS [DEPORTISTAS ACTIVOS]
+        FROM Entrenadores E
+        LEFT JOIN EntrenadorDeporte ED ON E.IdEntrenador = ED.IdEntrenador AND ED.Activo = 1
+        LEFT JOIN Deportes D ON ED.IdDeporte = D.IdDeporte
+        LEFT JOIN Inscripciones I ON ED.IdEntrenadorDeporte = I.IdEntrenadorDeporte
+        WHERE (E.Nombres LIKE '%" + filtro + @"%' OR E.Apellidos LIKE '%" + filtro + @"%')
+        GROUP BY 
+            E.IdEntrenador, E.Nombres, E.Apellidos, E.FechaNacimiento, 
+            E.Telefono, E.EstadoEntrenador";
+
+            dgvEntrenadores.DataSource = oCon.RetornaRegistros(query);
+            dgvEntrenadores.ClearSelection();
+        }
+        private void frmEntrenadorAdm_Load(object sender, EventArgs e)
+        {
+            CargarTablaEntrenadores();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dgvEntrenadores.SelectedRows.Count > 0)
+            {
+                int idSeleccionado = Convert.ToInt32(dgvEntrenadores.SelectedRows[0].Cells["IdEntrenador"].Value);
+
+                Control contenedor = this.Parent;
+                frmEditarEntrenador frmSubCompetencia = new frmEditarEntrenador(idSeleccionado);
+
+                frmSubCompetencia.TopLevel = false;
+                frmSubCompetencia.FormBorderStyle = FormBorderStyle.None;
+                frmSubCompetencia.Dock = DockStyle.Fill;
+
+                contenedor.Controls.Remove(this);
+                contenedor.Controls.Add(frmSubCompetencia);
+
+                frmSubCompetencia.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un entrenador de la tabla para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+    }
 }
+
+

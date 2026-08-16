@@ -32,7 +32,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.lblEntrenadorActual = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.cmbDisciplina = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbTipoReemplazo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.clbDisciplina = new System.Windows.Forms.CheckedListBox();
             this.pnlPeriodoTemporal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,18 +63,18 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
-            this.label13.Location = new System.Drawing.Point(12, 29);
+            this.label13.Location = new System.Drawing.Point(3, 29);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(238, 25);
+            this.label13.Size = new System.Drawing.Size(251, 25);
             this.label13.TabIndex = 70;
-            this.label13.Text = "Remplazar Entrenador";
+            this.label13.Text = "Reemplazar Entrenador";
             // 
             // lblEntrenadorActual
             // 
             this.lblEntrenadorActual.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblEntrenadorActual.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEntrenadorActual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.lblEntrenadorActual.Location = new System.Drawing.Point(41, 93);
+            this.lblEntrenadorActual.Location = new System.Drawing.Point(41, 73);
             this.lblEntrenadorActual.Name = "lblEntrenadorActual";
             this.lblEntrenadorActual.Size = new System.Drawing.Size(279, 29);
             this.lblEntrenadorActual.TabIndex = 137;
@@ -85,21 +85,11 @@
             this.label12.BackColor = System.Drawing.Color.White;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label12.Location = new System.Drawing.Point(13, 63);
+            this.label12.Location = new System.Drawing.Point(8, 54);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(151, 19);
             this.label12.TabIndex = 136;
             this.label12.Text = "Entrenador actual:\n";
-            // 
-            // cmbDisciplina
-            // 
-            this.cmbDisciplina.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbDisciplina.FormattingEnabled = true;
-            this.cmbDisciplina.Location = new System.Drawing.Point(45, 149);
-            this.cmbDisciplina.Name = "cmbDisciplina";
-            this.cmbDisciplina.Size = new System.Drawing.Size(275, 33);
-            this.cmbDisciplina.TabIndex = 139;
-            this.cmbDisciplina.SelectedIndexChanged += new System.EventHandler(this.cmbDisciplina_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -107,7 +97,7 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
-            this.label2.Location = new System.Drawing.Point(13, 127);
+            this.label2.Location = new System.Drawing.Point(8, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 19);
             this.label2.TabIndex = 138;
@@ -117,6 +107,10 @@
             // 
             this.cmbTipoReemplazo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoReemplazo.FormattingEnabled = true;
+            this.cmbTipoReemplazo.Items.AddRange(new object[] {
+            "Médico",
+            "Personal",
+            "Retirado"});
             this.cmbTipoReemplazo.Location = new System.Drawing.Point(45, 219);
             this.cmbTipoReemplazo.Name = "cmbTipoReemplazo";
             this.cmbTipoReemplazo.Size = new System.Drawing.Size(275, 33);
@@ -131,9 +125,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
             this.label1.Location = new System.Drawing.Point(13, 197);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 19);
+            this.label1.Size = new System.Drawing.Size(173, 19);
             this.label1.TabIndex = 140;
-            this.label1.Text = "Tipo de reemplazo:\n";
+            this.label1.Text = "Razón de reemplazo:\n";
             // 
             // cmbNuevoEntrenador
             // 
@@ -233,19 +227,34 @@
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(61)))), ((int)(((byte)(228)))));
-            this.btnCerrar.Location = new System.Drawing.Point(7, 480);
+            this.btnCerrar.Location = new System.Drawing.Point(12, 480);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(177, 33);
             this.btnCerrar.TabIndex = 147;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // clbDisciplina
+            // 
+            this.clbDisciplina.FormattingEnabled = true;
+            this.clbDisciplina.Items.AddRange(new object[] {
+            "Karate",
+            "Judo",
+            "Taekwondo",
+            "Boxeo"});
+            this.clbDisciplina.Location = new System.Drawing.Point(45, 124);
+            this.clbDisciplina.Name = "clbDisciplina";
+            this.clbDisciplina.Size = new System.Drawing.Size(275, 64);
+            this.clbDisciplina.TabIndex = 149;
             // 
             // frmRemplazarEntrenador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(395, 547);
+            this.ClientSize = new System.Drawing.Size(395, 559);
+            this.Controls.Add(this.clbDisciplina);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.pnlPeriodoTemporal);
@@ -253,7 +262,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbTipoReemplazo);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbDisciplina);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblEntrenadorActual);
             this.Controls.Add(this.label12);
@@ -276,7 +284,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblEntrenadorActual;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox cmbDisciplina;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbTipoReemplazo;
         private System.Windows.Forms.Label label1;
@@ -289,5 +296,6 @@
         private System.Windows.Forms.DateTimePicker dtpFechaFin;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.CheckedListBox clbDisciplina;
     }
 }
