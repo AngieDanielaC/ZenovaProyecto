@@ -194,7 +194,6 @@ namespace wfZenova
         {
             Bandera = 1;
             CargarDisciplinas();
-            CargarEntrenadores();
             CargarDeportistas();
             Bandera = 0;
         }
@@ -399,31 +398,6 @@ namespace wfZenova
 
         private void cmbEntrenador_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Bandera == 1 || cmbEntrenador.SelectedIndex == -1)
-                return;
-
-            if (!int.TryParse(cmbEntrenador.SelectedValue.ToString(), out int idEntrenador))
-                return;
-
-            Bandera = 1;
-
-            DataTable dt = conSQL.RetornaRegistros($@"
-            SELECT DISTINCT
-                 D.IdDeporte,
-                 D.NombreDeporte
-            FROM Deportes D
-            INNER JOIN EntrenadorDeporte ED
-                ON D.IdDeporte = ED.IdDeporte
-            WHERE ED.IdEntrenador = {idEntrenador}
-                AND ED.Activo = 1
-            ORDER BY D.NombreDeporte");
-
-            cmbDisciplina.DataSource = dt;
-            cmbDisciplina.DisplayMember = "NombreDeporte";
-            cmbDisciplina.ValueMember = "IdDeporte";
-            cmbDisciplina.SelectedIndex = -1;
-
-            Bandera = 0;
         }
 
         private void btnFiltrar_Click(object sender, EventArgs e)
