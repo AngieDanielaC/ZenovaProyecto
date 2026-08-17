@@ -21,6 +21,7 @@ namespace wfZenova
 
             this.idDeportista = idDeportista;
 
+            CargarCategoriasEdad();
             CargarDeportista();
         }
 
@@ -47,30 +48,31 @@ namespace wfZenova
                     @"SELECT
                 D.Nombres,
                 D.Apellidos,
+                D.FechaNacimiento,
                 DEP.NombreDeporte
               FROM Deportistas D
 
-              INNER JOIN Inscripciones I
+              LEFT JOIN Inscripciones I
                   ON D.IdDeportista = I.IdDeportista
+                  AND I.Estado = 'Activa'
 
-              INNER JOIN EntrenadorDeporte ED
+              LEFT JOIN EntrenadorDeporte ED
                   ON I.IdEntrenadorDeporte =
                      ED.IdEntrenadorDeporte
 
-              INNER JOIN Deportes DEP
+              LEFT JOIN Deportes DEP
                   ON ED.IdDeporte =
                      DEP.IdDeporte
 
               WHERE
-                  D.IdDeportista = " + idDeportista + @"
-                  AND I.Estado = 'Activa'"
+                  D.IdDeportista = " + idDeportista
                 );
 
             if (tabla == null ||
                 tabla.Rows.Count == 0)
             {
                 MessageBox.Show(
-                    "No se encontró la información deportiva del deportista.",
+                    "No se encontró el deportista.",
                     "ZENOVA",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -86,8 +88,226 @@ namespace wfZenova
                 " " +
                 fila["Apellidos"].ToString();
 
-            lblDeporte.Text =
-                fila["NombreDeporte"].ToString();
+            if (fila["NombreDeporte"] != DBNull.Value)
+            {
+                lblDeporte.Text =
+                    fila["NombreDeporte"].ToString();
+            }
+            else
+            {
+                lblDeporte.Text =
+                    "Sin asignar";
+            }
+
+            if (fila["FechaNacimiento"] != DBNull.Value)
+            {
+                DateTime fechaNacimiento =
+                    Convert.ToDateTime(fila["FechaNacimiento"]);
+
+                DateTime fechaReferencia =
+                    dtpFechaMedicion.Value.Date;
+
+                int edad =
+                    fechaReferencia.Year - fechaNacimiento.Year;
+
+                if (fechaNacimiento.Date >
+                    fechaReferencia.AddYears(-edad))
+                {
+                    edad--;
+                }
+
+                if (edad >= 5 && edad <= 11)
+                {
+                    cmbCategoriaEdad.SelectedItem =
+                        "Infantil / Iniciación";
+                }
+                else if (edad >= 12 && edad <= 14)
+                {
+                    cmbCategoriaEdad.SelectedItem =
+                        "Pre-Juvenil / Menores";
+                }
+                else if (edad >= 15 && edad <= 17)
+                {
+                    cmbCategoriaEdad.SelectedItem =
+                        "Juvenil";
+                }
+                else if (edad >= 18 && edad <= 34)
+                {
+                    cmbCategoriaEdad.SelectedItem =
+                        "Sénior / Abierta";
+                }
+                else if (edad >= 35)
+                {
+                    cmbCategoriaEdad.SelectedItem =
+                        "Máster / Veteranos";
+                }
+                else
+                {
+                    cmbCategoriaEdad.SelectedIndex = -1;
+                }
+            }
+        }
+        private void CargarCategoriasEdad()
+        {
+            cmbCategoriaEdad.Items.Clear();
+
+            cmbCategoriaEdad.Items.Add(
+                "Infantil / Iniciación");
+
+            cmbCategoriaEdad.Items.Add(
+                "Pre-Juvenil / Menores");
+
+            cmbCategoriaEdad.Items.Add(
+                "Juvenil");
+
+            cmbCategoriaEdad.Items.Add(
+                "Sénior / Abierta");
+
+            cmbCategoriaEdad.Items.Add(
+                "Máster / Veteranos");
+
+            cmbCategoriaEdad.DropDownStyle =
+                ComboBoxStyle.DropDownList;
+
+            cmbCategoriaEdad.SelectedIndex = -1;
+        }
+        private bool ValidarPeso()
+        {
+            decimal peso;
+
+            // Campo vacío
+            if (txtPeso.Text.Trim() == "")
+            {
+                MessageBox.Show(
+                    "Ingrese el peso del deportista.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtPeso.Focus();
+                return false;
+            }
+
+            // Debe ser un número
+            if (!decimal.TryParse(
+                txtPeso.Text.Trim(),
+                out peso))
+            {
+                MessageBox.Show(
+                    "Ingrese un peso válido.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtPeso.Focus();
+                return false;
+            }
+
+            // No permitir cero ni negativos
+            if (peso <= 0)
+            {
+                MessageBox.Show(
+                    "El peso debe ser mayor a 0.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtPeso.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void txtPeso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+            // Permitir teclas como borrar
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            // Permitir un solo separador decimal
+            if ((e.KeyChar == ',' || e.KeyChar == '.') &&
+                !txtPeso.Text.Contains(",") &&
+                !txtPeso.Text.Contains("."))
+            {
+                return;
+            }
+
+            e.Handled = true;
+        }
+        private bool ValidarAltura()
+        {
+            decimal altura;
+
+            // Campo vacío
+            if (txtAltura.Text.Trim() == "")
+            {
+                MessageBox.Show(
+                    "Ingrese la altura del deportista.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtAltura.Focus();
+                return false;
+            }
+
+            // Aceptar punto o coma decimal
+            string textoAltura =
+                txtAltura.Text.Trim().Replace('.', ',');
+
+            // Debe ser un número
+            if (!decimal.TryParse(
+                textoAltura,
+                out altura))
+            {
+                MessageBox.Show(
+                    "Ingrese una altura válida en metros.\nEjemplo: 1,62",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtAltura.Focus();
+                return false;
+            }
+
+            // No permitir cero ni negativos
+            if (altura <= 0)
+            {
+                MessageBox.Show(
+                    "La altura debe ser mayor a 0.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtAltura.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void txtAltura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+            // Borrar, Ctrl+C, etc.
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            // Un solo separador decimal
+            if ((e.KeyChar == ',' || e.KeyChar == '.') &&
+                !txtAltura.Text.Contains(",") &&
+                !txtAltura.Text.Contains("."))
+            {
+                return;
+            }
+
+            e.Handled = true;
         }
     }
 }
