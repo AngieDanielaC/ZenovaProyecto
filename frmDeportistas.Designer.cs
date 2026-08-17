@@ -264,7 +264,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDeportistas";
             this.Text = "frmDeportistas";
-            this.Load += new System.EventHandler(this.frmDeportistas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeportistas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

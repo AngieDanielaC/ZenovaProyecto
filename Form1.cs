@@ -35,7 +35,7 @@ namespace wfZenova
             // Ocultar entrenador
             btnInicio.Visible = false;
             // Mostrar administrador
-            btnInicioAdm.Visible = false;
+
             btnDeportistasAdm.Visible = true;
             btnEntrenadoresAdm.Visible = true;
             btnAsignacionAdm.Visible = true;
@@ -55,7 +55,6 @@ namespace wfZenova
 
             // Ocultar administrador
 
-            btnInicioAdm.Visible = false;
             btnDeportistasAdm.Visible = false;
             btnEntrenadoresAdm.Visible = false;
             btnAsignacionAdm.Visible = false;
