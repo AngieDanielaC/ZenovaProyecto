@@ -101,6 +101,12 @@
     <Compile Include="frmControles.Designer.cs">
       <DependentUpon>frmControles.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDatosDeportivos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDatosDeportivos.Designer.cs">
+      <DependentUpon>frmDatosDeportivos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDepAdm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,12 @@
     </Compile>
     <Compile Include="frmGestionTecnica.Designer.cs">
       <DependentUpon>frmGestionTecnica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHistorialMediciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHistorialMediciones.Designer.cs">
+      <DependentUpon>frmHistorialMediciones.cs</DependentUpon>
     </Compile>
     <Compile Include="frmInactivarEntrenador.cs">
       <SubType>Form</SubType>
@@ -347,6 +359,12 @@
     <Compile Include="frmVerEntrenador.Designer.cs">
       <DependentUpon>frmVerEntrenador.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVerInfoPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerInfoPersonal.Designer.cs">
+      <DependentUpon>frmVerInfoPersonal.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVerParticipantes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -394,6 +412,9 @@
     <EmbeddedResource Include="frmControles.resx">
       <DependentUpon>frmControles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDatosDeportivos.resx">
+      <DependentUpon>frmDatosDeportivos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDepAdm.resx">
       <DependentUpon>frmDepAdm.cs</DependentUpon>
     </EmbeddedResource>
@@ -429,6 +450,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionTecnica.resx">
       <DependentUpon>frmGestionTecnica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHistorialMediciones.resx">
+      <DependentUpon>frmHistorialMediciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInactivarEntrenador.resx">
       <DependentUpon>frmInactivarEntrenador.cs</DependentUpon>
@@ -516,6 +540,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerEntrenador.resx">
       <DependentUpon>frmVerEntrenador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerInfoPersonal.resx">
+      <DependentUpon>frmVerInfoPersonal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerParticipantes.resx">
       <DependentUpon>frmVerParticipantes.cs</DependentUpon>

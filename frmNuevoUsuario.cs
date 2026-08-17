@@ -489,6 +489,7 @@ namespace wfZenova
 
                 picFoto.SizeMode =
                     PictureBoxSizeMode.Zoom;
+                fotoSeleccionada = true;
             }
             else
             {
@@ -574,17 +575,9 @@ namespace wfZenova
         }
         private bool ValidarCampos()
         {
-            if (!fotoSeleccionada)
-            {
-                MessageBox.Show(
-                    "Debe subir una foto del usuario.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return false;
-            }
+            // ==========================================
             // ROL
+            // ==========================================
             if (cmbRol.SelectedIndex == -1)
             {
                 MessageBox.Show(
@@ -597,181 +590,256 @@ namespace wfZenova
                 return false;
             }
 
+            bool esEntrenador =
+                cmbRol.Text == "Entrenador";
+
+
+            // ==========================================
             // SI ES ENTRENADOR
-            if (cmbRol.Text == "Entrenador" &&
-                cmbEntrenador.SelectedIndex == -1)
+            // ==========================================
+            if (esEntrenador)
             {
-                MessageBox.Show(
-                    "Seleccione un entrenador registrado.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                // Debe seleccionar entrenador registrado
+                if (cmbEntrenador.SelectedIndex == -1 ||
+                    cmbEntrenador.SelectedValue == null)
+                {
+                    MessageBox.Show(
+                        "Seleccione un entrenador registrado.",
+                        "ZENOVA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
 
-                cmbEntrenador.Focus();
-                return false;
+                    cmbEntrenador.Focus();
+                    return false;
+                }
+
+                // Foto cargada desde Entrenadores
+                if (!fotoSeleccionada ||
+                    picFoto.Image == null)
+                {
+                    MessageBox.Show(
+                        "El entrenador seleccionado no tiene una foto registrada.",
+                        "ZENOVA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return false;
+                }
+
+                // IMPORTANTE:
+                // NO volvemos a validar aquí:
+                // FechaNacimiento
+                // Género
+                // Teléfono
+                // Dirección
+                // etc.
+                //
+                // Porque esos datos ya fueron registrados
+                // y validados en Gestión de Entrenadores.
             }
 
-            // NOMBRES
-            if (txtNombres.Text.Trim() == "")
-            {
-                MessageBox.Show(
-                    "Ingrese los nombres.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
 
-                txtNombres.Focus();
-                return false;
+            // ==========================================
+            // SI NO ES ENTRENADOR
+            // VALIDAR DATOS INGRESADOS MANUALMENTE
+            // ==========================================
+            else
+            {
+                // FOTO
+                if (!fotoSeleccionada ||
+                    picFoto.Image == null)
+                {
+                    MessageBox.Show(
+                        "Debe subir una foto del usuario.",
+                        "ZENOVA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return false;
+                }
+
+
+                // NOMBRES
+                if (txtNombres.Text.Trim() == "")
+                {
+                    MessageBox.Show(
+                        "Ingrese los nombres.",
+                        "ZENOVA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    txtNombres.Focus();
+                    return false;
+                }
+
+                if (!txtNombres.Text.Trim()
+                    .All(c => char.IsLetter(c) ||
+                              char.IsWhiteSpace(c)))
+                {
+                    MessageBox.Show(
+                        "Los nombres solo pueden contener letras.",
+                        "ZENOVA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    txtNombres.Focus();
+                    return false;
+                }
+
+
+                // APELLIDOS
+                if (txtApellidos.Text.Trim() == "")
+                {
+                    MessageBox.Show(
+                        "Ingrese los apellidos.",
+                        "ZENOVA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    txtApellidos.Focus();
+                    return false;
+                }
+
+                if (!txtApellidos.Text.Trim()
+                    .All(c => char.IsLetter(c) ||
+                              char.IsWhiteSpace(c)))
+                {
+                    MessageBox.Show(
+                        "Los apellidos solo pueden contener letras.",
+                        "ZENOVA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    txtApellidos.Focus();
+                    return false;
+                }
+
+
+                // CÉDULA
+                string cedulaNormal =
+                    txtCedula.Text.Trim();
+
+                if (cedulaNormal.Length != 10 ||
+                    !cedulaNormal.All(char.IsDigit))
+                {
+                    MessageBox.Show(
+                        "La cédula debe contener exactamente 10 dígitos.",
+                        "ZENOVA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    txtCedula.Focus();
+                    return false;
+                }
+
+
+                // FECHA DE NACIMIENTO
+                if (dtpFechaNacimiento.Value.Date >=
+                    DateTime.Today)
+                {
+                    MessageBox.Show(
+                        "Ingrese una fecha de nacimiento válida.",
+                        "ZENOVA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    dtpFechaNacimiento.Focus();
+                    return false;
+                }
+
+
+                // GÉNERO
+                if (!rbMasculino.Checked &&
+                    !rbFemenino.Checked)
+                {
+                    MessageBox.Show(
+                        "Seleccione el género.",
+                        "ZENOVA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return false;
+                }
+
+
+                // DIRECCIÓN
+                if (txtDireccion.Text.Trim() == "")
+                {
+                    MessageBox.Show(
+                        "Ingrese la dirección.",
+                        "ZENOVA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    txtDireccion.Focus();
+                    return false;
+                }
+
+
+                // TELÉFONO
+                string telefono =
+                    txtTelefono.Text.Trim();
+
+                if (telefono.Length != 10 ||
+                    !telefono.All(char.IsDigit))
+                {
+                    MessageBox.Show(
+                        "El teléfono debe contener exactamente 10 dígitos.",
+                        "ZENOVA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    txtTelefono.Focus();
+                    return false;
+                }
+
+
+                // CORREO
+                string correoNormal =
+                    txtCorreo.Text.Trim();
+
+                if (correoNormal == "")
+                {
+                    MessageBox.Show(
+                        "Ingrese el correo electrónico.",
+                        "ZENOVA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    txtCorreo.Focus();
+                    return false;
+                }
+
+                try
+                {
+                    System.Net.Mail.MailAddress correoValido =
+                        new System.Net.Mail.MailAddress(
+                            correoNormal);
+
+                    if (correoValido.Address !=
+                        correoNormal)
+                    {
+                        throw new Exception();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show(
+                        "Ingrese un correo electrónico válido.",
+                        "ZENOVA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    txtCorreo.Focus();
+                    return false;
+                }
             }
 
-            if (!txtNombres.Text.Trim()
-                .All(c => char.IsLetter(c) ||
-                          char.IsWhiteSpace(c)))
-            {
-                MessageBox.Show(
-                    "Los nombres solo pueden contener letras.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
 
-                txtNombres.Focus();
-                return false;
-            }
-
-            // APELLIDOS
-            if (txtApellidos.Text.Trim() == "")
-            {
-                MessageBox.Show(
-                    "Ingrese los apellidos.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txtApellidos.Focus();
-                return false;
-            }
-
-            if (!txtApellidos.Text.Trim()
-                .All(c => char.IsLetter(c) ||
-                          char.IsWhiteSpace(c)))
-            {
-                MessageBox.Show(
-                    "Los apellidos solo pueden contener letras.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txtApellidos.Focus();
-                return false;
-            }
-
-            // CÉDULA
-            string cedula = txtCedula.Text.Trim();
-
-            if (cedula.Length != 10 ||
-                !cedula.All(char.IsDigit))
-            {
-                MessageBox.Show(
-                    "La cédula debe contener exactamente 10 dígitos.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txtCedula.Focus();
-                return false;
-            }
-
-            // FECHA DE NACIMIENTO
-            if (dtpFechaNacimiento.Value.Date >=
-                DateTime.Today)
-            {
-                MessageBox.Show(
-                    "Ingrese una fecha de nacimiento válida.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return false;
-            }
-
-            // GÉNERO
-            if (!rbMasculino.Checked &&
-                !rbFemenino.Checked)
-            {
-                MessageBox.Show(
-                    "Seleccione el género.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return false;
-            }
-
-            // DIRECCIÓN
-            if (txtDireccion.Text.Trim() == "")
-            {
-                MessageBox.Show(
-                    "Ingrese la dirección.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txtDireccion.Focus();
-                return false;
-            }
-
-            // TELÉFONO
-            string telefono = txtTelefono.Text.Trim();
-
-            if (telefono.Length != 10 ||
-                !telefono.All(char.IsDigit))
-            {
-                MessageBox.Show(
-                    "El teléfono debe contener exactamente 10 dígitos.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txtTelefono.Focus();
-                return false;
-            }
-
-            // CORREO
-            string correo = txtCorreo.Text.Trim();
-
-            if (correo == "")
-            {
-                MessageBox.Show(
-                    "Ingrese el correo electrónico.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txtCorreo.Focus();
-                return false;
-            }
-
-            try
-            {
-                System.Net.Mail.MailAddress correoValido =
-                    new System.Net.Mail.MailAddress(correo);
-
-                if (correoValido.Address != correo)
-                    throw new Exception();
-            }
-            catch
-            {
-                MessageBox.Show(
-                    "Ingrese un correo electrónico válido.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txtCorreo.Focus();
-                return false;
-            }
-
-            // USUARIO Y CONTRASEÑA GENERADOS
+            // ==========================================
+            // CREDENCIALES
+            // ESTO SE VALIDA PARA TODOS LOS ROLES
+            // ==========================================
             if (lblUsuario.Text.Trim() == "" ||
                 lblContrasena.Text.Trim() == "")
             {
@@ -784,18 +852,37 @@ namespace wfZenova
                 return false;
             }
 
-            // DUPLICADO DE CÉDULA
+
+            // ==========================================
+            // DATOS PARA VALIDAR DUPLICADOS
+            // ==========================================
+            string cedula =
+                txtCedula.Text.Trim();
+
+            string correo =
+                txtCorreo.Text.Trim();
+
+            string usuario =
+                lblUsuario.Text.Trim();
+
+
+            // ==========================================
+            // CÉDULA REPETIDA EN USUARIOS
+            // ==========================================
             DataTable tablaCedula =
                 conSQL.RetornaRegistros(
-                    "SELECT IdUsuario FROM Usuarios " +
-                    "WHERE Cedula = '" + cedula + "'"
+                    "SELECT IdUsuario " +
+                    "FROM Usuarios " +
+                    "WHERE Cedula = '" +
+                    cedula.Replace("'", "''") +
+                    "'"
                 );
 
             if (tablaCedula != null &&
                 tablaCedula.Rows.Count > 0)
             {
                 MessageBox.Show(
-                    "Ya existe un usuario con esa cédula.",
+                    "Ya existe una cuenta de usuario con esa cédula.",
                     "ZENOVA",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -803,31 +890,45 @@ namespace wfZenova
                 return false;
             }
 
-            // DUPLICADO DE CORREO
-            DataTable tablaCorreo =
-                conSQL.RetornaRegistros(
-                    "SELECT IdUsuario FROM Usuarios " +
-                    "WHERE Correo = '" + correo + "'"
-                );
 
-            if (tablaCorreo != null &&
-                tablaCorreo.Rows.Count > 0)
+            // ==========================================
+            // CORREO REPETIDO
+            // ==========================================
+            if (correo != "")
             {
-                MessageBox.Show(
-                    "Ya existe un usuario con ese correo electrónico.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                DataTable tablaCorreo =
+                    conSQL.RetornaRegistros(
+                        "SELECT IdUsuario " +
+                        "FROM Usuarios " +
+                        "WHERE Correo = '" +
+                        correo.Replace("'", "''") +
+                        "'"
+                    );
 
-                return false;
+                if (tablaCorreo != null &&
+                    tablaCorreo.Rows.Count > 0)
+                {
+                    MessageBox.Show(
+                        "Ya existe una cuenta de usuario con ese correo electrónico.",
+                        "ZENOVA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return false;
+                }
             }
 
-            // DUPLICADO DE USUARIO
+
+            // ==========================================
+            // USUARIO REPETIDO
+            // ==========================================
             DataTable tablaUsuario =
                 conSQL.RetornaRegistros(
-                    "SELECT IdUsuario FROM Usuarios " +
+                    "SELECT IdUsuario " +
+                    "FROM Usuarios " +
                     "WHERE NombreUsuario = '" +
-                    lblUsuario.Text.Trim() + "'"
+                    usuario.Replace("'", "''") +
+                    "'"
                 );
 
             if (tablaUsuario != null &&
@@ -841,6 +942,7 @@ namespace wfZenova
 
                 return false;
             }
+
 
             return true;
         }
