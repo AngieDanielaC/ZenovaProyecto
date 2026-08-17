@@ -91,12 +91,11 @@ namespace wfZenova
             try
             {
                 // ==========================================
-                // OBTENER BÚSQUEDA
+                // BÚSQUEDA
                 // ==========================================
                 string buscar =
                     txtBuscar.Text.Trim();
 
-                // "Buscar" es solo texto visual
                 if (buscar.Equals(
                     "Buscar",
                     StringComparison.OrdinalIgnoreCase))
@@ -104,13 +103,12 @@ namespace wfZenova
                     buscar = "";
                 }
 
-                // Evitar problemas con apóstrofes
                 buscar =
                     buscar.Replace("'", "''");
 
 
                 // ==========================================
-                // OBTENER ROL
+                // ROL
                 // ==========================================
                 int idRol = 0;
 
@@ -124,7 +122,7 @@ namespace wfZenova
 
 
                 // ==========================================
-                // OBTENER ESTADO
+                // ESTADO
                 // ==========================================
                 string estado = "Todos";
 
@@ -136,7 +134,7 @@ namespace wfZenova
 
 
                 // ==========================================
-                // ARMAR FILTROS
+                // FILTRO DE BÚSQUEDA
                 // ==========================================
                 string filtroBuscar = "";
 
@@ -149,7 +147,8 @@ namespace wfZenova
                     OR U.Apellidos LIKE '%" + buscar + @"%'
                     OR
                     (
-                        U.Nombres + ' ' + U.Apellidos
+                        U.Nombres + ' ' +
+                        U.Apellidos
                     ) LIKE '%" + buscar + @"%'
                     OR U.NombreUsuario LIKE '%" + buscar + @"%'
                     OR U.Correo LIKE '%" + buscar + @"%'
@@ -158,6 +157,9 @@ namespace wfZenova
                 }
 
 
+                // ==========================================
+                // FILTRO DE ROL
+                // ==========================================
                 string filtroRol = "";
 
                 if (idRol > 0)
@@ -168,6 +170,9 @@ namespace wfZenova
                 }
 
 
+                // ==========================================
+                // FILTRO DE ESTADO
+                // ==========================================
                 string filtroEstado = "";
 
                 if (estado == "Activo")
@@ -184,11 +189,11 @@ namespace wfZenova
 
                 // ==========================================
                 // CONSULTA
+                // SIN FOTO
                 // ==========================================
                 string consulta =
                     @"SELECT
                 U.IdUsuario,
-                U.Foto,
 
                 U.Nombres + ' ' +
                 U.Apellidos AS Nombre,
@@ -222,9 +227,6 @@ namespace wfZenova
                     U.Apellidos";
 
 
-                // ==========================================
-                // CONSULTAR
-                // ==========================================
                 DataTable tabla =
                     conSQL.RetornaRegistros(
                         consulta);
@@ -235,84 +237,20 @@ namespace wfZenova
 
 
                 // ==========================================
-                // COLUMNA PARA MOSTRAR FOTO
-                // ==========================================
-                DataColumn columnaFotoUsuario =
-                    new DataColumn(
-                        "FotoUsuario",
-                        typeof(Image));
-
-
-                tabla.Columns.Add(
-                    columnaFotoUsuario);
-
-
-                columnaFotoUsuario.SetOrdinal(0);
-
-
-                // ==========================================
-                // CONVERTIR FOTO
-                // ==========================================
-                foreach (DataRow fila
-                         in tabla.Rows)
-                {
-                    if (fila["Foto"] != DBNull.Value)
-                    {
-                        try
-                        {
-                            byte[] bytesFoto =
-                                (byte[])fila["Foto"];
-
-
-                            using (MemoryStream ms =
-                                   new MemoryStream(bytesFoto))
-                            {
-                                using (Image imagen =
-                                       Image.FromStream(ms))
-                                {
-                                    fila["FotoUsuario"] =
-                                        new Bitmap(imagen);
-                                }
-                            }
-                        }
-                        catch
-                        {
-                            fila["FotoUsuario"] =
-                                DBNull.Value;
-                        }
-                    }
-                    else
-                    {
-                        fila["FotoUsuario"] =
-                            DBNull.Value;
-                    }
-                }
-
-
-                // ==========================================
-                // MOSTRAR EN TABLA
+                // MOSTRAR
                 // ==========================================
                 dgvUsuarios.DataSource =
                     tabla;
 
 
                 // ==========================================
-                // OCULTAR COLUMNAS INTERNAS
+                // OCULTAR ID
                 // ==========================================
                 if (dgvUsuarios.Columns[
                     "IdUsuario"] != null)
                 {
                     dgvUsuarios.Columns[
                         "IdUsuario"]
-                        .Visible = false;
-                }
-
-
-                if (dgvUsuarios.Columns[
-                    "Foto"] != null)
-                {
-                    dgvUsuarios.Columns[
-                        "Foto"]
                         .Visible = false;
                 }
 

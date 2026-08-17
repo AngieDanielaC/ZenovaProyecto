@@ -243,8 +243,73 @@ namespace wfZenova
         }
         private void CargarCompetencias()
         {
-            DataTable tabla =
-                conSQL.RetornaRegistros(
+            try
+            {
+                // ==========================================
+                // TEXTO DE BÚSQUEDA
+                // ==========================================
+                string buscar =
+                    txtBuscarCompetencia.Text.Trim();
+
+                // "Buscar" es solo texto visual
+                if (buscar.Equals(
+                    "Buscar",
+                    StringComparison.OrdinalIgnoreCase))
+                {
+                    buscar = "";
+                }
+
+                buscar =
+                    buscar.Replace("'", "''");
+
+
+                // ==========================================
+                // FILTRO
+                // ==========================================
+                string filtroBuscar = "";
+
+                if (buscar != "")
+                {
+                    filtroBuscar =
+                        @" AND
+                (
+                    C.NombreCompetencia
+                        LIKE '%" + buscar + @"%'
+
+                    OR C.Organizador
+                        LIKE '%" + buscar + @"%'
+
+                    OR C.Lugar
+                        LIKE '%" + buscar + @"%'
+
+                    OR C.Nivel
+                        LIKE '%" + buscar + @"%'
+
+                    OR EXISTS
+                    (
+                        SELECT 1
+
+                        FROM CompetenciaDeporte CDF
+
+                        INNER JOIN Deportes DF
+                            ON CDF.IdDeporte =
+                               DF.IdDeporte
+
+                        WHERE
+                            CDF.IdCompetencia =
+                                C.IdCompetencia
+
+                            AND DF.NombreDeporte
+                                LIKE '%" + buscar + @"%'
+                    )
+                )";
+                }
+
+
+                // ==========================================
+                // CONSULTA
+                // ==========================================
+                string consulta =
                     @"
             SELECT
                 C.IdCompetencia,
@@ -256,12 +321,13 @@ namespace wfZenova
                 C.FechaFin,
                 C.FechaLimiteInscripcion,
 
-                -- DEPORTES DE LA COMPETENCIA
+                -- DEPORTES
                 STUFF
                 (
                     (
                         SELECT
-                            ', ' + D.NombreDeporte
+                            ', ' +
+                            D.NombreDeporte
 
                         FROM CompetenciaDeporte CD
 
@@ -271,19 +337,24 @@ namespace wfZenova
 
                         WHERE
                             CD.IdCompetencia =
-                            C.IdCompetencia
+                                C.IdCompetencia
 
                         ORDER BY
                             D.NombreDeporte
 
                         FOR XML PATH(''), TYPE
-                    ).value('.', 'NVARCHAR(MAX)'),
+
+                    ).value(
+                        '.',
+                        'NVARCHAR(MAX)'
+                    ),
                     1,
                     2,
                     ''
                 ) AS Deportes,
 
-                -- TOTAL DE INSCRITOS
+
+                -- TOTAL INSCRITOS
                 (
                     SELECT COUNT(*)
 
@@ -295,16 +366,19 @@ namespace wfZenova
 
                     WHERE
                         CD2.IdCompetencia =
-                        C.IdCompetencia
+                            C.IdCompetencia
 
                         AND PC.EstadoParticipacion =
                             'Inscrito'
+
                 ) AS Inscritos,
+
 
                 -- ESTADO ACTUAL
                 CASE
 
-                    WHEN C.Estado = 'Cancelada'
+                    WHEN C.Estado =
+                         'Cancelada'
                         THEN 'Cancelada'
 
                     WHEN CAST(GETDATE() AS DATE)
@@ -312,131 +386,144 @@ namespace wfZenova
                         THEN 'Próxima'
 
                     WHEN CAST(GETDATE() AS DATE)
-                         BETWEEN C.FechaInicio
-                         AND C.FechaFin
+                         BETWEEN
+                            C.FechaInicio
+                            AND C.FechaFin
                         THEN 'En curso'
 
-                    ELSE 'Finalizada'
+                    ELSE
+                        'Finalizada'
 
                 END AS EstadoActual
 
+
             FROM Competencias C
+
+            WHERE 1 = 1
+
+            " + filtroBuscar + @"
 
             ORDER BY
                 C.FechaInicio DESC,
                 C.NombreCompetencia;
-            "
-                );
+            ";
 
 
-            if (tabla == null)
-                return;
+                DataTable tabla =
+                    conSQL.RetornaRegistros(
+                        consulta);
 
 
-            dgvCompetencias.Rows.Clear();
+                if (tabla == null)
+                    return;
 
 
-            foreach (DataRow fila in tabla.Rows)
-            {
                 // ==========================================
-                // FECHAS
+                // LIMPIAR TABLA
                 // ==========================================
-                string fechaInicio =
-                    Convert.ToDateTime(
-                        fila["FechaInicio"])
-                    .ToString("dd/MM/yyyy");
+                dgvCompetencias.Rows.Clear();
 
 
-                string fechaFin =
-                    Convert.ToDateTime(
-                        fila["FechaFin"])
-                    .ToString("dd/MM/yyyy");
-
-
-                string fechaLimite;
-
-                if (fila["FechaLimiteInscripcion"]
-                    != DBNull.Value)
+                // ==========================================
+                // MOSTRAR
+                // ==========================================
+                foreach (DataRow fila
+                         in tabla.Rows)
                 {
-                    fechaLimite =
+                    string fechaInicio =
                         Convert.ToDateTime(
-                            fila["FechaLimiteInscripcion"])
+                            fila["FechaInicio"])
                         .ToString("dd/MM/yyyy");
+
+
+                    string fechaFin =
+                        Convert.ToDateTime(
+                            fila["FechaFin"])
+                        .ToString("dd/MM/yyyy");
+
+
+                    string fechaLimite;
+
+                    if (fila["FechaLimiteInscripcion"]
+                        != DBNull.Value)
+                    {
+                        fechaLimite =
+                            Convert.ToDateTime(
+                                fila["FechaLimiteInscripcion"])
+                            .ToString("dd/MM/yyyy");
+                    }
+                    else
+                    {
+                        fechaLimite =
+                            "Sin límite";
+                    }
+
+
+                    string deportes =
+                        fila["Deportes"] ==
+                        DBNull.Value
+                        ? "Sin deportes"
+                        : fila["Deportes"]
+                            .ToString();
+
+
+                    int inscritos =
+                        Convert.ToInt32(
+                            fila["Inscritos"]);
+
+
+                    int indice =
+                        dgvCompetencias.Rows.Add(
+                            fila["NombreCompetencia"]
+                                .ToString(),
+
+                            fila["Organizador"]
+                                .ToString(),
+
+                            fila["Lugar"]
+                                .ToString(),
+
+                            fila["Nivel"]
+                                .ToString(),
+
+                            fechaInicio,
+
+                            fechaFin,
+
+                            fechaLimite,
+
+                            deportes,
+
+                            inscritos,
+
+                            fila["EstadoActual"]
+                                .ToString()
+                        );
+
+
+                    // ID oculto mediante Tag
+                    dgvCompetencias
+                        .Rows[indice]
+                        .Tag =
+                        Convert.ToInt32(
+                            fila["IdCompetencia"]);
                 }
-                else
-                {
-                    fechaLimite =
-                        "Sin límite";
-                }
 
 
-                // ==========================================
-                // DEPORTES
-                // ==========================================
-                string deportes =
-                    fila["Deportes"] == DBNull.Value
-                    ? "Sin deportes"
-                    : fila["Deportes"].ToString();
-
-
-                // ==========================================
-                // INSCRITOS
-                // ==========================================
-                int inscritos =
-                    Convert.ToInt32(
-                        fila["Inscritos"]);
-
-
-                // ==========================================
-                // ESTADO
-                // ==========================================
-                string estado =
-                    fila["EstadoActual"]
-                    .ToString();
-
-
-                // ==========================================
-                // AGREGAR FILA
-                // ==========================================
-                int indice =
-                    dgvCompetencias.Rows.Add(
-                        fila["NombreCompetencia"]
-                            .ToString(),
-
-                        fila["Organizador"]
-                            .ToString(),
-
-                        fila["Lugar"]
-                            .ToString(),
-
-                        fila["Nivel"]
-                            .ToString(),
-
-                        fechaInicio,
-
-                        fechaFin,
-
-                        fechaLimite,
-
-                        deportes,
-
-                        inscritos,
-
-                        estado
-                    );
-
-
-                // Guardar ID sin mostrarlo
-                dgvCompetencias
-                    .Rows[indice]
-                    .Tag =
-                    Convert.ToInt32(
-                        fila["IdCompetencia"]);
+                dgvCompetencias.ClearSelection();
             }
-
-
-            dgvCompetencias.ClearSelection();
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al cargar las competencias:\n\n" +
+                    ex.Message,
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -533,6 +620,11 @@ namespace wfZenova
             {
                 CargarCompetencias();
             }
+        }
+
+        private void txtBuscarComp_TextChanged(object sender, EventArgs e)
+        {
+            CargarCompetencias();
         }
     }
 }

@@ -33,9 +33,10 @@
             this.btnRegistrarCompetencia = new System.Windows.Forms.Button();
             this.btnGestionarParticipantes = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtBuscarComp = new System.Windows.Forms.TextBox();
+            this.txtBuscarCompetencia = new System.Windows.Forms.TextBox();
             this.dgvCompetencias = new System.Windows.Forms.DataGridView();
             this.btnEditar = new System.Windows.Forms.Button();
+            this.lblDeporte = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompetencias)).BeginInit();
@@ -105,15 +106,15 @@
             this.pictureBox2.TabIndex = 79;
             this.pictureBox2.TabStop = false;
             // 
-            // txtBuscarComp
+            // txtBuscarCompetencia
             // 
-            this.txtBuscarComp.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarComp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
-            this.txtBuscarComp.Location = new System.Drawing.Point(54, 104);
-            this.txtBuscarComp.Name = "txtBuscarComp";
-            this.txtBuscarComp.Size = new System.Drawing.Size(419, 31);
-            this.txtBuscarComp.TabIndex = 80;
-            this.txtBuscarComp.Text = "Buscar";
+            this.txtBuscarCompetencia.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarCompetencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
+            this.txtBuscarCompetencia.Location = new System.Drawing.Point(54, 112);
+            this.txtBuscarCompetencia.Name = "txtBuscarCompetencia";
+            this.txtBuscarCompetencia.Size = new System.Drawing.Size(419, 31);
+            this.txtBuscarCompetencia.TabIndex = 80;
+            this.txtBuscarCompetencia.TextChanged += new System.EventHandler(this.txtBuscarComp_TextChanged);
             // 
             // dgvCompetencias
             // 
@@ -141,15 +142,29 @@
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
+            // lblDeporte
+            // 
+            this.lblDeporte.AutoSize = true;
+            this.lblDeporte.BackColor = System.Drawing.Color.White;
+            this.lblDeporte.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeporte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblDeporte.Location = new System.Drawing.Point(50, 90);
+            this.lblDeporte.Name = "lblDeporte";
+            this.lblDeporte.Size = new System.Drawing.Size(64, 19);
+            this.lblDeporte.TabIndex = 151;
+            this.lblDeporte.Text = "Buscar:";
+            this.lblDeporte.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // frmCompetencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 768);
+            this.Controls.Add(this.lblDeporte);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dgvCompetencias);
-            this.Controls.Add(this.txtBuscarComp);
+            this.Controls.Add(this.txtBuscarCompetencia);
             this.Controls.Add(this.btnGestionarParticipantes);
             this.Controls.Add(this.btnRegistrarCompetencia);
             this.Controls.Add(this.label1);
@@ -174,8 +189,9 @@
         private System.Windows.Forms.Button btnRegistrarCompetencia;
         private System.Windows.Forms.Button btnGestionarParticipantes;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox txtBuscarComp;
+        private System.Windows.Forms.TextBox txtBuscarCompetencia;
         private System.Windows.Forms.DataGridView dgvCompetencias;
         private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Label lblDeporte;
     }
 }
