@@ -137,43 +137,60 @@ namespace wfZenova
             dgvAsignaciones.Columns["Estado"].FillWeight = 12;
 
             dgvAsignaciones.ClearSelection();
-        }        
+        }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            // Validar fechas
             if (dtpFechaInicio.Value > dtpFechaFin.Value)
             {
-                MessageBox.Show("La fecha de inicio no puede ser mayor que la fecha de fin.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "La fecha de inicio no puede ser mayor que la fecha de fin.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
                 return;
             }
 
-            if (cmbDisciplina.SelectedIndex == -1 || cmbEntrenador.SelectedIndex == -1 ||cmbTipoInscripcion.SelectedIndex == -1)
+            // Validar ComboBox
+            if (cmbDisciplina.SelectedIndex == -1 ||
+                cmbEntrenador.SelectedIndex == -1 ||
+                cmbTipoInscripcion.SelectedIndex == -1)
             {
                 MessageBox.Show(
-                    "Debe seleccionar la disciplina, el entrenador y el tipo de inscripción.", "Campos incompletos",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "Debe seleccionar la disciplina, el entrenador y el tipo de inscripción.",
+                    "Campos incompletos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
                 return;
             }
 
+            // Validar deportista
             if (cmbDeportista.SelectedIndex == -1)
             {
                 MessageBox.Show(
-                    "Debe seleccionar un deportista.", "Campos incompletos",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "Debe seleccionar un deportista.",
+                    "Campos incompletos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
                 return;
             }
 
-            //Validar que no lo vuelva a inscribir en la misma disciplina 
             int idDeportista = Convert.ToInt32(cmbDeportista.SelectedValue);
             int idDeporte = Convert.ToInt32(cmbDisciplina.SelectedValue);
+            int idEntrenador = Convert.ToInt32(cmbEntrenador.SelectedValue);
 
+            // Validar que no esté inscrito nuevamente en la misma disciplina
             DataTable dtExiste = conSQL.RetornaRegistros($@"
-            SELECT COUNT(*) AS Cantidad
-            FROM Inscripciones I
-            INNER JOIN EntrenadorDeporte ED
-                ON I.IdEntrenadorDeporte = ED.IdEntrenadorDeporte
-            WHERE I.IdDeportista = {idDeportista}
-            AND ED.IdDeporte = {idDeporte}
-            AND I.Estado <> 'Finalizado'");
+                SELECT COUNT(*) AS Cantidad
+                FROM Inscripciones I
+                INNER JOIN EntrenadorDeporte ED
+                    ON I.IdEntrenadorDeporte = ED.IdEntrenadorDeporte
+                WHERE I.IdDeportista = {idDeportista}
+                AND ED.IdDeporte = {idDeporte}
+                AND I.Estado <> 'Finalizado'");
 
             int cantidad = Convert.ToInt32(dtExiste.Rows[0]["Cantidad"]);
 
@@ -185,8 +202,84 @@ namespace wfZenova
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
-
                 return;
+            }
+
+            // Buscar el IdEntrenadorDeporte
+            DataTable dtRelacion = conSQL.RetornaRegistros($@"
+                SELECT IdEntrenadorDeporte
+                FROM EntrenadorDeporte
+                WHERE IdEntrenador = {idEntrenador}
+                AND IdDeporte = {idDeporte}
+                AND Activo = 1");
+
+            if (dtRelacion.Rows.Count == 0)
+            {
+                MessageBox.Show(
+                    "No se encontró la relación entre el entrenador y la disciplina.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
+
+            int idEntrenadorDeporte =
+                Convert.ToInt32(dtRelacion.Rows[0]["IdEntrenadorDeporte"]);
+
+            string tipoInscripcion =
+                cmbTipoInscripcion.Text.Replace("'", "''");
+
+            DateTime fechaInicio = dtpFechaInicio.Value.Date;
+            DateTime fechaFin = dtpFechaFin.Value.Date;
+
+            // Guardar inscripción
+            string sql = $@"
+                INSERT INTO Inscripciones
+                (
+                    IdDeportista,
+                    IdEntrenadorDeporte,
+                    FechaInicio,
+                    FechaFin,
+                    Estado,
+                    FechaRegistro,
+                    TipoInscripcion
+                )
+                VALUES
+                (
+                    {idDeportista},
+                    {idEntrenadorDeporte},
+                    '{fechaInicio:yyyy-MM-dd}',
+                    '{fechaFin:yyyy-MM-dd}',
+                    'Activo',
+                    GETDATE(),
+                    '{tipoInscripcion}'
+                 )";
+
+            if (conSQL.EjecutaSentenciaSRD(sql))
+            {
+                MessageBox.Show(
+                    "Inscripción registrada correctamente.",
+                    "Registro exitoso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+                // Marcar deportista como activo
+                conSQL.EjecutaSentenciaSRD(
+                    "UPDATE Deportistas " +
+                    "SET Estado = 1 " +
+                    "WHERE IdDeportista = " + idDeportista
+                );
+
+                // Recargar tabla
+                dgvAsignaciones.DataSource =
+                    conSQL.RetornaRegistros("SELECT * FROM VistaInscripciones");
+
+                // Limpiar selección
+                cmbDisciplina.SelectedIndex = -1;
+                cmbEntrenador.DataSource = null;
+                cmbTipoInscripcion.SelectedIndex = -1;
             }
         }
 
@@ -196,6 +289,9 @@ namespace wfZenova
             CargarDisciplinas();
             CargarDeportistas();
             Bandera = 0;
+
+            dgvAsignaciones.DataSource =
+                    conSQL.RetornaRegistros("SELECT * FROM VistaInscripciones");
         }
         
         private void cmbDeportista_SelectedIndexChanged(object sender, EventArgs e)
