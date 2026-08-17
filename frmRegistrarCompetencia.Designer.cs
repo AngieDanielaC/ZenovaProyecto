@@ -30,28 +30,28 @@
         {
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtLugar = new System.Windows.Forms.Label();
+            this.v = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNombreCompetencia = new System.Windows.Forms.TextBox();
+            this.txtOrganizador = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtLugar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.lstDeportes = new System.Windows.Forms.ListBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.cmbDeporte = new System.Windows.Forms.ComboBox();
-            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.cmbRol = new System.Windows.Forms.ComboBox();
+            this.cmbDeportes = new System.Windows.Forms.ComboBox();
+            this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaLimite = new System.Windows.Forms.DateTimePicker();
+            this.cmbNivel = new System.Windows.Forms.ComboBox();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.btnQuitarDeporte = new System.Windows.Forms.Button();
             this.btnAgregarDeporte = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label9
@@ -78,17 +78,17 @@
             this.label8.TabIndex = 35;
             this.label8.Text = "Nivel de la competencia:";
             // 
-            // txtLugar
+            // v
             // 
-            this.txtLugar.AutoSize = true;
-            this.txtLugar.BackColor = System.Drawing.Color.White;
-            this.txtLugar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLugar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.txtLugar.Location = new System.Drawing.Point(290, 55);
-            this.txtLugar.Name = "txtLugar";
-            this.txtLugar.Size = new System.Drawing.Size(111, 19);
-            this.txtLugar.TabIndex = 34;
-            this.txtLugar.Text = "Organizador:";
+            this.v.AutoSize = true;
+            this.v.BackColor = System.Drawing.Color.White;
+            this.v.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.v.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.v.Location = new System.Drawing.Point(290, 55);
+            this.v.Name = "v";
+            this.v.Size = new System.Drawing.Size(111, 19);
+            this.v.TabIndex = 34;
+            this.v.Text = "Organizador:";
             // 
             // label5
             // 
@@ -126,21 +126,21 @@
             this.label2.TabIndex = 29;
             this.label2.Text = "Nombre de la competencia:";
             // 
-            // textBox1
+            // txtNombreCompetencia
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(24, 86);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(201, 31);
-            this.textBox1.TabIndex = 40;
+            this.txtNombreCompetencia.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreCompetencia.Location = new System.Drawing.Point(24, 86);
+            this.txtNombreCompetencia.Name = "txtNombreCompetencia";
+            this.txtNombreCompetencia.Size = new System.Drawing.Size(201, 31);
+            this.txtNombreCompetencia.TabIndex = 40;
             // 
-            // textBox2
+            // txtOrganizador
             // 
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(308, 86);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(201, 31);
-            this.textBox2.TabIndex = 41;
+            this.txtOrganizador.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOrganizador.Location = new System.Drawing.Point(308, 86);
+            this.txtOrganizador.Name = "txtOrganizador";
+            this.txtOrganizador.Size = new System.Drawing.Size(201, 31);
+            this.txtOrganizador.TabIndex = 41;
             // 
             // panel1
             // 
@@ -152,13 +152,13 @@
             this.panel1.TabIndex = 49;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
-            // textBox3
+            // txtLugar
             // 
-            this.textBox3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(24, 154);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(201, 31);
-            this.textBox3.TabIndex = 52;
+            this.txtLugar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLugar.Location = new System.Drawing.Point(24, 154);
+            this.txtLugar.Name = "txtLugar";
+            this.txtLugar.Size = new System.Drawing.Size(201, 31);
+            this.txtLugar.TabIndex = 52;
             // 
             // label1
             // 
@@ -204,53 +204,65 @@
             this.label19.TabIndex = 135;
             this.label19.Text = "Seleccionar deportes:";
             // 
-            // cmbDeporte
+            // cmbDeportes
             // 
-            this.cmbDeporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbDeporte.FormattingEnabled = true;
-            this.cmbDeporte.Location = new System.Drawing.Point(36, 382);
-            this.cmbDeporte.Name = "cmbDeporte";
-            this.cmbDeporte.Size = new System.Drawing.Size(208, 33);
-            this.cmbDeporte.TabIndex = 136;
+            this.cmbDeportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDeportes.FormattingEnabled = true;
+            this.cmbDeportes.Location = new System.Drawing.Point(36, 382);
+            this.cmbDeportes.Name = "cmbDeportes";
+            this.cmbDeportes.Size = new System.Drawing.Size(208, 33);
+            this.cmbDeportes.TabIndex = 136;
             // 
-            // dtpFechaNacimiento
+            // dtpFechaInicio
             // 
-            this.dtpFechaNacimiento.CustomFormat = "dd/MM/yyyy";
-            this.dtpFechaNacimiento.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(24, 239);
-            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            this.dtpFechaNacimiento.Size = new System.Drawing.Size(201, 31);
-            this.dtpFechaNacimiento.TabIndex = 141;
+            this.dtpFechaInicio.CustomFormat = "dd/MM/yyyy";
+            this.dtpFechaInicio.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaInicio.Location = new System.Drawing.Point(24, 239);
+            this.dtpFechaInicio.Name = "dtpFechaInicio";
+            this.dtpFechaInicio.Size = new System.Drawing.Size(201, 31);
+            this.dtpFechaInicio.TabIndex = 141;
             // 
-            // dateTimePicker1
+            // dtpFechaFin
             // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(308, 239);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(201, 31);
-            this.dateTimePicker1.TabIndex = 142;
+            this.dtpFechaFin.CustomFormat = "dd/MM/yyyy";
+            this.dtpFechaFin.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaFin.Location = new System.Drawing.Point(308, 239);
+            this.dtpFechaFin.Name = "dtpFechaFin";
+            this.dtpFechaFin.Size = new System.Drawing.Size(201, 31);
+            this.dtpFechaFin.TabIndex = 142;
             // 
-            // dateTimePicker2
+            // dtpFechaLimite
             // 
-            this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(24, 317);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(201, 31);
-            this.dateTimePicker2.TabIndex = 143;
+            this.dtpFechaLimite.CustomFormat = "dd/MM/yyyy";
+            this.dtpFechaLimite.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaLimite.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaLimite.Location = new System.Drawing.Point(24, 317);
+            this.dtpFechaLimite.Name = "dtpFechaLimite";
+            this.dtpFechaLimite.Size = new System.Drawing.Size(201, 31);
+            this.dtpFechaLimite.TabIndex = 143;
             // 
-            // cmbRol
+            // cmbNivel
             // 
-            this.cmbRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbRol.FormattingEnabled = true;
-            this.cmbRol.Location = new System.Drawing.Point(305, 154);
-            this.cmbRol.Name = "cmbRol";
-            this.cmbRol.Size = new System.Drawing.Size(204, 33);
-            this.cmbRol.TabIndex = 144;
+            this.cmbNivel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbNivel.FormattingEnabled = true;
+            this.cmbNivel.Location = new System.Drawing.Point(305, 154);
+            this.cmbNivel.Name = "cmbNivel";
+            this.cmbNivel.Size = new System.Drawing.Size(204, 33);
+            this.cmbNivel.TabIndex = 144;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.BackColor = System.Drawing.Color.White;
+            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.lblTitulo.Location = new System.Drawing.Point(116, 23);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(274, 23);
+            this.lblTitulo.TabIndex = 145;
+            this.lblTitulo.Text = "Nombre de la competencia:";
             // 
             // btnQuitarDeporte
             // 
@@ -266,6 +278,7 @@
             this.btnQuitarDeporte.TabIndex = 140;
             this.btnQuitarDeporte.Text = "Quitar";
             this.btnQuitarDeporte.UseVisualStyleBackColor = true;
+            this.btnQuitarDeporte.Click += new System.EventHandler(this.btnQuitarDeporte_Click);
             // 
             // btnAgregarDeporte
             // 
@@ -281,6 +294,7 @@
             this.btnAgregarDeporte.TabIndex = 137;
             this.btnAgregarDeporte.Text = "Agregar";
             this.btnAgregarDeporte.UseVisualStyleBackColor = true;
+            this.btnAgregarDeporte.Click += new System.EventHandler(this.btnAgregarDeporte_Click);
             // 
             // btnCerrar
             // 
@@ -312,18 +326,7 @@
             this.btnGuardar.TabIndex = 50;
             this.btnGuardar.Text = "Guardar ";
             this.btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.BackColor = System.Drawing.Color.White;
-            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.lblTitulo.Location = new System.Drawing.Point(116, 23);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(274, 23);
-            this.lblTitulo.TabIndex = 145;
-            this.lblTitulo.Text = "Nombre de la competencia:";
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // frmRegistrarCompetencia
             // 
@@ -332,26 +335,26 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(551, 585);
             this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.cmbRol);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.dtpFechaNacimiento);
+            this.Controls.Add(this.cmbNivel);
+            this.Controls.Add(this.dtpFechaLimite);
+            this.Controls.Add(this.dtpFechaFin);
+            this.Controls.Add(this.dtpFechaInicio);
             this.Controls.Add(this.btnQuitarDeporte);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.lstDeportes);
             this.Controls.Add(this.btnAgregarDeporte);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.cmbDeporte);
+            this.Controls.Add(this.cmbDeportes);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtLugar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtOrganizador);
+            this.Controls.Add(this.txtNombreCompetencia);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtLugar);
+            this.Controls.Add(this.v);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -367,27 +370,27 @@
         #endregion
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label txtLugar;
+        private System.Windows.Forms.Label v;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNombreCompetencia;
+        private System.Windows.Forms.TextBox txtOrganizador;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtLugar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnQuitarDeporte;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ListBox lstDeportes;
         private System.Windows.Forms.Button btnAgregarDeporte;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.ComboBox cmbDeporte;
-        private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.ComboBox cmbRol;
+        private System.Windows.Forms.ComboBox cmbDeportes;
+        private System.Windows.Forms.DateTimePicker dtpFechaInicio;
+        private System.Windows.Forms.DateTimePicker dtpFechaFin;
+        private System.Windows.Forms.DateTimePicker dtpFechaLimite;
+        private System.Windows.Forms.ComboBox cmbNivel;
         private System.Windows.Forms.Label lblTitulo;
     }
 }

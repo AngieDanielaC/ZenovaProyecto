@@ -25,6 +25,7 @@ namespace wfZenova
             this.idEntrenador = idEntrenador;
 
             ConfigurarTablaDeportistas();
+            CargarFiltros();
             CargarDeportistas();
         }
         public frmDeportistas()
@@ -35,6 +36,7 @@ namespace wfZenova
             idEntrenador = null;
 
             ConfigurarTablaDeportistas();
+            CargarFiltros();
             CargarDeportistas();
         }
 
@@ -247,7 +249,7 @@ namespace wfZenova
 
             // ==========================================
             // ADMINISTRADOR
-            // VE TODOS LOS DEPORTISTAS ACTIVOS
+            // VE TODOS LOS DEPORTISTAS
             // ==========================================
             if (esAdministrador)
             {
@@ -257,23 +259,42 @@ namespace wfZenova
                 D.Foto,
                 D.Nombres + ' ' + D.Apellidos AS NombreCompleto,
                 D.FechaNacimiento,
-                DEP.NombreDeporte
+                DEP.NombreDeporte,
+
+                (
+                    SELECT MAX(M.FechaMedicion)
+                    FROM MedicionesDeportista M
+                    WHERE M.IdDeportista = D.IdDeportista
+                ) AS UltimaMedicion,
+
+                (
+                    SELECT TOP 1 M.CategoriaEdad
+                    FROM MedicionesDeportista M
+                    WHERE M.IdDeportista = D.IdDeportista
+                    ORDER BY
+                        M.FechaMedicion DESC,
+                        M.IdMedicion DESC
+                ) AS CategoriaEdad
+
               FROM Deportistas D
 
               LEFT JOIN Inscripciones I
                   ON D.IdDeportista = I.IdDeportista
-                  AND I.Estado = 'Activa'
+                  AND I.Estado = 'Activo'
 
               LEFT JOIN EntrenadorDeporte ED
                   ON I.IdEntrenadorDeporte =
                      ED.IdEntrenadorDeporte
 
               LEFT JOIN Deportes DEP
-                  ON ED.IdDeporte = DEP.IdDeporte
+                  ON ED.IdDeporte =
+                     DEP.IdDeporte
 
               WHERE D.Estado = 1
 
-              ORDER BY D.Nombres, D.Apellidos"
+              ORDER BY
+                  D.Nombres,
+                  D.Apellidos"
                 );
             }
 
@@ -289,36 +310,59 @@ namespace wfZenova
                 D.Foto,
                 D.Nombres + ' ' + D.Apellidos AS NombreCompleto,
                 D.FechaNacimiento,
-                DEP.NombreDeporte
+                DEP.NombreDeporte,
+
+                (
+                    SELECT MAX(M.FechaMedicion)
+                    FROM MedicionesDeportista M
+                    WHERE M.IdDeportista = D.IdDeportista
+                ) AS UltimaMedicion,
+
+                (
+                    SELECT TOP 1 M.CategoriaEdad
+                    FROM MedicionesDeportista M
+                    WHERE M.IdDeportista = D.IdDeportista
+                    ORDER BY
+                        M.FechaMedicion DESC,
+                        M.IdMedicion DESC
+                ) AS CategoriaEdad
+
               FROM Deportistas D
 
               INNER JOIN Inscripciones I
-                  ON D.IdDeportista = I.IdDeportista
+                  ON D.IdDeportista =
+                     I.IdDeportista
 
               INNER JOIN EntrenadorDeporte ED
                   ON I.IdEntrenadorDeporte =
                      ED.IdEntrenadorDeporte
 
               INNER JOIN Deportes DEP
-                  ON ED.IdDeporte = DEP.IdDeporte
+                  ON ED.IdDeporte =
+                     DEP.IdDeporte
 
               WHERE
                   D.Estado = 1
-                  AND I.Estado = 'Activa'
+                  AND I.Estado = 'Activo'
                   AND ED.IdEntrenador = " +
                           idEntrenador.Value +
 
-                      @" ORDER BY D.Nombres, D.Apellidos"
+                      @" ORDER BY
+                    D.Nombres,
+                    D.Apellidos"
                 );
             }
 
 
+            // ==========================================
+            // VERIFICAR RESULTADO
+            // ==========================================
             if (tabla == null)
                 return;
 
 
             // ==========================================
-            // LIMPIAR FILAS
+            // LIMPIAR TABLA
             // ==========================================
             dgvDeportistas.Rows.Clear();
 
@@ -328,7 +372,9 @@ namespace wfZenova
             // ==========================================
             foreach (DataRow fila in tabla.Rows)
             {
-                // EDAD
+                // ==========================================
+                // CALCULAR EDAD
+                // ==========================================
                 DateTime fechaNacimiento =
                     Convert.ToDateTime(
                         fila["FechaNacimiento"]);
@@ -344,7 +390,9 @@ namespace wfZenova
                 }
 
 
+                // ==========================================
                 // FOTO
+                // ==========================================
                 Image foto = null;
 
                 if (fila["Foto"] != DBNull.Value)
@@ -372,11 +420,33 @@ namespace wfZenova
                 }
 
 
+                // ==========================================
                 // DEPORTE
+                // ==========================================
                 string deporte =
                     fila["NombreDeporte"] == DBNull.Value
                     ? "Sin asignar"
                     : fila["NombreDeporte"].ToString();
+
+
+                // ==========================================
+                // CATEGORÍA
+                // ==========================================
+                string categoriaEdad =
+                    fila["CategoriaEdad"] == DBNull.Value
+                    ? "Sin medición"
+                    : fila["CategoriaEdad"].ToString();
+
+
+                // ==========================================
+                // ÚLTIMA MEDICIÓN
+                // ==========================================
+                string ultimaMedicion =
+                    fila["UltimaMedicion"] == DBNull.Value
+                    ? "Sin mediciones"
+                    : Convert.ToDateTime(
+                        fila["UltimaMedicion"])
+                      .ToString("dd/MM/yyyy");
 
 
                 // ==========================================
@@ -388,14 +458,12 @@ namespace wfZenova
                         fila["NombreCompleto"].ToString(),
                         edad,
                         deporte,
-
-                        "",     // Categoría: pendiente
-
-                        ""      // Última medición: pendiente
+                        categoriaEdad,
+                        ultimaMedicion
                     );
 
 
-                // Guardamos el ID sin mostrarlo
+                // Guardamos el ID real del deportista
                 dgvDeportistas.Rows[indice].Tag =
                     Convert.ToInt32(
                         fila["IdDeportista"]);
@@ -449,14 +517,169 @@ namespace wfZenova
                 new frmDatosDeportivos(idDeportista);
 
             frm.ShowDialog();
+            CargarDeportistas();
         }
 
         private void btnHistorial_Click(object sender, EventArgs e)
         {
+            if (dgvDeportistas.CurrentRow == null)
+            {
+                MessageBox.Show(
+                    "Seleccione un deportista.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            int idDeportista =
+                Convert.ToInt32(
+                    dgvDeportistas.CurrentRow.Tag);
+
             frmHistorialMediciones frm =
-                new frmHistorialMediciones();
+                new frmHistorialMediciones(idDeportista);
 
             frm.ShowDialog();
+        }
+
+
+        private void CargarFiltros()
+        {
+            // ==========================================
+            // FILTRO DE DEPORTES
+            // ==========================================
+            DataTable tablaDeportes =
+                conSQL.RetornaRegistros(
+                    @"SELECT
+                IdDeporte,
+                NombreDeporte
+              FROM Deportes
+              WHERE Activo = 1
+              ORDER BY NombreDeporte"
+                );
+
+            if (tablaDeportes != null)
+            {
+                // Agregar opción TODOS
+                DataRow filaTodos =
+                    tablaDeportes.NewRow();
+
+                filaTodos["IdDeporte"] = 0;
+                filaTodos["NombreDeporte"] = "Todos";
+
+                tablaDeportes.Rows.InsertAt(
+                    filaTodos,
+                    0);
+
+                cmbFiltroDeporte.DataSource =
+                    tablaDeportes;
+
+                cmbFiltroDeporte.DisplayMember =
+                    "NombreDeporte";
+
+                cmbFiltroDeporte.ValueMember =
+                    "IdDeporte";
+
+                cmbFiltroDeporte.SelectedIndex = 0;
+
+                cmbFiltroDeporte.DropDownStyle =
+                    ComboBoxStyle.DropDownList;
+            }
+
+
+            // ==========================================
+            // FILTRO DE ESTADO
+            // ==========================================
+            cmbFiltroEstado.Items.Clear();
+
+            cmbFiltroEstado.Items.Add("Todos");
+            cmbFiltroEstado.Items.Add("Activo");
+            cmbFiltroEstado.Items.Add("Inactivo");
+
+            cmbFiltroEstado.SelectedIndex = 0;
+
+            cmbFiltroEstado.DropDownStyle =
+                ComboBoxStyle.DropDownList;
+        }
+        private void AplicarFiltros()
+        {
+            string buscar =
+                txtBuscarDeportista.Text
+                .Trim()
+                .ToLower();
+
+            string deporte =
+                cmbFiltroDeporte.SelectedIndex <= 0
+                ? "Todos"
+                : cmbFiltroDeporte.Text;
+
+            string estado =
+                cmbFiltroEstado.SelectedIndex <= 0
+                ? "Todos"
+                : cmbFiltroEstado.Text;
+
+
+            foreach (DataGridViewRow fila
+                     in dgvDeportistas.Rows)
+            {
+                if (fila.IsNewRow)
+                    continue;
+
+
+                string nombre =
+                    fila.Cells["Nombre"]
+                    .Value?.ToString()
+                    .ToLower() ?? "";
+
+                string deporteFila =
+                    fila.Cells["Deporte"]
+                    .Value?.ToString() ?? "";
+
+
+                bool cumpleBusqueda =
+                    buscar == "" ||
+                    nombre.Contains(buscar);
+
+                bool cumpleDeporte =
+                    deporte == "Todos" ||
+                    deporteFila == deporte;
+
+
+                // Por ahora los deportistas que mostramos
+                // son los activos.
+                bool cumpleEstado =
+                    estado == "Todos" ||
+                    estado == "Activo";
+
+
+                fila.Visible =
+                    cumpleBusqueda &&
+                    cumpleDeporte &&
+                    cumpleEstado;
+            }
+
+            dgvDeportistas.ClearSelection();
+        }
+        private void txtBuscarDeportista_TextChanged(object sender, EventArgs e)
+        {
+            AplicarFiltros();
+        }
+
+        private void cmbFiltroDeporte_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbFiltroDeporte.SelectedIndex == -1)
+                return;
+
+            AplicarFiltros();
+        }
+
+        private void cmbFiltroEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbFiltroEstado.SelectedIndex == -1)
+                return;
+
+            AplicarFiltros();
         }
     }
 }

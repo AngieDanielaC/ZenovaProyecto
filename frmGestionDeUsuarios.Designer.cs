@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label13 = new System.Windows.Forms.Label();
-            this.txtBuscarComp = new System.Windows.Forms.TextBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.btnVer = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -38,6 +38,10 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.cmbRol = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -54,15 +58,15 @@
             this.label13.TabIndex = 67;
             this.label13.Text = "Gestión de Usuarios";
             // 
-            // txtBuscarComp
+            // txtBuscar
             // 
-            this.txtBuscarComp.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarComp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
-            this.txtBuscarComp.Location = new System.Drawing.Point(84, 58);
-            this.txtBuscarComp.Name = "txtBuscarComp";
-            this.txtBuscarComp.Size = new System.Drawing.Size(546, 31);
-            this.txtBuscarComp.TabIndex = 69;
-            this.txtBuscarComp.Text = "Buscar";
+            this.txtBuscar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
+            this.txtBuscar.Location = new System.Drawing.Point(66, 70);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(308, 31);
+            this.txtBuscar.TabIndex = 69;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // dgvUsuarios
             // 
@@ -180,19 +184,69 @@
             this.pictureBox2.TabIndex = 73;
             this.pictureBox2.TabStop = false;
             // 
+            // cmbRol
+            // 
+            this.cmbRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbRol.FormattingEnabled = true;
+            this.cmbRol.Location = new System.Drawing.Point(405, 68);
+            this.cmbRol.Name = "cmbRol";
+            this.cmbRol.Size = new System.Drawing.Size(165, 33);
+            this.cmbRol.TabIndex = 152;
+            this.cmbRol.SelectedIndexChanged += new System.EventHandler(this.cmbRol_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.label9.Location = new System.Drawing.Point(387, 46);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(74, 19);
+            this.label9.TabIndex = 151;
+            this.label9.Text = "Deporte:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // cmbEstado
+            // 
+            this.cmbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Location = new System.Drawing.Point(614, 68);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(165, 33);
+            this.cmbEstado.TabIndex = 154;
+            this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.label1.Location = new System.Drawing.Point(596, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 19);
+            this.label1.TabIndex = 153;
+            this.label1.Text = "Deporte:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // frmGestionDeUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 768);
+            this.Controls.Add(this.cmbEstado);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbRol);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.btnVer);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAcDes);
             this.Controls.Add(this.btnRestablecer);
             this.Controls.Add(this.dgvUsuarios);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.txtBuscarComp);
+            this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox2);
@@ -211,7 +265,7 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtBuscarComp;
+        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -219,5 +273,9 @@
         private System.Windows.Forms.Button btnAcDes;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnVer;
+        private System.Windows.Forms.ComboBox cmbRol;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cmbEstado;
+        private System.Windows.Forms.Label label1;
     }
 }

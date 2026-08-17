@@ -79,6 +79,7 @@
             this.dtpFechaMedicion.Name = "dtpFechaMedicion";
             this.dtpFechaMedicion.Size = new System.Drawing.Size(201, 31);
             this.dtpFechaMedicion.TabIndex = 156;
+            this.dtpFechaMedicion.ValueChanged += new System.EventHandler(this.dtpFechaMedicion_ValueChanged);
             // 
             // label5
             // 
@@ -137,7 +138,7 @@
             // txtAltura
             // 
             this.txtAltura.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAltura.Location = new System.Drawing.Point(45, 291);
+            this.txtAltura.Location = new System.Drawing.Point(311, 225);
             this.txtAltura.Name = "txtAltura";
             this.txtAltura.Size = new System.Drawing.Size(201, 31);
             this.txtAltura.TabIndex = 163;
@@ -149,7 +150,7 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label1.Location = new System.Drawing.Point(22, 269);
+            this.label1.Location = new System.Drawing.Point(288, 203);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 19);
             this.label1.TabIndex = 162;
@@ -161,20 +162,22 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
-            this.label2.Location = new System.Drawing.Point(266, 203);
+            this.label2.Location = new System.Drawing.Point(439, 337);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(162, 19);
             this.label2.TabIndex = 164;
             this.label2.Text = "Categoría por peso:";
+            this.label2.Visible = false;
             // 
             // cmbCategoriaPeso
             // 
             this.cmbCategoriaPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategoriaPeso.FormattingEnabled = true;
-            this.cmbCategoriaPeso.Location = new System.Drawing.Point(292, 225);
+            this.cmbCategoriaPeso.Location = new System.Drawing.Point(465, 359);
             this.cmbCategoriaPeso.Name = "cmbCategoriaPeso";
             this.cmbCategoriaPeso.Size = new System.Drawing.Size(248, 33);
             this.cmbCategoriaPeso.TabIndex = 165;
+            this.cmbCategoriaPeso.Visible = false;
             // 
             // btnCerrar
             // 
@@ -184,7 +187,7 @@
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(61)))), ((int)(((byte)(228)))));
-            this.btnCerrar.Location = new System.Drawing.Point(52, 340);
+            this.btnCerrar.Location = new System.Drawing.Point(58, 303);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(188, 42);
             this.btnCerrar.TabIndex = 167;
@@ -200,12 +203,13 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Transparent;
-            this.btnGuardar.Location = new System.Drawing.Point(309, 340);
+            this.btnGuardar.Location = new System.Drawing.Point(292, 303);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(201, 42);
             this.btnGuardar.TabIndex = 166;
             this.btnGuardar.Text = "Guardar ";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // label4
             // 

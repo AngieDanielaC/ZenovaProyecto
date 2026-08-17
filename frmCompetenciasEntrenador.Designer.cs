@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.label13 = new System.Windows.Forms.Label();
-            this.txtBuscarComp = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtBuscarCompetencia = new System.Windows.Forms.TextBox();
+            this.cmbFiltroDeporte = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dgvCompetencias = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.btnAcDes = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompetencias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -51,24 +52,25 @@
             this.label13.TabIndex = 68;
             this.label13.Text = "Competencias";
             // 
-            // txtBuscarComp
+            // txtBuscarCompetencia
             // 
-            this.txtBuscarComp.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarComp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
-            this.txtBuscarComp.Location = new System.Drawing.Point(46, 77);
-            this.txtBuscarComp.Name = "txtBuscarComp";
-            this.txtBuscarComp.Size = new System.Drawing.Size(358, 31);
-            this.txtBuscarComp.TabIndex = 70;
-            this.txtBuscarComp.Text = "Buscar";
+            this.txtBuscarCompetencia.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarCompetencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
+            this.txtBuscarCompetencia.Location = new System.Drawing.Point(46, 77);
+            this.txtBuscarCompetencia.Name = "txtBuscarCompetencia";
+            this.txtBuscarCompetencia.Size = new System.Drawing.Size(358, 31);
+            this.txtBuscarCompetencia.TabIndex = 70;
+            this.txtBuscarCompetencia.TextChanged += new System.EventHandler(this.txtBuscarCompetencia_TextChanged);
             // 
-            // comboBox1
+            // cmbFiltroDeporte
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(456, 75);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(278, 33);
-            this.comboBox1.TabIndex = 150;
+            this.cmbFiltroDeporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbFiltroDeporte.FormattingEnabled = true;
+            this.cmbFiltroDeporte.Location = new System.Drawing.Point(456, 75);
+            this.cmbFiltroDeporte.Name = "cmbFiltroDeporte";
+            this.cmbFiltroDeporte.Size = new System.Drawing.Size(278, 33);
+            this.cmbFiltroDeporte.TabIndex = 150;
+            this.cmbFiltroDeporte.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -135,18 +137,32 @@
             this.pictureBox2.TabIndex = 74;
             this.pictureBox2.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.label1.Location = new System.Drawing.Point(24, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 19);
+            this.label1.TabIndex = 155;
+            this.label1.Text = "Buscar:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // frmCompetenciasEntrenador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 768);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvCompetencias);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAcDes);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbFiltroDeporte);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtBuscarComp);
+            this.Controls.Add(this.txtBuscarCompetencia);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -162,12 +178,13 @@
         #endregion
 
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtBuscarComp;
+        private System.Windows.Forms.TextBox txtBuscarCompetencia;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbFiltroDeporte;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnAcDes;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvCompetencias;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -28,35 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtBuscarComp = new System.Windows.Forms.TextBox();
+            this.txtBuscarDeportista = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvDeportistas = new System.Windows.Forms.DataGridView();
             this.lblEstado = new System.Windows.Forms.Label();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.cmbFiltroDeporte = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbFiltroEstado = new System.Windows.Forms.ComboBox();
             this.btnHistorial = new System.Windows.Forms.Button();
             this.btnVer = new System.Windows.Forms.Button();
             this.btnDatosDeportivos = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeportistas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtBuscarComp
+            // txtBuscarDeportista
             // 
-            this.txtBuscarComp.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarComp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
-            this.txtBuscarComp.Location = new System.Drawing.Point(65, 122);
-            this.txtBuscarComp.Name = "txtBuscarComp";
-            this.txtBuscarComp.Size = new System.Drawing.Size(320, 27);
-            this.txtBuscarComp.TabIndex = 55;
-            this.txtBuscarComp.Text = "Buscar deportista";
+            this.txtBuscarDeportista.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarDeportista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
+            this.txtBuscarDeportista.Location = new System.Drawing.Point(65, 122);
+            this.txtBuscarDeportista.Name = "txtBuscarDeportista";
+            this.txtBuscarDeportista.Size = new System.Drawing.Size(320, 27);
+            this.txtBuscarDeportista.TabIndex = 55;
+            this.txtBuscarDeportista.TextChanged += new System.EventHandler(this.txtBuscarDeportista_TextChanged);
             // 
             // label13
             // 
@@ -100,20 +101,21 @@
             this.lblEstado.TabIndex = 58;
             this.lblEstado.Text = "Deporte:";
             // 
-            // cmbEstado
+            // cmbFiltroDeporte
             // 
-            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Items.AddRange(new object[] {
+            this.cmbFiltroDeporte.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFiltroDeporte.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbFiltroDeporte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
+            this.cmbFiltroDeporte.FormattingEnabled = true;
+            this.cmbFiltroDeporte.Items.AddRange(new object[] {
             "Todos",
             "Activos",
             "Inactivos"});
-            this.cmbEstado.Location = new System.Drawing.Point(451, 122);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(109, 29);
-            this.cmbEstado.TabIndex = 56;
+            this.cmbFiltroDeporte.Location = new System.Drawing.Point(451, 122);
+            this.cmbFiltroDeporte.Name = "cmbFiltroDeporte";
+            this.cmbFiltroDeporte.Size = new System.Drawing.Size(109, 29);
+            this.cmbFiltroDeporte.TabIndex = 56;
+            this.cmbFiltroDeporte.SelectedIndexChanged += new System.EventHandler(this.cmbFiltroDeporte_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -127,20 +129,21 @@
             this.label1.TabIndex = 65;
             this.label1.Text = "Estado:";
             // 
-            // comboBox1
+            // cmbFiltroEstado
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbFiltroEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFiltroEstado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbFiltroEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
+            this.cmbFiltroEstado.FormattingEnabled = true;
+            this.cmbFiltroEstado.Items.AddRange(new object[] {
             "Todos",
             "Activos",
             "Inactivos"});
-            this.comboBox1.Location = new System.Drawing.Point(667, 122);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(109, 29);
-            this.comboBox1.TabIndex = 64;
+            this.cmbFiltroEstado.Location = new System.Drawing.Point(667, 122);
+            this.cmbFiltroEstado.Name = "cmbFiltroEstado";
+            this.cmbFiltroEstado.Size = new System.Drawing.Size(109, 29);
+            this.cmbFiltroEstado.TabIndex = 64;
+            this.cmbFiltroEstado.SelectedIndexChanged += new System.EventHandler(this.cmbFiltroEstado_SelectedIndexChanged);
             // 
             // btnHistorial
             // 
@@ -224,21 +227,34 @@
             this.pictureBox2.TabIndex = 63;
             this.pictureBox2.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
+            this.label3.Location = new System.Drawing.Point(51, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(138, 18);
+            this.label3.TabIndex = 81;
+            this.label3.Text = "Buscar deportista:";
+            // 
             // frmDeportistas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 768);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnHistorial);
             this.Controls.Add(this.btnVer);
             this.Controls.Add(this.btnDatosDeportivos);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbFiltroEstado);
             this.Controls.Add(this.dgvDeportistas);
             this.Controls.Add(this.lblEstado);
-            this.Controls.Add(this.cmbEstado);
-            this.Controls.Add(this.txtBuscarComp);
+            this.Controls.Add(this.cmbFiltroDeporte);
+            this.Controls.Add(this.txtBuscarDeportista);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
@@ -258,19 +274,20 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtBuscarComp;
+        private System.Windows.Forms.TextBox txtBuscarDeportista;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.DataGridView dgvDeportistas;
         private System.Windows.Forms.Label lblEstado;
-        private System.Windows.Forms.ComboBox cmbEstado;
+        private System.Windows.Forms.ComboBox cmbFiltroDeporte;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbFiltroEstado;
         private System.Windows.Forms.Button btnVer;
         private System.Windows.Forms.Button btnDatosDeportivos;
         private System.Windows.Forms.Button btnHistorial;
+        private System.Windows.Forms.Label label3;
     }
 }

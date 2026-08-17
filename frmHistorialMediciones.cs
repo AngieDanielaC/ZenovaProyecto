@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -13,10 +14,19 @@ namespace wfZenova
 {
     public partial class frmHistorialMediciones : Form
     {
-        public frmHistorialMediciones()
+        private int idDeportista;
+
+        csConectaSQL conSQL = new csConectaSQL();
+        public frmHistorialMediciones(int idDeportista)
         {
             InitializeComponent();
+
+            this.idDeportista = idDeportista;
+
             ConfigurarTablaHistorial();
+            CargarNombreDeportista();
+            CargarHistorial();
+
         }
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private static extern void ReleaseCapture();
@@ -51,8 +61,7 @@ namespace wfZenova
 
             dgvHistorial.Columns.Add(
                 "Altura",
-                "ALTURA (cm)");
-
+                "ALTURA (m)");
             dgvHistorial.Columns.Add(
                 "CategoriaEdad",
                 "CATEGORÍA (EDAD)");
@@ -219,7 +228,87 @@ namespace wfZenova
             // ==========================================
             dgvHistorial.ClearSelection();
         }
+        private void CargarHistorial()
+        {
+            DataTable tabla =
+                conSQL.RetornaRegistros(
+                    @"SELECT
+                FechaMedicion,
+                Peso,
+                Altura,
+                CategoriaEdad,
+                DivisionPeso
+              FROM MedicionesDeportista
+              WHERE IdDeportista = " + idDeportista + @"
+              ORDER BY FechaMedicion DESC, IdMedicion DESC"
+                );
 
+            dgvHistorial.Rows.Clear();
+
+            if (tabla == null)
+                return;
+
+            foreach (DataRow fila in tabla.Rows)
+            {
+                string fecha =
+                    Convert.ToDateTime(
+                        fila["FechaMedicion"])
+                    .ToString("dd/MM/yyyy");
+
+                string peso =
+                    Convert.ToDecimal(
+                        fila["Peso"])
+                    .ToString("0.00");
+
+                string altura =
+                    Convert.ToDecimal(
+                        fila["Altura"])
+                    .ToString("0.00");
+
+                string categoriaEdad =
+                    fila["CategoriaEdad"].ToString();
+
+                string divisionPeso =
+                    fila["DivisionPeso"] == DBNull.Value
+                    ? "No aplica"
+                    : fila["DivisionPeso"].ToString();
+
+                dgvHistorial.Rows.Add(
+                    fecha,
+                    peso,
+                    altura,
+                    categoriaEdad,
+                    divisionPeso
+                );
+            }
+
+            dgvHistorial.ClearSelection();
+        }
+        private void CargarNombreDeportista()
+        {
+            DataTable tabla =
+                conSQL.RetornaRegistros(
+                    @"SELECT
+                Nombres,
+                Apellidos
+              FROM Deportistas
+              WHERE IdDeportista = " + idDeportista
+                );
+
+            if (tabla == null ||
+                tabla.Rows.Count == 0)
+            {
+                return;
+            }
+
+            DataRow fila =
+                tabla.Rows[0];
+
+            lblNombreDeportista.Text =
+                fila["Nombres"].ToString() +
+                " " +
+                fila["Apellidos"].ToString();
+        }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();

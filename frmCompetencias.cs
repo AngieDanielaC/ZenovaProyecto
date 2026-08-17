@@ -12,10 +12,12 @@ namespace wfZenova
 {
     public partial class frmCompetencias : Form
     {
+        csConectaSQL conSQL = new csConectaSQL();
         public frmCompetencias()
         {
             InitializeComponent();
             ConfigurarTablaCompetencias();
+            CargarCompetencias();
         }
         private Form formularioActivo = null;
         private void ConfigurarTablaCompetencias()
@@ -239,6 +241,202 @@ namespace wfZenova
             // ==========================================
             dgvCompetencias.ClearSelection();
         }
+        private void CargarCompetencias()
+        {
+            DataTable tabla =
+                conSQL.RetornaRegistros(
+                    @"
+            SELECT
+                C.IdCompetencia,
+                C.NombreCompetencia,
+                C.Organizador,
+                C.Lugar,
+                C.Nivel,
+                C.FechaInicio,
+                C.FechaFin,
+                C.FechaLimiteInscripcion,
+
+                -- DEPORTES DE LA COMPETENCIA
+                STUFF
+                (
+                    (
+                        SELECT
+                            ', ' + D.NombreDeporte
+
+                        FROM CompetenciaDeporte CD
+
+                        INNER JOIN Deportes D
+                            ON CD.IdDeporte =
+                               D.IdDeporte
+
+                        WHERE
+                            CD.IdCompetencia =
+                            C.IdCompetencia
+
+                        ORDER BY
+                            D.NombreDeporte
+
+                        FOR XML PATH(''), TYPE
+                    ).value('.', 'NVARCHAR(MAX)'),
+                    1,
+                    2,
+                    ''
+                ) AS Deportes,
+
+                -- TOTAL DE INSCRITOS
+                (
+                    SELECT COUNT(*)
+
+                    FROM ParticipantesCompetencia PC
+
+                    INNER JOIN CompetenciaDeporte CD2
+                        ON PC.IdCompetenciaDeporte =
+                           CD2.IdCompetenciaDeporte
+
+                    WHERE
+                        CD2.IdCompetencia =
+                        C.IdCompetencia
+
+                        AND PC.EstadoParticipacion =
+                            'Inscrito'
+                ) AS Inscritos,
+
+                -- ESTADO ACTUAL
+                CASE
+
+                    WHEN C.Estado = 'Cancelada'
+                        THEN 'Cancelada'
+
+                    WHEN CAST(GETDATE() AS DATE)
+                         < C.FechaInicio
+                        THEN 'Próxima'
+
+                    WHEN CAST(GETDATE() AS DATE)
+                         BETWEEN C.FechaInicio
+                         AND C.FechaFin
+                        THEN 'En curso'
+
+                    ELSE 'Finalizada'
+
+                END AS EstadoActual
+
+            FROM Competencias C
+
+            ORDER BY
+                C.FechaInicio DESC,
+                C.NombreCompetencia;
+            "
+                );
+
+
+            if (tabla == null)
+                return;
+
+
+            dgvCompetencias.Rows.Clear();
+
+
+            foreach (DataRow fila in tabla.Rows)
+            {
+                // ==========================================
+                // FECHAS
+                // ==========================================
+                string fechaInicio =
+                    Convert.ToDateTime(
+                        fila["FechaInicio"])
+                    .ToString("dd/MM/yyyy");
+
+
+                string fechaFin =
+                    Convert.ToDateTime(
+                        fila["FechaFin"])
+                    .ToString("dd/MM/yyyy");
+
+
+                string fechaLimite;
+
+                if (fila["FechaLimiteInscripcion"]
+                    != DBNull.Value)
+                {
+                    fechaLimite =
+                        Convert.ToDateTime(
+                            fila["FechaLimiteInscripcion"])
+                        .ToString("dd/MM/yyyy");
+                }
+                else
+                {
+                    fechaLimite =
+                        "Sin límite";
+                }
+
+
+                // ==========================================
+                // DEPORTES
+                // ==========================================
+                string deportes =
+                    fila["Deportes"] == DBNull.Value
+                    ? "Sin deportes"
+                    : fila["Deportes"].ToString();
+
+
+                // ==========================================
+                // INSCRITOS
+                // ==========================================
+                int inscritos =
+                    Convert.ToInt32(
+                        fila["Inscritos"]);
+
+
+                // ==========================================
+                // ESTADO
+                // ==========================================
+                string estado =
+                    fila["EstadoActual"]
+                    .ToString();
+
+
+                // ==========================================
+                // AGREGAR FILA
+                // ==========================================
+                int indice =
+                    dgvCompetencias.Rows.Add(
+                        fila["NombreCompetencia"]
+                            .ToString(),
+
+                        fila["Organizador"]
+                            .ToString(),
+
+                        fila["Lugar"]
+                            .ToString(),
+
+                        fila["Nivel"]
+                            .ToString(),
+
+                        fechaInicio,
+
+                        fechaFin,
+
+                        fechaLimite,
+
+                        deportes,
+
+                        inscritos,
+
+                        estado
+                    );
+
+
+                // Guardar ID sin mostrarlo
+                dgvCompetencias
+                    .Rows[indice]
+                    .Tag =
+                    Convert.ToInt32(
+                        fila["IdCompetencia"]);
+            }
+
+
+            dgvCompetencias.ClearSelection();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -248,26 +446,57 @@ namespace wfZenova
         {
             frmRegistrarCompetencia frm = new frmRegistrarCompetencia();
 
-            frm.ShowDialog();
+            if (frm.ShowDialog() ==
+                DialogResult.OK)
+            {
+                CargarCompetencias();
+            }
         }
 
         private void btnGestionarParticipantes_Click(object sender, EventArgs e)
         {
-            Control contenedor = this.Parent;
-
-            if (contenedor == null)
+            if (dgvCompetencias.CurrentRow == null)
             {
-                MessageBox.Show("No se encontró el contenedor del formulario.");
+                MessageBox.Show(
+                    "Seleccione una competencia.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 return;
             }
 
-            frmGestionarParticipantes frm = new frmGestionarParticipantes();
+            int idCompetencia =
+                Convert.ToInt32(
+                    dgvCompetencias
+                    .CurrentRow
+                    .Tag);
+
+            // CONTENEDOR DONDE ESTÁ ABIERTO
+            // frmCompetencias
+            Control contenedor =
+                this.Parent;
+
+            if (contenedor == null)
+                return;
+
+            frmGestionarParticipantes frm =
+                new frmGestionarParticipantes(
+                    idCompetencia);
 
             frm.TopLevel = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
 
+            frm.FormBorderStyle =
+                FormBorderStyle.None;
+
+            frm.Dock =
+                DockStyle.Fill;
+
+            // Quitamos la pantalla de competencias
             contenedor.Controls.Remove(this);
+
+            // Abrimos Gestionar Participantes
+            // dentro del mismo panel
             contenedor.Controls.Add(frm);
 
             frm.Show();
@@ -288,16 +517,22 @@ namespace wfZenova
                 return;
             }
 
-            // Esto funcionará cuando tengamos IdCompetencia desde SQL.
+
             int idCompetencia =
                 Convert.ToInt32(
-                    dgvCompetencias.CurrentRow
-                    .Cells["IdCompetencia"].Value);
+                    dgvCompetencias.CurrentRow.Tag);
+
 
             frmRegistrarCompetencia frm =
-                new frmRegistrarCompetencia(idCompetencia);
+                new frmRegistrarCompetencia(
+                    idCompetencia);
 
-            frm.ShowDialog();
+
+            if (frm.ShowDialog() ==
+                DialogResult.OK)
+            {
+                CargarCompetencias();
+            }
         }
     }
 }

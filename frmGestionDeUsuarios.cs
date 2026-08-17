@@ -20,67 +20,314 @@ namespace wfZenova
         public frmGestionDeUsuarios()
         {
             InitializeComponent();
+
             ConfigurarTablaUsuarios();
+
+            CargarFiltros();
+
             CargarUsuarios();
-        }
-
-        private void CargarUsuarios()
-        {
-            DataTable tabla =
-                conSQL.RetornaRegistros(
-                    @"SELECT
-                U.IdUsuario,
-                U.Nombres + ' ' + U.Apellidos AS Nombre,
-                U.NombreUsuario AS Usuario,
-                R.NombreRol AS Rol,
-                CASE
-                    WHEN U.EstadoCuenta = 1 THEN 'Activo'
-                    ELSE 'Inactivo'
-                END AS Estado,
-                U.Correo
-              FROM Usuarios U
-              INNER JOIN Roles R
-                  ON U.IdRol = R.IdRol
-              ORDER BY U.Nombres, U.Apellidos"
-                );
-
-            if (tabla == null)
-                return;
-
-            dgvUsuarios.DataSource = tabla;
-
-            dgvUsuarios.Columns["IdUsuario"].Visible = false;
-
-            dgvUsuarios.Columns["Nombre"].HeaderText =
-                "NOMBRE COMPLETO";
-
-            dgvUsuarios.Columns["Usuario"].HeaderText =
-                "USUARIO";
-
-            dgvUsuarios.Columns["Rol"].HeaderText =
-                "ROL";
-
-            dgvUsuarios.Columns["Estado"].HeaderText =
-                "ESTADO";
-
-            dgvUsuarios.Columns["Correo"].HeaderText =
-                "CORREO ELECTRÓNICO";
-
-            dgvUsuarios.Columns["Nombre"].FillWeight = 150;
-            dgvUsuarios.Columns["Usuario"].FillWeight = 90;
-            dgvUsuarios.Columns["Rol"].FillWeight = 110;
-            dgvUsuarios.Columns["Estado"].FillWeight = 80;
-            dgvUsuarios.Columns["Correo"].FillWeight = 150;
-
-            dgvUsuarios.Columns["Nombre"]
-                .DefaultCellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleLeft;
-
-            dgvUsuarios.Columns["Correo"]
-                .DefaultCellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleLeft;
 
             dgvUsuarios.ClearSelection();
+        }
+        private void CargarFiltros()
+        {
+            // ==========================================
+            // ROLES
+            // ==========================================
+            DataTable tablaRoles =
+                conSQL.RetornaRegistros(
+                    @"SELECT
+                IdRol,
+                NombreRol
+              FROM Roles
+              WHERE Activo = 1
+              ORDER BY NombreRol"
+                );
+
+            if (tablaRoles != null)
+            {
+                DataRow filaTodos =
+                    tablaRoles.NewRow();
+
+                filaTodos["IdRol"] = 0;
+                filaTodos["NombreRol"] = "Todos";
+
+                tablaRoles.Rows.InsertAt(
+                    filaTodos,
+                    0);
+
+                cmbRol.DataSource =
+                    tablaRoles;
+
+                cmbRol.DisplayMember =
+                    "NombreRol";
+
+                cmbRol.ValueMember =
+                    "IdRol";
+
+                cmbRol.SelectedIndex = 0;
+
+                cmbRol.DropDownStyle =
+                    ComboBoxStyle.DropDownList;
+            }
+
+
+            // ==========================================
+            // ESTADO
+            // ==========================================
+            cmbEstado.Items.Clear();
+
+            cmbEstado.Items.Add("Todos");
+            cmbEstado.Items.Add("Activo");
+            cmbEstado.Items.Add("Inactivo");
+
+            cmbEstado.SelectedIndex = 0;
+
+            cmbEstado.DropDownStyle =
+                ComboBoxStyle.DropDownList;
+        }
+        private void CargarUsuarios()
+        {
+            try
+            {
+                // ==========================================
+                // OBTENER BÚSQUEDA
+                // ==========================================
+                string buscar =
+                    txtBuscar.Text.Trim();
+
+                // "Buscar" es solo texto visual
+                if (buscar.Equals(
+                    "Buscar",
+                    StringComparison.OrdinalIgnoreCase))
+                {
+                    buscar = "";
+                }
+
+                // Evitar problemas con apóstrofes
+                buscar =
+                    buscar.Replace("'", "''");
+
+
+                // ==========================================
+                // OBTENER ROL
+                // ==========================================
+                int idRol = 0;
+
+                if (cmbRol.SelectedValue != null &&
+                    !(cmbRol.SelectedValue is DataRowView))
+                {
+                    idRol =
+                        Convert.ToInt32(
+                            cmbRol.SelectedValue);
+                }
+
+
+                // ==========================================
+                // OBTENER ESTADO
+                // ==========================================
+                string estado = "Todos";
+
+                if (cmbEstado.SelectedIndex > 0)
+                {
+                    estado =
+                        cmbEstado.Text;
+                }
+
+
+                // ==========================================
+                // ARMAR FILTROS
+                // ==========================================
+                string filtroBuscar = "";
+
+                if (buscar != "")
+                {
+                    filtroBuscar =
+                        @" AND
+                (
+                    U.Nombres LIKE '%" + buscar + @"%'
+                    OR U.Apellidos LIKE '%" + buscar + @"%'
+                    OR
+                    (
+                        U.Nombres + ' ' + U.Apellidos
+                    ) LIKE '%" + buscar + @"%'
+                    OR U.NombreUsuario LIKE '%" + buscar + @"%'
+                    OR U.Correo LIKE '%" + buscar + @"%'
+                    OR U.Cedula LIKE '%" + buscar + @"%'
+                )";
+                }
+
+
+                string filtroRol = "";
+
+                if (idRol > 0)
+                {
+                    filtroRol =
+                        " AND U.IdRol = " +
+                        idRol;
+                }
+
+
+                string filtroEstado = "";
+
+                if (estado == "Activo")
+                {
+                    filtroEstado =
+                        " AND U.EstadoCuenta = 1";
+                }
+                else if (estado == "Inactivo")
+                {
+                    filtroEstado =
+                        " AND U.EstadoCuenta = 0";
+                }
+
+
+                // ==========================================
+                // CONSULTA
+                // ==========================================
+                string consulta =
+                    @"SELECT
+                U.IdUsuario,
+                U.Foto,
+
+                U.Nombres + ' ' +
+                U.Apellidos AS Nombre,
+
+                U.NombreUsuario AS Usuario,
+
+                R.NombreRol AS Rol,
+
+                CASE
+                    WHEN U.EstadoCuenta = 1
+                        THEN 'Activo'
+                    ELSE
+                        'Inactivo'
+                END AS Estado,
+
+                U.Correo
+
+              FROM Usuarios U
+
+              INNER JOIN Roles R
+                  ON U.IdRol = R.IdRol
+
+              WHERE 1 = 1 " +
+
+                      filtroBuscar +
+                      filtroRol +
+                      filtroEstado +
+
+                      @" ORDER BY
+                    U.Nombres,
+                    U.Apellidos";
+
+
+                // ==========================================
+                // CONSULTAR
+                // ==========================================
+                DataTable tabla =
+                    conSQL.RetornaRegistros(
+                        consulta);
+
+
+                if (tabla == null)
+                    return;
+
+
+                // ==========================================
+                // COLUMNA PARA MOSTRAR FOTO
+                // ==========================================
+                DataColumn columnaFotoUsuario =
+                    new DataColumn(
+                        "FotoUsuario",
+                        typeof(Image));
+
+
+                tabla.Columns.Add(
+                    columnaFotoUsuario);
+
+
+                columnaFotoUsuario.SetOrdinal(0);
+
+
+                // ==========================================
+                // CONVERTIR FOTO
+                // ==========================================
+                foreach (DataRow fila
+                         in tabla.Rows)
+                {
+                    if (fila["Foto"] != DBNull.Value)
+                    {
+                        try
+                        {
+                            byte[] bytesFoto =
+                                (byte[])fila["Foto"];
+
+
+                            using (MemoryStream ms =
+                                   new MemoryStream(bytesFoto))
+                            {
+                                using (Image imagen =
+                                       Image.FromStream(ms))
+                                {
+                                    fila["FotoUsuario"] =
+                                        new Bitmap(imagen);
+                                }
+                            }
+                        }
+                        catch
+                        {
+                            fila["FotoUsuario"] =
+                                DBNull.Value;
+                        }
+                    }
+                    else
+                    {
+                        fila["FotoUsuario"] =
+                            DBNull.Value;
+                    }
+                }
+
+
+                // ==========================================
+                // MOSTRAR EN TABLA
+                // ==========================================
+                dgvUsuarios.DataSource =
+                    tabla;
+
+
+                // ==========================================
+                // OCULTAR COLUMNAS INTERNAS
+                // ==========================================
+                if (dgvUsuarios.Columns[
+                    "IdUsuario"] != null)
+                {
+                    dgvUsuarios.Columns[
+                        "IdUsuario"]
+                        .Visible = false;
+                }
+
+
+                if (dgvUsuarios.Columns[
+                    "Foto"] != null)
+                {
+                    dgvUsuarios.Columns[
+                        "Foto"]
+                        .Visible = false;
+                }
+
+
+                dgvUsuarios.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al cargar los usuarios:\n\n" +
+                    ex.Message,
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
         private void CargarFotosUsuarios()
         {
@@ -415,6 +662,30 @@ namespace wfZenova
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            CargarUsuarios();
+        }
+
+        private void cmbRol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbRol.SelectedValue == null ||
+        cmbRol.SelectedValue is DataRowView)
+            {
+                return;
+            }
+
+            CargarUsuarios();
+        }
+
+        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbEstado.SelectedIndex == -1)
+                return;
+
+            CargarUsuarios();
         }
     }
 }

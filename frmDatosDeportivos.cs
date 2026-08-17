@@ -21,8 +21,13 @@ namespace wfZenova
 
             this.idDeportista = idDeportista;
 
+            dtpFechaMedicion.Value =
+                DateTime.Today;
+
             CargarCategoriasEdad();
             CargarDeportista();
+
+            CalcularCategoriaEdad();
         }
 
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
@@ -53,8 +58,8 @@ namespace wfZenova
               FROM Deportistas D
 
               LEFT JOIN Inscripciones I
-                  ON D.IdDeportista = I.IdDeportista
-                  AND I.Estado = 'Activa'
+                    ON D.IdDeportista = I.IdDeportista
+                    AND I.Estado = 'Activo'
 
               LEFT JOIN EntrenadorDeporte ED
                   ON I.IdEntrenadorDeporte =
@@ -308,6 +313,271 @@ namespace wfZenova
             }
 
             e.Handled = true;
+        }
+        private bool ValidarCampos()
+        {
+            // FECHA
+            if (!ValidarFechaMedicion())
+                return false;
+
+            // PESO
+            if (!ValidarPeso())
+                return false;
+
+            // ALTURA
+            if (!ValidarAltura())
+                return false;
+
+            // CATEGORÍA POR EDAD
+            if (cmbCategoriaEdad.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Seleccione la categoría por edad.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                cmbCategoriaEdad.Focus();
+                return false;
+            }
+
+            // CATEGORÍA / DIVISIÓN POR PESO
+            // Por ahora es opcional, porque no aplica igual
+            // para todos los deportes.
+
+            return true;
+        }
+        private bool ValidarFechaMedicion()
+        {
+            DateTime fecha =
+                dtpFechaMedicion.Value.Date;
+
+            if (fecha > DateTime.Today)
+            {
+                MessageBox.Show(
+                    "La fecha de medición no puede ser futura.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                dtpFechaMedicion.Focus();
+                return false;
+            }
+
+            return true;
+        }
+        private void CalcularCategoriaEdad()
+        {
+            DataTable tabla =
+                conSQL.RetornaRegistros(
+                    @"SELECT FechaNacimiento
+              FROM Deportistas
+              WHERE IdDeportista = " + idDeportista
+                );
+
+            if (tabla == null ||
+                tabla.Rows.Count == 0)
+            {
+                cmbCategoriaEdad.SelectedIndex = -1;
+                return;
+            }
+
+            DataRow fila =
+                tabla.Rows[0];
+
+            if (fila["FechaNacimiento"] == DBNull.Value)
+            {
+                cmbCategoriaEdad.SelectedIndex = -1;
+                return;
+            }
+
+            DateTime fechaNacimiento =
+                Convert.ToDateTime(
+                    fila["FechaNacimiento"]);
+
+            DateTime fechaReferencia =
+                dtpFechaMedicion.Value.Date;
+
+            int edad =
+                fechaReferencia.Year -
+                fechaNacimiento.Year;
+
+            if (fechaNacimiento.Date >
+                fechaReferencia.AddYears(-edad))
+            {
+                edad--;
+            }
+
+            if (edad >= 5 && edad <= 11)
+            {
+                cmbCategoriaEdad.SelectedItem =
+                    "Infantil / Iniciación";
+            }
+            else if (edad >= 12 && edad <= 14)
+            {
+                cmbCategoriaEdad.SelectedItem =
+                    "Pre-Juvenil / Menores";
+            }
+            else if (edad >= 15 && edad <= 17)
+            {
+                cmbCategoriaEdad.SelectedItem =
+                    "Juvenil";
+            }
+            else if (edad >= 18 && edad <= 34)
+            {
+                cmbCategoriaEdad.SelectedItem =
+                    "Sénior / Abierta";
+            }
+            else if (edad >= 35)
+            {
+                cmbCategoriaEdad.SelectedItem =
+                    "Máster / Veteranos";
+            }
+            else
+            {
+                cmbCategoriaEdad.SelectedIndex = -1;
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (!ValidarCampos())
+                return;
+
+            try
+            {
+                // ==========================================
+                // FECHA
+                // ==========================================
+                string fechaMedicion =
+                    dtpFechaMedicion.Value
+                    .ToString("yyyy-MM-dd");
+
+
+                // ==========================================
+                // PESO
+                // ==========================================
+                decimal peso;
+
+                string textoPeso =
+                    txtPeso.Text.Trim()
+                    .Replace(".", ",");
+
+                decimal.TryParse(
+                    textoPeso,
+                    out peso);
+
+
+                // ==========================================
+                // ALTURA
+                // ==========================================
+                decimal altura;
+
+                string textoAltura =
+                    txtAltura.Text.Trim()
+                    .Replace(".", ",");
+
+                decimal.TryParse(
+                    textoAltura,
+                    out altura);
+
+
+                // ==========================================
+                // CATEGORÍA POR EDAD
+                // ==========================================
+                string categoriaEdad =
+                    cmbCategoriaEdad.Text.Trim();
+
+
+                // ==========================================
+                // DIVISIÓN POR PESO
+                // Puede quedar NULL
+                // ==========================================
+                string divisionPeso = "NULL";
+
+                if (cmbCategoriaPeso.SelectedIndex != -1 &&
+                    cmbCategoriaPeso.Text.Trim() != "")
+                {
+                    divisionPeso =
+                        "'" +
+                        cmbCategoriaPeso.Text
+                        .Trim()
+                        .Replace("'", "''") +
+                        "'";
+                }
+
+
+                // ==========================================
+                // CAMPOS
+                // ==========================================
+                string campos =
+                    "IdDeportista, " +
+                    "FechaMedicion, " +
+                    "Peso, " +
+                    "Altura, " +
+                    "CategoriaEdad, " +
+                    "DivisionPeso";
+
+
+                // ==========================================
+                // DATOS
+                // ==========================================
+                string datos =
+                    idDeportista + "," +
+
+                    "'" +
+                    fechaMedicion +
+                    "'," +
+
+                    peso.ToString(
+                        System.Globalization
+                        .CultureInfo.InvariantCulture) +
+                    "," +
+
+                    altura.ToString(
+                        System.Globalization
+                        .CultureInfo.InvariantCulture) +
+                    "," +
+
+                    "'" +
+                    categoriaEdad
+                    .Replace("'", "''") +
+                    "'," +
+
+                    divisionPeso;
+
+
+                // ==========================================
+                // GUARDAR EN SQL
+                // ==========================================
+                if (conSQL.insertDatos(
+                    "MedicionesDeportista",
+                    campos,
+                    datos))
+                {
+                    MessageBox.Show(
+                        "Los datos deportivos se registraron correctamente.",
+                        "ZENOVA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Ocurrió un error al guardar los datos deportivos:\n\n" +
+                    ex.Message,
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void dtpFechaMedicion_ValueChanged(object sender, EventArgs e)
+        {
+            CalcularCategoriaEdad();
         }
     }
 }
