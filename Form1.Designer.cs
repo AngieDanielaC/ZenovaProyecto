@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlMenuLateral = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnConsultaAdm = new System.Windows.Forms.Button();
-            this.btnInicioAdm = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnMotivacion = new System.Windows.Forms.Button();
@@ -56,7 +56,6 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelChildForm = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.pnlMenuLateral.SuspendLayout();
             this.panelSubBienestar.SuspendLayout();
             this.PanelSubMenoMonitoreo.SuspendLayout();
@@ -70,7 +69,6 @@
             this.pnlMenuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(63)))), ((int)(((byte)(112)))));
             this.pnlMenuLateral.Controls.Add(this.button1);
             this.pnlMenuLateral.Controls.Add(this.btnConsultaAdm);
-            this.pnlMenuLateral.Controls.Add(this.btnInicioAdm);
             this.pnlMenuLateral.Controls.Add(this.btnCerrar);
             this.pnlMenuLateral.Controls.Add(this.btnReportes);
             this.pnlMenuLateral.Controls.Add(this.btnMotivacion);
@@ -90,8 +88,27 @@
             this.pnlMenuLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMenuLateral.Location = new System.Drawing.Point(0, 0);
             this.pnlMenuLateral.Name = "pnlMenuLateral";
-            this.pnlMenuLateral.Size = new System.Drawing.Size(250, 1061);
+            this.pnlMenuLateral.Size = new System.Drawing.Size(250, 749);
             this.pnlMenuLateral.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = global::wfZenova.Properties.Resources._4;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 953);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(233, 45);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Competencias";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnConsultaAdm
             // 
@@ -99,11 +116,11 @@
             this.btnConsultaAdm.FlatAppearance.BorderSize = 0;
             this.btnConsultaAdm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
             this.btnConsultaAdm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultaAdm.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultaAdm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultaAdm.ForeColor = System.Drawing.Color.White;
             this.btnConsultaAdm.Image = global::wfZenova.Properties.Resources.icLupaMenAd;
             this.btnConsultaAdm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultaAdm.Location = new System.Drawing.Point(0, 953);
+            this.btnConsultaAdm.Location = new System.Drawing.Point(0, 908);
             this.btnConsultaAdm.Name = "btnConsultaAdm";
             this.btnConsultaAdm.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnConsultaAdm.Size = new System.Drawing.Size(233, 45);
@@ -112,35 +129,17 @@
             this.btnConsultaAdm.UseVisualStyleBackColor = true;
             this.btnConsultaAdm.Click += new System.EventHandler(this.btnConsultaAdm_Click);
             // 
-            // btnInicioAdm
-            // 
-            this.btnInicioAdm.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInicioAdm.FlatAppearance.BorderSize = 0;
-            this.btnInicioAdm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.btnInicioAdm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInicioAdm.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInicioAdm.ForeColor = System.Drawing.Color.White;
-            this.btnInicioAdm.Image = global::wfZenova.Properties.Resources._1;
-            this.btnInicioAdm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInicioAdm.Location = new System.Drawing.Point(0, 908);
-            this.btnInicioAdm.Name = "btnInicioAdm";
-            this.btnInicioAdm.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnInicioAdm.Size = new System.Drawing.Size(233, 45);
-            this.btnInicioAdm.TabIndex = 12;
-            this.btnInicioAdm.Text = "Inicio";
-            this.btnInicioAdm.UseVisualStyleBackColor = true;
-            // 
             // btnCerrar
             // 
             this.btnCerrar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.White;
             this.btnCerrar.Image = global::wfZenova.Properties.Resources._9;
             this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrar.Location = new System.Drawing.Point(0, 1043);
+            this.btnCerrar.Location = new System.Drawing.Point(0, 998);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnCerrar.Size = new System.Drawing.Size(233, 45);
@@ -296,7 +295,7 @@
             this.btnEntrenamientos.FlatAppearance.BorderSize = 0;
             this.btnEntrenamientos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
             this.btnEntrenamientos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEntrenamientos.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrenamientos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEntrenamientos.ForeColor = System.Drawing.Color.White;
             this.btnEntrenamientos.Image = global::wfZenova.Properties.Resources._3;
             this.btnEntrenamientos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -354,7 +353,7 @@
             this.btnGestion.Padding = new System.Windows.Forms.Padding(65, 0, 0, 0);
             this.btnGestion.Size = new System.Drawing.Size(233, 40);
             this.btnGestion.TabIndex = 2;
-            this.btnGestion.Text = "Gestión Tecnica";
+            this.btnGestion.Text = "Deportistas";
             this.btnGestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGestion.UseVisualStyleBackColor = true;
             this.btnGestion.Click += new System.EventHandler(this.btnGestion_Click);
@@ -372,7 +371,7 @@
             this.btnDepor.Padding = new System.Windows.Forms.Padding(65, 0, 0, 0);
             this.btnDepor.Size = new System.Drawing.Size(233, 40);
             this.btnDepor.TabIndex = 1;
-            this.btnDepor.Text = "Deportistas";
+            this.btnDepor.Text = "Entrenadores";
             this.btnDepor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDepor.UseVisualStyleBackColor = true;
             this.btnDepor.Click += new System.EventHandler(this.btnDepor_Click);
@@ -390,7 +389,7 @@
             this.btnControl.Padding = new System.Windows.Forms.Padding(65, 0, 0, 0);
             this.btnControl.Size = new System.Drawing.Size(233, 40);
             this.btnControl.TabIndex = 0;
-            this.btnControl.Text = "Control";
+            this.btnControl.Text = "Resumen General";
             this.btnControl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnControl.UseVisualStyleBackColor = true;
             this.btnControl.Click += new System.EventHandler(this.btnControl_Click);
@@ -555,33 +554,14 @@
             this.PanelChildForm.ForeColor = System.Drawing.Color.White;
             this.PanelChildForm.Location = new System.Drawing.Point(250, 0);
             this.PanelChildForm.Name = "PanelChildForm";
-            this.PanelChildForm.Size = new System.Drawing.Size(1033, 1061);
+            this.PanelChildForm.Size = new System.Drawing.Size(1033, 749);
             this.PanelChildForm.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::wfZenova.Properties.Resources._4;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 998);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(233, 45);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Competencias";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 1061);
+            this.ClientSize = new System.Drawing.Size(1283, 749);
             this.Controls.Add(this.PanelChildForm);
             this.Controls.Add(this.pnlMenuLateral);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -624,7 +604,6 @@
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnMotivacion;
         private System.Windows.Forms.Panel PanelChildForm;
-        private System.Windows.Forms.Button btnInicioAdm;
         private System.Windows.Forms.Button btnDeportistasAdm;
         private System.Windows.Forms.Button btnEntrenadoresAdm;
         private System.Windows.Forms.Button btnAsignacionAdm;
