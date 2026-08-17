@@ -232,16 +232,26 @@ namespace wfZenova
 
         private void btnRemplazar_Click(object sender, EventArgs e)
         {
-            Control Contenedor = this.Parent;
-            frmRemplazarEntrenador changedtrainer = new frmRemplazarEntrenador();
-            changedtrainer.TopLevel = false;
-            changedtrainer.FormBorderStyle= FormBorderStyle.None;
-            changedtrainer.Dock = DockStyle.Fill;
+            if (dgvEntrenadores.SelectedRows.Count > 0)
+            {
+                int idSeleccionado = Convert.ToInt32(dgvEntrenadores.SelectedRows[0].Cells["IdEntrenador"].Value);
+                Control Contenedor = this.Parent;
+                frmRemplazarEntrenador changedtrainer = new frmRemplazarEntrenador(idSeleccionado);
 
-            Contenedor.Controls.Remove(this);
-            Contenedor.Controls.Add (changedtrainer);
-            changedtrainer.Show();
-            this.Close();
+                changedtrainer.TopLevel = false;
+                changedtrainer.FormBorderStyle = FormBorderStyle.None;
+                changedtrainer.Dock = DockStyle.Fill;
+
+                Contenedor.Controls.Remove(this);
+                Contenedor.Controls.Add(changedtrainer);
+
+                changedtrainer.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un entrenador de la tabla para reemplazar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnVer_Click(object sender, EventArgs e)
@@ -318,22 +328,16 @@ namespace wfZenova
             {
                 int idSeleccionado = Convert.ToInt32(dgvEntrenadores.SelectedRows[0].Cells["IdEntrenador"].Value);
 
-                Control contenedor = this.Parent;
-                frmEditarEntrenador frmSubCompetencia = new frmEditarEntrenador(idSeleccionado);
+                frmEditarEntrenador frmEdit = new frmEditarEntrenador(idSeleccionado);
+                frmEdit.StartPosition = FormStartPosition.CenterScreen;
+                frmEdit.FormBorderStyle = FormBorderStyle.None;
 
-                frmSubCompetencia.TopLevel = false;
-                frmSubCompetencia.FormBorderStyle = FormBorderStyle.None;
-                frmSubCompetencia.Dock = DockStyle.Fill;
-
-                contenedor.Controls.Remove(this);
-                contenedor.Controls.Add(frmSubCompetencia);
-
-                frmSubCompetencia.Show();
-                this.Close();
+                frmEdit.ShowDialog();
+                CargarTablaEntrenadores();
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un entrenador de la tabla para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione un entrenador para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

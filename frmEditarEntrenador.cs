@@ -36,7 +36,6 @@ namespace wfZenova
         }
         private void CargarDeportesEntrenador()
         {
-            // 1. Cargar todos los deportes en el CheckedListBox
             string queryTodos = "SELECT IdDeporte, NombreDeporte FROM Deportes WHERE Activo = 1";
             DataTable dtTodos = oConSQl.RetornaRegistros(queryTodos);
 
@@ -46,8 +45,6 @@ namespace wfZenova
             clbDeportes.DataSource = dtTodos;
             clbDeportes.DisplayMember = "NombreDeporte";
             clbDeportes.ValueMember = "IdDeporte";
-
-            // 2. Cargar los deportes asignados al entrenador
             string queryAsignados = $@"
                 SELECT IdDeporte 
                 FROM EntrenadorDeporte 
@@ -62,8 +59,6 @@ namespace wfZenova
                 {
                     idsAsignados.Add(Convert.ToInt32(dr["IdDeporte"]));
                 }
-
-                // 3. Marcar los casilleros correspondientes
                 for (int i = 0; i < clbDeportes.Items.Count; i++)
                 {
                     DataRowView row = (DataRowView)clbDeportes.Items[i];
@@ -95,8 +90,6 @@ namespace wfZenova
                 txtTelefono.Text = dr["Telefono"].ToString().Trim();
                 txtDirEnt.Text = dr["Direccion"].ToString().Trim();
                 txtCorreoEnt.Text = dr["Correo"].ToString().Trim();
-
-                // Cargar Foto desde la BD
                 if (dr["Foto"] != DBNull.Value && dr["Foto"] != null)
                 {
                     byte[] imgData = (byte[])dr["Foto"];
@@ -175,8 +168,6 @@ namespace wfZenova
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
             if (!VerificarData()) return;
-
-            // Convertir la imagen a formato hexadecimal para SQL
             MemoryStream ms = new MemoryStream();
             ImagenEnt.Image.Save(ms, ImageFormat.Jpeg);
             byte[] abyte = ms.ToArray();

@@ -42,13 +42,19 @@ namespace wfZenova
         private void frmRemplazarEntrenador_Load(object sender, EventArgs e)
         {
             CargarEntrenadorSaliente();
-            CargarDisciplinasEntrenador();
             CargarNuevosEntrenadores();
+            CargarDisciplinas();
         }
         private void CargarEntrenadorSaliente()
         {
+            if (this.idEntrenadorSaliente <= 0)
+            {
+                lblEntrenadorActual.Text = "No seleccionado";
+                return;
+            }
+
             string query = $@"
-                SELECT (Nombres + ' ' + Apellidos) AS NombreCompleto 
+                SELECT (ISNULL(Nombres, '') + ' ' + ISNULL(Apellidos, '')) AS NombreCompleto 
                 FROM Entrenadores 
                 WHERE IdEntrenador = {this.idEntrenadorSaliente}";
 
@@ -57,26 +63,14 @@ namespace wfZenova
             if (dt != null && dt.Rows.Count > 0)
             {
                 lblEntrenadorActual.Text = dt.Rows[0]["NombreCompleto"].ToString();
+                lblEntrenadorActual.Refresh();
             }
-        }
-        private void CargarDisciplinasEntrenador()
-        {
-            string query = $@"
-                SELECT D.IdDeporte, D.NombreDeporte 
-                FROM EntrenadorDeporte ED
-                INNER JOIN Deportes D ON ED.IdDeporte = D.IdDeporte
-                WHERE ED.IdEntrenador = {this.idEntrenadorSaliente} AND ED.Activo = 1";
-
-            DataTable dt = oConSQl.RetornaRegistros(query);
-
-            clbDisciplina.DataSource = null;
-            if (dt != null && dt.Rows.Count > 0)
+            else
             {
-                clbDisciplina.DataSource = dt;
-                clbDisciplina.DisplayMember = "NombreDeporte";
-                clbDisciplina.ValueMember = "IdDeporte";
+                lblEntrenadorActual.Text = "Entrenador no encontrado";
             }
         }
+        
         private void RegresarAAdministracion()
         {
             Control contenedor = this.Parent;
@@ -91,6 +85,20 @@ namespace wfZenova
 
             frmAdm.Show();
             this.Close();
+        }
+        private void CargarDisciplinas()
+        {
+            string query = "SELECT IdDeporte, NombreDeporte FROM Deportes";
+
+            DataTable dt = oConSQl.RetornaRegistros(query);
+
+            clbDisciplina.DataSource = null;
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                clbDisciplina.DataSource = dt;
+                clbDisciplina.DisplayMember = "NombreDeporte";
+                clbDisciplina.ValueMember = "IdDeporte";
+            }
         }
 
         private void cmbTipoReemplazo_SelectedIndexChanged(object sender, EventArgs e)
@@ -152,29 +160,40 @@ namespace wfZenova
             int idNuevoEntrenador = Convert.ToInt32(cmbNuevoEntrenador.SelectedValue);
             string fechaInicio = dtpFechaInicio.Value.ToString("yyyy-MM-dd");
             string fechaFin = dtpFechaFin.Value.ToString("yyyy-MM-dd");
-            string razon = cmbTipoReemplazo.Text.Trim().Replace("'", "''");
+            string tipoVisual = cmbTipoReemplazo.Text.Trim();
+            string tipoBD = "Temporal"; 
+            if (tipoVisual.Equals("Retirado", StringComparison.OrdinalIgnoreCase) ||
+                tipoVisual.Equals("Definitivo", StringComparison.OrdinalIgnoreCase) ||
+                tipoVisual.Equals("Personal", StringComparison.OrdinalIgnoreCase))
+            {
+                tipoBD = "Definitivo";
+            }
+            string queryInactivar = $@"
+        UPDATE Entrenadores 
+        SET EstadoEntrenador = 'Inactivo' 
+        WHERE IdEntrenador = {this.idEntrenadorSaliente}";
 
+            oConSQl.RetornaRegistros(queryInactivar);
             foreach (DataRowView item in clbDisciplina.CheckedItems)
             {
                 int idDeporte = Convert.ToInt32(item["IdDeporte"]);
+                string queryUpdateDeporte = $@"
+            UPDATE EntrenadorDeporte 
+            SET Activo = 0 
+            WHERE IdEntrenador = {this.idEntrenadorSaliente} AND IdDeporte = {idDeporte}";
 
-                string condicionSaliente = $"IdEntrenador = {this.idEntrenadorSaliente} AND IdDeporte = {idDeporte}";
-                oConSQl.ActualizarDatos("EntrenadorDeporte", "Activo = 0", condicionSaliente);
-
+                oConSQl.RetornaRegistros(queryUpdateDeporte);
                 string camposED = "IdEntrenador, IdDeporte, FechaInicio, Activo";
                 string valoresED = $"{idNuevoEntrenador}, {idDeporte}, '{fechaInicio}', 1";
                 oConSQl.insertDatos("EntrenadorDeporte", camposED, valoresED);
-
                 string camposHist = "IdEntrenadorOriginal, IdEntrenadorNuevo, IdDeporte, TipoReemplazo, FechaInicio, FechaFin, Estado, FechaRegistro";
-                string valoresHist = $"{this.idEntrenadorSaliente}, {idNuevoEntrenador}, {idDeporte}, '{razon}', '{fechaInicio}', '{fechaFin}', 'Activo', GETDATE()";
+                string valoresHist = $"{this.idEntrenadorSaliente}, {idNuevoEntrenador}, {idDeporte}, '{tipoBD}', '{fechaInicio}', '{fechaFin}', 'Inactivo', GETDATE()";
 
                 oConSQl.insertDatos("ReemplazosEntrenador", camposHist, valoresHist);
             }
 
-            MessageBox.Show("Reemplazo registrado e historial guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            MessageBox.Show("El reemplazo y la inhabilitación del entrenador se guardaron correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             RegresarAAdministracion();
-
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
