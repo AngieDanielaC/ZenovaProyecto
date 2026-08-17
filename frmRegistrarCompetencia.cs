@@ -13,10 +13,32 @@ namespace wfZenova
 {
     public partial class frmRegistrarCompetencia : Form
     {
+        public int tipo; // 1 = nuevo, 2 = editar
+        private int idCompetencia;
         public frmRegistrarCompetencia()
         {
             InitializeComponent();
+            tipo = 1;
+
+            lblTitulo.Text = "REGISTRAR COMPETENCIA";
+            btnGuardar.Text = "Guardar competencia";
         }
+
+
+        public frmRegistrarCompetencia(int idCompetencia)
+        {
+            InitializeComponent();
+
+            tipo = 2;
+
+            this.idCompetencia = idCompetencia;
+
+            lblTitulo.Text = "EDITAR COMPETENCIA";
+            btnGuardar.Text = "Guardar cambios";
+
+        }
+
+
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private static extern void ReleaseCapture();
 

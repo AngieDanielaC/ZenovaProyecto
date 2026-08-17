@@ -10,14 +10,13 @@ using System.Windows.Forms;
 
 namespace wfZenova
 {
-    public partial class frmCompetencias : Form
+    public partial class frmCompetenciasEntrenador : Form
     {
-        public frmCompetencias()
+        public frmCompetenciasEntrenador()
         {
             InitializeComponent();
             ConfigurarTablaCompetencias();
         }
-        private Form formularioActivo = null;
         private void ConfigurarTablaCompetencias()
         {
             // ==========================================
@@ -47,6 +46,10 @@ namespace wfZenova
                 "NIVEL");
 
             dgvCompetencias.Columns.Add(
+                "Deportes",
+                "DEPORTES");
+
+            dgvCompetencias.Columns.Add(
                 "FechaInicio",
                 "FECHA INICIO");
 
@@ -55,14 +58,8 @@ namespace wfZenova
                 "FECHA FIN");
 
             dgvCompetencias.Columns.Add(
-                "FechaLimite",
-                "LÍMITE INSCRIPCIÓN");
-
-            dgvCompetencias.Columns.Add(
-                "Deportes",
-                "DEPORTES");
-
-            dgvCompetencias.Columns.Add( "Inscritos","INSCRITOS");
+                "Inscritos",
+                "MIS DEPORTISTAS INSCRITOS");
 
             dgvCompetencias.Columns.Add(
                 "Estado",
@@ -72,8 +69,7 @@ namespace wfZenova
             // ==========================================
             // CONFIGURACIÓN GENERAL
             // ==========================================
-            dgvCompetencias.BackgroundColor =
-                Color.White;
+            dgvCompetencias.BackgroundColor = Color.White;
 
             dgvCompetencias.BorderStyle =
                 BorderStyle.None;
@@ -84,26 +80,15 @@ namespace wfZenova
             dgvCompetencias.GridColor =
                 Color.FromArgb(235, 235, 245);
 
-            dgvCompetencias.RowHeadersVisible =
-                false;
+            dgvCompetencias.RowHeadersVisible = false;
 
-            dgvCompetencias.AllowUserToAddRows =
-                false;
+            dgvCompetencias.AllowUserToAddRows = false;
+            dgvCompetencias.AllowUserToDeleteRows = false;
+            dgvCompetencias.AllowUserToResizeRows = false;
+            dgvCompetencias.AllowUserToResizeColumns = false;
 
-            dgvCompetencias.AllowUserToDeleteRows =
-                false;
-
-            dgvCompetencias.AllowUserToResizeRows =
-                false;
-
-            dgvCompetencias.AllowUserToResizeColumns =
-                false;
-
-            dgvCompetencias.ReadOnly =
-                true;
-
-            dgvCompetencias.MultiSelect =
-                false;
+            dgvCompetencias.ReadOnly = true;
+            dgvCompetencias.MultiSelect = false;
 
             dgvCompetencias.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
@@ -113,10 +98,9 @@ namespace wfZenova
 
 
             // ==========================================
-            // ENCABEZADOS
+            // ENCABEZADO
             // ==========================================
-            dgvCompetencias.EnableHeadersVisualStyles =
-                false;
+            dgvCompetencias.EnableHeadersVisualStyles = false;
 
             dgvCompetencias.ColumnHeadersDefaultCellStyle.BackColor =
                 Color.FromArgb(52, 63, 221);
@@ -136,8 +120,9 @@ namespace wfZenova
             dgvCompetencias.ColumnHeadersDefaultCellStyle.WrapMode =
                 DataGridViewTriState.True;
 
-            dgvCompetencias.ColumnHeadersHeight =
-                55;
+            // Un poco más alto porque "MIS DEPORTISTAS INSCRITOS"
+            // ocupa dos líneas
+            dgvCompetencias.ColumnHeadersHeight = 55;
 
             dgvCompetencias.ColumnHeadersHeightSizeMode =
                 DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -149,8 +134,7 @@ namespace wfZenova
             // ==========================================
             // FILAS
             // ==========================================
-            dgvCompetencias.RowTemplate.Height =
-                55;
+            dgvCompetencias.RowTemplate.Height = 55;
 
             dgvCompetencias.DefaultCellStyle.BackColor =
                 Color.White;
@@ -173,45 +157,36 @@ namespace wfZenova
             dgvCompetencias.DefaultCellStyle.SelectionForeColor =
                 Color.FromArgb(25, 40, 95);
 
-            dgvCompetencias.DefaultCellStyle.WrapMode =
-                DataGridViewTriState.False;
-
 
             // ==========================================
-            // TAMAÑO DE LAS COLUMNAS
+            // TAMAÑO DE COLUMNAS
             // ==========================================
-
-            // Las más grandes
             dgvCompetencias.Columns["NombreCompetencia"]
-                .FillWeight = 150;
+                .FillWeight = 145;
 
             dgvCompetencias.Columns["Organizador"]
                 .FillWeight = 140;
 
-            dgvCompetencias.Columns["Deportes"]
-                .FillWeight = 110;
-
-
-            // Tamaño medio
             dgvCompetencias.Columns["Lugar"]
-                .FillWeight = 85;
+                .FillWeight = 75;
 
             dgvCompetencias.Columns["Nivel"]
                 .FillWeight = 75;
 
-            dgvCompetencias.Columns["Estado"]
-                .FillWeight = 75;
-            dgvCompetencias.Columns["Inscritos"].FillWeight = 65;
+            dgvCompetencias.Columns["Deportes"]
+                .FillWeight = 100;
 
-            // Fechas
             dgvCompetencias.Columns["FechaInicio"]
                 .FillWeight = 85;
 
             dgvCompetencias.Columns["FechaFin"]
                 .FillWeight = 85;
 
-            dgvCompetencias.Columns["FechaLimite"]
-                .FillWeight = 95;
+            dgvCompetencias.Columns["Inscritos"]
+                .FillWeight = 90;
+
+            dgvCompetencias.Columns["Estado"]
+                .FillWeight = 70;
 
 
             // ==========================================
@@ -239,43 +214,37 @@ namespace wfZenova
             // ==========================================
             dgvCompetencias.ClearSelection();
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void btnRegistrarCompetencia_Click(object sender, EventArgs e)
+        private void btnAcDes_Click(object sender, EventArgs e)
         {
-            frmRegistrarCompetencia frm = new frmRegistrarCompetencia();
+            if (dgvCompetencias.CurrentRow == null)
+            {
+                MessageBox.Show(
+                    "Seleccione una competencia.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            // Esto funcionará cuando tengamos IdCompetencia desde SQL.
+            int idCompetencia =
+                Convert.ToInt32(
+                    dgvCompetencias.CurrentRow
+                    .Cells["IdCompetencia"].Value);
+
+            frmVerParticipantes frm =
+                new frmVerParticipantes();
 
             frm.ShowDialog();
         }
 
-        private void btnGestionarParticipantes_Click(object sender, EventArgs e)
-        {
-            Control contenedor = this.Parent;
-
-            if (contenedor == null)
-            {
-                MessageBox.Show("No se encontró el contenedor del formulario.");
-                return;
-            }
-
-            frmGestionarParticipantes frm = new frmGestionarParticipantes();
-
-            frm.TopLevel = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-
-            contenedor.Controls.Remove(this);
-            contenedor.Controls.Add(frm);
-
-            frm.Show();
-
-            this.Close();
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             if (dgvCompetencias.CurrentRow == null)
             {

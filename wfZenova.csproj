@@ -83,6 +83,12 @@
     <Compile Include="frmCompetencias.Designer.cs">
       <DependentUpon>frmCompetencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCompetenciasEntrenador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCompetenciasEntrenador.Designer.cs">
+      <DependentUpon>frmCompetenciasEntrenador.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultaAdm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,12 @@
     </Compile>
     <Compile Include="frmGastoCalorico.Designer.cs">
       <DependentUpon>frmGastoCalorico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionarParticipantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionarParticipantes.Designer.cs">
+      <DependentUpon>frmGestionarParticipantes.cs</DependentUpon>
     </Compile>
     <Compile Include="frmGestionDeUsuarios.cs">
       <SubType>Form</SubType>
@@ -257,6 +269,12 @@
     <Compile Include="frmRegistrarCompetencia.Designer.cs">
       <DependentUpon>frmRegistrarCompetencia.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRegistrarResultados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarResultados.Designer.cs">
+      <DependentUpon>frmRegistrarResultados.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRegistroDatosMonitoreo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -329,6 +347,12 @@
     <Compile Include="frmVerEntrenador.Designer.cs">
       <DependentUpon>frmVerEntrenador.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVerParticipantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerParticipantes.Designer.cs">
+      <DependentUpon>frmVerParticipantes.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVerUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -360,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCompetencias.resx">
       <DependentUpon>frmCompetencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCompetenciasEntrenador.resx">
+      <DependentUpon>frmCompetenciasEntrenador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaAdm.resx">
       <DependentUpon>frmConsultaAdm.cs</DependentUpon>
@@ -393,6 +420,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGastoCalorico.resx">
       <DependentUpon>frmGastoCalorico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionarParticipantes.resx">
+      <DependentUpon>frmGestionarParticipantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionDeUsuarios.resx">
       <DependentUpon>frmGestionDeUsuarios.cs</DependentUpon>
@@ -448,6 +478,9 @@
     <EmbeddedResource Include="frmRegistrarCompetencia.resx">
       <DependentUpon>frmRegistrarCompetencia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarResultados.resx">
+      <DependentUpon>frmRegistrarResultados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRegistroDatosMonitoreo.resx">
       <DependentUpon>frmRegistroDatosMonitoreo.cs</DependentUpon>
     </EmbeddedResource>
@@ -483,6 +516,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerEntrenador.resx">
       <DependentUpon>frmVerEntrenador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerParticipantes.resx">
+      <DependentUpon>frmVerParticipantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerUsuario.resx">
       <DependentUpon>frmVerUsuario.cs</DependentUpon>
