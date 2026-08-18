@@ -65,6 +65,12 @@
     <Compile Include="frmAsignacionesAdm.Designer.cs">
       <DependentUpon>frmAsignacionesAdm.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCambiarContraseñaInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCambiarContraseñaInicial.Designer.cs">
+      <DependentUpon>frmCambiarContraseñaInicial.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCambiarEntrenador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -417,6 +423,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAsignacionesAdm.resx">
       <DependentUpon>frmAsignacionesAdm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCambiarContraseñaInicial.resx">
+      <DependentUpon>frmCambiarContraseñaInicial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCambiarEntrenador.resx">
       <DependentUpon>frmCambiarEntrenador.cs</DependentUpon>

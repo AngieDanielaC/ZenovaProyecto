@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicioDeSesion));
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.lblIniciaSesionParaContinuar = new System.Windows.Forms.Label();
@@ -37,9 +39,12 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imlOjo = new System.Windows.Forms.ImageList(this.components);
+            this.picVerContrasena = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picVerContrasena)).BeginInit();
             this.SuspendLayout();
             // 
             // txtContrasena
@@ -53,6 +58,7 @@
             this.txtContrasena.TabIndex = 19;
             this.txtContrasena.Text = "Contraseña";
             this.txtContrasena.Enter += new System.EventHandler(this.txtContraseña_Enter);
+            this.txtContrasena.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContrasena_KeyDown);
             this.txtContrasena.Leave += new System.EventHandler(this.txtContraseña_Leave);
             // 
             // txtUsuario
@@ -64,6 +70,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(221, 28);
             this.txtUsuario.TabIndex = 18;
+            this.txtUsuario.Tag = "2";
             this.txtUsuario.Text = "Usuario";
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
             this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
@@ -78,6 +85,7 @@
             this.lblIniciaSesionParaContinuar.Name = "lblIniciaSesionParaContinuar";
             this.lblIniciaSesionParaContinuar.Size = new System.Drawing.Size(238, 24);
             this.lblIniciaSesionParaContinuar.TabIndex = 1;
+            this.lblIniciaSesionParaContinuar.Tag = "1";
             this.lblIniciaSesionParaContinuar.Text = "Inicia sesión para continuar";
             // 
             // lblBienvenidoDeNuevo
@@ -159,12 +167,32 @@
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
+            // imlOjo
+            // 
+            this.imlOjo.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlOjo.ImageStream")));
+            this.imlOjo.TransparentColor = System.Drawing.Color.Transparent;
+            this.imlOjo.Images.SetKeyName(0, "abierto.png");
+            this.imlOjo.Images.SetKeyName(1, "cerrado.png");
+            // 
+            // picVerContrasena
+            // 
+            this.picVerContrasena.BackColor = System.Drawing.Color.White;
+            this.picVerContrasena.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picVerContrasena.Location = new System.Drawing.Point(991, 311);
+            this.picVerContrasena.Name = "picVerContrasena";
+            this.picVerContrasena.Size = new System.Drawing.Size(29, 28);
+            this.picVerContrasena.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picVerContrasena.TabIndex = 22;
+            this.picVerContrasena.TabStop = false;
+            this.picVerContrasena.Click += new System.EventHandler(this.picVerContrasena_Click);
+            // 
             // frmInicioDeSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(198)))), ((int)(((byte)(228)))));
             this.ClientSize = new System.Drawing.Size(1136, 585);
+            this.Controls.Add(this.picVerContrasena);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.btnIniciarSesion);
             this.Controls.Add(this.txtContrasena);
@@ -181,6 +209,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picVerContrasena)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,5 +226,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnIniciarSesion;
         private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.ImageList imlOjo;
+        private System.Windows.Forms.PictureBox picVerContrasena;
     }
 }

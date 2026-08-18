@@ -88,10 +88,18 @@ namespace wfZenova
             // ==========================================
             // FECHA DE NACIMIENTO
             // ==========================================
-            lblFechaNacimiento.Text =
-                Convert.ToDateTime(
-                    fila["FechaNacimiento"])
-                .ToString("dd/MM/yyyy");
+            if (fila["FechaNacimiento"] != DBNull.Value)
+            {
+                lblFechaNacimiento.Text =
+                    Convert.ToDateTime(
+                        fila["FechaNacimiento"])
+                    .ToString("dd/MM/yyyy");
+            }
+            else
+            {
+                lblFechaNacimiento.Text =
+                    "No disponible";
+            }
 
 
             // ==========================================
