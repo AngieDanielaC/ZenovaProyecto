@@ -55,11 +55,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.t = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.chkCompletado = new System.Windows.Forms.CheckedListBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -67,21 +67,28 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtObjetivo = new System.Windows.Forms.TextBox();
+            this.checkedListBox3 = new System.Windows.Forms.CheckedListBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboHoraInicio = new System.Windows.Forms.ComboBox();
+            this.txtDuracion = new System.Windows.Forms.ComboBox();
+            this.cboTipoEntrenamiento = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvEjercicios = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSeries = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRepeticiones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPeso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -404,7 +411,7 @@
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Location = new System.Drawing.Point(736, 528);
+            this.panel4.Location = new System.Drawing.Point(684, 528);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(413, 213);
             this.panel4.TabIndex = 17;
@@ -412,24 +419,24 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.t);
             this.panel5.ForeColor = System.Drawing.SystemColors.Control;
             this.panel5.Location = new System.Drawing.Point(23, 49);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(360, 136);
             this.panel5.TabIndex = 9;
             // 
-            // label6
+            // t
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(63)))), ((int)(((byte)(112)))));
-            this.label6.Location = new System.Drawing.Point(14, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 16);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Texto...";
+            this.t.AutoSize = true;
+            this.t.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.t.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.t.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(63)))), ((int)(((byte)(112)))));
+            this.t.Location = new System.Drawing.Point(14, 10);
+            this.t.Name = "t";
+            this.t.Size = new System.Drawing.Size(45, 16);
+            this.t.TabIndex = 10;
+            this.t.Text = "Texto...";
             // 
             // button2
             // 
@@ -466,18 +473,19 @@
             this.button4.TabIndex = 20;
             this.button4.Text = "Guardar entrenamiento";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // checkedListBox1
+            // chkCompletado
             // 
-            this.checkedListBox1.ForeColor = System.Drawing.Color.Black;
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
+            this.chkCompletado.ForeColor = System.Drawing.Color.Black;
+            this.chkCompletado.FormattingEnabled = true;
+            this.chkCompletado.Items.AddRange(new object[] {
             "Completado",
             "Incompleto"});
-            this.checkedListBox1.Location = new System.Drawing.Point(766, 69);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(120, 34);
-            this.checkedListBox1.TabIndex = 20;
+            this.chkCompletado.Location = new System.Drawing.Point(766, 69);
+            this.chkCompletado.Name = "chkCompletado";
+            this.chkCompletado.Size = new System.Drawing.Size(120, 34);
+            this.chkCompletado.TabIndex = 20;
             // 
             // label15
             // 
@@ -518,10 +526,11 @@
             this.comboBox6.Items.AddRange(new object[] {
             "Fuerza de tren inferior",
             "Fuerza de tren superior"});
-            this.comboBox6.Location = new System.Drawing.Point(561, 124);
+            this.comboBox6.Location = new System.Drawing.Point(1079, 171);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(159, 21);
             this.comboBox6.TabIndex = 15;
+            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
             // 
             // button5
             // 
@@ -550,26 +559,41 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.checkedListBox1);
+            this.panel1.Controls.Add(this.txtObjetivo);
+            this.panel1.Controls.Add(this.checkedListBox3);
+            this.panel1.Controls.Add(this.chkCompletado);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.comboBox6);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.dtpFecha);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.comboBox5);
-            this.panel1.Controls.Add(this.comboBox4);
-            this.panel1.Controls.Add(this.comboBox3);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.cboHoraInicio);
+            this.panel1.Controls.Add(this.txtDuracion);
+            this.panel1.Controls.Add(this.cboTipoEntrenamiento);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(135, 68);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(916, 191);
             this.panel1.TabIndex = 14;
+            // 
+            // txtObjetivo
+            // 
+            this.txtObjetivo.Location = new System.Drawing.Point(572, 124);
+            this.txtObjetivo.Name = "txtObjetivo";
+            this.txtObjetivo.Size = new System.Drawing.Size(155, 20);
+            this.txtObjetivo.TabIndex = 22;
+            // 
+            // checkedListBox3
+            // 
+            this.checkedListBox3.FormattingEnabled = true;
+            this.checkedListBox3.Location = new System.Drawing.Point(54, 68);
+            this.checkedListBox3.Name = "checkedListBox3";
+            this.checkedListBox3.Size = new System.Drawing.Size(199, 34);
+            this.checkedListBox3.TabIndex = 21;
             // 
             // label11
             // 
@@ -593,17 +617,17 @@
             this.label10.TabIndex = 13;
             this.label10.Text = "Fecha";
             // 
-            // dateTimePicker1
+            // dtpFecha
             // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(289, 66);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2027, 12, 31, 0, 0, 0, 0);
-            this.dateTimePicker1.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(226, 21);
-            this.dateTimePicker1.TabIndex = 12;
-            this.dateTimePicker1.Value = new System.DateTime(2026, 8, 5, 0, 24, 14, 0);
+            this.dtpFecha.CustomFormat = "dd/MM/yyyy";
+            this.dtpFecha.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha.Location = new System.Drawing.Point(289, 66);
+            this.dtpFecha.MaxDate = new System.DateTime(2027, 12, 31, 0, 0, 0, 0);
+            this.dtpFecha.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(226, 21);
+            this.dtpFecha.TabIndex = 12;
+            this.dtpFecha.Value = new System.DateTime(2026, 8, 5, 0, 24, 14, 0);
             // 
             // label9
             // 
@@ -627,47 +651,36 @@
             this.label8.TabIndex = 10;
             this.label8.Text = "Deportistas";
             // 
-            // comboBox5
+            // cboHoraInicio
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
+            this.cboHoraInicio.FormattingEnabled = true;
+            this.cboHoraInicio.Items.AddRange(new object[] {
             "08:30 AM"});
-            this.comboBox5.Location = new System.Drawing.Point(289, 124);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(159, 21);
-            this.comboBox5.TabIndex = 9;
+            this.cboHoraInicio.Location = new System.Drawing.Point(289, 124);
+            this.cboHoraInicio.Name = "cboHoraInicio";
+            this.cboHoraInicio.Size = new System.Drawing.Size(159, 21);
+            this.cboHoraInicio.TabIndex = 9;
             // 
-            // comboBox4
+            // txtDuracion
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.txtDuracion.FormattingEnabled = true;
+            this.txtDuracion.Items.AddRange(new object[] {
             "60"});
-            this.comboBox4.Location = new System.Drawing.Point(572, 66);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(69, 21);
-            this.comboBox4.TabIndex = 8;
+            this.txtDuracion.Location = new System.Drawing.Point(572, 66);
+            this.txtDuracion.Name = "txtDuracion";
+            this.txtDuracion.Size = new System.Drawing.Size(69, 21);
+            this.txtDuracion.TabIndex = 8;
             // 
-            // comboBox3
+            // cboTipoEntrenamiento
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cboTipoEntrenamiento.FormattingEnabled = true;
+            this.cboTipoEntrenamiento.Items.AddRange(new object[] {
             "Fuerza",
             "Agilidad"});
-            this.comboBox3.Location = new System.Drawing.Point(49, 124);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(159, 21);
-            this.comboBox3.TabIndex = 7;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Deportista 1",
-            "Deportista 2"});
-            this.comboBox1.Location = new System.Drawing.Point(49, 66);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(159, 21);
-            this.comboBox1.TabIndex = 6;
+            this.cboTipoEntrenamiento.Location = new System.Drawing.Point(49, 124);
+            this.cboTipoEntrenamiento.Name = "cboTipoEntrenamiento";
+            this.cboTipoEntrenamiento.Size = new System.Drawing.Size(159, 21);
+            this.cboTipoEntrenamiento.TabIndex = 7;
             // 
             // label2
             // 
@@ -679,6 +692,17 @@
             this.label2.Size = new System.Drawing.Size(269, 38);
             this.label2.TabIndex = 5;
             this.label2.Text = "1. DATOS GENERALES DE LA SESIÓN\r\n\r\n";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Deportista 1",
+            "Deportista 2"});
+            this.comboBox1.Location = new System.Drawing.Point(1057, 133);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(159, 21);
+            this.comboBox1.TabIndex = 6;
             // 
             // panel2
             // 
@@ -713,6 +737,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "AGREGAR EJERCICIO";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
@@ -738,6 +763,34 @@
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // checkedListBox2
+            // 
+            this.checkedListBox2.FormattingEnabled = true;
+            this.checkedListBox2.Location = new System.Drawing.Point(243, 108);
+            this.checkedListBox2.Name = "checkedListBox2";
+            this.checkedListBox2.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBox2.TabIndex = 21;
+            // 
+            // colNombre
+            // 
+            this.colNombre.HeaderText = "Ejercicio";
+            this.colNombre.Name = "colNombre";
+            // 
+            // colSeries
+            // 
+            this.colSeries.HeaderText = "Series";
+            this.colSeries.Name = "colSeries";
+            // 
+            // colRepeticiones
+            // 
+            this.colRepeticiones.HeaderText = "Repeticiones";
+            this.colRepeticiones.Name = "colRepeticiones";
+            // 
+            // colPeso
+            // 
+            this.colPeso.HeaderText = "Peso (Kg)";
+            this.colPeso.Name = "colPeso";
+            // 
             // frmSubEntrenamientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -750,12 +803,15 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button5);
+            this.Controls.Add(this.comboBox6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.comboBox1);
             this.ForeColor = System.Drawing.Color.Turquoise;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSubEntrenamientos";
             this.Text = "frmSubEntrenamientos";
+            this.Load += new System.EventHandler(this.frmSubEntrenamientos_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -805,11 +861,11 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label t;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox chkCompletado;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
@@ -819,12 +875,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cboHoraInicio;
+        private System.Windows.Forms.ComboBox txtDuracion;
+        private System.Windows.Forms.ComboBox cboTipoEntrenamiento;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
@@ -832,5 +888,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvEjercicios;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.CheckedListBox checkedListBox2;
+        private System.Windows.Forms.CheckedListBox checkedListBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSeries;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRepeticiones;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPeso;
+        private System.Windows.Forms.TextBox txtObjetivo;
     }
 }
