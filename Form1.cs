@@ -196,5 +196,10 @@ namespace wfZenova
         {
             OpenChildForm(new frmCompetenciasEntrenador());
         }
+
+        private void btnGestiondeEmpleados_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmGestionEmpleados());
+        }
     }
 }

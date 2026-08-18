@@ -167,6 +167,12 @@
     <Compile Include="frmGestionarParticipantes.Designer.cs">
       <DependentUpon>frmGestionarParticipantes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGestiondeEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestiondeEmpleados.Designer.cs">
+      <DependentUpon>frmGestiondeEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGestionDeUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +262,12 @@
     </Compile>
     <Compile Include="frmNuevoDeportista.Designer.cs">
       <DependentUpon>frmNuevoDeportista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNuevoEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoEmpleado.Designer.cs">
+      <DependentUpon>frmNuevoEmpleado.cs</DependentUpon>
     </Compile>
     <Compile Include="frmNuevoUsuario.cs">
       <SubType>Form</SubType>
@@ -359,6 +371,12 @@
     <Compile Include="frmVerDeportista.Designer.cs">
       <DependentUpon>frmVerDeportista.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVerEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerEmpleado.Designer.cs">
+      <DependentUpon>frmVerEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVerEntrenador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -451,6 +469,9 @@
     <EmbeddedResource Include="frmGestionarParticipantes.resx">
       <DependentUpon>frmGestionarParticipantes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGestiondeEmpleados.resx">
+      <DependentUpon>frmGestiondeEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGestionDeUsuarios.resx">
       <DependentUpon>frmGestionDeUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -495,6 +516,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoDeportista.resx">
       <DependentUpon>frmNuevoDeportista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoEmpleado.resx">
+      <DependentUpon>frmNuevoEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoUsuario.resx">
       <DependentUpon>frmNuevoUsuario.cs</DependentUpon>
@@ -546,6 +570,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerDeportista.resx">
       <DependentUpon>frmVerDeportista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerEmpleado.resx">
+      <DependentUpon>frmVerEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerEntrenador.resx">
       <DependentUpon>frmVerEntrenador.cs</DependentUpon>

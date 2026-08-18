@@ -56,6 +56,7 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelChildForm = new System.Windows.Forms.Panel();
+            this.btnGestiondeEmpleados = new System.Windows.Forms.Button();
             this.pnlMenuLateral.SuspendLayout();
             this.panelSubBienestar.SuspendLayout();
             this.PanelSubMenoMonitoreo.SuspendLayout();
@@ -67,21 +68,22 @@
             // 
             this.pnlMenuLateral.AutoScroll = true;
             this.pnlMenuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(63)))), ((int)(((byte)(112)))));
-            this.pnlMenuLateral.Controls.Add(this.button1);
             this.pnlMenuLateral.Controls.Add(this.btnConsultaAdm);
             this.pnlMenuLateral.Controls.Add(this.btnCerrar);
             this.pnlMenuLateral.Controls.Add(this.btnReportes);
             this.pnlMenuLateral.Controls.Add(this.btnMotivacion);
             this.pnlMenuLateral.Controls.Add(this.panelSubBienestar);
             this.pnlMenuLateral.Controls.Add(this.btnBienestar);
+            this.pnlMenuLateral.Controls.Add(this.button1);
             this.pnlMenuLateral.Controls.Add(this.btnCompetencias);
             this.pnlMenuLateral.Controls.Add(this.btnEntrenamientos);
             this.pnlMenuLateral.Controls.Add(this.PanelSubMenoMonitoreo);
             this.pnlMenuLateral.Controls.Add(this.btnMonitoreo);
             this.pnlMenuLateral.Controls.Add(this.btnDeportistas);
             this.pnlMenuLateral.Controls.Add(this.btnAsignacionAdm);
-            this.pnlMenuLateral.Controls.Add(this.btnEntrenadoresAdm);
             this.pnlMenuLateral.Controls.Add(this.btnDeportistasAdm);
+            this.pnlMenuLateral.Controls.Add(this.btnEntrenadoresAdm);
+            this.pnlMenuLateral.Controls.Add(this.btnGestiondeEmpleados);
             this.pnlMenuLateral.Controls.Add(this.btnGestionDeUsuarios);
             this.pnlMenuLateral.Controls.Add(this.btnInicio);
             this.pnlMenuLateral.Controls.Add(this.panelLogo);
@@ -101,7 +103,7 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = global::wfZenova.Properties.Resources._4;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 953);
+            this.button1.Location = new System.Drawing.Point(0, 701);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button1.Size = new System.Drawing.Size(233, 45);
@@ -120,7 +122,7 @@
             this.btnConsultaAdm.ForeColor = System.Drawing.Color.White;
             this.btnConsultaAdm.Image = global::wfZenova.Properties.Resources.icLupaMenAd;
             this.btnConsultaAdm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultaAdm.Location = new System.Drawing.Point(0, 908);
+            this.btnConsultaAdm.Location = new System.Drawing.Point(0, 998);
             this.btnConsultaAdm.Name = "btnConsultaAdm";
             this.btnConsultaAdm.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnConsultaAdm.Size = new System.Drawing.Size(233, 45);
@@ -139,7 +141,7 @@
             this.btnCerrar.ForeColor = System.Drawing.Color.White;
             this.btnCerrar.Image = global::wfZenova.Properties.Resources._9;
             this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrar.Location = new System.Drawing.Point(0, 998);
+            this.btnCerrar.Location = new System.Drawing.Point(0, 1043);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnCerrar.Size = new System.Drawing.Size(233, 45);
@@ -157,7 +159,7 @@
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Image = global::wfZenova.Properties.Resources._6;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 863);
+            this.btnReportes.Location = new System.Drawing.Point(0, 953);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnReportes.Size = new System.Drawing.Size(233, 45);
@@ -175,7 +177,7 @@
             this.btnMotivacion.ForeColor = System.Drawing.Color.White;
             this.btnMotivacion.Image = global::wfZenova.Properties.Resources._8;
             this.btnMotivacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMotivacion.Location = new System.Drawing.Point(0, 818);
+            this.btnMotivacion.Location = new System.Drawing.Point(0, 908);
             this.btnMotivacion.Name = "btnMotivacion";
             this.btnMotivacion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMotivacion.Size = new System.Drawing.Size(233, 45);
@@ -191,7 +193,7 @@
             this.panelSubBienestar.Controls.Add(this.btnGasto);
             this.panelSubBienestar.Controls.Add(this.btnRiesgo);
             this.panelSubBienestar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubBienestar.Location = new System.Drawing.Point(0, 701);
+            this.panelSubBienestar.Location = new System.Drawing.Point(0, 791);
             this.panelSubBienestar.Name = "panelSubBienestar";
             this.panelSubBienestar.Size = new System.Drawing.Size(233, 117);
             this.panelSubBienestar.TabIndex = 8;
@@ -261,7 +263,7 @@
             this.btnBienestar.ForeColor = System.Drawing.Color.White;
             this.btnBienestar.Image = global::wfZenova.Properties.Resources._7;
             this.btnBienestar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBienestar.Location = new System.Drawing.Point(0, 656);
+            this.btnBienestar.Location = new System.Drawing.Point(0, 746);
             this.btnBienestar.Name = "btnBienestar";
             this.btnBienestar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnBienestar.Size = new System.Drawing.Size(233, 45);
@@ -280,7 +282,7 @@
             this.btnCompetencias.ForeColor = System.Drawing.Color.White;
             this.btnCompetencias.Image = global::wfZenova.Properties.Resources._4;
             this.btnCompetencias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCompetencias.Location = new System.Drawing.Point(0, 611);
+            this.btnCompetencias.Location = new System.Drawing.Point(0, 656);
             this.btnCompetencias.Name = "btnCompetencias";
             this.btnCompetencias.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnCompetencias.Size = new System.Drawing.Size(233, 45);
@@ -299,7 +301,7 @@
             this.btnEntrenamientos.ForeColor = System.Drawing.Color.White;
             this.btnEntrenamientos.Image = global::wfZenova.Properties.Resources._3;
             this.btnEntrenamientos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEntrenamientos.Location = new System.Drawing.Point(0, 566);
+            this.btnEntrenamientos.Location = new System.Drawing.Point(0, 611);
             this.btnEntrenamientos.Name = "btnEntrenamientos";
             this.btnEntrenamientos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEntrenamientos.Size = new System.Drawing.Size(233, 45);
@@ -316,7 +318,7 @@
             this.PanelSubMenoMonitoreo.Controls.Add(this.btnDepor);
             this.PanelSubMenoMonitoreo.Controls.Add(this.btnControl);
             this.PanelSubMenoMonitoreo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelSubMenoMonitoreo.Location = new System.Drawing.Point(0, 401);
+            this.PanelSubMenoMonitoreo.Location = new System.Drawing.Point(0, 446);
             this.PanelSubMenoMonitoreo.Name = "PanelSubMenoMonitoreo";
             this.PanelSubMenoMonitoreo.Size = new System.Drawing.Size(233, 165);
             this.PanelSubMenoMonitoreo.TabIndex = 4;
@@ -404,7 +406,7 @@
             this.btnMonitoreo.ForeColor = System.Drawing.Color.White;
             this.btnMonitoreo.Image = global::wfZenova.Properties.Resources._5;
             this.btnMonitoreo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMonitoreo.Location = new System.Drawing.Point(0, 356);
+            this.btnMonitoreo.Location = new System.Drawing.Point(0, 401);
             this.btnMonitoreo.Name = "btnMonitoreo";
             this.btnMonitoreo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMonitoreo.Size = new System.Drawing.Size(233, 45);
@@ -423,7 +425,7 @@
             this.btnDeportistas.ForeColor = System.Drawing.Color.White;
             this.btnDeportistas.Image = global::wfZenova.Properties.Resources._2;
             this.btnDeportistas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeportistas.Location = new System.Drawing.Point(0, 311);
+            this.btnDeportistas.Location = new System.Drawing.Point(0, 356);
             this.btnDeportistas.Name = "btnDeportistas";
             this.btnDeportistas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnDeportistas.Size = new System.Drawing.Size(233, 45);
@@ -442,12 +444,12 @@
             this.btnAsignacionAdm.ForeColor = System.Drawing.Color.White;
             this.btnAsignacionAdm.Image = global::wfZenova.Properties.Resources.icMenuAdmin;
             this.btnAsignacionAdm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAsignacionAdm.Location = new System.Drawing.Point(0, 266);
+            this.btnAsignacionAdm.Location = new System.Drawing.Point(0, 311);
             this.btnAsignacionAdm.Name = "btnAsignacionAdm";
             this.btnAsignacionAdm.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnAsignacionAdm.Size = new System.Drawing.Size(233, 45);
             this.btnAsignacionAdm.TabIndex = 15;
-            this.btnAsignacionAdm.Text = "Inscripciones";
+            this.btnAsignacionAdm.Text = "  Inscripciones";
             this.btnAsignacionAdm.UseVisualStyleBackColor = true;
             this.btnAsignacionAdm.Click += new System.EventHandler(this.btnAsignacionAdm_Click);
             // 
@@ -480,7 +482,7 @@
             this.btnDeportistasAdm.ForeColor = System.Drawing.Color.White;
             this.btnDeportistasAdm.Image = global::wfZenova.Properties.Resources._2;
             this.btnDeportistasAdm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeportistasAdm.Location = new System.Drawing.Point(0, 176);
+            this.btnDeportistasAdm.Location = new System.Drawing.Point(0, 266);
             this.btnDeportistasAdm.Name = "btnDeportistasAdm";
             this.btnDeportistasAdm.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnDeportistasAdm.Size = new System.Drawing.Size(233, 45);
@@ -497,7 +499,6 @@
             this.btnGestionDeUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionDeUsuarios.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestionDeUsuarios.ForeColor = System.Drawing.Color.White;
-            this.btnGestionDeUsuarios.Image = global::wfZenova.Properties.Resources.icLupaMenAd;
             this.btnGestionDeUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGestionDeUsuarios.Location = new System.Drawing.Point(0, 131);
             this.btnGestionDeUsuarios.Name = "btnGestionDeUsuarios";
@@ -557,6 +558,24 @@
             this.PanelChildForm.Size = new System.Drawing.Size(1033, 749);
             this.PanelChildForm.TabIndex = 1;
             // 
+            // btnGestiondeEmpleados
+            // 
+            this.btnGestiondeEmpleados.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGestiondeEmpleados.FlatAppearance.BorderSize = 0;
+            this.btnGestiondeEmpleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
+            this.btnGestiondeEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestiondeEmpleados.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestiondeEmpleados.ForeColor = System.Drawing.Color.White;
+            this.btnGestiondeEmpleados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGestiondeEmpleados.Location = new System.Drawing.Point(0, 176);
+            this.btnGestiondeEmpleados.Name = "btnGestiondeEmpleados";
+            this.btnGestiondeEmpleados.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnGestiondeEmpleados.Size = new System.Drawing.Size(233, 45);
+            this.btnGestiondeEmpleados.TabIndex = 19;
+            this.btnGestiondeEmpleados.Text = "Gestión de Empleados";
+            this.btnGestiondeEmpleados.UseVisualStyleBackColor = true;
+            this.btnGestiondeEmpleados.Click += new System.EventHandler(this.btnGestiondeEmpleados_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -610,6 +629,7 @@
         private System.Windows.Forms.Button btnConsultaAdm;
         private System.Windows.Forms.Button btnGestionDeUsuarios;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGestiondeEmpleados;
     }
 }
 

@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace wfZenova
 {
-    public partial class frmGestionDeUsuarios : Form
+    public partial class frmGestionEmpleados : Form
     {
         // ==========================================
         // CONEXIÓN
@@ -17,17 +17,17 @@ namespace wfZenova
         // ==========================================
         // CONSTRUCTOR
         // ==========================================
-        public frmGestionDeUsuarios()
+        public frmGestionEmpleados()
         {
             InitializeComponent();
 
-            ConfigurarTablaUsuarios();
+            ConfigurarTablaEmpleados();
 
             CargarFiltros();
 
-            CargarUsuarios();
+            CargarEmpleados();
 
-            dgvUsuarios.ClearSelection();
+            dgvEmpleados.ClearSelection();
         }
 
 
@@ -36,63 +36,13 @@ namespace wfZenova
         // ==========================================
         private void CargarFiltros()
         {
-            // ==========================================
-            // ROLES
-            // ==========================================
-            DataTable tablaRoles =
-                conSQL.RetornaRegistros(
-                    @"SELECT
-                        IdRol,
-                        NombreRol
-                      FROM Roles
-                      WHERE Activo = 1
-                      ORDER BY NombreRol"
-                );
-
-
-            if (tablaRoles != null)
-            {
-                DataRow todos =
-                    tablaRoles.NewRow();
-
-                todos["IdRol"] = 0;
-
-                todos["NombreRol"] =
-                    "Todos";
-
-                tablaRoles.Rows.InsertAt(
-                    todos,
-                    0);
-
-
-                cmbRol.DataSource =
-                    tablaRoles;
-
-                cmbRol.DisplayMember =
-                    "NombreRol";
-
-                cmbRol.ValueMember =
-                    "IdRol";
-
-                cmbRol.SelectedIndex =
-                    0;
-
-                cmbRol.DropDownStyle =
-                    ComboBoxStyle.DropDownList;
-            }
-
-
-            // ==========================================
-            // ESTADO
-            // ==========================================
             cmbEstado.Items.Clear();
 
             cmbEstado.Items.Add("Todos");
             cmbEstado.Items.Add("Activo");
             cmbEstado.Items.Add("Inactivo");
 
-            cmbEstado.SelectedIndex =
-                0;
+            cmbEstado.SelectedIndex = 0;
 
             cmbEstado.DropDownStyle =
                 ComboBoxStyle.DropDownList;
@@ -102,31 +52,30 @@ namespace wfZenova
         // ==========================================
         // CONFIGURAR TABLA
         // ==========================================
-        private void ConfigurarTablaUsuarios()
+        private void ConfigurarTablaEmpleados()
         {
-            dgvUsuarios.DataSource =
-                null;
+            dgvEmpleados.DataSource = null;
 
-            dgvUsuarios.Columns.Clear();
+            dgvEmpleados.Columns.Clear();
 
-            dgvUsuarios.AutoGenerateColumns =
+            dgvEmpleados.AutoGenerateColumns =
                 false;
 
 
             // ==========================================
             // ID OCULTO
             // ==========================================
-            dgvUsuarios.Columns.Add(
-                "IdUsuario",
+            dgvEmpleados.Columns.Add(
+                "IdEmpleado",
                 "ID");
 
-            dgvUsuarios
-                .Columns["IdUsuario"]
+            dgvEmpleados
+                .Columns["IdEmpleado"]
                 .DataPropertyName =
-                "IdUsuario";
+                "IdEmpleado";
 
-            dgvUsuarios
-                .Columns["IdUsuario"]
+            dgvEmpleados
+                .Columns["IdEmpleado"]
                 .Visible =
                 false;
 
@@ -134,50 +83,63 @@ namespace wfZenova
             // ==========================================
             // NOMBRE
             // ==========================================
-            dgvUsuarios.Columns.Add(
-                "Nombre",
-                "NOMBRE");
+            dgvEmpleados.Columns.Add(
+                "NombreCompleto",
+                "NOMBRE COMPLETO");
 
-            dgvUsuarios
-                .Columns["Nombre"]
+            dgvEmpleados
+                .Columns["NombreCompleto"]
                 .DataPropertyName =
-                "Nombre";
+                "NombreCompleto";
 
 
             // ==========================================
-            // USUARIO
+            // CÉDULA
             // ==========================================
-            dgvUsuarios.Columns.Add(
-                "Usuario",
-                "USUARIO");
+            dgvEmpleados.Columns.Add(
+                "Cedula",
+                "CÉDULA");
 
-            dgvUsuarios
-                .Columns["Usuario"]
+            dgvEmpleados
+                .Columns["Cedula"]
                 .DataPropertyName =
-                "Usuario";
+                "Cedula";
 
 
             // ==========================================
-            // ROL
+            // TELÉFONO
             // ==========================================
-            dgvUsuarios.Columns.Add(
-                "Rol",
-                "ROL");
+            dgvEmpleados.Columns.Add(
+                "Telefono",
+                "TELÉFONO");
 
-            dgvUsuarios
-                .Columns["Rol"]
+            dgvEmpleados
+                .Columns["Telefono"]
                 .DataPropertyName =
-                "Rol";
+                "Telefono";
+
+
+            // ==========================================
+            // CORREO
+            // ==========================================
+            dgvEmpleados.Columns.Add(
+                "Correo",
+                "CORREO");
+
+            dgvEmpleados
+                .Columns["Correo"]
+                .DataPropertyName =
+                "Correo";
 
 
             // ==========================================
             // ESTADO
             // ==========================================
-            dgvUsuarios.Columns.Add(
+            dgvEmpleados.Columns.Add(
                 "Estado",
                 "ESTADO");
 
-            dgvUsuarios
+            dgvEmpleados
                 .Columns["Estado"]
                 .DataPropertyName =
                 "Estado";
@@ -186,59 +148,59 @@ namespace wfZenova
             // ==========================================
             // CONFIGURACIÓN GENERAL
             // ==========================================
-            dgvUsuarios.BackgroundColor =
+            dgvEmpleados.BackgroundColor =
                 Color.White;
 
-            dgvUsuarios.BorderStyle =
+            dgvEmpleados.BorderStyle =
                 BorderStyle.None;
 
-            dgvUsuarios.CellBorderStyle =
+            dgvEmpleados.CellBorderStyle =
                 DataGridViewCellBorderStyle
                 .SingleHorizontal;
 
-            dgvUsuarios.GridColor =
+            dgvEmpleados.GridColor =
                 Color.FromArgb(
                     235,
                     235,
                     245);
 
-            dgvUsuarios.RowHeadersVisible =
+            dgvEmpleados.RowHeadersVisible =
                 false;
 
-            dgvUsuarios.AllowUserToAddRows =
+            dgvEmpleados.AllowUserToAddRows =
                 false;
 
-            dgvUsuarios.AllowUserToDeleteRows =
+            dgvEmpleados.AllowUserToDeleteRows =
                 false;
 
-            dgvUsuarios.AllowUserToResizeRows =
+            dgvEmpleados.AllowUserToResizeRows =
                 false;
 
-            dgvUsuarios.AllowUserToResizeColumns =
+            dgvEmpleados.AllowUserToResizeColumns =
                 false;
 
-            dgvUsuarios.ReadOnly =
+            dgvEmpleados.ReadOnly =
                 true;
 
-            dgvUsuarios.MultiSelect =
+            dgvEmpleados.MultiSelect =
                 false;
 
-            dgvUsuarios.SelectionMode =
+            dgvEmpleados.SelectionMode =
                 DataGridViewSelectionMode
                 .FullRowSelect;
 
-            dgvUsuarios.AutoSizeColumnsMode =
+            dgvEmpleados.AutoSizeColumnsMode =
                 DataGridViewAutoSizeColumnsMode
                 .Fill;
 
 
             // ==========================================
-            // ENCABEZADOS
+            // ENCABEZADO
             // ==========================================
-            dgvUsuarios.EnableHeadersVisualStyles =
+            dgvEmpleados.EnableHeadersVisualStyles =
                 false;
 
-            dgvUsuarios
+            dgvEmpleados
                 .ColumnHeadersDefaultCellStyle
                 .BackColor =
                 Color.FromArgb(
@@ -246,12 +208,12 @@ namespace wfZenova
                     63,
                     221);
 
-            dgvUsuarios
+            dgvEmpleados
                 .ColumnHeadersDefaultCellStyle
                 .ForeColor =
                 Color.White;
 
-            dgvUsuarios
+            dgvEmpleados
                 .ColumnHeadersDefaultCellStyle
                 .Font =
                 new Font(
@@ -259,21 +221,21 @@ namespace wfZenova
                     10F,
                     FontStyle.Bold);
 
-            dgvUsuarios
+            dgvEmpleados
                 .ColumnHeadersDefaultCellStyle
                 .Alignment =
                 DataGridViewContentAlignment
                 .MiddleCenter;
 
-            dgvUsuarios.ColumnHeadersHeight =
+            dgvEmpleados.ColumnHeadersHeight =
                 50;
 
-            dgvUsuarios
+            dgvEmpleados
                 .ColumnHeadersHeightSizeMode =
                 DataGridViewColumnHeadersHeightSizeMode
                 .DisableResizing;
 
-            dgvUsuarios
+            dgvEmpleados
                 .ColumnHeadersBorderStyle =
                 DataGridViewHeaderBorderStyle
                 .None;
@@ -282,15 +244,15 @@ namespace wfZenova
             // ==========================================
             // FILAS
             // ==========================================
-            dgvUsuarios.RowTemplate.Height =
+            dgvEmpleados.RowTemplate.Height =
                 55;
 
-            dgvUsuarios
+            dgvEmpleados
                 .DefaultCellStyle
                 .BackColor =
                 Color.White;
 
-            dgvUsuarios
+            dgvEmpleados
                 .DefaultCellStyle
                 .ForeColor =
                 Color.FromArgb(
@@ -298,7 +260,7 @@ namespace wfZenova
                     40,
                     95);
 
-            dgvUsuarios
+            dgvEmpleados
                 .DefaultCellStyle
                 .Font =
                 new Font(
@@ -306,13 +268,13 @@ namespace wfZenova
                     10F,
                     FontStyle.Regular);
 
-            dgvUsuarios
+            dgvEmpleados
                 .DefaultCellStyle
                 .Alignment =
                 DataGridViewContentAlignment
                 .MiddleCenter;
 
-            dgvUsuarios
+            dgvEmpleados
                 .DefaultCellStyle
                 .SelectionBackColor =
                 Color.FromArgb(
@@ -320,7 +282,7 @@ namespace wfZenova
                     238,
                     255);
 
-            dgvUsuarios
+            dgvEmpleados
                 .DefaultCellStyle
                 .SelectionForeColor =
                 Color.FromArgb(
@@ -332,43 +294,58 @@ namespace wfZenova
             // ==========================================
             // TAMAÑOS
             // ==========================================
-            dgvUsuarios
-                .Columns["Nombre"]
+            dgvEmpleados
+                .Columns["NombreCompleto"]
                 .FillWeight =
-                150;
+                140;
 
-            dgvUsuarios
-                .Columns["Usuario"]
+            dgvEmpleados
+                .Columns["Cedula"]
                 .FillWeight =
-                100;
+                80;
 
-            dgvUsuarios
-                .Columns["Rol"]
+            dgvEmpleados
+                .Columns["Telefono"]
                 .FillWeight =
-                100;
+                80;
 
-            dgvUsuarios
+            dgvEmpleados
+                .Columns["Correo"]
+                .FillWeight =
+                130;
+
+            dgvEmpleados
                 .Columns["Estado"]
                 .FillWeight =
-                75;
+                65;
 
 
-            dgvUsuarios
-                .Columns["Nombre"]
+            // ==========================================
+            // ALINEACIÓN
+            // ==========================================
+            dgvEmpleados
+                .Columns["NombreCompleto"]
+                .DefaultCellStyle
+                .Alignment =
+                DataGridViewContentAlignment
+                .MiddleLeft;
+
+            dgvEmpleados
+                .Columns["Correo"]
                 .DefaultCellStyle
                 .Alignment =
                 DataGridViewContentAlignment
                 .MiddleLeft;
 
 
-            dgvUsuarios.ClearSelection();
+            dgvEmpleados.ClearSelection();
         }
 
 
         // ==========================================
-        // CARGAR USUARIOS
+        // CARGAR EMPLEADOS
         // ==========================================
-        private void CargarUsuarios()
+        private void CargarEmpleados()
         {
             try
             {
@@ -378,14 +355,12 @@ namespace wfZenova
                 string buscar =
                     txtBuscar.Text.Trim();
 
-
                 if (buscar.Equals(
                     "Buscar",
                     StringComparison.OrdinalIgnoreCase))
                 {
                     buscar = "";
                 }
-
 
                 buscar =
                     buscar.Replace(
@@ -394,27 +369,10 @@ namespace wfZenova
 
 
                 // ==========================================
-                // FILTRO ROL
-                // ==========================================
-                int idRol = 0;
-
-
-                if (cmbRol.SelectedValue != null &&
-                    !(cmbRol.SelectedValue
-                    is DataRowView))
-                {
-                    idRol =
-                        Convert.ToInt32(
-                            cmbRol.SelectedValue);
-                }
-
-
-                // ==========================================
-                // FILTRO ESTADO
+                // ESTADO
                 // ==========================================
                 string estado =
                     "Todos";
-
 
                 if (cmbEstado.SelectedIndex > 0)
                 {
@@ -424,65 +382,56 @@ namespace wfZenova
 
 
                 // ==========================================
-                // BÚSQUEDA
+                // FILTRO BUSCAR
                 // ==========================================
                 string filtroBuscar =
                     "";
-
 
                 if (buscar != "")
                 {
                     filtroBuscar =
                         @" AND
                         (
-                            ISNULL(
-                                EMP.Nombres + ' ' +
-                                EMP.Apellidos,
-                                ENT.Nombres + ' ' +
-                                ENT.Apellidos
+                            E.Nombres
+                                LIKE '%" + buscar + @"%'
+
+                            OR E.Apellidos
+                                LIKE '%" + buscar + @"%'
+
+                            OR
+                            (
+                                E.Nombres + ' ' +
+                                E.Apellidos
                             )
-                            LIKE '%" + buscar + @"%'
+                                LIKE '%" + buscar + @"%'
 
-                            OR U.NombreUsuario
-                            LIKE '%" + buscar + @"%'
+                            OR E.Cedula
+                                LIKE '%" + buscar + @"%'
 
-                            OR R.NombreRol
-                            LIKE '%" + buscar + @"%'
+                            OR E.Telefono
+                                LIKE '%" + buscar + @"%'
+
+                            OR E.Correo
+                                LIKE '%" + buscar + @"%'
                         )";
                 }
 
 
                 // ==========================================
-                // ROL
-                // ==========================================
-                string filtroRol =
-                    "";
-
-
-                if (idRol > 0)
-                {
-                    filtroRol =
-                        " AND U.IdRol = " +
-                        idRol;
-                }
-
-
-                // ==========================================
-                // ESTADO
+                // FILTRO ESTADO
                 // ==========================================
                 string filtroEstado =
                     "";
 
-
                 if (estado == "Activo")
                 {
                     filtroEstado =
-                        " AND U.EstadoCuenta = 1";
+                        " AND E.Estado = 1";
                 }
                 else if (estado == "Inactivo")
                 {
                     filtroEstado =
-                        " AND U.EstadoCuenta = 0";
+                        " AND E.Estado = 0";
                 }
 
 
@@ -492,72 +441,38 @@ namespace wfZenova
                 string consulta =
                     @"
                     SELECT
-                        U.IdUsuario,
+                        E.IdEmpleado,
+
+                        E.Nombres + ' ' +
+                        E.Apellidos
+                            AS NombreCompleto,
+
+                        E.Cedula,
+
+                        E.Telefono,
+
+                        E.Correo,
 
                         CASE
-
-                            WHEN U.IdEmpleado
-                                 IS NOT NULL
-                            THEN
-                                EMP.Nombres +
-                                ' ' +
-                                EMP.Apellidos
-
-                            WHEN U.IdEntrenador
-                                 IS NOT NULL
-                            THEN
-                                ENT.Nombres +
-                                ' ' +
-                                ENT.Apellidos
-
-                            ELSE
-                                'Sin asignar'
-
-                        END AS Nombre,
-
-                        U.NombreUsuario
-                            AS Usuario,
-
-                        R.NombreRol
-                            AS Rol,
-
-                        CASE
-                            WHEN U.EstadoCuenta = 1
+                            WHEN E.Estado = 1
                                 THEN 'Activo'
                             ELSE
                                 'Inactivo'
                         END AS Estado
 
-
-                    FROM Usuarios U
-
-
-                    INNER JOIN Roles R
-                        ON U.IdRol =
-                           R.IdRol
-
-
-                    LEFT JOIN Empleados EMP
-                        ON U.IdEmpleado =
-                           EMP.IdEmpleado
-
-
-                    LEFT JOIN Entrenadores ENT
-                        ON U.IdEntrenador =
-                           ENT.IdEntrenador
-
+                    FROM Empleados E
 
                     WHERE 1 = 1
 
                     " +
                     filtroBuscar +
-                    filtroRol +
                     filtroEstado +
 
                     @"
 
                     ORDER BY
-                        Nombre;
+                        E.Nombres,
+                        E.Apellidos;
                     ";
 
 
@@ -570,16 +485,16 @@ namespace wfZenova
                     return;
 
 
-                dgvUsuarios.DataSource =
+                dgvEmpleados.DataSource =
                     tabla;
 
 
-                dgvUsuarios.ClearSelection();
+                dgvEmpleados.ClearSelection();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Error al cargar los usuarios:\n\n" +
+                    "Error al cargar los empleados:\n\n" +
                     ex.Message,
                     "ZENOVA",
                     MessageBoxButtons.OK,
@@ -589,25 +504,22 @@ namespace wfZenova
 
 
         // ==========================================
-        // NUEVO USUARIO
+        // NUEVO EMPLEADO
         // ==========================================
-        private void btnNuevoUsuario_Click(
+        private void btnNuevo_Click(
             object sender,
             EventArgs e)
         {
-            frmNuevoUsuario frm =
-                new frmNuevoUsuario();
-
+            frmNuevoEmpleado frm =
+        new frmNuevoEmpleado();
 
             frm.StartPosition =
                 FormStartPosition.CenterParent;
 
+            frm.ShowDialog(this);
 
-            if (frm.ShowDialog(this) ==
-                DialogResult.OK)
-            {
-                CargarUsuarios();
-            }
+            // Al cerrar, recargamos la tabla
+            CargarEmpleados();
         }
 
 
@@ -618,11 +530,10 @@ namespace wfZenova
             object sender,
             EventArgs e)
         {
-            if (dgvUsuarios.CurrentRow ==
-                null)
+            if (dgvEmpleados.CurrentRow == null)
             {
                 MessageBox.Show(
-                    "Seleccione un usuario.",
+                    "Seleccione un empleado.",
                     "ZENOVA",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -631,17 +542,17 @@ namespace wfZenova
             }
 
 
-            int idUsuario =
+            int idEmpleado =
                 Convert.ToInt32(
-                    dgvUsuarios
+                    dgvEmpleados
                     .CurrentRow
-                    .Cells["IdUsuario"]
+                    .Cells["IdEmpleado"]
                     .Value);
 
 
-            frmVerUsuario frm =
-                new frmVerUsuario(
-                    idUsuario);
+            frmVerEmpleado frm =
+                new frmVerEmpleado(
+                    idEmpleado);
 
 
             frm.StartPosition =
@@ -653,17 +564,16 @@ namespace wfZenova
 
 
         // ==========================================
-        // ACTIVAR / DESACTIVAR
+        // EDITAR
         // ==========================================
-        private void btnActivarDesactivar_Click(
+        private void btnEditar_Click(
             object sender,
             EventArgs e)
         {
-            if (dgvUsuarios.CurrentRow ==
-                null)
+            if (dgvEmpleados.CurrentRow == null)
             {
                 MessageBox.Show(
-                    "Seleccione un usuario.",
+                    "Seleccione un empleado.",
                     "ZENOVA",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -672,24 +582,103 @@ namespace wfZenova
             }
 
 
-            int idUsuario =
+            int idEmpleado =
                 Convert.ToInt32(
-                    dgvUsuarios
+                    dgvEmpleados
                     .CurrentRow
-                    .Cells["IdUsuario"]
+                    .Cells["IdEmpleado"]
+                    .Value);
+
+
+            frmNuevoEmpleado frm =
+                new frmNuevoEmpleado(
+                    idEmpleado);
+
+
+            frm.StartPosition =
+                FormStartPosition.CenterParent;
+
+
+            if (frm.ShowDialog(this) ==
+                DialogResult.OK)
+            {
+                CargarEmpleados();
+            }
+        }
+
+
+        // ==========================================
+        // ACTIVAR / DESACTIVAR
+        // ==========================================
+        private void btnActivarDesactivar_Click(
+            object sender,
+            EventArgs e)
+        {
+            
+        }
+
+
+        // ==========================================
+        // BUSCAR
+        // ==========================================
+        private void txtBuscar_TextChanged(
+            object sender,
+            EventArgs e)
+        {
+            CargarEmpleados();
+        }
+
+
+        // ==========================================
+        // FILTRAR ESTADO
+        // ==========================================
+        private void cmbEstado_SelectedIndexChanged(
+            object sender,
+            EventArgs e)
+        {
+            if (cmbEstado.SelectedIndex ==
+                -1)
+            {
+                return;
+            }
+
+
+            CargarEmpleados();
+        }
+
+        private void btnActivarDesactivar_Click_1(object sender, EventArgs e)
+        {
+            if (dgvEmpleados.CurrentRow ==
+                null)
+            {
+                MessageBox.Show(
+                    "Seleccione un empleado.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+
+            int idEmpleado =
+                Convert.ToInt32(
+                    dgvEmpleados
+                    .CurrentRow
+                    .Cells["IdEmpleado"]
                     .Value);
 
 
             string nombre =
-                dgvUsuarios
+                dgvEmpleados
                 .CurrentRow
-                .Cells["Nombre"]
+                .Cells["NombreCompleto"]
                 .Value
                 .ToString();
 
 
             string estadoActual =
-                dgvUsuarios
+                dgvEmpleados
                 .CurrentRow
                 .Cells["Estado"]
                 .Value
@@ -711,7 +700,7 @@ namespace wfZenova
                 MessageBox.Show(
                     "¿Está seguro de que desea " +
                     accion +
-                    " la cuenta de " +
+                    " al empleado " +
                     nombre +
                     "?",
                     "ZENOVA",
@@ -727,12 +716,11 @@ namespace wfZenova
 
 
             string consulta =
-                @"UPDATE Usuarios
-                  SET EstadoCuenta = " +
+                @"UPDATE Empleados
+                  SET Estado = " +
                 (estaActivo ? "0" : "1") +
-
-                @" WHERE IdUsuario = " +
-                idUsuario;
+                @" WHERE IdEmpleado = " +
+                idEmpleado;
 
 
             if (conSQL.EjecutaSentenciaSRD(
@@ -740,111 +728,15 @@ namespace wfZenova
             {
                 MessageBox.Show(
                     estaActivo
-                        ? "Cuenta desactivada correctamente."
-                        : "Cuenta activada correctamente.",
+                        ? "Empleado desactivado correctamente."
+                        : "Empleado activado correctamente.",
                     "ZENOVA",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
 
-                CargarUsuarios();
+                CargarEmpleados();
             }
-        }
-
-
-        // ==========================================
-        // RESTABLECER CONTRASEÑA
-        // ==========================================
-        private void btnRestablecer_Click(
-            object sender,
-            EventArgs e)
-        {
-            if (dgvUsuarios.CurrentRow ==
-                null)
-            {
-                MessageBox.Show(
-                    "Seleccione un usuario.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
-            }
-
-
-            int idUsuario =
-                Convert.ToInt32(
-                    dgvUsuarios
-                    .CurrentRow
-                    .Cells["IdUsuario"]
-                    .Value);
-
-
-            string nombreUsuario =
-                dgvUsuarios
-                .CurrentRow
-                .Cells["Usuario"]
-                .Value
-                .ToString();
-
-
-            frmRestablecerContraseña frm =
-                new frmRestablecerContraseña(
-                    idUsuario,
-                    nombreUsuario);
-
-
-            frm.StartPosition =
-                FormStartPosition.CenterParent;
-
-
-            frm.ShowDialog(this);
-        }
-
-
-        // ==========================================
-        // BUSCAR
-        // ==========================================
-        private void txtBuscar_TextChanged(
-            object sender,
-            EventArgs e)
-        {
-            CargarUsuarios();
-        }
-
-
-        // ==========================================
-        // FILTRO ROL
-        // ==========================================
-        private void cmbRol_SelectedIndexChanged(
-            object sender,
-            EventArgs e)
-        {
-            if (cmbRol.SelectedValue == null ||
-                cmbRol.SelectedValue
-                is DataRowView)
-            {
-                return;
-            }
-
-
-            CargarUsuarios();
-        }
-
-
-        // ==========================================
-        // FILTRO ESTADO
-        // ==========================================
-        private void cmbEstado_SelectedIndexChanged(
-            object sender,
-            EventArgs e)
-        {
-            if (cmbEstado.SelectedIndex ==
-                -1)
-            {
-                return;
-            }
-            CargarUsuarios();
         }
     }
 }

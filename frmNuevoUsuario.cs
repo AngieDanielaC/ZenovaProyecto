@@ -1,582 +1,413 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Security.Cryptography;
-using System.Linq;
-using System.IO;
-using System.Security.Cryptography;
 
 namespace wfZenova
 {
     public partial class frmNuevoUsuario : Form
     {
-        csConectaSQL conSQL = new csConectaSQL();
-        private Image fotoPredeterminada;
-        private bool fotoSeleccionada = false;
+        // ==========================================
+        // CONEXIÓN
+        // ==========================================
+        csConectaSQL conSQL =
+            new csConectaSQL();
 
+
+        // ==========================================
+        // VARIABLES
+        // ==========================================
+        private int idPersonaSeleccionada = 0;
+
+        private string tipoPersona = "";
+
+        private string nombresPersona = "";
+
+        private string apellidosPersona = "";
+
+        private string contrasenaGenerada = "";
+
+
+        // ==========================================
+        // CONSTRUCTOR
+        // ==========================================
         public frmNuevoUsuario()
         {
             InitializeComponent();
-            if (picFoto.Image != null)
-            {
-                fotoPredeterminada =
-                    new Bitmap(picFoto.Image);
-            }
 
-            pnlEntrenador.Visible = false;
-            txtCedula.MaxLength = 10;
-            txtTelefono.MaxLength = 10;
+            ConfigurarFormulario();
 
-            cmbRol.DropDownStyle =
-                ComboBoxStyle.DropDownList;
+            CargarPersonas();
+
             CargarRoles();
         }
-        private void CargarRoles()
+
+
+        // ==========================================
+        // CONFIGURAR FORMULARIO
+        // ==========================================
+        private void ConfigurarFormulario()
         {
-            DataTable tablaRoles =
-                conSQL.RetornaRegistros(
-                    "SELECT IdRol, NombreRol " +
-                    "FROM Roles " +
-                    "WHERE Activo = 1 " +
-                    "ORDER BY NombreRol"
-                );
+            // ==========================================
+            // COMBO PERSONA
+            // Se puede escribir y buscar
+            // ==========================================
+            cmbPersona.DropDownStyle =
+                ComboBoxStyle.DropDown;
 
-            if (tablaRoles == null)
-                return;
+            cmbPersona.AutoCompleteMode =
+                AutoCompleteMode.SuggestAppend;
 
-            cmbRol.DataSource = tablaRoles;
-            cmbRol.DisplayMember = "NombreRol";
-            cmbRol.ValueMember = "IdRol";
+            cmbPersona.AutoCompleteSource =
+                AutoCompleteSource.ListItems;
 
-            cmbRol.SelectedIndex = -1;
 
+            // ==========================================
+            // COMBO ROL
+            // ==========================================
             cmbRol.DropDownStyle =
                 ComboBoxStyle.DropDownList;
-        }
 
-        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-        private void frmNuevoUsuario_Load(object sender, EventArgs e)
-        {
 
-        }
+            // ==========================================
+            // VALORES INICIALES
+            // ==========================================
+            cmbPersona.SelectedIndex =
+                -1;
 
-        private void cmbRol_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbRol.SelectedIndex == -1)
-            {
-                pnlEntrenador.Visible = false;
-                BloquearDatosEntrenador(false);
-                return;
-            }
+            cmbRol.SelectedIndex =
+                -1;
 
-            if (cmbRol.SelectedValue == null ||
-                cmbRol.SelectedValue is DataRowView)
-            {
-                return;
-            }
-
-            string rolSeleccionado = cmbRol.Text;
-
-            if (rolSeleccionado == "Entrenador")
-            {
-                pnlEntrenador.Visible = true;
-
-                BloquearDatosEntrenador(true);
-
-                CargarEntrenadoresRegistrados();
-            }
-            else
-            {
-                pnlEntrenador.Visible = false;
-
-                cmbEntrenador.DataSource = null;
-
-                BloquearDatosEntrenador(false);
-
-                LimpiarDatosPersonales();
-            }
-        }
-
-        private void LimpiarDatosPersonales()
-        {
-            txtNombres.Clear();
-            txtApellidos.Clear();
-            txtCedula.Clear();
-            txtDireccion.Clear();
-            txtTelefono.Clear();
-            txtCorreo.Clear();
-
-            rbMasculino.Checked = false;
-            rbFemenino.Checked = false;
-
-            dtpFechaNacimiento.Value = DateTime.Today;
-
-            if (fotoPredeterminada != null)
-            {
-                picFoto.Image =
-                    new Bitmap(fotoPredeterminada);
-
-                picFoto.SizeMode =
-                    PictureBoxSizeMode.Zoom;
-            }
-
-            lblUsuario.Text = "";
-            lblContrasena.Text = "";
-        }
-        private void CargarEntrenadoresRegistrados()
-        {
-            DataTable tablaEntrenadores =
-                conSQL.RetornaRegistros(
-                    @"SELECT
-                IdEntrenador,
-                Nombres + ' ' + Apellidos AS NombreCompleto
-              FROM Entrenadores
-              WHERE EstadoEntrenador = 'Activo'
-              ORDER BY Nombres, Apellidos"
-                );
-
-            if (tablaEntrenadores == null)
-                return;
-
-            cmbEntrenador.DataSource = tablaEntrenadores;
-
-            cmbEntrenador.DisplayMember =
-                "NombreCompleto";
-
-            cmbEntrenador.ValueMember =
-                "IdEntrenador";
-
-            cmbEntrenador.SelectedIndex = -1;
-
-            cmbEntrenador.DropDownStyle =
-                ComboBoxStyle.DropDownList;
-        }
-        private void btnAgregarDeporte_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnQuitarDeporte_Click(object sender, EventArgs e)
-        {
-          
-        }
-        
-        
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnGenerarCredenciales_Click(object sender, EventArgs e)
-        {
-
-            if (cmbRol.SelectedIndex == -1)
-            {
-                MessageBox.Show(
-                    "Seleccione primero el rol.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
-            }
-
-            if (txtNombres.Text.Trim() == "" ||
-                txtApellidos.Text.Trim() == "")
-            {
-                MessageBox.Show(
-                    "Debe ingresar o seleccionar los datos del usuario antes de generar el acceso.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
-            }
-
-            string usuario =
-                GenerarNombreUsuario();
-
-            string contrasena =
-                GenerarContrasena();
 
             lblUsuario.Text =
-                usuario;
+                "";
 
             lblContrasena.Text =
-                contrasena;
+                "";
+
+
+            btnGenerarCredenciales.Enabled =
+                false;
+
+            btnGuardar.Enabled =
+                false;
         }
 
-        private void btnGuardar_Click_1(object sender, EventArgs e)
+
+        // ==========================================
+        // CARGAR PERSONAS
+        //
+        // SOLO PERSONAS QUE TODAVÍA
+        // NO TIENEN USUARIO
+        //
+        // EMPLEADOS + ENTRENADORES
+        // ==========================================
+        private void CargarPersonas()
         {
-
-            // VALIDAR TODO
-
-            if (!ValidarCampos())
-                return;
-
-            // DATOS GENERALES
-
-            string genero;
-
-            if (rbMasculino.Checked)
-                genero = "Masculino";
-            else
-                genero = "Femenino";
-
-
-            string usuario =lblUsuario.Text.Trim();
-
-            string contrasena =lblContrasena.Text.Trim();
-
-            int idRol = Convert.ToInt32(cmbRol.SelectedValue);
-
-
-            // ID ENTRENADOR
-            // Para otros roles será NULL.
-            string idEntrenador = "NULL";
-
-            if (cmbRol.Text == "Entrenador")
+            try
             {
-                idEntrenador =
-                    cmbEntrenador.SelectedValue
-                    .ToString();
+                string consulta =
+                    @"
+                    SELECT
+                        E.IdEmpleado
+                            AS IdPersona,
+
+                        E.Nombres + ' ' +
+                        E.Apellidos
+                            AS NombreCompleto,
+
+                        E.Nombres,
+
+                        E.Apellidos,
+
+                        'Empleado'
+                            AS TipoPersona
+
+                    FROM Empleados E
+
+                    WHERE
+                        E.Estado = 1
+
+                        AND NOT EXISTS
+                        (
+                            SELECT 1
+
+                            FROM Usuarios U
+
+                            WHERE
+                                U.IdEmpleado =
+                                E.IdEmpleado
+                        )
+
+
+                    UNION ALL
+
+
+                    SELECT
+                        EN.IdEntrenador
+                            AS IdPersona,
+
+                        EN.Nombres + ' ' +
+                        EN.Apellidos
+                            AS NombreCompleto,
+
+                        EN.Nombres,
+
+                        EN.Apellidos,
+
+                        'Entrenador'
+                            AS TipoPersona
+
+                    FROM Entrenadores EN
+
+                    WHERE
+                        EN.EstadoEntrenador =
+                        'Activo'
+
+                        AND NOT EXISTS
+                        (
+                            SELECT 1
+
+                            FROM Usuarios U
+
+                            WHERE
+                                U.IdEntrenador =
+                                EN.IdEntrenador
+                        )
+
+
+                    ORDER BY
+                        NombreCompleto;
+                    ";
+
+
+                DataTable tabla =
+                    conSQL.RetornaRegistros(
+                        consulta);
+
+
+                if (tabla == null)
+                    return;
+
+
+                cmbPersona.DataSource =
+                    tabla;
+
+                cmbPersona.DisplayMember =
+                    "NombreCompleto";
+
+                cmbPersona.ValueMember =
+                    "IdPersona";
+
+
+                // IMPORTANTE
+                // Que no seleccione automáticamente
+                cmbPersona.SelectedIndex =
+                    -1;
+
+
+                cmbPersona.Text =
+                    "";
             }
-
-
-            // GENERAR SALT
-            byte[] salt =
-                new byte[16];
-
-            using (RandomNumberGenerator rng =
-                   RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(salt);
-            }
-
-            // GENERAR HASH DE CONTRASEÑA
-            byte[] hash;
-            using (Rfc2898DeriveBytes pbkdf2 =
-                   new Rfc2898DeriveBytes(contrasena,salt,100000))
-            {
-                hash =pbkdf2.GetBytes(32);
-            }
-
-
-
-            // CONVERTIR HASH Y SALT A HEXADECIMAL
-
-            string hashSQL ="0x" +BitConverter.ToString(hash).Replace("-", "");
-
-
-            string saltSQL ="0x" +BitConverter.ToString(salt).Replace("-", "");
-
-            // FOTO
-            // FOTO
-            // ==========================================
-            string fotoSQL = "NULL";
-
-            if (picFoto.Image != null)
-            {
-                byte[] fotoBytes =
-                    PrepararFotoParaGuardar(
-                        picFoto.Image);
-
-                fotoSQL =
-                    "0x" +
-                    BitConverter
-                    .ToString(fotoBytes)
-                    .Replace("-", "");
-            }
-
-
-            // CAMPOS DE LA TABLA USUARIOS
-            string campos ="Cedula, " +"Nombres, " + "Apellidos, " +"FechaNacimiento, " +"Genero, " +"Telefono, " +"Correo, " +"Direccion, " +"Foto, " +
-                "NombreUsuario, " +"PasswordHash, " +"PasswordSalt, " +"DebeCambiarPassword, " +
-                "EstadoCuenta, " +"IdRol, " +"IdEntrenador";
-
-
-            // DATOS
-
-            string datos ="'" +txtCedula.Text.Trim() +"'," +"'" +
-                txtNombres.Text.Trim().Replace("'", "''") +"'," +"'" +
-                txtApellidos.Text.Trim().Replace("'", "''") +"'," +"'" +dtpFechaNacimiento.Value.ToString("yyyy-MM-dd") +
-                "'," + "'" +genero +"'," +"'" +txtTelefono.Text.Trim() +"'," +"'" +
-                txtCorreo.Text.Trim().Replace("'", "''") +"'," +"'" +
-                txtDireccion.Text.Trim().Replace("'", "''") +"'," +
-                // FOTO
-                fotoSQL +"," +"'" +usuario.Replace("'", "''") +"'," +
-                // PASSWORD HASH
-                hashSQL +"," +
-                // PASSWORD SALT
-                saltSQL +"," +
-
-                // Debe cambiar contraseña
-                "1," +
-
-                // Estado activo
-                "1," +
-
-                // Rol
-                idRol +"," +
-                // Entrenador o NULL
-                idEntrenador;
-
-            // GUARDAR
-            if (conSQL.insertDatos("Usuarios",campos,datos))
+            catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Usuario registrado correctamente.\n\n" +
-                    "Usuario: " +
-                    usuario +
-                    "\n" +
-                    "Contraseña temporal: " +
-                    contrasena,
+                    "Error al cargar las personas:\n\n" +
+                    ex.Message,
                     "ZENOVA",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-
-                Control contenedor = this.Parent;
-
-                if (contenedor != null)
-                {
-                    frmGestionDeUsuarios frm =
-                        new frmGestionDeUsuarios();
-
-                    frm.TopLevel = false;
-
-                    frm.FormBorderStyle =
-                        FormBorderStyle.None;
-
-                    frm.Dock =
-                        DockStyle.Fill;
-
-                    contenedor.Controls.Remove(this);
-
-                    contenedor.Controls.Add(frm);
-
-                    frm.Show();
-
-                    this.Close();
-                }
+                    MessageBoxIcon.Error);
             }
         }
 
-        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+
+        // ==========================================
+        // CARGAR ROLES
+        // ==========================================
+        private void CargarRoles()
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            try
             {
-                e.Handled = true;
+                DataTable tabla =
+                    conSQL.RetornaRegistros(
+                        @"
+                        SELECT
+                            IdRol,
+                            NombreRol
+
+                        FROM Roles
+
+                        WHERE Activo = 1
+
+                        ORDER BY
+                            NombreRol;
+                        "
+                    );
+
+
+                if (tabla == null)
+                    return;
+
+
+                cmbRol.DataSource =
+                    tabla;
+
+                cmbRol.DisplayMember =
+                    "NombreRol";
+
+                cmbRol.ValueMember =
+                    "IdRol";
+
+
+                // No seleccionar automáticamente
+                cmbRol.SelectedIndex =
+                    -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al cargar los roles:\n\n" +
+                    ex.Message,
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
-        private void btnSeleccionarFoto_Click(object sender, EventArgs e)
+
+        // ==========================================
+        // CAMBIAR PERSONA
+        // ==========================================
+        private void cmbPersona_SelectedIndexChanged(
+            object sender,
+            EventArgs e)
         {
-            OpenFileDialog dialogo =new OpenFileDialog();
-
-            dialogo.Filter =
-                "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp";
-
-            if (dialogo.ShowDialog() == DialogResult.OK)
+            if (cmbPersona.SelectedIndex == -1 ||
+                cmbPersona.SelectedItem == null)
             {
-                using (Image imagen =
-                       Image.FromFile(dialogo.FileName))
-                {
-                    picFoto.Image =
-                        new Bitmap(imagen);
-                }
+                LimpiarPersonaSeleccionada();
 
-                picFoto.SizeMode =
-                    PictureBoxSizeMode.Zoom;
-
-                fotoSeleccionada = true;
-            }
-        }
-
-        private void cmbEntrenador_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbEntrenador.SelectedIndex == -1 ||
-                cmbEntrenador.SelectedValue == null ||
-                cmbEntrenador.SelectedValue is DataRowView)
-            {
                 return;
             }
 
-            int idEntrenador =
-                Convert.ToInt32(cmbEntrenador.SelectedValue);
 
-            CargarDatosEntrenador(idEntrenador);
-        }
-        private void CargarDatosEntrenador(int idEntrenador)
-        {
-            DataTable tabla =
-                conSQL.RetornaRegistros(
-                    @"SELECT
-                Nombres,
-                Apellidos,
-                Cedula,
-                FechaNacimiento,
-                Genero,
-                Direccion,
-                Telefono,
-                Correo,
-                Foto
-              FROM Entrenadores
-              WHERE IdEntrenador = " + idEntrenador
-                );
+            DataRowView fila =
+                cmbPersona.SelectedItem
+                as DataRowView;
 
-            if (tabla == null || tabla.Rows.Count == 0)
+
+            if (fila == null)
+            {
+                LimpiarPersonaSeleccionada();
+
                 return;
-
-            DataRow fila = tabla.Rows[0];
-
-            txtNombres.Text = fila["Nombres"].ToString();
-            txtApellidos.Text = fila["Apellidos"].ToString();
-            txtCedula.Text = fila["Cedula"].ToString();
-
-            dtpFechaNacimiento.Value =
-                Convert.ToDateTime(fila["FechaNacimiento"]);
-
-            txtDireccion.Text =
-                fila["Direccion"].ToString();
-
-            txtTelefono.Text =
-                fila["Telefono"].ToString();
-
-            txtCorreo.Text =
-                fila["Correo"].ToString();
-
-
-            // GÉNERO
-            string genero =
-                fila["Genero"].ToString();
-
-            rbMasculino.Checked =
-                genero == "Masculino";
-
-            rbFemenino.Checked =
-                genero == "Femenino";
-
-
-            // FOTO
-            if (fila["Foto"] != DBNull.Value)
-            {
-                byte[] foto =
-                    (byte[])fila["Foto"];
-
-                using (MemoryStream ms =
-                       new MemoryStream(foto))
-                {
-                    using (Image imagen =
-                           Image.FromStream(ms))
-                    {
-                        picFoto.Image =
-                            new Bitmap(imagen);
-                    }
-                }
-
-                picFoto.SizeMode =
-                    PictureBoxSizeMode.Zoom;
-                fotoSeleccionada = true;
             }
-            else
-            {
-                picFoto.Image = null;
-            }
+
+
+            // ==========================================
+            // GUARDAMOS LA PERSONA SELECCIONADA
+            // ==========================================
+            idPersonaSeleccionada =
+                Convert.ToInt32(
+                    fila["IdPersona"]);
+
+
+            tipoPersona =
+                fila["TipoPersona"]
+                .ToString();
+
+
+            nombresPersona =
+                fila["Nombres"]
+                .ToString();
+
+
+            apellidosPersona =
+                fila["Apellidos"]
+                .ToString();
+
+
+            // ==========================================
+            // SI CAMBIA PERSONA,
+            // BORRAMOS CREDENCIALES ANTERIORES
+            // ==========================================
+            LimpiarCredenciales();
+
+
+            ActualizarBotones();
         }
-        private string GenerarNombreUsuario()
+
+
+        // ==========================================
+        // CAMBIAR ROL
+        // ==========================================
+        private void cmbRol_SelectedIndexChanged(
+            object sender,
+            EventArgs e)
         {
-            string nombres =
-                txtNombres.Text.Trim().ToLower();
+            // Si cambia el rol,
+            // las credenciales anteriores
+            // dejan de considerarse listas
+            LimpiarCredenciales();
 
-            string apellidos =
-                txtApellidos.Text.Trim().ToLower();
 
-            if (nombres == "" || apellidos == "")
-                return "";
-
-            // Primera letra del nombre
-            string primeraLetra =
-                nombres.Substring(0, 1);
-
-            // Primer apellido
-            string primerApellido =
-                apellidos.Split(' ')[0];
-
-            string usuarioBase =
-                primeraLetra + primerApellido;
-
-            string usuario =
-                usuarioBase;
-
-            int contador = 2;
-
-            while (ExisteUsuario(usuario))
-            {
-                usuario =
-                    usuarioBase + contador;
-
-                contador++;
-            }
-
-            return usuario;
+            ActualizarBotones();
         }
-        private bool ExisteUsuario(string usuario)
+
+
+        // ==========================================
+        // ACTUALIZAR BOTONES
+        // ==========================================
+        private void ActualizarBotones()
         {
-            DataTable tabla =
-                conSQL.RetornaRegistros(
-                    "SELECT IdUsuario " +
-                    "FROM Usuarios " +
-                    "WHERE NombreUsuario = '" +
-                    usuario + "'"
-                );
+            bool personaValida =
+                idPersonaSeleccionada > 0;
 
-            if (tabla == null)
-                return false;
 
-            return tabla.Rows.Count > 0;
+            bool rolValido =
+                cmbRol.SelectedIndex != -1;
+
+
+            btnGenerarCredenciales.Enabled =
+                personaValida &&
+                rolValido;
+
+
+            btnGuardar.Enabled =
+                personaValida &&
+                rolValido &&
+                lblUsuario.Text.Trim() != "" &&
+                contrasenaGenerada != "";
         }
-        private string GenerarContrasena()
-        {
-            const string caracteres =
-                "ABCDEFGHJKLMNPQRSTUVWXYZ" +
-                "abcdefghijkmnopqrstuvwxyz" +
-                "23456789" +
-                "@#$";
 
-            Random random =
-                new Random();
 
-            string contrasena = "";
-
-            for (int i = 0; i < 10; i++)
-            {
-                int posicion =
-                    random.Next(
-                        caracteres.Length);
-
-                contrasena +=
-                    caracteres[posicion];
-            }
-
-            return contrasena;
-        }
-        private bool ValidarCampos()
+        // ==========================================
+        // GENERAR CREDENCIALES
+        // ==========================================
+        private void btnGenerarCredenciales_Click(
+            object sender,
+            EventArgs e)
         {
             // ==========================================
-            // ROL
+            // VALIDAR PERSONA
+            // ==========================================
+            if (idPersonaSeleccionada <= 0)
+            {
+                MessageBox.Show(
+                    "Seleccione una persona.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                cmbPersona.Focus();
+
+                return;
+            }
+
+
+            // ==========================================
+            // VALIDAR ROL
             // ==========================================
             if (cmbRol.SelectedIndex == -1)
             {
@@ -587,302 +418,79 @@ namespace wfZenova
                     MessageBoxIcon.Warning);
 
                 cmbRol.Focus();
-                return false;
+
+                return;
             }
 
-            bool esEntrenador =
-                cmbRol.Text == "Entrenador";
-
 
             // ==========================================
-            // SI ES ENTRENADOR
+            // VALIDAR TIPO DE PERSONA Y ROL
             // ==========================================
-            if (esEntrenador)
+            if (!ValidarRolPersona())
             {
-                // Debe seleccionar entrenador registrado
-                if (cmbEntrenador.SelectedIndex == -1 ||
-                    cmbEntrenador.SelectedValue == null)
-                {
-                    MessageBox.Show(
-                        "Seleccione un entrenador registrado.",
-                        "ZENOVA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    cmbEntrenador.Focus();
-                    return false;
-                }
-
-                // Foto cargada desde Entrenadores
-                if (!fotoSeleccionada ||
-                    picFoto.Image == null)
-                {
-                    MessageBox.Show(
-                        "El entrenador seleccionado no tiene una foto registrada.",
-                        "ZENOVA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    return false;
-                }
-
-                // IMPORTANTE:
-                // NO volvemos a validar aquí:
-                // FechaNacimiento
-                // Género
-                // Teléfono
-                // Dirección
-                // etc.
-                //
-                // Porque esos datos ya fueron registrados
-                // y validados en Gestión de Entrenadores.
+                return;
             }
 
 
             // ==========================================
-            // SI NO ES ENTRENADOR
-            // VALIDAR DATOS INGRESADOS MANUALMENTE
+            // GENERAR
             // ==========================================
-            else
-            {
-                // FOTO
-                if (!fotoSeleccionada ||
-                    picFoto.Image == null)
-                {
-                    MessageBox.Show(
-                        "Debe subir una foto del usuario.",
-                        "ZENOVA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    return false;
-                }
-
-
-                // NOMBRES
-                if (txtNombres.Text.Trim() == "")
-                {
-                    MessageBox.Show(
-                        "Ingrese los nombres.",
-                        "ZENOVA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    txtNombres.Focus();
-                    return false;
-                }
-
-                if (!txtNombres.Text.Trim()
-                    .All(c => char.IsLetter(c) ||
-                              char.IsWhiteSpace(c)))
-                {
-                    MessageBox.Show(
-                        "Los nombres solo pueden contener letras.",
-                        "ZENOVA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    txtNombres.Focus();
-                    return false;
-                }
-
-
-                // APELLIDOS
-                if (txtApellidos.Text.Trim() == "")
-                {
-                    MessageBox.Show(
-                        "Ingrese los apellidos.",
-                        "ZENOVA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    txtApellidos.Focus();
-                    return false;
-                }
-
-                if (!txtApellidos.Text.Trim()
-                    .All(c => char.IsLetter(c) ||
-                              char.IsWhiteSpace(c)))
-                {
-                    MessageBox.Show(
-                        "Los apellidos solo pueden contener letras.",
-                        "ZENOVA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    txtApellidos.Focus();
-                    return false;
-                }
-
-
-                // CÉDULA
-                string cedulaNormal =
-                    txtCedula.Text.Trim();
-
-                if (cedulaNormal.Length != 10 ||
-                    !cedulaNormal.All(char.IsDigit))
-                {
-                    MessageBox.Show(
-                        "La cédula debe contener exactamente 10 dígitos.",
-                        "ZENOVA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    txtCedula.Focus();
-                    return false;
-                }
-
-
-                // FECHA DE NACIMIENTO
-                if (dtpFechaNacimiento.Value.Date >=
-                    DateTime.Today)
-                {
-                    MessageBox.Show(
-                        "Ingrese una fecha de nacimiento válida.",
-                        "ZENOVA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    dtpFechaNacimiento.Focus();
-                    return false;
-                }
-
-
-                // GÉNERO
-                if (!rbMasculino.Checked &&
-                    !rbFemenino.Checked)
-                {
-                    MessageBox.Show(
-                        "Seleccione el género.",
-                        "ZENOVA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    return false;
-                }
-
-
-                // DIRECCIÓN
-                if (txtDireccion.Text.Trim() == "")
-                {
-                    MessageBox.Show(
-                        "Ingrese la dirección.",
-                        "ZENOVA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    txtDireccion.Focus();
-                    return false;
-                }
-
-
-                // TELÉFONO
-                string telefono =
-                    txtTelefono.Text.Trim();
-
-                if (telefono.Length != 10 ||
-                    !telefono.All(char.IsDigit))
-                {
-                    MessageBox.Show(
-                        "El teléfono debe contener exactamente 10 dígitos.",
-                        "ZENOVA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    txtTelefono.Focus();
-                    return false;
-                }
-
-
-                // CORREO
-                string correoNormal =
-                    txtCorreo.Text.Trim();
-
-                if (correoNormal == "")
-                {
-                    MessageBox.Show(
-                        "Ingrese el correo electrónico.",
-                        "ZENOVA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    txtCorreo.Focus();
-                    return false;
-                }
-
-                try
-                {
-                    System.Net.Mail.MailAddress correoValido =
-                        new System.Net.Mail.MailAddress(
-                            correoNormal);
-
-                    if (correoValido.Address !=
-                        correoNormal)
-                    {
-                        throw new Exception();
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show(
-                        "Ingrese un correo electrónico válido.",
-                        "ZENOVA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    txtCorreo.Focus();
-                    return false;
-                }
-            }
-
-
-            // ==========================================
-            // CREDENCIALES
-            // ESTO SE VALIDA PARA TODOS LOS ROLES
-            // ==========================================
-            if (lblUsuario.Text.Trim() == "" ||
-                lblContrasena.Text.Trim() == "")
-            {
-                MessageBox.Show(
-                    "Primero debe generar el usuario y la contraseña.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return false;
-            }
-
-
-            // ==========================================
-            // DATOS PARA VALIDAR DUPLICADOS
-            // ==========================================
-            string cedula =
-                txtCedula.Text.Trim();
-
-            string correo =
-                txtCorreo.Text.Trim();
-
             string usuario =
-                lblUsuario.Text.Trim();
+                GenerarNombreUsuario();
 
 
-            // ==========================================
-            // CÉDULA REPETIDA EN USUARIOS
-            // ==========================================
-            DataTable tablaCedula =
-                conSQL.RetornaRegistros(
-                    "SELECT IdUsuario " +
-                    "FROM Usuarios " +
-                    "WHERE Cedula = '" +
-                    cedula.Replace("'", "''") +
-                    "'"
-                );
+            string contrasena =
+                GenerarContrasena();
 
-            if (tablaCedula != null &&
-                tablaCedula.Rows.Count > 0)
+
+            if (usuario == "")
             {
                 MessageBox.Show(
-                    "Ya existe una cuenta de usuario con esa cédula.",
+                    "No se pudo generar el nombre de usuario.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
+
+
+            lblUsuario.Text =
+                usuario;
+
+
+            lblContrasena.Text =
+                contrasena;
+
+
+            contrasenaGenerada =
+                contrasena;
+
+
+            btnGuardar.Enabled =
+                true;
+        }
+
+
+        // ==========================================
+        // VALIDAR PERSONA / ROL
+        // ==========================================
+        private bool ValidarRolPersona()
+        {
+            string rol =
+                cmbRol.Text.Trim();
+
+
+            // ==========================================
+            // SI ES ENTRENADOR,
+            // DEBE TENER ROL ENTRENADOR
+            // ==========================================
+            if (tipoPersona == "Entrenador" &&
+                rol != "Entrenador")
+            {
+                MessageBox.Show(
+                    "La persona seleccionada está registrada como entrenador.\n\n" +
+                    "Debe asignarle el rol Entrenador.",
                     "ZENOVA",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -892,50 +500,14 @@ namespace wfZenova
 
 
             // ==========================================
-            // CORREO REPETIDO
+            // UN EMPLEADO NORMAL NO PUEDE
+            // RECIBIR ROL ENTRENADOR
             // ==========================================
-            if (correo != "")
-            {
-                DataTable tablaCorreo =
-                    conSQL.RetornaRegistros(
-                        "SELECT IdUsuario " +
-                        "FROM Usuarios " +
-                        "WHERE Correo = '" +
-                        correo.Replace("'", "''") +
-                        "'"
-                    );
-
-                if (tablaCorreo != null &&
-                    tablaCorreo.Rows.Count > 0)
-                {
-                    MessageBox.Show(
-                        "Ya existe una cuenta de usuario con ese correo electrónico.",
-                        "ZENOVA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    return false;
-                }
-            }
-
-
-            // ==========================================
-            // USUARIO REPETIDO
-            // ==========================================
-            DataTable tablaUsuario =
-                conSQL.RetornaRegistros(
-                    "SELECT IdUsuario " +
-                    "FROM Usuarios " +
-                    "WHERE NombreUsuario = '" +
-                    usuario.Replace("'", "''") +
-                    "'"
-                );
-
-            if (tablaUsuario != null &&
-                tablaUsuario.Rows.Count > 0)
+            if (tipoPersona == "Empleado" &&
+                rol == "Entrenador")
             {
                 MessageBox.Show(
-                    "El nombre de usuario ya existe. Genere uno nuevo.",
+                    "El rol Entrenador solo puede asignarse a una persona registrada en Gestión de Entrenadores.",
                     "ZENOVA",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -946,19 +518,182 @@ namespace wfZenova
 
             return true;
         }
+
+
+        // ==========================================
+        // GENERAR NOMBRE DE USUARIO
+        // ==========================================
+        private string GenerarNombreUsuario()
+        {
+            string nombres =
+                nombresPersona
+                .Trim()
+                .ToLower();
+
+
+            string apellidos =
+                apellidosPersona
+                .Trim()
+                .ToLower();
+
+
+            if (nombres == "" ||
+                apellidos == "")
+            {
+                return "";
+            }
+
+
+            // Primera letra del primer nombre
+            string primeraLetra =
+                nombres.Substring(
+                    0,
+                    1);
+
+
+            // Primer apellido
+            string primerApellido =
+                apellidos
+                .Split(' ')[0];
+
+
+            // Ejemplo:
+            // Ana López = alopez
+            string usuarioBase =
+                primeraLetra +
+                primerApellido;
+
+
+            string usuario =
+                usuarioBase;
+
+
+            int contador =
+                2;
+
+
+            // ==========================================
+            // SI YA EXISTE:
+            //
+            // alopez
+            // alopez2
+            // alopez3
+            // etc.
+            // ==========================================
+            while (ExisteUsuario(usuario))
+            {
+                usuario =
+                    usuarioBase +
+                    contador;
+
+
+                contador++;
+            }
+
+
+            return usuario;
+        }
+
+
+        // ==========================================
+        // COMPROBAR SI EXISTE USUARIO
+        // ==========================================
+        private bool ExisteUsuario(
+            string usuario)
+        {
+            string usuarioSeguro =
+                usuario.Replace(
+                    "'",
+                    "''");
+
+
+            DataTable tabla =
+                conSQL.RetornaRegistros(
+                    @"
+                    SELECT
+                        IdUsuario
+
+                    FROM Usuarios
+
+                    WHERE
+                        NombreUsuario = '" +
+                    usuarioSeguro +
+                    @"';
+                    "
+                );
+
+
+            return tabla != null &&
+                   tabla.Rows.Count > 0;
+        }
+
+
+        // ==========================================
+        // GENERAR CONTRASEÑA TEMPORAL
+        // ==========================================
+        private string GenerarContrasena()
+        {
+            const string caracteres =
+                "ABCDEFGHJKLMNPQRSTUVWXYZ" +
+                "abcdefghijkmnopqrstuvwxyz" +
+                "23456789" +
+                "@#$";
+
+
+            Random random =
+                new Random();
+
+
+            string contrasena =
+                "";
+
+
+            // Contraseña de 10 caracteres
+            for (int i = 0;
+                 i < 10;
+                 i++)
+            {
+                int posicion =
+                    random.Next(
+                        caracteres.Length);
+
+
+                contrasena +=
+                    caracteres[posicion];
+            }
+
+
+            return contrasena;
+        }
+
+
+        // ==========================================
+        // GENERAR SALT
+        // ==========================================
         private byte[] GenerarSalt()
         {
-            byte[] salt = new byte[16];
+            byte[] salt =
+                new byte[16];
+
 
             using (RandomNumberGenerator rng =
                    RandomNumberGenerator.Create())
             {
-                rng.GetBytes(salt);
+                rng.GetBytes(
+                    salt);
             }
+
 
             return salt;
         }
-        private byte[] GenerarHash(string contrasena,byte[] salt)
+
+
+        // ==========================================
+        // GENERAR HASH
+        // ==========================================
+        private byte[] GenerarHash(
+            string contrasena,
+            byte[] salt)
         {
             using (Rfc2898DeriveBytes pbkdf2 =
                    new Rfc2898DeriveBytes(
@@ -966,46 +701,317 @@ namespace wfZenova
                        salt,
                        100000))
             {
-                return pbkdf2.GetBytes(32);
+                return pbkdf2.GetBytes(
+                    32);
             }
         }
-        private void BloquearDatosEntrenador(bool bloquear)
+
+
+        // ==========================================
+        // GUARDAR USUARIO
+        // ==========================================
+
+
+
+        // ==========================================
+        // LIMPIAR PERSONA
+        // ==========================================
+        private void LimpiarPersonaSeleccionada()
         {
-            txtNombres.ReadOnly = bloquear;
-            txtApellidos.ReadOnly = bloquear;
-            txtCedula.ReadOnly = bloquear;
-            txtDireccion.ReadOnly = bloquear;
-            txtTelefono.ReadOnly = bloquear;
-            txtCorreo.ReadOnly = bloquear;
+            idPersonaSeleccionada =
+                0;
 
-            dtpFechaNacimiento.Enabled = !bloquear;
 
-            rbMasculino.Enabled = !bloquear;
-            rbFemenino.Enabled = !bloquear;
+            tipoPersona =
+                "";
 
-            btnSubirFoto.Enabled = !bloquear;
+
+            nombresPersona =
+                "";
+
+
+            apellidosPersona =
+                "";
+
+
+            LimpiarCredenciales();
+
+
+            ActualizarBotones();
         }
-        private byte[] PrepararFotoParaGuardar(Image imagen)
+
+
+        // ==========================================
+        // LIMPIAR CREDENCIALES
+        // ==========================================
+        private void LimpiarCredenciales()
         {
-            if (imagen == null)
-                return null;
+            lblUsuario.Text =
+                "";
 
-            // Reducimos la imagen antes de guardarla
-            using (Bitmap imagenReducida =
-                   new Bitmap(imagen, new Size(300, 300)))
+
+            lblContrasena.Text =
+                "";
+
+
+            contrasenaGenerada =
+                "";
+
+
+            btnGuardar.Enabled =
+                false;
+        }
+
+
+        // ==========================================
+        // CERRAR
+        // ==========================================
+        private void btnCerrar_Click(
+            object sender,
+            EventArgs e)
+        {
+            this.Close();
+        }
+
+
+        // ==========================================
+        // MOVER FORMULARIO
+        // ==========================================
+        [DllImport(
+            "user32.dll",
+            EntryPoint = "ReleaseCapture")]
+        private static extern void ReleaseCapture();
+
+
+        [DllImport(
+            "user32.dll",
+            EntryPoint = "SendMessage")]
+        private static extern void SendMessage(
+            IntPtr hWnd,
+            int Msg,
+            int wParam,
+            int lParam);
+
+
+        private void panel1_MouseDown(
+            object sender,
+            MouseEventArgs e)
+        {
+            ReleaseCapture();
+
+
+            SendMessage(
+                this.Handle,
+                0x112,
+                0xF012,
+                0);
+        }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+            // ==========================================
+            // VALIDAR PERSONA
+            // ==========================================
+            if (idPersonaSeleccionada <= 0)
             {
-                using (MemoryStream ms =
-                       new MemoryStream())
-                {
-                    // JPG pesa mucho menos que PNG
-                    imagenReducida.Save(
-                        ms,
-                        System.Drawing.Imaging.ImageFormat.Jpeg);
+                MessageBox.Show(
+                    "Seleccione una persona.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
 
-                    return ms.ToArray();
-                }
+                cmbPersona.Focus();
+
+                return;
+            }
+
+
+            // ==========================================
+            // VALIDAR ROL
+            // ==========================================
+            if (cmbRol.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Seleccione un rol.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                cmbRol.Focus();
+
+                return;
+            }
+
+
+            // ==========================================
+            // VALIDAR ROL / PERSONA
+            // ==========================================
+            if (!ValidarRolPersona())
+            {
+                return;
+            }
+
+
+            // ==========================================
+            // VALIDAR CREDENCIALES
+            // ==========================================
+            if (lblUsuario.Text.Trim() == "" ||
+                contrasenaGenerada == "")
+            {
+                MessageBox.Show(
+                    "Primero debe generar las credenciales.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+
+            // ==========================================
+            // ID ROL
+            // ==========================================
+            int idRol =
+                Convert.ToInt32(
+                    cmbRol.SelectedValue);
+
+
+            // ==========================================
+            // GENERAR SALT Y HASH
+            // ==========================================
+            byte[] salt =
+                GenerarSalt();
+
+
+            byte[] hash =
+                GenerarHash(
+                    contrasenaGenerada,
+                    salt);
+
+
+            string hashSQL =
+                "0x" +
+                BitConverter
+                .ToString(hash)
+                .Replace("-", "");
+
+
+            string saltSQL =
+                "0x" +
+                BitConverter
+                .ToString(salt)
+                .Replace("-", "");
+
+
+            // ==========================================
+            // DETERMINAR SI VIENE DE
+            // EMPLEADOS O ENTRENADORES
+            // ==========================================
+            string idEmpleado =
+                "NULL";
+
+
+            string idEntrenador =
+                "NULL";
+
+
+            if (tipoPersona ==
+                "Empleado")
+            {
+                idEmpleado =
+                    idPersonaSeleccionada
+                    .ToString();
+            }
+
+
+            if (tipoPersona ==
+                "Entrenador")
+            {
+                idEntrenador =
+                    idPersonaSeleccionada
+                    .ToString();
+            }
+
+
+            // ==========================================
+            // CAMPOS
+            // ==========================================
+            string campos =
+                "NombreUsuario, " +
+                "PasswordHash, " +
+                "PasswordSalt, " +
+                "DebeCambiarPassword, " +
+                "EstadoCuenta, " +
+                "IdRol, " +
+                "IdEmpleado, " +
+                "IdEntrenador";
+
+
+            // ==========================================
+            // DATOS
+            // ==========================================
+            string datos =
+                "'" +
+                lblUsuario.Text.Trim()
+                .Replace("'", "''") +
+                "'," +
+
+                hashSQL +
+                "," +
+
+                saltSQL +
+                "," +
+
+                // Debe cambiar contraseña
+                // cuando inicie sesión
+                "1," +
+
+                // Cuenta activa
+                "1," +
+
+                idRol +
+                "," +
+
+                idEmpleado +
+                "," +
+
+                idEntrenador;
+
+
+            // ==========================================
+            // INSERTAR
+            // ==========================================
+            if (conSQL.insertDatos(
+                "Usuarios",
+                campos,
+                datos))
+            {
+                MessageBox.Show(
+                    "Usuario creado correctamente.\n\n" +
+                    "Usuario: " +
+                    lblUsuario.Text +
+                    "\n\n" +
+                    "Contraseña temporal: " +
+                    contrasenaGenerada,
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+
+                this.DialogResult =
+                    DialogResult.OK;
+
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "No se pudo crear el usuario.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
     }
-    
- }
+}

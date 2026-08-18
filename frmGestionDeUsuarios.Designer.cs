@@ -33,9 +33,9 @@
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.btnVer = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.btnAcDes = new System.Windows.Forms.Button();
+            this.btnActivarDesactivar = new System.Windows.Forms.Button();
             this.btnRestablecer = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnNuevoUsuario = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.cmbRol = new System.Windows.Forms.ComboBox();
@@ -111,24 +111,23 @@
             this.btnEditar.TabIndex = 76;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // btnAcDes
+            // btnActivarDesactivar
             // 
-            this.btnAcDes.BackgroundImage = global::wfZenova.Properties.Resources.btnCuadro;
-            this.btnAcDes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAcDes.FlatAppearance.BorderSize = 0;
-            this.btnAcDes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAcDes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAcDes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
-            this.btnAcDes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAcDes.Location = new System.Drawing.Point(722, 167);
-            this.btnAcDes.Name = "btnAcDes";
-            this.btnAcDes.Size = new System.Drawing.Size(177, 39);
-            this.btnAcDes.TabIndex = 75;
-            this.btnAcDes.Text = "Activar/Desactivar";
-            this.btnAcDes.UseVisualStyleBackColor = true;
-            this.btnAcDes.Click += new System.EventHandler(this.btnAcDes_Click);
+            this.btnActivarDesactivar.BackgroundImage = global::wfZenova.Properties.Resources.btnCuadro;
+            this.btnActivarDesactivar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnActivarDesactivar.FlatAppearance.BorderSize = 0;
+            this.btnActivarDesactivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActivarDesactivar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActivarDesactivar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
+            this.btnActivarDesactivar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActivarDesactivar.Location = new System.Drawing.Point(722, 167);
+            this.btnActivarDesactivar.Name = "btnActivarDesactivar";
+            this.btnActivarDesactivar.Size = new System.Drawing.Size(177, 39);
+            this.btnActivarDesactivar.TabIndex = 75;
+            this.btnActivarDesactivar.Text = "Activar/Desactivar";
+            this.btnActivarDesactivar.UseVisualStyleBackColor = true;
+            this.btnActivarDesactivar.Click += new System.EventHandler(this.btnActivarDesactivar_Click);
             // 
             // btnRestablecer
             // 
@@ -148,21 +147,21 @@
             this.btnRestablecer.UseVisualStyleBackColor = true;
             this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
             // 
-            // btnNuevo
+            // btnNuevoUsuario
             // 
-            this.btnNuevo.BackgroundImage = global::wfZenova.Properties.Resources.BotonMas;
-            this.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnNuevo.FlatAppearance.BorderSize = 0;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(905, 60);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(240, 29);
-            this.btnNuevo.TabIndex = 70;
-            this.btnNuevo.Text = "Nuevo Usuario";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            this.btnNuevoUsuario.BackgroundImage = global::wfZenova.Properties.Resources.BotonMas;
+            this.btnNuevoUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnNuevoUsuario.FlatAppearance.BorderSize = 0;
+            this.btnNuevoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevoUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoUsuario.ForeColor = System.Drawing.Color.White;
+            this.btnNuevoUsuario.Location = new System.Drawing.Point(905, 60);
+            this.btnNuevoUsuario.Name = "btnNuevoUsuario";
+            this.btnNuevoUsuario.Size = new System.Drawing.Size(240, 29);
+            this.btnNuevoUsuario.TabIndex = 70;
+            this.btnNuevoUsuario.Text = "Nuevo Usuario";
+            this.btnNuevoUsuario.UseVisualStyleBackColor = true;
+            this.btnNuevoUsuario.Click += new System.EventHandler(this.btnNuevoUsuario_Click);
             // 
             // pictureBox1
             // 
@@ -202,9 +201,9 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
             this.label9.Location = new System.Drawing.Point(387, 46);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 19);
+            this.label9.Size = new System.Drawing.Size(36, 19);
             this.label9.TabIndex = 151;
-            this.label9.Text = "Deporte:";
+            this.label9.Text = "Rol:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // cmbEstado
@@ -225,9 +224,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
             this.label1.Location = new System.Drawing.Point(596, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 19);
+            this.label1.Size = new System.Drawing.Size(63, 19);
             this.label1.TabIndex = 153;
-            this.label1.Text = "Deporte:";
+            this.label1.Text = "Estado:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // frmGestionDeUsuarios
@@ -242,10 +241,10 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnVer);
             this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.btnAcDes);
+            this.Controls.Add(this.btnActivarDesactivar);
             this.Controls.Add(this.btnRestablecer);
             this.Controls.Add(this.dgvUsuarios);
-            this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.btnNuevoUsuario);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.pictureBox1);
@@ -266,11 +265,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnNuevoUsuario;
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnRestablecer;
-        private System.Windows.Forms.Button btnAcDes;
+        private System.Windows.Forms.Button btnActivarDesactivar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnVer;
         private System.Windows.Forms.ComboBox cmbRol;
