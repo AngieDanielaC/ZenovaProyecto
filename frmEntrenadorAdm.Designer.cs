@@ -63,6 +63,10 @@
             this.txtBuscarComp.Size = new System.Drawing.Size(251, 31);
             this.txtBuscarComp.TabIndex = 76;
             this.txtBuscarComp.Text = "Buscar entrenador";
+            this.txtBuscarComp.TextChanged += new System.EventHandler(this.txtBuscarComp_TextChanged);
+            this.txtBuscarComp.Enter += new System.EventHandler(this.txtBuscarComp_Enter);
+            this.txtBuscarComp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscarComp_KeyDown);
+            this.txtBuscarComp.Leave += new System.EventHandler(this.txtBuscarComp_Leave);
             // 
             // label13
             // 

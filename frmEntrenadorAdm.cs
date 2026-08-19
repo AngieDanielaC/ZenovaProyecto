@@ -18,6 +18,10 @@ namespace wfZenova
         {
             InitializeComponent();
             ConfigurarTablaEntrenadores();
+            txtBuscarComp.TextChanged += txtBuscarComp_TextChanged;
+            txtBuscarComp.Enter += txtBuscarComp_Enter;
+            txtBuscarComp.Leave += txtBuscarComp_Leave;
+            txtBuscarComp.KeyDown += txtBuscarComp_KeyDown;
         }
         private void ConfigurarTablaEntrenadores()
         {
@@ -292,6 +296,10 @@ namespace wfZenova
         {
             dgvEntrenadores.AutoGenerateColumns = false;
 
+            filtro = filtro.Replace("'", "''").Trim();
+
+            if (filtro == "Buscar entrenador") filtro = "";
+
             string query = @"
         SELECT 
             E.IdEntrenador,
@@ -302,14 +310,16 @@ namespace wfZenova
                     THEN 1 ELSE 0 
                 END AS EDAD,
             E.Telefono AS TELÉFONO,
-            ISNULL(STRING_AGG(D.NombreDeporte, ', '), 'Sin Deporte') AS DEPORTES,
+            ISNULL(STRING_AGG(D.NombreDeporte, ', ') WITHIN GROUP (ORDER BY D.NombreDeporte), 'Sin Deporte') AS DEPORTES,
             ISNULL(E.EstadoEntrenador, 'Inactivo') AS ESTADO,
             COUNT(DISTINCT I.IdInscripcion) AS [DEPORTISTAS ACTIVOS]
         FROM Entrenadores E
         LEFT JOIN EntrenadorDeporte ED ON E.IdEntrenador = ED.IdEntrenador AND ED.Activo = 1
         LEFT JOIN Deportes D ON ED.IdDeporte = D.IdDeporte
         LEFT JOIN Inscripciones I ON ED.IdEntrenadorDeporte = I.IdEntrenadorDeporte
-        WHERE (E.Nombres LIKE '%" + filtro + @"%' OR E.Apellidos LIKE '%" + filtro + @"%')
+        WHERE ((E.Nombres + ' ' + E.Apellidos) LIKE '%" + filtro + @"%' 
+            OR D.NombreDeporte LIKE '%" + filtro + @"%'
+            OR E.Telefono LIKE '%" + filtro + @"%')
         GROUP BY 
             E.IdEntrenador, E.Nombres, E.Apellidos, E.FechaNacimiento, 
             E.Telefono, E.EstadoEntrenador";
@@ -319,6 +329,8 @@ namespace wfZenova
         }
         private void frmEntrenadorAdm_Load(object sender, EventArgs e)
         {
+            txtBuscarComp.Text = "Buscar entrenador";
+            txtBuscarComp.ForeColor = Color.Gray;
             CargarTablaEntrenadores();
         }
 
@@ -338,6 +350,43 @@ namespace wfZenova
             else
             {
                 MessageBox.Show("Seleccione un entrenador para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtBuscarComp_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBuscarComp.Text == "Buscar entrenador")
+            {
+                txtBuscarComp.Text = "";
+                txtBuscarComp.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtBuscarComp_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBuscarComp.Text))
+            {
+                txtBuscarComp.Text = "Buscar entrenador";
+                txtBuscarComp.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtBuscarComp_Enter(object sender, EventArgs e)
+        {
+            if (txtBuscarComp.Text == "Buscar entrenador")
+            {
+                txtBuscarComp.Text = "";
+                txtBuscarComp.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtBuscarComp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // Evita el 'beep' de Windows al presionar Enter
+                string texto = txtBuscarComp.Text == "Buscar entrenador" ? "" : txtBuscarComp.Text;
+                CargarTablaEntrenadores(texto);
             }
         }
     }

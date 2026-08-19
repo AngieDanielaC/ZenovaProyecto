@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -168,30 +169,62 @@ namespace wfZenova
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
             if (!VerificarData()) return;
-            MemoryStream ms = new MemoryStream();
-            ImagenEnt.Image.Save(ms, ImageFormat.Jpeg);
-            byte[] abyte = ms.ToArray();
-            string imagenwa = "0x" + BitConverter.ToString(abyte).Replace("-", "");
-            string cadena = $"Nombres='{txtNombreEn.Text.Trim()}', " +
-                           $"Apellidos='{txtApEnt.Text.Trim()}', " +
-                           $"Telefono='{txtTelefono.Text.Trim()}', " +
-                           $"Direccion='{txtDirEnt.Text.Trim()}', " +
-                           $"Correo='{txtCorreoEnt.Text.Trim()}', " +
-                           $"Foto={imagenwa}";
+            byte[] abyte;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                using (Bitmap bmp = new Bitmap(ImagenEnt.Image))
+                {
+                    bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                }
+                abyte = ms.ToArray();
+            }
+            string queryEntrenador = @"
+        UPDATE Entrenadores 
+        SET Nombres = @Nombres, 
+            Apellidos = @Apellidos, 
+            Telefono = @Telefono, 
+            Direccion = @Direccion, 
+            Correo = @Correo, 
+            Foto = @Foto 
+        WHERE IdEntrenador = @IdEntrenador";
 
-            oConSQl.ActualizarDatos("Entrenadores", cadena, $"IdEntrenador={this.idEntrenador}");
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+        new SqlParameter("@Nombres", txtNombreEn.Text.Trim()),
+        new SqlParameter("@Apellidos", txtApEnt.Text.Trim()),
+        new SqlParameter("@Telefono", txtTelefono.Text.Trim()),
+        new SqlParameter("@Direccion", txtDirEnt.Text.Trim()),
+        new SqlParameter("@Correo", txtCorreoEnt.Text.Trim()),
+        new SqlParameter("@Foto", abyte),
+        new SqlParameter("@IdEntrenador", this.idEntrenador)
+            };
 
-            oConSQl.ActualizarDatos("EntrenadorDeporte", "Activo = 0", $"IdEntrenador = {this.idEntrenador}");
-
+            oConSQl.EjecutaSentenciaParametros(queryEntrenador, parametros);
+            string queryDesactivar = $"UPDATE EntrenadorDeporte SET Activo = 0 WHERE IdEntrenador = {this.idEntrenador}";
+            oConSQl.EjecutaSentenciaSRD(queryDesactivar);
             foreach (DataRowView item in clbDeportes.CheckedItems)
             {
                 int idDeporte = Convert.ToInt32(item["IdDeporte"]);
                 string fechaInicio = DateTime.Now.ToString("yyyy-MM-dd");
 
-                string camposRel = "IdEntrenador, IdDeporte, FechaInicio, Activo";
-                string datosRel = $"{this.idEntrenador}, {idDeporte}, '{fechaInicio}', 1";
+                string queryExiste = $@"
+            SELECT IdEntrenadorDeporte 
+            FROM EntrenadorDeporte 
+            WHERE IdEntrenador = {this.idEntrenador} AND IdDeporte = {idDeporte}";
 
-                oConSQl.insertDatos("EntrenadorDeporte", camposRel, datosRel);
+                DataTable dtExiste = oConSQl.RetornaRegistros(queryExiste);
+
+                if (dtExiste != null && dtExiste.Rows.Count > 0)
+                {
+                    string queryReactivar = $"UPDATE EntrenadorDeporte SET Activo = 1 WHERE IdEntrenador = {this.idEntrenador} AND IdDeporte = {idDeporte}";
+                    oConSQl.EjecutaSentenciaSRD(queryReactivar);
+                }
+                else
+                {
+                    string camposRel = "IdEntrenador, IdDeporte, FechaInicio, Activo";
+                    string datosRel = $"{this.idEntrenador}, {idDeporte}, '{fechaInicio}', 1";
+                    oConSQl.insertDatos("EntrenadorDeporte", camposRel, datosRel);
+                }
             }
 
             MessageBox.Show("Entrenador y deportes actualizados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -204,7 +237,10 @@ namespace wfZenova
             ImagenEntrenador.Filter = "archivos Imagen (*jpg;*png;) | *jpg;*png; ";
             if (ImagenEntrenador.ShowDialog() == DialogResult.OK)
             {
-                ImagenEnt.Image = Image.FromFile(ImagenEntrenador.FileName);
+                using (var tempImg = Image.FromFile(ImagenEntrenador.FileName))
+                {
+                    ImagenEnt.Image = new Bitmap(tempImg);
+                }
             }
         }
     }
