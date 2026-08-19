@@ -191,6 +191,7 @@
             this.bttActualizar.Text = "Actualizar";
             this.bttActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.bttActualizar.UseVisualStyleBackColor = false;
+            this.bttActualizar.Click += new System.EventHandler(this.bttActualizar_Click);
             // 
             // cbmDeporte
             // 
@@ -251,7 +252,7 @@
             this.flpIndicadores.Location = new System.Drawing.Point(20, 210);
             this.flpIndicadores.Name = "flpIndicadores";
             this.flpIndicadores.Padding = new System.Windows.Forms.Padding(5);
-            this.flpIndicadores.Size = new System.Drawing.Size(750, 124);
+            this.flpIndicadores.Size = new System.Drawing.Size(894, 124);
             this.flpIndicadores.TabIndex = 3;
             this.flpIndicadores.WrapContents = false;
             // 
@@ -444,7 +445,7 @@
             this.panel1.Controls.Add(this.lblTituloSsesiones);
             this.panel1.Location = new System.Drawing.Point(20, 340);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(534, 250);
+            this.panel1.Size = new System.Drawing.Size(517, 250);
             this.panel1.TabIndex = 4;
             // 
             // dgvResumenSesiones
@@ -492,7 +493,7 @@
             this.dgvResumenSesiones.RowHeadersVisible = false;
             this.dgvResumenSesiones.RowHeadersWidth = 32;
             this.dgvResumenSesiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResumenSesiones.Size = new System.Drawing.Size(504, 180);
+            this.dgvResumenSesiones.Size = new System.Drawing.Size(487, 180);
             this.dgvResumenSesiones.TabIndex = 1;
             // 
             // colPeriodo
@@ -860,7 +861,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1254, 768);
+            this.ClientSize = new System.Drawing.Size(1254, 749);
             this.Controls.Add(this.pnlAlertasRecientes);
             this.Controls.Add(this.pnlEstadoSeguimiento);
             this.Controls.Add(this.panel1);
