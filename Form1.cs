@@ -165,8 +165,6 @@ namespace wfZenova
             // ==========================================
             // ENTRENADOR
             // ==========================================
-            btnMotivacion.Visible =
-                false;
 
             btnBienestar.Visible =
                 false;
@@ -239,8 +237,7 @@ namespace wfZenova
             // ==========================================
             // ENTRENADOR
             // ==========================================
-            btnMotivacion.Visible =
-                true;
+            
 
             btnBienestar.Visible =
                 true;
@@ -398,12 +395,6 @@ namespace wfZenova
             panelSubBienestar.Visible =
                 false;
 
-
-            // ==========================================
-            // MOTIVACIÓN
-            // ==========================================
-            btnMotivacion.Visible =
-                true;
         }
 
 
