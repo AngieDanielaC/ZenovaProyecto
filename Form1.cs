@@ -9,6 +9,7 @@ namespace wfZenova
         // FORMULARIO ACTUAL
         // ==========================================
         private Form currentForm = null;
+        private Form formularioActivo = null;
 
 
         // ==========================================
@@ -473,7 +474,7 @@ namespace wfZenova
             EventArgs e)
         {
             OpenChildForm(
-                new frmMoniDeportistas());
+                new frmResumenMonitoreoAdm());
         }
 
 
@@ -482,7 +483,7 @@ namespace wfZenova
             EventArgs e)
         {
             OpenChildForm(
-                new frmControles());
+                new frmMonitoreoEntrenadores());
         }
 
 
@@ -491,7 +492,7 @@ namespace wfZenova
             EventArgs e)
         {
             OpenChildForm(
-                new frmGestionTecnica());
+                new frmMonitoreoDeportistas());
         }
 
 
@@ -500,7 +501,7 @@ namespace wfZenova
             EventArgs e)
         {
             OpenChildForm(
-                new frmRegistroDatosMonitoreo());
+                new frmAlertasMonitoreo());
         }
 
 

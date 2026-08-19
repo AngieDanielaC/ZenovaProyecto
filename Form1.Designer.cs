@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.pnlMenuLateral = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnConsultaAdm = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
@@ -39,6 +38,7 @@
             this.btnGasto = new System.Windows.Forms.Button();
             this.btnRiesgo = new System.Windows.Forms.Button();
             this.btnBienestar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnCompetencias = new System.Windows.Forms.Button();
             this.btnEntrenamientos = new System.Windows.Forms.Button();
             this.PanelSubMenoMonitoreo = new System.Windows.Forms.Panel();
@@ -49,14 +49,14 @@
             this.btnMonitoreo = new System.Windows.Forms.Button();
             this.btnDeportistas = new System.Windows.Forms.Button();
             this.btnAsignacionAdm = new System.Windows.Forms.Button();
-            this.btnEntrenadoresAdm = new System.Windows.Forms.Button();
             this.btnDeportistasAdm = new System.Windows.Forms.Button();
+            this.btnEntrenadoresAdm = new System.Windows.Forms.Button();
+            this.btnGestiondeEmpleados = new System.Windows.Forms.Button();
             this.btnGestionDeUsuarios = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelChildForm = new System.Windows.Forms.Panel();
-            this.btnGestiondeEmpleados = new System.Windows.Forms.Button();
             this.pnlMenuLateral.SuspendLayout();
             this.panelSubBienestar.SuspendLayout();
             this.PanelSubMenoMonitoreo.SuspendLayout();
@@ -92,25 +92,6 @@
             this.pnlMenuLateral.Name = "pnlMenuLateral";
             this.pnlMenuLateral.Size = new System.Drawing.Size(250, 749);
             this.pnlMenuLateral.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::wfZenova.Properties.Resources._4;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 701);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(233, 45);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Competencias";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnConsultaAdm
             // 
@@ -272,6 +253,25 @@
             this.btnBienestar.UseVisualStyleBackColor = true;
             this.btnBienestar.Click += new System.EventHandler(this.btnBienestar_Click);
             // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = global::wfZenova.Properties.Resources._4;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 701);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(233, 45);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Competencias";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btnCompetencias
             // 
             this.btnCompetencias.Dock = System.Windows.Forms.DockStyle.Top;
@@ -337,7 +337,7 @@
             this.btnRegistrodeDatos.Padding = new System.Windows.Forms.Padding(65, 0, 0, 0);
             this.btnRegistrodeDatos.Size = new System.Drawing.Size(233, 40);
             this.btnRegistrodeDatos.TabIndex = 3;
-            this.btnRegistrodeDatos.Text = "Registro de datos";
+            this.btnRegistrodeDatos.Text = "Alertas";
             this.btnRegistrodeDatos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegistrodeDatos.UseVisualStyleBackColor = true;
             this.btnRegistrodeDatos.Click += new System.EventHandler(this.btnRegistrodeDatos_Click);
@@ -453,6 +453,25 @@
             this.btnAsignacionAdm.UseVisualStyleBackColor = true;
             this.btnAsignacionAdm.Click += new System.EventHandler(this.btnAsignacionAdm_Click);
             // 
+            // btnDeportistasAdm
+            // 
+            this.btnDeportistasAdm.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDeportistasAdm.FlatAppearance.BorderSize = 0;
+            this.btnDeportistasAdm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
+            this.btnDeportistasAdm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeportistasAdm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeportistasAdm.ForeColor = System.Drawing.Color.White;
+            this.btnDeportistasAdm.Image = global::wfZenova.Properties.Resources._2;
+            this.btnDeportistasAdm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeportistasAdm.Location = new System.Drawing.Point(0, 266);
+            this.btnDeportistasAdm.Name = "btnDeportistasAdm";
+            this.btnDeportistasAdm.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnDeportistasAdm.Size = new System.Drawing.Size(233, 45);
+            this.btnDeportistasAdm.TabIndex = 13;
+            this.btnDeportistasAdm.Text = "    Gestión de deportitas";
+            this.btnDeportistasAdm.UseVisualStyleBackColor = true;
+            this.btnDeportistasAdm.Click += new System.EventHandler(this.btnDeportistasAdm_Click);
+            // 
             // btnEntrenadoresAdm
             // 
             this.btnEntrenadoresAdm.Dock = System.Windows.Forms.DockStyle.Top;
@@ -472,24 +491,23 @@
             this.btnEntrenadoresAdm.UseVisualStyleBackColor = true;
             this.btnEntrenadoresAdm.Click += new System.EventHandler(this.btnEntrenadoresAdm_Click);
             // 
-            // btnDeportistasAdm
+            // btnGestiondeEmpleados
             // 
-            this.btnDeportistasAdm.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDeportistasAdm.FlatAppearance.BorderSize = 0;
-            this.btnDeportistasAdm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.btnDeportistasAdm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeportistasAdm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeportistasAdm.ForeColor = System.Drawing.Color.White;
-            this.btnDeportistasAdm.Image = global::wfZenova.Properties.Resources._2;
-            this.btnDeportistasAdm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeportistasAdm.Location = new System.Drawing.Point(0, 266);
-            this.btnDeportistasAdm.Name = "btnDeportistasAdm";
-            this.btnDeportistasAdm.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnDeportistasAdm.Size = new System.Drawing.Size(233, 45);
-            this.btnDeportistasAdm.TabIndex = 13;
-            this.btnDeportistasAdm.Text = "    Gestión de deportitas";
-            this.btnDeportistasAdm.UseVisualStyleBackColor = true;
-            this.btnDeportistasAdm.Click += new System.EventHandler(this.btnDeportistasAdm_Click);
+            this.btnGestiondeEmpleados.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGestiondeEmpleados.FlatAppearance.BorderSize = 0;
+            this.btnGestiondeEmpleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
+            this.btnGestiondeEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestiondeEmpleados.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestiondeEmpleados.ForeColor = System.Drawing.Color.White;
+            this.btnGestiondeEmpleados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGestiondeEmpleados.Location = new System.Drawing.Point(0, 176);
+            this.btnGestiondeEmpleados.Name = "btnGestiondeEmpleados";
+            this.btnGestiondeEmpleados.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnGestiondeEmpleados.Size = new System.Drawing.Size(233, 45);
+            this.btnGestiondeEmpleados.TabIndex = 19;
+            this.btnGestiondeEmpleados.Text = "Gestión de Empleados";
+            this.btnGestiondeEmpleados.UseVisualStyleBackColor = true;
+            this.btnGestiondeEmpleados.Click += new System.EventHandler(this.btnGestiondeEmpleados_Click);
             // 
             // btnGestionDeUsuarios
             // 
@@ -557,24 +575,6 @@
             this.PanelChildForm.Name = "PanelChildForm";
             this.PanelChildForm.Size = new System.Drawing.Size(1033, 749);
             this.PanelChildForm.TabIndex = 1;
-            // 
-            // btnGestiondeEmpleados
-            // 
-            this.btnGestiondeEmpleados.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGestiondeEmpleados.FlatAppearance.BorderSize = 0;
-            this.btnGestiondeEmpleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.btnGestiondeEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestiondeEmpleados.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGestiondeEmpleados.ForeColor = System.Drawing.Color.White;
-            this.btnGestiondeEmpleados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestiondeEmpleados.Location = new System.Drawing.Point(0, 176);
-            this.btnGestiondeEmpleados.Name = "btnGestiondeEmpleados";
-            this.btnGestiondeEmpleados.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnGestiondeEmpleados.Size = new System.Drawing.Size(233, 45);
-            this.btnGestiondeEmpleados.TabIndex = 19;
-            this.btnGestiondeEmpleados.Text = "Gestión de Empleados";
-            this.btnGestiondeEmpleados.UseVisualStyleBackColor = true;
-            this.btnGestiondeEmpleados.Click += new System.EventHandler(this.btnGestiondeEmpleados_Click);
             // 
             // Form1
             // 

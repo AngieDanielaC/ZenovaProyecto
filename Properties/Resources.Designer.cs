@@ -163,6 +163,16 @@ namespace wfZenova.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap actualizar1 {
+            get {
+                object obj = ResourceManager.GetObject("actualizar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap asistenciaestadistica {
             get {
                 object obj = ResourceManager.GetObject("asistenciaestadistica", resourceCulture);
@@ -356,6 +366,16 @@ namespace wfZenova.Properties {
         internal static System.Drawing.Bitmap comp51 {
             get {
                 object obj = ResourceManager.GetObject("comp51", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap converted_image {
+            get {
+                object obj = ResourceManager.GetObject("converted_image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -636,6 +656,76 @@ namespace wfZenova.Properties {
         internal static System.Drawing.Bitmap icoEditar {
             get {
                 object obj = ResourceManager.GetObject("icoEditar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_alertas {
+            get {
+                object obj = ResourceManager.GetObject("icono_alertas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_cumplimiento {
+            get {
+                object obj = ResourceManager.GetObject("icono_cumplimiento", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_deportistas {
+            get {
+                object obj = ResourceManager.GetObject("icono_deportistas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_entrenadores {
+            get {
+                object obj = ResourceManager.GetObject("icono_entrenadores", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_entrenadores1 {
+            get {
+                object obj = ResourceManager.GetObject("icono_entrenadores1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_resumen {
+            get {
+                object obj = ResourceManager.GetObject("icono_resumen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_sin_actividad {
+            get {
+                object obj = ResourceManager.GetObject("icono_sin_actividad", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

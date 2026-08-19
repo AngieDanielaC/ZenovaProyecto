@@ -217,5 +217,62 @@ namespace wfZenova
                 cerrarConexion();
             }
         }
+
+        public object EjecutarEscalar( string sentencia,params SqlParameter[] parametros)
+        {
+            try
+            {
+                if (!abrirConexion())
+                    return null;
+
+                using (SqlCommand comando = new SqlCommand(sentencia, oCon))
+                {
+                    if (parametros != null && parametros.Length > 0)
+                        comando.Parameters.AddRange(parametros);
+
+                    return comando.ExecuteScalar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                cerrarConexion();
+            }
+        }
+        public DataTable RetornaRegistrosParametros( string sentencia,params SqlParameter[] parametros)
+        {
+            DataTable tabla = new DataTable();
+
+            try
+            {
+                if (!abrirConexion())
+                    return tabla;
+
+                using (SqlCommand comando = new SqlCommand(sentencia, oCon))
+                {
+                    if (parametros != null && parametros.Length > 0)
+                        comando.Parameters.AddRange(parametros);
+
+                    using (SqlDataAdapter adaptador = new SqlDataAdapter(comando))
+                    {
+                        adaptador.Fill(tabla);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                cerrarConexion();
+            }
+
+            return tabla;
+        }
     }
 }

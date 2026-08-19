@@ -16,5 +16,28 @@ namespace wfZenova
         {
             InitializeComponent();
         }
+
+        private void frmResumenMonitoreoAdm_Load(object sender, EventArgs e)
+        {
+            ConfigurarFiltros();
+            
+        }
+        private void ConfigurarFiltros()
+        {
+            cmbPeriodo.Items.Clear();
+            cmbPeriodo.Items.Add("Este mes");
+            cmbPeriodo.Items.Add("Últimos 3 meses");
+            cmbPeriodo.Items.Add("Este año");
+            cmbPeriodo.SelectedIndex = 0;
+
+            cbmDeporte.Items.Clear();
+            cbmDeporte.Items.Add("Todos");
+            cbmDeporte.Items.Add("Boxeo");
+            cbmDeporte.Items.Add("Judo");
+            cbmDeporte.Items.Add("Karate");
+            cbmDeporte.Items.Add("Taekwondo");
+            cbmDeporte.SelectedIndex = 0;
+        }
+
     }
 }

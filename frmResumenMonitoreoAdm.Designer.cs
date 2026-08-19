@@ -31,6 +31,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlEncabezado = new System.Windows.Forms.Panel();
             this.lblSubtitulo = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -43,9 +45,9 @@
             this.lblPeriodo = new System.Windows.Forms.Label();
             this.flpIndicadores = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlEntrenadoresActivos = new System.Windows.Forms.Panel();
+            this.lblTextoEntrenadores = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTotaldeEntrenadores = new System.Windows.Forms.Label();
-            this.lblTextoEntrenadores = new System.Windows.Forms.Label();
             this.pnlDeportistasSeguimiento = new System.Windows.Forms.Panel();
             this.lblTextoDeportistas = new System.Windows.Forms.Label();
             this.picDeportistas = new System.Windows.Forms.PictureBox();
@@ -59,13 +61,40 @@
             this.picAlertas = new System.Windows.Forms.PictureBox();
             this.lblTotalAlertas = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTituloSsesiones = new System.Windows.Forms.Label();
             this.dgvResumenSesiones = new System.Windows.Forms.DataGridView();
             this.colPeriodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProgramadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRealizadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPendientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCumplimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTituloSsesiones = new System.Windows.Forms.Label();
+            this.pnlEstadoSeguimiento = new System.Windows.Forms.Panel();
+            this.pnlDeportistasRevisar = new System.Windows.Forms.Panel();
+            this.lblTextoDeportistasRevisar = new System.Windows.Forms.Label();
+            this.lblDeportistasRevisar = new System.Windows.Forms.Label();
+            this.lblPuntoDeportistasRevisar = new System.Windows.Forms.Label();
+            this.pnlDeportistasAlDia = new System.Windows.Forms.Panel();
+            this.lblDeportistasAlDias = new System.Windows.Forms.Label();
+            this.lblDeportistasAlDia = new System.Windows.Forms.Label();
+            this.lblPuntoDeportistasAlDia = new System.Windows.Forms.Label();
+            this.pnlEntrenadoresPendientes = new System.Windows.Forms.Panel();
+            this.lblEntrenadoresPendiente = new System.Windows.Forms.Label();
+            this.lblEntrenadoresPendientes = new System.Windows.Forms.Label();
+            this.lblPuntoEntrenadoresPendientes = new System.Windows.Forms.Label();
+            this.pnlEntrenadoresAlDia = new System.Windows.Forms.Panel();
+            this.lblTextoEntrenadoresAlDia = new System.Windows.Forms.Label();
+            this.lblEntrenadoresAlDia = new System.Windows.Forms.Label();
+            this.lblPuntoEntrenadoresAlDia = new System.Windows.Forms.Label();
+            this.lblTituloEstado = new System.Windows.Forms.Label();
+            this.pnlAlertasRecientes = new System.Windows.Forms.Panel();
+            this.dgvAlertasRecientes = new System.Windows.Forms.DataGridView();
+            this.colTipoAlerta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPersonaAlerta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMotivoAlerta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFechaAlerta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrioridadAlerta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnVerTodasAlertas = new System.Windows.Forms.Button();
+            this.lblTituloAlertas = new System.Windows.Forms.Label();
             this.pnlEncabezado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picResumen)).BeginInit();
             this.pnlFiltros.SuspendLayout();
@@ -80,6 +109,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.picAlertas)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResumenSesiones)).BeginInit();
+            this.pnlEstadoSeguimiento.SuspendLayout();
+            this.pnlDeportistasRevisar.SuspendLayout();
+            this.pnlDeportistasAlDia.SuspendLayout();
+            this.pnlEntrenadoresPendientes.SuspendLayout();
+            this.pnlEntrenadoresAlDia.SuspendLayout();
+            this.pnlAlertasRecientes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlertasRecientes)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlEncabezado
@@ -90,7 +126,7 @@
             this.pnlEncabezado.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlEncabezado.Location = new System.Drawing.Point(0, 0);
             this.pnlEncabezado.Name = "pnlEncabezado";
-            this.pnlEncabezado.Size = new System.Drawing.Size(1218, 120);
+            this.pnlEncabezado.Size = new System.Drawing.Size(1237, 120);
             this.pnlEncabezado.TabIndex = 1;
             // 
             // lblSubtitulo
@@ -117,6 +153,7 @@
             // 
             // picResumen
             // 
+            this.picResumen.Image = global::wfZenova.Properties.Resources.icono_resumen;
             this.picResumen.Location = new System.Drawing.Point(30, 15);
             this.picResumen.Name = "picResumen";
             this.picResumen.Size = new System.Drawing.Size(90, 90);
@@ -214,7 +251,7 @@
             this.flpIndicadores.Location = new System.Drawing.Point(20, 210);
             this.flpIndicadores.Name = "flpIndicadores";
             this.flpIndicadores.Padding = new System.Windows.Forms.Padding(5);
-            this.flpIndicadores.Size = new System.Drawing.Size(853, 115);
+            this.flpIndicadores.Size = new System.Drawing.Size(750, 124);
             this.flpIndicadores.TabIndex = 3;
             this.flpIndicadores.WrapContents = false;
             // 
@@ -229,8 +266,22 @@
             this.pnlEntrenadoresActivos.Size = new System.Drawing.Size(200, 100);
             this.pnlEntrenadoresActivos.TabIndex = 0;
             // 
+            // lblTextoEntrenadores
+            // 
+            this.lblTextoEntrenadores.AutoSize = true;
+            this.lblTextoEntrenadores.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextoEntrenadores.ForeColor = System.Drawing.Color.Navy;
+            this.lblTextoEntrenadores.Location = new System.Drawing.Point(80, 53);
+            this.lblTextoEntrenadores.MaximumSize = new System.Drawing.Size(110, 0);
+            this.lblTextoEntrenadores.Name = "lblTextoEntrenadores";
+            this.lblTextoEntrenadores.Size = new System.Drawing.Size(92, 34);
+            this.lblTextoEntrenadores.TabIndex = 2;
+            this.lblTextoEntrenadores.Text = "Entrenadores Activos";
+            this.lblTextoEntrenadores.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::wfZenova.Properties.Resources.icono_entrenadores1;
             this.pictureBox1.Location = new System.Drawing.Point(12, 20);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(55, 55);
@@ -248,19 +299,6 @@
             this.lblTotaldeEntrenadores.Size = new System.Drawing.Size(26, 30);
             this.lblTotaldeEntrenadores.TabIndex = 1;
             this.lblTotaldeEntrenadores.Text = "0";
-            // 
-            // lblTextoEntrenadores
-            // 
-            this.lblTextoEntrenadores.AutoSize = true;
-            this.lblTextoEntrenadores.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTextoEntrenadores.ForeColor = System.Drawing.Color.Navy;
-            this.lblTextoEntrenadores.Location = new System.Drawing.Point(80, 53);
-            this.lblTextoEntrenadores.MaximumSize = new System.Drawing.Size(110, 0);
-            this.lblTextoEntrenadores.Name = "lblTextoEntrenadores";
-            this.lblTextoEntrenadores.Size = new System.Drawing.Size(96, 34);
-            this.lblTextoEntrenadores.TabIndex = 2;
-            this.lblTextoEntrenadores.Text = "Entrenadores Activos";
-            this.lblTextoEntrenadores.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // pnlDeportistasSeguimiento
             // 
@@ -288,6 +326,7 @@
             // 
             // picDeportistas
             // 
+            this.picDeportistas.Image = global::wfZenova.Properties.Resources.icono_deportistas;
             this.picDeportistas.Location = new System.Drawing.Point(12, 20);
             this.picDeportistas.Name = "picDeportistas";
             this.picDeportistas.Size = new System.Drawing.Size(55, 55);
@@ -332,6 +371,7 @@
             // 
             // picCumplimiento
             // 
+            this.picCumplimiento.Image = global::wfZenova.Properties.Resources.icono_cumplimiento;
             this.picCumplimiento.Location = new System.Drawing.Point(12, 20);
             this.picCumplimiento.Name = "picCumplimiento";
             this.picCumplimiento.Size = new System.Drawing.Size(55, 55);
@@ -376,6 +416,7 @@
             // 
             // picAlertas
             // 
+            this.picAlertas.Image = global::wfZenova.Properties.Resources.icono_alertas;
             this.picAlertas.Location = new System.Drawing.Point(12, 20);
             this.picAlertas.Name = "picAlertas";
             this.picAlertas.Size = new System.Drawing.Size(55, 55);
@@ -403,19 +444,8 @@
             this.panel1.Controls.Add(this.lblTituloSsesiones);
             this.panel1.Location = new System.Drawing.Point(20, 340);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(530, 250);
+            this.panel1.Size = new System.Drawing.Size(534, 250);
             this.panel1.TabIndex = 4;
-            // 
-            // lblTituloSsesiones
-            // 
-            this.lblTituloSsesiones.AutoSize = true;
-            this.lblTituloSsesiones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloSsesiones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(43)))), ((int)(((byte)(105)))));
-            this.lblTituloSsesiones.Location = new System.Drawing.Point(15, 15);
-            this.lblTituloSsesiones.Name = "lblTituloSsesiones";
-            this.lblTituloSsesiones.Size = new System.Drawing.Size(173, 19);
-            this.lblTituloSsesiones.TabIndex = 0;
-            this.lblTituloSsesiones.Text = "Resumen de Sesiones";
             // 
             // dgvResumenSesiones
             // 
@@ -438,7 +468,8 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvResumenSesiones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvResumenSesiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResumenSesiones.ColumnHeadersHeight = 40;
+            this.dgvResumenSesiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvResumenSesiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPeriodo,
             this.colProgramadas,
@@ -461,7 +492,7 @@
             this.dgvResumenSesiones.RowHeadersVisible = false;
             this.dgvResumenSesiones.RowHeadersWidth = 32;
             this.dgvResumenSesiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResumenSesiones.Size = new System.Drawing.Size(500, 180);
+            this.dgvResumenSesiones.Size = new System.Drawing.Size(504, 180);
             this.dgvResumenSesiones.TabIndex = 1;
             // 
             // colPeriodo
@@ -501,20 +532,347 @@
             this.colCumplimiento.Name = "colCumplimiento";
             this.colCumplimiento.ReadOnly = true;
             // 
+            // lblTituloSsesiones
+            // 
+            this.lblTituloSsesiones.AutoSize = true;
+            this.lblTituloSsesiones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloSsesiones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(43)))), ((int)(((byte)(105)))));
+            this.lblTituloSsesiones.Location = new System.Drawing.Point(15, 15);
+            this.lblTituloSsesiones.Name = "lblTituloSsesiones";
+            this.lblTituloSsesiones.Size = new System.Drawing.Size(173, 19);
+            this.lblTituloSsesiones.TabIndex = 0;
+            this.lblTituloSsesiones.Text = "Resumen de Sesiones";
+            // 
+            // pnlEstadoSeguimiento
+            // 
+            this.pnlEstadoSeguimiento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlEstadoSeguimiento.Controls.Add(this.pnlDeportistasRevisar);
+            this.pnlEstadoSeguimiento.Controls.Add(this.pnlDeportistasAlDia);
+            this.pnlEstadoSeguimiento.Controls.Add(this.pnlEntrenadoresPendientes);
+            this.pnlEstadoSeguimiento.Controls.Add(this.pnlEntrenadoresAlDia);
+            this.pnlEstadoSeguimiento.Controls.Add(this.lblTituloEstado);
+            this.pnlEstadoSeguimiento.Location = new System.Drawing.Point(571, 340);
+            this.pnlEstadoSeguimiento.Name = "pnlEstadoSeguimiento";
+            this.pnlEstadoSeguimiento.Size = new System.Drawing.Size(500, 250);
+            this.pnlEstadoSeguimiento.TabIndex = 5;
+            // 
+            // pnlDeportistasRevisar
+            // 
+            this.pnlDeportistasRevisar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlDeportistasRevisar.Controls.Add(this.lblTextoDeportistasRevisar);
+            this.pnlDeportistasRevisar.Controls.Add(this.lblDeportistasRevisar);
+            this.pnlDeportistasRevisar.Controls.Add(this.lblPuntoDeportistasRevisar);
+            this.pnlDeportistasRevisar.Location = new System.Drawing.Point(265, 155);
+            this.pnlDeportistasRevisar.Name = "pnlDeportistasRevisar";
+            this.pnlDeportistasRevisar.Size = new System.Drawing.Size(220, 75);
+            this.pnlDeportistasRevisar.TabIndex = 3;
+            // 
+            // lblTextoDeportistasRevisar
+            // 
+            this.lblTextoDeportistasRevisar.AutoSize = true;
+            this.lblTextoDeportistasRevisar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(43)))), ((int)(((byte)(105)))));
+            this.lblTextoDeportistasRevisar.Location = new System.Drawing.Point(55, 42);
+            this.lblTextoDeportistasRevisar.Name = "lblTextoDeportistasRevisar";
+            this.lblTextoDeportistasRevisar.Size = new System.Drawing.Size(151, 17);
+            this.lblTextoDeportistasRevisar.TabIndex = 2;
+            this.lblTextoDeportistasRevisar.Text = "Deportistas por revisar";
+            // 
+            // lblDeportistasRevisar
+            // 
+            this.lblDeportistasRevisar.AutoSize = true;
+            this.lblDeportistasRevisar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeportistasRevisar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(43)))), ((int)(((byte)(105)))));
+            this.lblDeportistasRevisar.Location = new System.Drawing.Point(55, 9);
+            this.lblDeportistasRevisar.Name = "lblDeportistasRevisar";
+            this.lblDeportistasRevisar.Size = new System.Drawing.Size(21, 23);
+            this.lblDeportistasRevisar.TabIndex = 1;
+            this.lblDeportistasRevisar.Text = "0";
+            // 
+            // lblPuntoDeportistasRevisar
+            // 
+            this.lblPuntoDeportistasRevisar.AutoSize = true;
+            this.lblPuntoDeportistasRevisar.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPuntoDeportistasRevisar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblPuntoDeportistasRevisar.Location = new System.Drawing.Point(15, 20);
+            this.lblPuntoDeportistasRevisar.Name = "lblPuntoDeportistasRevisar";
+            this.lblPuntoDeportistasRevisar.Size = new System.Drawing.Size(28, 30);
+            this.lblPuntoDeportistasRevisar.TabIndex = 0;
+            this.lblPuntoDeportistasRevisar.Text = "●";
+            // 
+            // pnlDeportistasAlDia
+            // 
+            this.pnlDeportistasAlDia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlDeportistasAlDia.Controls.Add(this.lblDeportistasAlDias);
+            this.pnlDeportistasAlDia.Controls.Add(this.lblDeportistasAlDia);
+            this.pnlDeportistasAlDia.Controls.Add(this.lblPuntoDeportistasAlDia);
+            this.pnlDeportistasAlDia.Location = new System.Drawing.Point(15, 155);
+            this.pnlDeportistasAlDia.Name = "pnlDeportistasAlDia";
+            this.pnlDeportistasAlDia.Size = new System.Drawing.Size(220, 75);
+            this.pnlDeportistasAlDia.TabIndex = 3;
+            // 
+            // lblDeportistasAlDias
+            // 
+            this.lblDeportistasAlDias.AutoSize = true;
+            this.lblDeportistasAlDias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(43)))), ((int)(((byte)(105)))));
+            this.lblDeportistasAlDias.Location = new System.Drawing.Point(55, 42);
+            this.lblDeportistasAlDias.Name = "lblDeportistasAlDias";
+            this.lblDeportistasAlDias.Size = new System.Drawing.Size(121, 17);
+            this.lblDeportistasAlDias.TabIndex = 2;
+            this.lblDeportistasAlDias.Text = "Deportistas al día";
+            // 
+            // lblDeportistasAlDia
+            // 
+            this.lblDeportistasAlDia.AutoSize = true;
+            this.lblDeportistasAlDia.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeportistasAlDia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(43)))), ((int)(((byte)(105)))));
+            this.lblDeportistasAlDia.Location = new System.Drawing.Point(55, 9);
+            this.lblDeportistasAlDia.Name = "lblDeportistasAlDia";
+            this.lblDeportistasAlDia.Size = new System.Drawing.Size(21, 23);
+            this.lblDeportistasAlDia.TabIndex = 1;
+            this.lblDeportistasAlDia.Text = "0";
+            // 
+            // lblPuntoDeportistasAlDia
+            // 
+            this.lblPuntoDeportistasAlDia.AutoSize = true;
+            this.lblPuntoDeportistasAlDia.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPuntoDeportistasAlDia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(221)))));
+            this.lblPuntoDeportistasAlDia.Location = new System.Drawing.Point(15, 20);
+            this.lblPuntoDeportistasAlDia.Name = "lblPuntoDeportistasAlDia";
+            this.lblPuntoDeportistasAlDia.Size = new System.Drawing.Size(28, 30);
+            this.lblPuntoDeportistasAlDia.TabIndex = 0;
+            this.lblPuntoDeportistasAlDia.Text = "●";
+            // 
+            // pnlEntrenadoresPendientes
+            // 
+            this.pnlEntrenadoresPendientes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlEntrenadoresPendientes.Controls.Add(this.lblEntrenadoresPendiente);
+            this.pnlEntrenadoresPendientes.Controls.Add(this.lblEntrenadoresPendientes);
+            this.pnlEntrenadoresPendientes.Controls.Add(this.lblPuntoEntrenadoresPendientes);
+            this.pnlEntrenadoresPendientes.Location = new System.Drawing.Point(265, 55);
+            this.pnlEntrenadoresPendientes.Name = "pnlEntrenadoresPendientes";
+            this.pnlEntrenadoresPendientes.Size = new System.Drawing.Size(220, 75);
+            this.pnlEntrenadoresPendientes.TabIndex = 3;
+            // 
+            // lblEntrenadoresPendiente
+            // 
+            this.lblEntrenadoresPendiente.AutoSize = true;
+            this.lblEntrenadoresPendiente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(43)))), ((int)(((byte)(105)))));
+            this.lblEntrenadoresPendiente.Location = new System.Drawing.Point(39, 42);
+            this.lblEntrenadoresPendiente.Name = "lblEntrenadoresPendiente";
+            this.lblEntrenadoresPendiente.Size = new System.Drawing.Size(167, 17);
+            this.lblEntrenadoresPendiente.TabIndex = 2;
+            this.lblEntrenadoresPendiente.Text = "Entrenadores pendientes";
+            // 
+            // lblEntrenadoresPendientes
+            // 
+            this.lblEntrenadoresPendientes.AutoSize = true;
+            this.lblEntrenadoresPendientes.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEntrenadoresPendientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(43)))), ((int)(((byte)(105)))));
+            this.lblEntrenadoresPendientes.Location = new System.Drawing.Point(55, 9);
+            this.lblEntrenadoresPendientes.Name = "lblEntrenadoresPendientes";
+            this.lblEntrenadoresPendientes.Size = new System.Drawing.Size(21, 23);
+            this.lblEntrenadoresPendientes.TabIndex = 1;
+            this.lblEntrenadoresPendientes.Text = "0";
+            // 
+            // lblPuntoEntrenadoresPendientes
+            // 
+            this.lblPuntoEntrenadoresPendientes.AutoSize = true;
+            this.lblPuntoEntrenadoresPendientes.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPuntoEntrenadoresPendientes.ForeColor = System.Drawing.Color.Orange;
+            this.lblPuntoEntrenadoresPendientes.Location = new System.Drawing.Point(15, 20);
+            this.lblPuntoEntrenadoresPendientes.Name = "lblPuntoEntrenadoresPendientes";
+            this.lblPuntoEntrenadoresPendientes.Size = new System.Drawing.Size(28, 30);
+            this.lblPuntoEntrenadoresPendientes.TabIndex = 0;
+            this.lblPuntoEntrenadoresPendientes.Text = "●";
+            // 
+            // pnlEntrenadoresAlDia
+            // 
+            this.pnlEntrenadoresAlDia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlEntrenadoresAlDia.Controls.Add(this.lblTextoEntrenadoresAlDia);
+            this.pnlEntrenadoresAlDia.Controls.Add(this.lblEntrenadoresAlDia);
+            this.pnlEntrenadoresAlDia.Controls.Add(this.lblPuntoEntrenadoresAlDia);
+            this.pnlEntrenadoresAlDia.Location = new System.Drawing.Point(15, 55);
+            this.pnlEntrenadoresAlDia.Name = "pnlEntrenadoresAlDia";
+            this.pnlEntrenadoresAlDia.Size = new System.Drawing.Size(220, 75);
+            this.pnlEntrenadoresAlDia.TabIndex = 1;
+            // 
+            // lblTextoEntrenadoresAlDia
+            // 
+            this.lblTextoEntrenadoresAlDia.AutoSize = true;
+            this.lblTextoEntrenadoresAlDia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(43)))), ((int)(((byte)(105)))));
+            this.lblTextoEntrenadoresAlDia.Location = new System.Drawing.Point(55, 42);
+            this.lblTextoEntrenadoresAlDia.Name = "lblTextoEntrenadoresAlDia";
+            this.lblTextoEntrenadoresAlDia.Size = new System.Drawing.Size(133, 17);
+            this.lblTextoEntrenadoresAlDia.TabIndex = 2;
+            this.lblTextoEntrenadoresAlDia.Text = "Entrenadores al día";
+            // 
+            // lblEntrenadoresAlDia
+            // 
+            this.lblEntrenadoresAlDia.AutoSize = true;
+            this.lblEntrenadoresAlDia.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEntrenadoresAlDia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(43)))), ((int)(((byte)(105)))));
+            this.lblEntrenadoresAlDia.Location = new System.Drawing.Point(55, 9);
+            this.lblEntrenadoresAlDia.Name = "lblEntrenadoresAlDia";
+            this.lblEntrenadoresAlDia.Size = new System.Drawing.Size(21, 23);
+            this.lblEntrenadoresAlDia.TabIndex = 1;
+            this.lblEntrenadoresAlDia.Text = "0";
+            // 
+            // lblPuntoEntrenadoresAlDia
+            // 
+            this.lblPuntoEntrenadoresAlDia.AutoSize = true;
+            this.lblPuntoEntrenadoresAlDia.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPuntoEntrenadoresAlDia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(185)))), ((int)(((byte)(90)))));
+            this.lblPuntoEntrenadoresAlDia.Location = new System.Drawing.Point(15, 20);
+            this.lblPuntoEntrenadoresAlDia.Name = "lblPuntoEntrenadoresAlDia";
+            this.lblPuntoEntrenadoresAlDia.Size = new System.Drawing.Size(28, 30);
+            this.lblPuntoEntrenadoresAlDia.TabIndex = 0;
+            this.lblPuntoEntrenadoresAlDia.Text = "●";
+            // 
+            // lblTituloEstado
+            // 
+            this.lblTituloEstado.AutoSize = true;
+            this.lblTituloEstado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(43)))), ((int)(((byte)(105)))));
+            this.lblTituloEstado.Location = new System.Drawing.Point(15, 15);
+            this.lblTituloEstado.Name = "lblTituloEstado";
+            this.lblTituloEstado.Size = new System.Drawing.Size(187, 19);
+            this.lblTituloEstado.TabIndex = 0;
+            this.lblTituloEstado.Text = "Estado del seguimiento";
+            // 
+            // pnlAlertasRecientes
+            // 
+            this.pnlAlertasRecientes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlAlertasRecientes.Controls.Add(this.dgvAlertasRecientes);
+            this.pnlAlertasRecientes.Controls.Add(this.btnVerTodasAlertas);
+            this.pnlAlertasRecientes.Controls.Add(this.lblTituloAlertas);
+            this.pnlAlertasRecientes.Location = new System.Drawing.Point(21, 596);
+            this.pnlAlertasRecientes.Name = "pnlAlertasRecientes";
+            this.pnlAlertasRecientes.Size = new System.Drawing.Size(1050, 260);
+            this.pnlAlertasRecientes.TabIndex = 6;
+            // 
+            // dgvAlertasRecientes
+            // 
+            this.dgvAlertasRecientes.AllowUserToAddRows = false;
+            this.dgvAlertasRecientes.AllowUserToDeleteRows = false;
+            this.dgvAlertasRecientes.AllowUserToResizeColumns = false;
+            this.dgvAlertasRecientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAlertasRecientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAlertasRecientes.BackgroundColor = System.Drawing.Color.White;
+            this.dgvAlertasRecientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvAlertasRecientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(221)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlertasRecientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvAlertasRecientes.ColumnHeadersHeight = 40;
+            this.dgvAlertasRecientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvAlertasRecientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colTipoAlerta,
+            this.colPersonaAlerta,
+            this.colMotivoAlerta,
+            this.colFechaAlerta,
+            this.colPrioridadAlerta});
+            this.dgvAlertasRecientes.EnableHeadersVisualStyles = false;
+            this.dgvAlertasRecientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.dgvAlertasRecientes.Location = new System.Drawing.Point(15, 60);
+            this.dgvAlertasRecientes.MultiSelect = false;
+            this.dgvAlertasRecientes.Name = "dgvAlertasRecientes";
+            this.dgvAlertasRecientes.ReadOnly = true;
+            this.dgvAlertasRecientes.RowHeadersVisible = false;
+            this.dgvAlertasRecientes.RowHeadersWidth = 35;
+            this.dgvAlertasRecientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAlertasRecientes.Size = new System.Drawing.Size(1018, 178);
+            this.dgvAlertasRecientes.TabIndex = 2;
+            // 
+            // colTipoAlerta
+            // 
+            this.colTipoAlerta.DataPropertyName = "Tipo";
+            this.colTipoAlerta.HeaderText = "Tipo";
+            this.colTipoAlerta.Name = "colTipoAlerta";
+            this.colTipoAlerta.ReadOnly = true;
+            // 
+            // colPersonaAlerta
+            // 
+            this.colPersonaAlerta.DataPropertyName = "Persona";
+            this.colPersonaAlerta.HeaderText = "Persona";
+            this.colPersonaAlerta.Name = "colPersonaAlerta";
+            this.colPersonaAlerta.ReadOnly = true;
+            // 
+            // colMotivoAlerta
+            // 
+            this.colMotivoAlerta.DataPropertyName = "Motivo";
+            this.colMotivoAlerta.FillWeight = 180F;
+            this.colMotivoAlerta.HeaderText = "Motivo";
+            this.colMotivoAlerta.Name = "colMotivoAlerta";
+            this.colMotivoAlerta.ReadOnly = true;
+            // 
+            // colFechaAlerta
+            // 
+            this.colFechaAlerta.DataPropertyName = "Fecha";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle5.NullValue = null;
+            this.colFechaAlerta.DefaultCellStyle = dataGridViewCellStyle5;
+            this.colFechaAlerta.HeaderText = "Fecha";
+            this.colFechaAlerta.Name = "colFechaAlerta";
+            this.colFechaAlerta.ReadOnly = true;
+            // 
+            // colPrioridadAlerta
+            // 
+            this.colPrioridadAlerta.DataPropertyName = "Prioridad";
+            this.colPrioridadAlerta.HeaderText = "Prioridad";
+            this.colPrioridadAlerta.Name = "colPrioridadAlerta";
+            this.colPrioridadAlerta.ReadOnly = true;
+            // 
+            // btnVerTodasAlertas
+            // 
+            this.btnVerTodasAlertas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVerTodasAlertas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVerTodasAlertas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerTodasAlertas.ForeColor = System.Drawing.Color.Navy;
+            this.btnVerTodasAlertas.Location = new System.Drawing.Point(918, 10);
+            this.btnVerTodasAlertas.Name = "btnVerTodasAlertas";
+            this.btnVerTodasAlertas.Size = new System.Drawing.Size(115, 38);
+            this.btnVerTodasAlertas.TabIndex = 1;
+            this.btnVerTodasAlertas.Text = "Ver todas";
+            this.btnVerTodasAlertas.UseVisualStyleBackColor = true;
+            // 
+            // lblTituloAlertas
+            // 
+            this.lblTituloAlertas.AutoSize = true;
+            this.lblTituloAlertas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloAlertas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(43)))), ((int)(((byte)(105)))));
+            this.lblTituloAlertas.Location = new System.Drawing.Point(15, 15);
+            this.lblTituloAlertas.Name = "lblTituloAlertas";
+            this.lblTituloAlertas.Size = new System.Drawing.Size(134, 19);
+            this.lblTituloAlertas.TabIndex = 0;
+            this.lblTituloAlertas.Text = "Alertas recientes";
+            // 
             // frmResumenMonitoreoAdm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1218, 729);
+            this.ClientSize = new System.Drawing.Size(1254, 768);
+            this.Controls.Add(this.pnlAlertasRecientes);
+            this.Controls.Add(this.pnlEstadoSeguimiento);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flpIndicadores);
             this.Controls.Add(this.pnlFiltros);
             this.Controls.Add(this.pnlEncabezado);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmResumenMonitoreoAdm";
             this.Text = "Resumen de Monitoreo";
+            this.Load += new System.EventHandler(this.frmResumenMonitoreoAdm_Load);
             this.pnlEncabezado.ResumeLayout(false);
             this.pnlEncabezado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picResumen)).EndInit();
@@ -536,6 +894,19 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResumenSesiones)).EndInit();
+            this.pnlEstadoSeguimiento.ResumeLayout(false);
+            this.pnlEstadoSeguimiento.PerformLayout();
+            this.pnlDeportistasRevisar.ResumeLayout(false);
+            this.pnlDeportistasRevisar.PerformLayout();
+            this.pnlDeportistasAlDia.ResumeLayout(false);
+            this.pnlDeportistasAlDia.PerformLayout();
+            this.pnlEntrenadoresPendientes.ResumeLayout(false);
+            this.pnlEntrenadoresPendientes.PerformLayout();
+            this.pnlEntrenadoresAlDia.ResumeLayout(false);
+            this.pnlEntrenadoresAlDia.PerformLayout();
+            this.pnlAlertasRecientes.ResumeLayout(false);
+            this.pnlAlertasRecientes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlertasRecientes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -576,5 +947,32 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colRealizadas;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPendientes;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCumplimiento;
+        private System.Windows.Forms.Panel pnlEstadoSeguimiento;
+        private System.Windows.Forms.Label lblTituloEstado;
+        private System.Windows.Forms.Panel pnlEntrenadoresAlDia;
+        private System.Windows.Forms.Label lblTextoEntrenadoresAlDia;
+        private System.Windows.Forms.Label lblEntrenadoresAlDia;
+        private System.Windows.Forms.Label lblPuntoEntrenadoresAlDia;
+        private System.Windows.Forms.Panel pnlEntrenadoresPendientes;
+        private System.Windows.Forms.Label lblEntrenadoresPendiente;
+        private System.Windows.Forms.Label lblEntrenadoresPendientes;
+        private System.Windows.Forms.Label lblPuntoEntrenadoresPendientes;
+        private System.Windows.Forms.Panel pnlDeportistasRevisar;
+        private System.Windows.Forms.Label lblTextoDeportistasRevisar;
+        private System.Windows.Forms.Label lblDeportistasRevisar;
+        private System.Windows.Forms.Label lblPuntoDeportistasRevisar;
+        private System.Windows.Forms.Panel pnlDeportistasAlDia;
+        private System.Windows.Forms.Label lblDeportistasAlDias;
+        private System.Windows.Forms.Label lblDeportistasAlDia;
+        private System.Windows.Forms.Label lblPuntoDeportistasAlDia;
+        private System.Windows.Forms.Panel pnlAlertasRecientes;
+        private System.Windows.Forms.Label lblTituloAlertas;
+        private System.Windows.Forms.Button btnVerTodasAlertas;
+        private System.Windows.Forms.DataGridView dgvAlertasRecientes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoAlerta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPersonaAlerta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMotivoAlerta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFechaAlerta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrioridadAlerta;
     }
 }

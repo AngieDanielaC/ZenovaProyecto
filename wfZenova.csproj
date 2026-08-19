@@ -65,6 +65,12 @@
     <Compile Include="frmAgregarActividad.Designer.cs">
       <DependentUpon>frmAgregarActividad.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAlertasMonitoreo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAlertasMonitoreo.Designer.cs">
+      <DependentUpon>frmAlertasMonitoreo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAsignacionesAdm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +238,18 @@
     </Compile>
     <Compile Include="frmMoniDeportistas.Designer.cs">
       <DependentUpon>frmMoniDeportistas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMonitoreoDeportistas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMonitoreoDeportistas.Designer.cs">
+      <DependentUpon>frmMonitoreoDeportistas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMonitoreoEntrenadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMonitoreoEntrenadores.Designer.cs">
+      <DependentUpon>frmMonitoreoEntrenadores.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMotAsistencia.cs">
       <SubType>Form</SubType>
@@ -430,6 +448,9 @@
     <EmbeddedResource Include="frmAgregarActividad.resx">
       <DependentUpon>frmAgregarActividad.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAlertasMonitoreo.resx">
+      <DependentUpon>frmAlertasMonitoreo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAsignacionesAdm.resx">
       <DependentUpon>frmAsignacionesAdm.cs</DependentUpon>
     </EmbeddedResource>
@@ -513,6 +534,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMoniDeportistas.resx">
       <DependentUpon>frmMoniDeportistas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMonitoreoDeportistas.resx">
+      <DependentUpon>frmMonitoreoDeportistas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMonitoreoEntrenadores.resx">
+      <DependentUpon>frmMonitoreoEntrenadores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMotAsistencia.resx">
       <DependentUpon>frmMotAsistencia.cs</DependentUpon>
@@ -905,6 +932,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\converted_image %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono_resumen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono_entrenadores.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono_entrenadores1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono_deportistas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono_cumplimiento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono_alertas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\converted_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actualizar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono_sin_actividad.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

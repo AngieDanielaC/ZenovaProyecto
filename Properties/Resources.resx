@@ -148,6 +148,12 @@
   <data name="cuadroRegistroo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cuadroRegistroo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icono_deportistas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icono_deportistas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icono_entrenadores" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icono_entrenadores.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="wii" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wii.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -178,6 +184,9 @@
   <data name="MotivacionImg11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MotivacionImg11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="actualizar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actualizar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CuComp1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CuComp1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -189,6 +198,9 @@
   </data>
   <data name="icoActivo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icoActivo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icono_resumen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icono_resumen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MotivacionExpandir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MotivacionExpandir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -226,6 +238,12 @@
   <data name="xdh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\xdh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Cu5Comp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cu5Comp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="converted_image (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\converted_image (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="btnSubiFoto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnSubiFoto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -235,11 +253,8 @@
   <data name="cuaCeleste" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cuaCeleste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Circulo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Circulo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icKarate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icKarate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="converted_image (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\converted_image (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IMGLOGIN1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IMGLOGIN1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -249,6 +264,9 @@
   </data>
   <data name="VISTO" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VISTO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icono_entrenadores1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icono_entrenadores1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,9 +280,6 @@
   <data name="6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="actualizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\actualizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -277,20 +292,26 @@
   <data name="btnRegistrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnRegistrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icono_cumplimiento" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icono_cumplimiento.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="comp2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\comp2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="registarpruena" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\registarpruena.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BotonMas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BotonMas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icKarate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icKarate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="comp51" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\comp51.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Inicio" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Inicio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LOGO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -298,11 +319,17 @@
   <data name="listaaaa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\listaaaa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Inicio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Inicio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BARRAS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BARRAS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MotivacionEstrella" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MotivacionEstrella.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icEntrAdm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icEntrAdm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -325,8 +352,8 @@
   <data name="CuadroInicio" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CuadroInicio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BotonMas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BotonMas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LogoMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogoMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IcDEPORTISTAS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IcDEPORTISTAS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -334,11 +361,14 @@
   <data name="7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnCuadro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnCuadro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="converted_image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\converted_image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="comp5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\comp5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icono_alertas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icono_alertas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icoClave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icoClave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -373,8 +403,8 @@
   <data name="entrenamient1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\entrenamient1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Cu5Comp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cu5Comp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnCuadro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnCuadro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IMGLOGIN" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IMGLOGIN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -382,16 +412,13 @@
   <data name="relaizarpruebas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\relaizarpruebas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LogoMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LogoMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Circulo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Circulo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="xds" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\xds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="converted_image (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\converted_image (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="converted_image (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\converted_image (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icono_sin_actividad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icono_sin_actividad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
