@@ -960,5 +960,8 @@
   <ItemGroup>
     <None Include="Resources\icono_sin_actividad.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoMejor.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

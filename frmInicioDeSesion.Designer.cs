@@ -34,17 +34,15 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.lblIniciaSesionParaContinuar = new System.Windows.Forms.Label();
             this.lblBienvenidoDeNuevo = new System.Windows.Forms.Label();
+            this.imlOjo = new System.Windows.Forms.ImageList(this.components);
+            this.picVerContrasena = new System.Windows.Forms.PictureBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.imlOjo = new System.Windows.Forms.ImageList(this.components);
-            this.picVerContrasena = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picVerContrasena)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtContrasena
@@ -101,6 +99,25 @@
             this.lblBienvenidoDeNuevo.Tag = "1";
             this.lblBienvenidoDeNuevo.Text = "¡BIENVENIDO DE NUEVO!";
             // 
+            // imlOjo
+            // 
+            this.imlOjo.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlOjo.ImageStream")));
+            this.imlOjo.TransparentColor = System.Drawing.Color.Transparent;
+            this.imlOjo.Images.SetKeyName(0, "abierto.png");
+            this.imlOjo.Images.SetKeyName(1, "cerrado.png");
+            // 
+            // picVerContrasena
+            // 
+            this.picVerContrasena.BackColor = System.Drawing.Color.White;
+            this.picVerContrasena.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picVerContrasena.Location = new System.Drawing.Point(991, 311);
+            this.picVerContrasena.Name = "picVerContrasena";
+            this.picVerContrasena.Size = new System.Drawing.Size(29, 28);
+            this.picVerContrasena.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picVerContrasena.TabIndex = 22;
+            this.picVerContrasena.TabStop = false;
+            this.picVerContrasena.Click += new System.EventHandler(this.picVerContrasena_Click);
+            // 
             // btnRegistrar
             // 
             this.btnRegistrar.BackColor = System.Drawing.Color.White;
@@ -146,45 +163,15 @@
             this.pictureBox3.TabIndex = 15;
             this.pictureBox3.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.pictureBox2.Image = global::wfZenova.Properties.Resources.LOGO;
-            this.pictureBox2.Location = new System.Drawing.Point(4, 56);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(168, 77);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 14;
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::wfZenova.Properties.Resources.IMGLOGIN1;
+            this.pictureBox1.Image = global::wfZenova.Properties.Resources.logoMejor;
             this.pictureBox1.Location = new System.Drawing.Point(4, 15);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(611, 557);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
-            // 
-            // imlOjo
-            // 
-            this.imlOjo.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlOjo.ImageStream")));
-            this.imlOjo.TransparentColor = System.Drawing.Color.Transparent;
-            this.imlOjo.Images.SetKeyName(0, "abierto.png");
-            this.imlOjo.Images.SetKeyName(1, "cerrado.png");
-            // 
-            // picVerContrasena
-            // 
-            this.picVerContrasena.BackColor = System.Drawing.Color.White;
-            this.picVerContrasena.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picVerContrasena.Location = new System.Drawing.Point(991, 311);
-            this.picVerContrasena.Name = "picVerContrasena";
-            this.picVerContrasena.Size = new System.Drawing.Size(29, 28);
-            this.picVerContrasena.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picVerContrasena.TabIndex = 22;
-            this.picVerContrasena.TabStop = false;
-            this.picVerContrasena.Click += new System.EventHandler(this.picVerContrasena_Click);
             // 
             // frmInicioDeSesion
             // 
@@ -200,16 +187,14 @@
             this.Controls.Add(this.lblIniciaSesionParaContinuar);
             this.Controls.Add(this.lblBienvenidoDeNuevo);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmInicioDeSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmInicioDeSesion";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picVerContrasena)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,7 +207,6 @@
         private System.Windows.Forms.Label lblIniciaSesionParaContinuar;
         private System.Windows.Forms.Label lblBienvenidoDeNuevo;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnIniciarSesion;
         private System.Windows.Forms.Button btnRegistrar;

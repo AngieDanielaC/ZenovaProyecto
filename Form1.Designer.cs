@@ -32,7 +32,6 @@
             this.btnConsultaAdm = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
-            this.btnMotivacion = new System.Windows.Forms.Button();
             this.panelSubBienestar = new System.Windows.Forms.Panel();
             this.btnVisualizar = new System.Windows.Forms.Button();
             this.btnGasto = new System.Windows.Forms.Button();
@@ -71,7 +70,6 @@
             this.pnlMenuLateral.Controls.Add(this.btnConsultaAdm);
             this.pnlMenuLateral.Controls.Add(this.btnCerrar);
             this.pnlMenuLateral.Controls.Add(this.btnReportes);
-            this.pnlMenuLateral.Controls.Add(this.btnMotivacion);
             this.pnlMenuLateral.Controls.Add(this.panelSubBienestar);
             this.pnlMenuLateral.Controls.Add(this.btnBienestar);
             this.pnlMenuLateral.Controls.Add(this.button1);
@@ -103,7 +101,7 @@
             this.btnConsultaAdm.ForeColor = System.Drawing.Color.White;
             this.btnConsultaAdm.Image = global::wfZenova.Properties.Resources.icLupaMenAd;
             this.btnConsultaAdm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultaAdm.Location = new System.Drawing.Point(0, 998);
+            this.btnConsultaAdm.Location = new System.Drawing.Point(0, 953);
             this.btnConsultaAdm.Name = "btnConsultaAdm";
             this.btnConsultaAdm.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnConsultaAdm.Size = new System.Drawing.Size(233, 45);
@@ -122,7 +120,7 @@
             this.btnCerrar.ForeColor = System.Drawing.Color.White;
             this.btnCerrar.Image = global::wfZenova.Properties.Resources._9;
             this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrar.Location = new System.Drawing.Point(0, 1043);
+            this.btnCerrar.Location = new System.Drawing.Point(0, 998);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnCerrar.Size = new System.Drawing.Size(233, 45);
@@ -140,32 +138,13 @@
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Image = global::wfZenova.Properties.Resources._6;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 953);
+            this.btnReportes.Location = new System.Drawing.Point(0, 908);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnReportes.Size = new System.Drawing.Size(233, 45);
             this.btnReportes.TabIndex = 10;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = true;
-            // 
-            // btnMotivacion
-            // 
-            this.btnMotivacion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMotivacion.FlatAppearance.BorderSize = 0;
-            this.btnMotivacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.btnMotivacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMotivacion.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMotivacion.ForeColor = System.Drawing.Color.White;
-            this.btnMotivacion.Image = global::wfZenova.Properties.Resources._8;
-            this.btnMotivacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMotivacion.Location = new System.Drawing.Point(0, 908);
-            this.btnMotivacion.Name = "btnMotivacion";
-            this.btnMotivacion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnMotivacion.Size = new System.Drawing.Size(233, 45);
-            this.btnMotivacion.TabIndex = 9;
-            this.btnMotivacion.Text = "Motivacion";
-            this.btnMotivacion.UseVisualStyleBackColor = true;
-            this.btnMotivacion.Click += new System.EventHandler(this.btnMotivacion_Click);
             // 
             // panelSubBienestar
             // 
@@ -621,7 +600,6 @@
         private System.Windows.Forms.Button btnRiesgo;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnReportes;
-        private System.Windows.Forms.Button btnMotivacion;
         private System.Windows.Forms.Panel PanelChildForm;
         private System.Windows.Forms.Button btnDeportistasAdm;
         private System.Windows.Forms.Button btnEntrenadoresAdm;
