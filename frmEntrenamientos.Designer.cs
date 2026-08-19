@@ -41,6 +41,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnPruebas = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
@@ -54,7 +55,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -71,12 +72,12 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -84,7 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label24
@@ -105,7 +105,7 @@
             this.btnContEntrenamiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContEntrenamiento.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContEntrenamiento.ForeColor = System.Drawing.Color.White;
-            this.btnContEntrenamiento.Location = new System.Drawing.Point(70, 112);
+            this.btnContEntrenamiento.Location = new System.Drawing.Point(43, 195);
             this.btnContEntrenamiento.Name = "btnContEntrenamiento";
             this.btnContEntrenamiento.Size = new System.Drawing.Size(142, 25);
             this.btnContEntrenamiento.TabIndex = 14;
@@ -235,10 +235,19 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "PRUEBA FÍSICA\r\n";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::wfZenova.Properties.Resources.relaizarpruebas;
+            this.pictureBox3.Location = new System.Drawing.Point(-6, 39);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(192, 157);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.panel9.Controls.Add(this.btnPruebas);
             this.panel9.Controls.Add(this.label27);
             this.panel9.Controls.Add(this.label26);
             this.panel9.Controls.Add(this.label25);
@@ -257,7 +266,7 @@
             this.btnPruebas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPruebas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPruebas.ForeColor = System.Drawing.Color.White;
-            this.btnPruebas.Location = new System.Drawing.Point(72, 112);
+            this.btnPruebas.Location = new System.Drawing.Point(40, 238);
             this.btnPruebas.Name = "btnPruebas";
             this.btnPruebas.Size = new System.Drawing.Size(145, 25);
             this.btnPruebas.TabIndex = 16;
@@ -365,7 +374,6 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel8.Controls.Add(this.btnContEntrenamiento);
             this.panel8.Controls.Add(this.label21);
             this.panel8.Controls.Add(this.label20);
             this.panel8.Controls.Add(this.label19);
@@ -390,15 +398,15 @@
             this.panel4.Size = new System.Drawing.Size(378, 374);
             this.panel4.TabIndex = 15;
             // 
-            // pictureBox3
+            // pictureBox2
             // 
-            this.pictureBox3.Image = global::wfZenova.Properties.Resources.relaizarpruebas;
-            this.pictureBox3.Location = new System.Drawing.Point(-6, 39);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(192, 157);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
+            this.pictureBox2.Image = global::wfZenova.Properties.Resources.registarpruena;
+            this.pictureBox2.Location = new System.Drawing.Point(13, 39);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(190, 157);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
             // 
             // panel1
             // 
@@ -581,22 +589,14 @@
             this.pictureBox6.TabIndex = 1;
             this.pictureBox6.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::wfZenova.Properties.Resources.registarpruena;
-            this.pictureBox2.Location = new System.Drawing.Point(13, 39);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(190, 157);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
             // frmEntrenamientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1250, 768);
+            this.Controls.Add(this.btnPruebas);
+            this.Controls.Add(this.btnContEntrenamiento);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
@@ -612,13 +612,14 @@
             this.Text = "frmEntrenamientos";
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -629,7 +630,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

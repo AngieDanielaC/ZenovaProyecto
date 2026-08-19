@@ -30,21 +30,21 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbnBajo = new System.Windows.Forms.RadioButton();
+            this.rbnMedio = new System.Windows.Forms.RadioButton();
+            this.rbnAlto = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.txtbhorasS = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbSelDeportista = new System.Windows.Forms.ComboBox();
             this.lblBRisk = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pcbIE = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnRegisterSueño = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvRiesgo = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbIE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,48 +75,48 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "BIENESTAR";
             // 
-            // radioButton3
+            // rbnBajo
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(28)))), ((int)(((byte)(70)))));
-            this.radioButton3.Location = new System.Drawing.Point(152, 503);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(69, 27);
-            this.radioButton3.TabIndex = 15;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Bajo";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbnBajo.AutoSize = true;
+            this.rbnBajo.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbnBajo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(28)))), ((int)(((byte)(70)))));
+            this.rbnBajo.Location = new System.Drawing.Point(152, 503);
+            this.rbnBajo.Margin = new System.Windows.Forms.Padding(2);
+            this.rbnBajo.Name = "rbnBajo";
+            this.rbnBajo.Size = new System.Drawing.Size(69, 27);
+            this.rbnBajo.TabIndex = 15;
+            this.rbnBajo.TabStop = true;
+            this.rbnBajo.Text = "Bajo";
+            this.rbnBajo.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbnMedio
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(28)))), ((int)(((byte)(70)))));
-            this.radioButton2.Location = new System.Drawing.Point(152, 445);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(87, 27);
-            this.radioButton2.TabIndex = 14;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Medio";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbnMedio.AutoSize = true;
+            this.rbnMedio.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbnMedio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(28)))), ((int)(((byte)(70)))));
+            this.rbnMedio.Location = new System.Drawing.Point(152, 445);
+            this.rbnMedio.Margin = new System.Windows.Forms.Padding(2);
+            this.rbnMedio.Name = "rbnMedio";
+            this.rbnMedio.Size = new System.Drawing.Size(87, 27);
+            this.rbnMedio.TabIndex = 14;
+            this.rbnMedio.TabStop = true;
+            this.rbnMedio.Text = "Medio";
+            this.rbnMedio.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbnAlto
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(28)))), ((int)(((byte)(70)))));
-            this.radioButton1.Location = new System.Drawing.Point(152, 387);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(65, 27);
-            this.radioButton1.TabIndex = 13;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Alto";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.rbnAlto.AutoSize = true;
+            this.rbnAlto.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbnAlto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(28)))), ((int)(((byte)(70)))));
+            this.rbnAlto.Location = new System.Drawing.Point(152, 387);
+            this.rbnAlto.Margin = new System.Windows.Forms.Padding(2);
+            this.rbnAlto.Name = "rbnAlto";
+            this.rbnAlto.Size = new System.Drawing.Size(65, 27);
+            this.rbnAlto.TabIndex = 13;
+            this.rbnAlto.TabStop = true;
+            this.rbnAlto.Text = "Alto";
+            this.rbnAlto.UseVisualStyleBackColor = true;
+            this.rbnAlto.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // label3
             // 
@@ -138,6 +138,7 @@
             this.txtbhorasS.Name = "txtbhorasS";
             this.txtbhorasS.Size = new System.Drawing.Size(259, 27);
             this.txtbhorasS.TabIndex = 11;
+            this.txtbhorasS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbhorasS_KeyPress);
             // 
             // label4
             // 
@@ -151,15 +152,15 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Ingrese Horas de Sueño";
             // 
-            // comboBox1
+            // cmbSelDeportista
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(94, 200);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(259, 27);
-            this.comboBox1.TabIndex = 9;
+            this.cmbSelDeportista.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSelDeportista.FormattingEnabled = true;
+            this.cmbSelDeportista.Location = new System.Drawing.Point(94, 200);
+            this.cmbSelDeportista.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbSelDeportista.Name = "cmbSelDeportista";
+            this.cmbSelDeportista.Size = new System.Drawing.Size(259, 27);
+            this.cmbSelDeportista.TabIndex = 9;
             // 
             // lblBRisk
             // 
@@ -173,15 +174,15 @@
             this.lblBRisk.TabIndex = 8;
             this.lblBRisk.Text = "Seleccion deportista";
             // 
-            // pictureBox4
+            // pcbIE
             // 
-            this.pictureBox4.Image = global::wfZenova.Properties.Resources.CuaColores;
-            this.pictureBox4.Location = new System.Drawing.Point(54, 373);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(287, 168);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 64;
-            this.pictureBox4.TabStop = false;
+            this.pcbIE.Image = global::wfZenova.Properties.Resources.CuaColores;
+            this.pcbIE.Location = new System.Drawing.Point(54, 373);
+            this.pcbIE.Name = "pcbIE";
+            this.pcbIE.Size = new System.Drawing.Size(287, 168);
+            this.pcbIE.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbIE.TabIndex = 64;
+            this.pcbIE.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -193,20 +194,21 @@
             this.pictureBox3.TabIndex = 63;
             this.pictureBox3.TabStop = false;
             // 
-            // btnNuevo
+            // btnRegisterSueño
             // 
-            this.btnNuevo.BackgroundImage = global::wfZenova.Properties.Resources.BotonMas;
-            this.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnNuevo.FlatAppearance.BorderSize = 0;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(95, 557);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(213, 40);
-            this.btnNuevo.TabIndex = 62;
-            this.btnNuevo.Text = "Registrar";
-            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnRegisterSueño.BackgroundImage = global::wfZenova.Properties.Resources.BotonMas;
+            this.btnRegisterSueño.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRegisterSueño.FlatAppearance.BorderSize = 0;
+            this.btnRegisterSueño.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegisterSueño.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterSueño.ForeColor = System.Drawing.Color.White;
+            this.btnRegisterSueño.Location = new System.Drawing.Point(95, 557);
+            this.btnRegisterSueño.Name = "btnRegisterSueño";
+            this.btnRegisterSueño.Size = new System.Drawing.Size(213, 40);
+            this.btnRegisterSueño.TabIndex = 62;
+            this.btnRegisterSueño.Text = "Registrar";
+            this.btnRegisterSueño.UseVisualStyleBackColor = true;
+            this.btnRegisterSueño.Click += new System.EventHandler(this.btnRegisterSueño_Click);
             // 
             // pictureBox2
             // 
@@ -243,17 +245,17 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 768);
             this.Controls.Add(this.dgvRiesgo);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.rbnBajo);
+            this.Controls.Add(this.rbnMedio);
+            this.Controls.Add(this.rbnAlto);
+            this.Controls.Add(this.pcbIE);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.btnRegisterSueño);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtbhorasS);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbSelDeportista);
             this.Controls.Add(this.lblBRisk);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -261,7 +263,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRiego";
             this.Text = "frmRiego";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.Load += new System.EventHandler(this.frmRiego_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pcbIE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -276,18 +279,18 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbnBajo;
+        private System.Windows.Forms.RadioButton rbnMedio;
+        private System.Windows.Forms.RadioButton rbnAlto;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtbhorasS;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbSelDeportista;
         private System.Windows.Forms.Label lblBRisk;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnRegisterSueño;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pcbIE;
         private System.Windows.Forms.DataGridView dgvRiesgo;
     }
 }

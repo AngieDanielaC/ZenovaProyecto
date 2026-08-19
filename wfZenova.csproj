@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarEjercicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarEjercicio.Designer.cs">
+      <DependentUpon>AgregarEjercicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="csConectaSQL.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -415,6 +421,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AgregarEjercicio.resx">
+      <DependentUpon>AgregarEjercicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

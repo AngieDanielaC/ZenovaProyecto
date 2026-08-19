@@ -658,6 +658,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPruebasFisicas";
             this.Text = "frmPruebasFisicas";
+            this.Load += new System.EventHandler(this.frmPruebasFisicas_Load);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel3.ResumeLayout(false);
