@@ -191,5 +191,31 @@ namespace wfZenova
                 cerrarConexion();
             }
         }
+        public object EjecutaEscalarParametros(string sentencia, params SqlParameter[] parametros)
+        {
+            try
+            {
+                if (!abrirConexion())
+                    return null;
+
+                oCom = new SqlCommand(sentencia, oCon);
+
+                if (parametros != null && parametros.Length > 0)
+                {
+                    oCom.Parameters.AddRange(parametros);
+                }
+
+                return oCom.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                cerrarConexion();
+            }
+        }
     }
 }

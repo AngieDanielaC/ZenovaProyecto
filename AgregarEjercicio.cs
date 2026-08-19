@@ -22,6 +22,17 @@ namespace wfZenova
             InitializeComponent();
         }
 
+        public AgregarEjercicio(string nombre, string series, string repeticiones, string peso) : this()
+        {
+            textBox1.Text = nombre;
+            textBox2.Text = series;
+            textBox4.Text = repeticiones;
+            textBox3.Text = peso;
+
+            button4.Text = "Guardar cambios";
+            this.Text = "Editar ejercicio";
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text))
@@ -35,7 +46,7 @@ namespace wfZenova
             Repeticiones = textBox4.Text;
             Peso = string.IsNullOrWhiteSpace(textBox3.Text) ? "0" : textBox3.Text;
 
-            this.DialogResult = DialogResult.OK; 
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
