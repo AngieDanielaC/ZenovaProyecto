@@ -167,8 +167,8 @@ namespace wfZenova
             {
                 MessageBox.Show("Ingrese una duración válida entre 1 y 120 minutos (máximo 2 horas por sesión).",
                                 "Dato Inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtDuracion.SelectAll();
-                txtDuracion.Focus();
+                txtBDuracion.SelectAll();
+                txtBDuracion.Focus();
                 return false;
             }
             if (cmbIER.SelectedIndex == -1)
