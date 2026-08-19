@@ -37,8 +37,14 @@
             this.btnAcDes = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.cmbDeportista = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompetencias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label13
@@ -90,7 +96,7 @@
             this.dgvCompetencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCompetencias.Location = new System.Drawing.Point(28, 173);
             this.dgvCompetencias.Name = "dgvCompetencias";
-            this.dgvCompetencias.Size = new System.Drawing.Size(1184, 529);
+            this.dgvCompetencias.Size = new System.Drawing.Size(1184, 444);
             this.dgvCompetencias.TabIndex = 154;
             // 
             // button1
@@ -150,12 +156,77 @@
             this.label1.Text = "Buscar:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::wfZenova.Properties.Resources.CuadroBlanco;
+            this.pictureBox1.Location = new System.Drawing.Point(-1, 636);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(768, 133);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 156;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(30)))), ((int)(((byte)(85)))));
+            this.label2.Location = new System.Drawing.Point(53, 694);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 19);
+            this.label2.TabIndex = 159;
+            this.label2.Text = "Deportista:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
+            this.label3.Location = new System.Drawing.Point(41, 650);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(438, 28);
+            this.label3.TabIndex = 157;
+            this.label3.Text = "Consultar Historial De Competencias";
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.BackgroundImage = global::wfZenova.Properties.Resources.btnCuadro;
+            this.btnConsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnConsultar.FlatAppearance.BorderSize = 0;
+            this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(36)))), ((int)(((byte)(96)))));
+            this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultar.Location = new System.Drawing.Point(487, 713);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(177, 39);
+            this.btnConsultar.TabIndex = 160;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // cmbDeportista
+            // 
+            this.cmbDeportista.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDeportista.FormattingEnabled = true;
+            this.cmbDeportista.Location = new System.Drawing.Point(67, 716);
+            this.cmbDeportista.Name = "cmbDeportista";
+            this.cmbDeportista.Size = new System.Drawing.Size(278, 33);
+            this.cmbDeportista.TabIndex = 161;
+            // 
             // frmCompetenciasEntrenador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 768);
+            this.Controls.Add(this.cmbDeportista);
+            this.Controls.Add(this.btnConsultar);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvCompetencias);
             this.Controls.Add(this.button1);
@@ -168,8 +239,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCompetenciasEntrenador";
             this.Text = "frmCompetenciasEntrenador";
+            this.Load += new System.EventHandler(this.frmCompetenciasEntrenador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompetencias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,5 +259,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvCompetencias;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.ComboBox cmbDeportista;
     }
 }

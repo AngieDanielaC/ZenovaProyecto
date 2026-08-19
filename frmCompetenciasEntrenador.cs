@@ -680,5 +680,208 @@ namespace wfZenova
 
             CargarCompetencias();
         }
+
+        private void frmCompetenciasEntrenador_Load(object sender, EventArgs e)
+        {
+            ConfigurarComboDeportistas();
+            CargarDeportistas();
+        }
+        private void ConfigurarComboDeportistas()
+        {
+            cmbDeportista.DropDownStyle = ComboBoxStyle.DropDown;
+
+            cmbDeportista.AutoCompleteMode =
+                AutoCompleteMode.SuggestAppend;
+
+            cmbDeportista.AutoCompleteSource =
+                AutoCompleteSource.ListItems;
+        }
+        private void CargarDeportistas()
+        {
+            try
+            {
+                DataTable dt;
+
+                string rolActual =
+                    frmInicioDeSesion.NombreRolActual;
+
+                // ==========================================
+                // ADMINISTRADOR
+                // ==========================================
+                if (rolActual.Equals(
+                    "Administrador",
+                    StringComparison.OrdinalIgnoreCase))
+                {
+                    dt = CargarTodosLosDeportistas();
+                }
+
+                // ==========================================
+                // ENTRENADOR
+                // ==========================================
+                else if (rolActual.Equals(
+                    "Entrenador",
+                    StringComparison.OrdinalIgnoreCase))
+                {
+                    if (!frmInicioDeSesion.IdEntrenadorActual.HasValue)
+                    {
+                        MessageBox.Show(
+                            "La cuenta del entrenador no tiene un entrenador asociado.",
+                            "ZENOVA",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+
+                        cmbDeportista.DataSource = null;
+
+                        return;
+                    }
+
+                    dt = CargarDeportistasEntrenador(
+                        frmInicioDeSesion.IdEntrenadorActual.Value);
+                }
+
+                // ==========================================
+                // OTRO ROL
+                // ==========================================
+                else
+                {
+                    MessageBox.Show(
+                        "No tiene permisos para consultar el historial de competencias.",
+                        "ZENOVA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    cmbDeportista.DataSource = null;
+
+                    return;
+                }
+
+                // ==========================================
+                // CARGAR COMBOBOX
+                // ==========================================
+                cmbDeportista.DataSource = dt;
+
+                cmbDeportista.DisplayMember =
+                    "NombreCompleto";
+
+                cmbDeportista.ValueMember =
+                    "IdDeportista";
+
+                cmbDeportista.SelectedIndex = -1;
+                cmbDeportista.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "No se pudieron cargar los deportistas.\n\n" +
+                    ex.Message,
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+        private DataTable CargarTodosLosDeportistas()
+        {
+            string consulta =
+                @"
+        SELECT
+            D.IdDeportista,
+            D.Nombres + ' ' + D.Apellidos
+                AS NombreCompleto
+
+        FROM Deportistas D
+
+        WHERE
+            D.Estado = 1
+
+        ORDER BY
+            D.Nombres,
+            D.Apellidos;
+        ";
+
+            return conSQL.RetornaRegistros(consulta);
+        }
+        private DataTable CargarDeportistasEntrenador(
+    int idEntrenador)
+        {
+            string consulta =
+                @"
+        SELECT DISTINCT
+            D.IdDeportista,
+            D.Nombres + ' ' + D.Apellidos
+                AS NombreCompleto
+
+        FROM Deportistas D
+
+        INNER JOIN Inscripciones I
+            ON D.IdDeportista =
+               I.IdDeportista
+
+        INNER JOIN EntrenadorDeporte ED
+            ON I.IdEntrenadorDeporte =
+               ED.IdEntrenadorDeporte
+
+        WHERE
+            ED.IdEntrenador = " +
+                    idEntrenador + @"
+
+            AND D.Estado = 1
+
+            AND ED.Activo = 1
+
+        ORDER BY
+            NombreCompleto;
+        ";
+
+            return conSQL.RetornaRegistros(consulta);
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            if (cmbDeportista.SelectedIndex == -1 ||
+        cmbDeportista.SelectedValue == null)
+            {
+                MessageBox.Show(
+                    "Seleccione un deportista.",
+                    "ZENOVA",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            int idDeportista =
+                Convert.ToInt32(
+                    cmbDeportista.SelectedValue);
+
+            // CONTENEDOR DONDE ESTÁ ABIERTO
+            // frmCompetenciasEntrenador
+            Control contenedor =
+                this.Parent;
+
+            if (contenedor == null)
+                return;
+
+            frmVerCompetencias frm =
+                new frmVerCompetencias(idDeportista);
+
+            frm.TopLevel = false;
+
+            frm.FormBorderStyle =
+                FormBorderStyle.None;
+
+            frm.Dock =
+                DockStyle.Fill;
+
+            // Quitamos la pantalla actual
+            contenedor.Controls.Remove(this);
+
+            // Abrimos Historial de Competencias
+            // dentro del mismo contenedor
+            contenedor.Controls.Add(frm);
+
+            frm.Show();
+
+            this.Close();
+        }
     }
 }

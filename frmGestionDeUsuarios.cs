@@ -496,22 +496,24 @@ namespace wfZenova
 
                         CASE
 
-                            WHEN U.IdEmpleado
-                                 IS NOT NULL
+                            WHEN U.IdEmpleado IS NOT NULL
                             THEN
-                                EMP.Nombres +
-                                ' ' +
-                                EMP.Apellidos
+                                CONCAT(
+                                    EMP.Nombres,
+                                    ' ',
+                                    EMP.Apellidos
+                                )
 
-                            WHEN U.IdEntrenador
-                                 IS NOT NULL
+                            WHEN U.IdEntrenador IS NOT NULL
                             THEN
-                                ENT.Nombres +
-                                ' ' +
-                                ENT.Apellidos
+                                CONCAT(
+                                    ENT.Nombres,
+                                    ' ',
+                                    ENT.Apellidos
+                                )
 
                             ELSE
-                                'Sin asignar'
+                                U.NombreUsuario
 
                         END AS Nombre,
 
@@ -618,37 +620,6 @@ namespace wfZenova
             object sender,
             EventArgs e)
         {
-            if (dgvUsuarios.CurrentRow ==
-                null)
-            {
-                MessageBox.Show(
-                    "Seleccione un usuario.",
-                    "ZENOVA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
-            }
-
-
-            int idUsuario =
-                Convert.ToInt32(
-                    dgvUsuarios
-                    .CurrentRow
-                    .Cells["IdUsuario"]
-                    .Value);
-
-
-            frmVerUsuario frm =
-                new frmVerUsuario(
-                    idUsuario);
-
-
-            frm.StartPosition =
-                FormStartPosition.CenterParent;
-
-
-            frm.ShowDialog(this);
         }
 
 
