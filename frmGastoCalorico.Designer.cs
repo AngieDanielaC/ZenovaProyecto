@@ -30,13 +30,13 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtbpeso = new System.Windows.Forms.TextBox();
+            this.txtBDuracion = new System.Windows.Forms.TextBox();
             this.lblKG = new System.Windows.Forms.Label();
             this.cmbSelect = new System.Windows.Forms.ComboBox();
             this.lblBVR = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnRegisterCarga = new System.Windows.Forms.Button();
             this.dgvEnergia = new System.Windows.Forms.DataGridView();
             this.cmbNERP = new System.Windows.Forms.ComboBox();
             this.cmbIER = new System.Windows.Forms.ComboBox();
@@ -75,14 +75,14 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "/ Análisis de carga";
             // 
-            // txtbpeso
+            // txtBDuracion
             // 
-            this.txtbpeso.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbpeso.Location = new System.Drawing.Point(728, 110);
-            this.txtbpeso.Margin = new System.Windows.Forms.Padding(2);
-            this.txtbpeso.Name = "txtbpeso";
-            this.txtbpeso.Size = new System.Drawing.Size(310, 27);
-            this.txtbpeso.TabIndex = 14;
+            this.txtBDuracion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBDuracion.Location = new System.Drawing.Point(728, 110);
+            this.txtBDuracion.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBDuracion.Name = "txtBDuracion";
+            this.txtBDuracion.Size = new System.Drawing.Size(310, 27);
+            this.txtBDuracion.TabIndex = 14;
             // 
             // lblKG
             // 
@@ -138,20 +138,21 @@
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
-            // btnNuevo
+            // btnRegisterCarga
             // 
-            this.btnNuevo.BackgroundImage = global::wfZenova.Properties.Resources.BotonMas;
-            this.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnNuevo.FlatAppearance.BorderSize = 0;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(514, 279);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(208, 29);
-            this.btnNuevo.TabIndex = 61;
-            this.btnNuevo.Text = "Registrar";
-            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnRegisterCarga.BackgroundImage = global::wfZenova.Properties.Resources.BotonMas;
+            this.btnRegisterCarga.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRegisterCarga.FlatAppearance.BorderSize = 0;
+            this.btnRegisterCarga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegisterCarga.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterCarga.ForeColor = System.Drawing.Color.White;
+            this.btnRegisterCarga.Location = new System.Drawing.Point(518, 288);
+            this.btnRegisterCarga.Name = "btnRegisterCarga";
+            this.btnRegisterCarga.Size = new System.Drawing.Size(208, 29);
+            this.btnRegisterCarga.TabIndex = 61;
+            this.btnRegisterCarga.Text = "Registrar";
+            this.btnRegisterCarga.UseVisualStyleBackColor = true;
+            this.btnRegisterCarga.Click += new System.EventHandler(this.btnRegisterCarga_Click);
             // 
             // dgvEnergia
             // 
@@ -252,9 +253,9 @@
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.dgvEnergia);
-            this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.btnRegisterCarga);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.txtbpeso);
+            this.Controls.Add(this.txtBDuracion);
             this.Controls.Add(this.lblKG);
             this.Controls.Add(this.cmbSelect);
             this.Controls.Add(this.lblBVR);
@@ -264,6 +265,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmGastoCalorico";
             this.Text = "frmGastoCalorico";
+            this.Load += new System.EventHandler(this.frmGastoCalorico_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEnergia)).EndInit();
@@ -278,13 +280,13 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtbpeso;
+        private System.Windows.Forms.TextBox txtBDuracion;
         private System.Windows.Forms.Label lblKG;
         private System.Windows.Forms.ComboBox cmbSelect;
         private System.Windows.Forms.Label lblBVR;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnRegisterCarga;
         private System.Windows.Forms.DataGridView dgvEnergia;
         private System.Windows.Forms.ComboBox cmbNERP;
         private System.Windows.Forms.ComboBox cmbIER;

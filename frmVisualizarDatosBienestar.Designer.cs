@@ -91,6 +91,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmVisualizarDatosBienestar";
             this.Text = "frmVisualizarDatosBienestar";
+            this.Load += new System.EventHandler(this.frmVisualizarDatosBienestar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisualizar)).EndInit();
             this.ResumeLayout(false);

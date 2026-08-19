@@ -12,6 +12,7 @@ namespace wfZenova
 {
     public partial class frmVisualizarDatosBienestar : Form
     {
+        csConectaSQL oCon = new csConectaSQL();
         public frmVisualizarDatosBienestar()
         {
             InitializeComponent();
@@ -24,11 +25,11 @@ namespace wfZenova
             dgvVisualizar.Rows.Clear();
 
             // Crear columnas
-            dgvVisualizar.Columns.Add("Deportista", "DEPORTISTA");
-            dgvVisualizar.Columns.Add("GastoCalorico", "GASTO\nCALÓRICO");
-            dgvVisualizar.Columns.Add("RiesgoLesion", "RIESGO DE\nLESIÓN");
-            dgvVisualizar.Columns.Add("Recuperacion", "RECUPERACIÓN\nESTIMADA");
-            dgvVisualizar.Columns.Add("Peso", "PESO (KG)");
+            dgvVisualizar.Columns.Add(new DataGridViewTextBoxColumn { Name = "Deportista", HeaderText = "DEPORTISTA", DataPropertyName = "DEPORTISTA" });
+            dgvVisualizar.Columns.Add(new DataGridViewTextBoxColumn { Name = "GastoCalorico", HeaderText = "GASTO\nCALÓRICO", DataPropertyName = "GASTO CALÓRICO" });
+            dgvVisualizar.Columns.Add(new DataGridViewTextBoxColumn { Name = "RiesgoLesion", HeaderText = "RIESGO DE\nLESIÓN", DataPropertyName = "RIESGO DE LESIÓN" });
+            dgvVisualizar.Columns.Add(new DataGridViewTextBoxColumn { Name = "Recuperacion", HeaderText = "RECUPERACIÓN\nESTIMADA", DataPropertyName = "RECUPERACIÓN ESTIMADA" });
+            dgvVisualizar.Columns.Add(new DataGridViewTextBoxColumn { Name = "Peso", HeaderText = "PESO (KG)", DataPropertyName = "PESO (KG)" });
 
             // Apariencia general
             dgvVisualizar.BackgroundColor = Color.White;
@@ -88,10 +89,48 @@ namespace wfZenova
             dgvVisualizar.MultiSelect = false;
             dgvVisualizar.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            // Filas vacías (solo diseño)
-            for (int i = 0; i < 5; i++)
+        }
+        private void frmVisualizarDatosBienestar_Load(object sender, EventArgs e)
+        {
+            CargarDatosConsolidados();
+        }
+        private void CargarDatosConsolidados()
+        {
+            string query = @"
+        SELECT 
+            (D.Nombres + ' ' + D.Apellidos) AS DEPORTISTA,
+            ISNULL(CAST(G.GastoCal AS VARCHAR) + ' kcal', 'Sin registro') AS [GASTO CALÓRICO],
+            ISNULL(R.Riesgo, 'Sin evaluar') AS [RIESGO DE LESIÓN],
+            CASE 
+                WHEN R.Riesgo = 'Alto' THEN '48 hrs'
+                WHEN R.Riesgo = 'Medio' THEN '24 hrs'
+                WHEN R.Riesgo = 'Bajo' THEN '12 hrs'
+                ELSE 'No determinado'
+            END AS [RECUPERACIÓN ESTIMADA],
+            ISNULL(CAST(M.Peso AS VARCHAR) + ' kg', '70.0 kg') AS [PESO (KG)]
+        FROM Deportistas D
+        LEFT JOIN (
+            SELECT idDeportista, GastoCal,
+                   ROW_NUMBER() OVER (PARTITION BY idDeportista ORDER BY idDeportista DESC) as rn
+            FROM GastoCalorico
+        ) G ON D.IdDeportista = G.idDeportista AND G.rn = 1
+        LEFT JOIN (
+            SELECT idDeportista, Riesgo,
+                   ROW_NUMBER() OVER (PARTITION BY idDeportista ORDER BY idDeportista DESC) as rn
+            FROM RiesgoFatiga
+        ) R ON D.IdDeportista = R.idDeportista AND R.rn = 1
+        LEFT JOIN (
+            SELECT idDeportista, Peso,
+                   ROW_NUMBER() OVER (PARTITION BY idDeportista ORDER BY FechaMedicion DESC) as rn
+            FROM MedicionesDeportista
+        ) M ON D.IdDeportista = M.idDeportista AND M.rn = 1
+        WHERE D.Estado = 1";
+
+            DataTable dt = oCon.RetornaRegistros(query);
+
+            if (dt != null && dt.Rows.Count > 0)
             {
-                dgvVisualizar.Rows.Add("", "", "", "", "");
+                dgvVisualizar.DataSource = dt;
             }
 
             dgvVisualizar.ClearSelection();
