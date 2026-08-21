@@ -12,9 +12,15 @@ namespace wfZenova
 {
     public partial class frmAlertasMonitoreo : Form
     {
+        csConectaSQL conSQL = new csConectaSQL();
         public frmAlertasMonitoreo()
         {
             InitializeComponent();
+        }
+
+        private void frmAlertasMonitoreo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
