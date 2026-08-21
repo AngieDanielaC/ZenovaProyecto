@@ -40,9 +40,11 @@
             this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picVerContrasena)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // txtContrasena
@@ -50,7 +52,7 @@
             this.txtContrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasena.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(209)))), ((int)(((byte)(239)))));
-            this.txtContrasena.Location = new System.Drawing.Point(753, 311);
+            this.txtContrasena.Location = new System.Drawing.Point(762, 344);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(221, 28);
             this.txtContrasena.TabIndex = 19;
@@ -64,7 +66,7 @@
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(209)))), ((int)(((byte)(239)))));
-            this.txtUsuario.Location = new System.Drawing.Point(753, 257);
+            this.txtUsuario.Location = new System.Drawing.Point(762, 290);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(221, 28);
             this.txtUsuario.TabIndex = 18;
@@ -79,7 +81,7 @@
             this.lblIniciaSesionParaContinuar.BackColor = System.Drawing.Color.White;
             this.lblIniciaSesionParaContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIniciaSesionParaContinuar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.lblIniciaSesionParaContinuar.Location = new System.Drawing.Point(761, 215);
+            this.lblIniciaSesionParaContinuar.Location = new System.Drawing.Point(770, 248);
             this.lblIniciaSesionParaContinuar.Name = "lblIniciaSesionParaContinuar";
             this.lblIniciaSesionParaContinuar.Size = new System.Drawing.Size(238, 24);
             this.lblIniciaSesionParaContinuar.TabIndex = 1;
@@ -92,7 +94,7 @@
             this.lblBienvenidoDeNuevo.BackColor = System.Drawing.Color.White;
             this.lblBienvenidoDeNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBienvenidoDeNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(73)))), ((int)(((byte)(103)))));
-            this.lblBienvenidoDeNuevo.Location = new System.Drawing.Point(733, 190);
+            this.lblBienvenidoDeNuevo.Location = new System.Drawing.Point(742, 223);
             this.lblBienvenidoDeNuevo.Name = "lblBienvenidoDeNuevo";
             this.lblBienvenidoDeNuevo.Size = new System.Drawing.Size(287, 25);
             this.lblBienvenidoDeNuevo.TabIndex = 16;
@@ -110,7 +112,7 @@
             // 
             this.picVerContrasena.BackColor = System.Drawing.Color.White;
             this.picVerContrasena.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picVerContrasena.Location = new System.Drawing.Point(991, 311);
+            this.picVerContrasena.Location = new System.Drawing.Point(1000, 344);
             this.picVerContrasena.Name = "picVerContrasena";
             this.picVerContrasena.Size = new System.Drawing.Size(29, 28);
             this.picVerContrasena.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -127,7 +129,7 @@
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(73)))), ((int)(((byte)(103)))));
-            this.btnRegistrar.Location = new System.Drawing.Point(705, 432);
+            this.btnRegistrar.Location = new System.Drawing.Point(714, 465);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(337, 79);
             this.btnRegistrar.TabIndex = 21;
@@ -144,7 +146,7 @@
             this.btnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciarSesion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciarSesion.ForeColor = System.Drawing.Color.White;
-            this.btnIniciarSesion.Location = new System.Drawing.Point(705, 365);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(714, 398);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnIniciarSesion.Size = new System.Drawing.Size(337, 48);
@@ -156,7 +158,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::wfZenova.Properties.Resources.RecuadroLogin;
-            this.pictureBox3.Location = new System.Drawing.Point(621, 12);
+            this.pictureBox3.Location = new System.Drawing.Point(630, 45);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(503, 548);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -165,13 +167,23 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::wfZenova.Properties.Resources.logoMejor;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 15);
+            this.pictureBox1.Image = global::wfZenova.Properties.Resources.InicioImagen2;
+            this.pictureBox1.Location = new System.Drawing.Point(-105, 1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(611, 557);
+            this.pictureBox1.Size = new System.Drawing.Size(770, 600);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::wfZenova.Properties.Resources.LOGO;
+            this.pictureBox2.Location = new System.Drawing.Point(827, -1);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(136, 59);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 23;
+            this.pictureBox2.TabStop = false;
             // 
             // frmInicioDeSesion
             // 
@@ -179,6 +191,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(198)))), ((int)(((byte)(228)))));
             this.ClientSize = new System.Drawing.Size(1136, 585);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.picVerContrasena);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.btnIniciarSesion);
@@ -195,6 +208,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picVerContrasena)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,5 +226,6 @@
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.ImageList imlOjo;
         private System.Windows.Forms.PictureBox picVerContrasena;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

@@ -783,9 +783,29 @@ namespace wfZenova.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap In {
+            get {
+                object obj = ResourceManager.GetObject("In", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Inicio {
             get {
                 object obj = ResourceManager.GetObject("Inicio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap InicioImagen2 {
+            get {
+                object obj = ResourceManager.GetObject("InicioImagen2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

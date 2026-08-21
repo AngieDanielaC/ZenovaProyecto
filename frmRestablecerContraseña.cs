@@ -54,11 +54,7 @@ namespace wfZenova
         }
         private string GenerarContrasenaTemporal()
         {
-            const string caracteres =
-                "ABCDEFGHJKLMNPQRSTUVWXYZ" +
-                "abcdefghijkmnopqrstuvwxyz" +
-                "23456789" +
-                "@#$";
+            const string caracteres = "ABCDEFGHJKLMNPQRSTUVWXYZ" + "abcdefghijkmnopqrstuvwxyz" + "23456789" + "@#$";
 
             Random random = new Random();
 
@@ -66,11 +62,8 @@ namespace wfZenova
 
             for (int i = 0; i < 10; i++)
             {
-                contrasena +=
-                    caracteres[
-                        random.Next(caracteres.Length)];
+                contrasena += caracteres[ random.Next(caracteres.Length)];
             }
-
             return contrasena;
         }
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -86,8 +79,7 @@ namespace wfZenova
         {
             byte[] salt = new byte[16];
 
-            using (RandomNumberGenerator rng =
-                   RandomNumberGenerator.Create())
+            using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
             {
                 rng.GetBytes(salt);
             }
@@ -97,19 +89,14 @@ namespace wfZenova
 
         private byte[] GenerarHash(string contrasena, byte[] salt)
         {
-            using (Rfc2898DeriveBytes pbkdf2 =
-                   new Rfc2898DeriveBytes(
-                       contrasena,
-                       salt,
-                       100000))
+            using (Rfc2898DeriveBytes pbkdf2 =new Rfc2898DeriveBytes(contrasena, salt, 100000))
             {
                 return pbkdf2.GetBytes(32);
             }
         }
         private void btnRestablecer_Click(object sender, EventArgs e)
         {
-            DialogResult respuesta =
-       MessageBox.Show(
+            DialogResult respuesta = MessageBox.Show(
            "¿Desea restablecer la contraseña del usuario " +
            nombreUsuario + "?",
            "ZENOVA",
@@ -120,24 +107,13 @@ namespace wfZenova
                 return;
 
 
-            byte[] salt =
-                GenerarSalt();
+            byte[] salt =GenerarSalt();
 
-            byte[] hash =
-                GenerarHash(
-                    nuevaContrasena,
-                    salt);
+            byte[] hash =GenerarHash(nuevaContrasena,salt);
 
+            string hashSQL ="0x" +BitConverter.ToString(hash).Replace("-", "");
 
-            string hashSQL =
-                "0x" +
-                BitConverter.ToString(hash)
-                .Replace("-", "");
-
-            string saltSQL =
-                "0x" +
-                BitConverter.ToString(salt)
-                .Replace("-", "");
+            string saltSQL ="0x" +BitConverter.ToString(salt).Replace("-", "");
 
 
             string sentencia =

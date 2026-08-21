@@ -9,34 +9,25 @@ namespace wfZenova
 {
     public partial class frmInicioDeSesion : Form
     {
-        // ==========================================
-        // CONEXIÓN
-        // ==========================================
-        csConectaSQL conSQL =
-            new csConectaSQL();
 
+        csConectaSQL conSQL =new csConectaSQL();
 
-        // ==========================================
         // DATOS DE SESIÓN
-        // ==========================================
         public static int IdUsuarioActual
         {
             get;
             private set;
         }
-
         public static int IdRolActual
         {
             get;
             private set;
         }
-
         public static string NombreRolActual
         {
             get;
             private set;
         }
-
         public static string NombreCompletoActual
         {
             get;
@@ -55,90 +46,39 @@ namespace wfZenova
             private set;
         }
 
-
-        // ==========================================
-        // CONSTRUCTOR
-        // ==========================================
         public frmInicioDeSesion()
         {
             InitializeComponent();
-
             ConfigurarFormulario();
-
-            // SOLO PARA DESARROLLO
             CrearAdminPredeterminado();
         }
 
 
-        // ==========================================
-        // CONFIGURAR FORMULARIO
-        // ==========================================
         private void ConfigurarFormulario()
         {
-            // ==========================================
-            // USUARIO
-            // ==========================================
-            txtUsuario.Text =
-                "Usuario";
 
-            txtUsuario.ForeColor =
-                Color.FromArgb(
-                    206,
-                    209,
-                    239);
+            txtUsuario.Text = "Usuario";
 
+            txtUsuario.ForeColor = Color.FromArgb(206,209,239);
+            txtContrasena.Text =  "Contraseña";
+            txtContrasena.ForeColor = Color.FromArgb(206,209,239);
+            txtContrasena.UseSystemPasswordChar =false;
 
-            // ==========================================
-            // CONTRASEÑA
-            // ==========================================
-            txtContrasena.Text =
-                "Contraseña";
+            picVerContrasena.SizeMode =PictureBoxSizeMode.Zoom;
 
-            txtContrasena.ForeColor =
-                Color.FromArgb(
-                    206,
-                    209,
-                    239);
-
-            txtContrasena.UseSystemPasswordChar =
-                false;
-
-
-            // ==========================================
-            // OJO
-            // ==========================================
-            picVerContrasena.SizeMode =
-                PictureBoxSizeMode.Zoom;
-
-            picVerContrasena.Cursor =
-                Cursors.Hand;
-
-
-            if (imlOjo.Images.ContainsKey(
-                "cerrado"))
+            picVerContrasena.Cursor = Cursors.Hand;
+            if (imlOjo.Images.ContainsKey( "cerrado"))
             {
-                picVerContrasena.Image =
-                    imlOjo.Images[
-                        "cerrado"];
+                picVerContrasena.Image =imlOjo.Images[ "cerrado"];
             }
         }
-
-
-        // ==========================================
-        // CREAR ADMIN PREDETERMINADO
-        // SOLO PARA DESARROLLO
-        // ==========================================
         private void CrearAdminPredeterminado()
         {
             try
             {
-                // ==========================================
-                // VERIFICAR SI YA EXISTE
-                // ==========================================
-                DataTable tablaUsuario =
-                    conSQL.RetornaRegistros(
-                        @"
-                        SELECT
+
+                DataTable tablaUsuario =conSQL.RetornaRegistros(
+                        @" SELECT
                             IdUsuario
 
                         FROM Usuarios
@@ -149,85 +89,35 @@ namespace wfZenova
                         "
                     );
 
-
-                if (tablaUsuario != null &&
-                    tablaUsuario.Rows.Count > 0)
+                if (tablaUsuario != null && tablaUsuario.Rows.Count > 0)
                 {
                     return;
                 }
 
-
-                // ==========================================
-                // BUSCAR ROL ADMINISTRADOR
-                // ==========================================
-                DataTable tablaRol =
-                    conSQL.RetornaRegistros(
+                DataTable tablaRol = conSQL.RetornaRegistros(
                         @"
                         SELECT
                             IdRol
 
                         FROM Roles
-
                         WHERE
                             NombreRol =
                             'Administrador';
                         "
                     );
 
-
-                if (tablaRol == null ||
-                    tablaRol.Rows.Count == 0)
+                if (tablaRol == null || tablaRol.Rows.Count == 0)
                 {
-                    MessageBox.Show(
-                        "No existe el rol Administrador.",
-                        "ZENOVA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
+                    MessageBox.Show( "No existe el rol Administrador.","ZENOVA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-
-                int idRol =
-                    Convert.ToInt32(
-                        tablaRol
-                        .Rows[0]["IdRol"]);
-
-
-                // ==========================================
-                // CONTRASEÑA DE DESARROLLO
-                // ==========================================
-                string contrasena =
-                    "Admin123#";
-
-
-                byte[] salt =
-                    GenerarSalt();
-
-
-                byte[] hash =
-                    GenerarHash(
-                        contrasena,
-                        salt);
-
-
-                string hashSQL =
-                    "0x" +
-                    BitConverter
-                    .ToString(hash)
-                    .Replace("-", "");
-
-
-                string saltSQL =
-                    "0x" +
-                    BitConverter
-                    .ToString(salt)
-                    .Replace("-", "");
-
-
-                // ==========================================
-                // INSERTAR
-                // ==========================================
+                int idRol = Convert.ToInt32( tablaRol.Rows[0]["IdRol"]);
+                string contrasena ="Admin123#";
+                byte[] salt =GenerarSalt();
+                byte[] hash =GenerarHash(contrasena, salt);
+                string hashSQL ="0x" +BitConverter.ToString(hash).Replace("-", "");
+                string saltSQL ="0x" +BitConverter.ToString(salt).Replace("-", "");
                 string sentencia =
                     @"
                     INSERT INTO Usuarios
@@ -241,7 +131,6 @@ namespace wfZenova
                         IdEmpleado,
                         IdEntrenador
                     )
-
                     VALUES
                     (
                         'admin',
@@ -254,10 +143,7 @@ namespace wfZenova
                         NULL
                     );
                     ";
-
-
-                conSQL.EjecutaSentenciaSRD(
-                    sentencia);
+                conSQL.EjecutaSentenciaSRD( sentencia);
             }
             catch (Exception ex)
             {
@@ -269,27 +155,11 @@ namespace wfZenova
                     MessageBoxIcon.Error);
             }
         }
-
-
-        // ==========================================
-        // INICIAR SESIÓN
-        // ==========================================
-        private void btnIniciarSesion_Click(
-            object sender,
-            EventArgs e)
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            string usuario =
-                txtUsuario.Text.Trim();
-
-            string contrasena =
-                txtContrasena.Text;
-
-
-            // ==========================================
-            // VALIDAR USUARIO
-            // ==========================================
-            if (usuario == "" ||
-                usuario == "Usuario")
+            string usuario =txtUsuario.Text.Trim();
+            string contrasena = txtContrasena.Text;
+            if (usuario == "" ||usuario == "Usuario")
             {
                 MessageBox.Show(
                     "Ingrese su nombre de usuario.",
@@ -298,17 +168,9 @@ namespace wfZenova
                     MessageBoxIcon.Warning);
 
                 txtUsuario.Focus();
-
                 return;
             }
-
-
-            // ==========================================
-            // VALIDAR CONTRASEÑA
-            // ==========================================
-            if (contrasena == "" ||
-                contrasena ==
-                "Contraseña")
+            if (contrasena == "" ||contrasena =="Contraseña")
             {
                 MessageBox.Show(
                     "Ingrese su contraseña.",
@@ -317,47 +179,24 @@ namespace wfZenova
                     MessageBoxIcon.Warning);
 
                 txtContrasena.Focus();
-
                 return;
             }
+            string usuarioSeguro = usuario.Replace( "'", "''");
 
-
-            string usuarioSeguro =
-                usuario.Replace(
-                    "'",
-                    "''");
-
-
-            // ==========================================
-            // BUSCAR CUENTA
-            // ==========================================
             string consulta =
-                @"
-                SELECT
+                @"SELECT
                     U.IdUsuario,
-
                     U.NombreUsuario,
-
                     U.PasswordHash,
-
                     U.PasswordSalt,
-
                     U.DebeCambiarPassword,
-
                     U.EstadoCuenta,
-
                     U.IdRol,
-
                     U.IdEmpleado,
-
                     U.IdEntrenador,
-
                     R.NombreRol,
-
                     CASE
-
-                        WHEN U.IdEmpleado
-                             IS NOT NULL
+                        WHEN U.IdEmpleado   IS NOT NULL
                         THEN
                             ISNULL(
                                 E.Nombres,
@@ -411,34 +250,14 @@ namespace wfZenova
                 @"';
                 ";
 
-
-            DataTable tabla =
-                conSQL.RetornaRegistros(
-                    consulta);
-
-
-            if (tabla == null ||
-                tabla.Rows.Count == 0)
+            DataTable tabla =conSQL.RetornaRegistros( consulta);
+            if (tabla == null ||tabla.Rows.Count == 0)
             {
                 MostrarCredencialesIncorrectas();
-
                 return;
             }
-
-
-            DataRow fila =
-                tabla.Rows[0];
-
-
-            // ==========================================
-            // CUENTA ACTIVA
-            // ==========================================
-            bool cuentaActiva =
-                Convert.ToBoolean(
-                    fila[
-                        "EstadoCuenta"]);
-
-
+            DataRow fila = tabla.Rows[0];
+            bool cuentaActiva =Convert.ToBoolean(fila[ "EstadoCuenta"]);
             if (!cuentaActiva)
             {
                 MessageBox.Show(
@@ -452,14 +271,7 @@ namespace wfZenova
 
                 return;
             }
-
-
-            // ==========================================
-            // VALIDAR HASH Y SALT
-            // ==========================================
-            if (fila["PasswordHash"] ==
-                    DBNull.Value ||
-                fila["PasswordSalt"] ==
+            if (fila["PasswordHash"] == DBNull.Value || fila["PasswordSalt"] ==
                     DBNull.Value)
             {
                 MessageBox.Show(
@@ -472,66 +284,19 @@ namespace wfZenova
             }
 
 
-            byte[] hashGuardado =
-                (byte[])fila[
-                    "PasswordHash"];
-
-
-            byte[] saltGuardado =
-                (byte[])fila[
-                    "PasswordSalt"];
-
-
-            byte[] hashIngresado =
-                GenerarHash(
-                    contrasena,
-                    saltGuardado);
-
-
-            // ==========================================
-            // COMPARAR CONTRASEÑA
-            // ==========================================
-            if (!CompararHashes(
-                hashGuardado,
-                hashIngresado))
+            byte[] hashGuardado =(byte[])fila[ "PasswordHash"];
+            byte[] saltGuardado =(byte[])fila[ "PasswordSalt"];
+            byte[] hashIngresado = GenerarHash( contrasena, saltGuardado);
+            if (!CompararHashes( hashGuardado, hashIngresado))
             {
                 MostrarCredencialesIncorrectas();
-
                 return;
             }
-
-
-            // ==========================================
-            // DATOS DE USUARIO
-            // ==========================================
-            int idUsuario =
-                Convert.ToInt32(
-                    fila[
-                        "IdUsuario"]);
-
-
-            int idRol =
-                Convert.ToInt32(
-                    fila[
-                        "IdRol"]);
-
-
-            string nombreRol =
-                fila[
-                    "NombreRol"]
-                .ToString();
-
-
-            string nombreCompleto =
-                fila[
-                    "NombreCompleto"]
-                .ToString()
-                .Trim();
-
-
-            int? idEmpleado =
-                fila[
-                    "IdEmpleado"] ==
+            int idUsuario = Convert.ToInt32(fila[ "IdUsuario"]);
+            int idRol =  Convert.ToInt32(   fila["IdRol"]);
+            string nombreRol =fila[  "NombreRol"].ToString();
+            string nombreCompleto =fila[ "NombreCompleto"].ToString().Trim();
+            int? idEmpleado = fila[ "IdEmpleado"] ==
                 DBNull.Value
 
                 ? (int?)null
@@ -540,10 +305,8 @@ namespace wfZenova
                     fila[
                         "IdEmpleado"]);
 
-
             int? idEntrenador =
-                fila[
-                    "IdEntrenador"] ==
+                fila[ "IdEntrenador"] ==
                 DBNull.Value
 
                 ? (int?)null
@@ -553,30 +316,13 @@ namespace wfZenova
                         "IdEntrenador"]);
 
 
-            bool debeCambiarPassword =
-                Convert.ToBoolean(
-                    fila[
-                        "DebeCambiarPassword"]);
+            bool debeCambiarPassword =Convert.ToBoolean( fila[ "DebeCambiarPassword"]);
 
-
-            // ==========================================
-            // PRIMER INICIO /
-            // CONTRASEÑA TEMPORAL
-            // ==========================================
             if (debeCambiarPassword)
             {
                 frmCambiarContrasenaInicial frm =  new frmCambiarContrasenaInicial( idUsuario,   usuario);
-
-
-                frm.StartPosition =
-                    FormStartPosition.CenterScreen;
-
-
-                DialogResult resultado =
-                    frm.ShowDialog(this);
-
-
-                // No entra hasta cambiarla
+                frm.StartPosition =FormStartPosition.CenterScreen;
+                DialogResult resultado = frm.ShowDialog(this);
                 if (resultado !=
                     DialogResult.OK)
                 {
@@ -586,37 +332,12 @@ namespace wfZenova
                 }
             }
 
-
-            // ==========================================
-            // GUARDAR SESIÓN
-            // ==========================================
-            IdUsuarioActual =
-                idUsuario;
-
-
-            IdRolActual =
-                idRol;
-
-
-            NombreRolActual =
-                nombreRol;
-
-
-            NombreCompletoActual =
-                nombreCompleto;
-
-
-            IdEmpleadoActual =
-                idEmpleado;
-
-
-            IdEntrenadorActual =
-                idEntrenador;
-
-
-            // ==========================================
-            // ÚLTIMO ACCESO
-            // ==========================================
+            IdUsuarioActual = idUsuario;
+            IdRolActual = idRol;
+            NombreRolActual = nombreRol;
+            NombreCompletoActual =  nombreCompleto;
+            IdEmpleadoActual =  idEmpleado;
+            IdEntrenadorActual =  idEntrenador;
             conSQL.EjecutaSentenciaSRD(
                 @"
                 UPDATE Usuarios
@@ -632,93 +353,38 @@ namespace wfZenova
                 "
             );
 
-
-            // ==========================================
-            // ABRIR PRINCIPAL
-            // ==========================================
-            Form1 form =
-                new Form1();
-
-
+            Form1 form =   new Form1();
             form.Show();
-
-
             this.Hide();
         }
-
-
-        // ==========================================
-        // GENERAR SALT
-        // ==========================================
         private byte[] GenerarSalt()
         {
-            byte[] salt =
-                new byte[16];
-
-
-            using (RandomNumberGenerator rng =
-                   RandomNumberGenerator
-                   .Create())
+            byte[] salt = new byte[16];
+            using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
             {
-                rng.GetBytes(
-                    salt);
+                rng.GetBytes(salt);
             }
-
-
             return salt;
         }
-
-
-        // ==========================================
-        // GENERAR HASH
-        // ==========================================
-        private byte[] GenerarHash(
-            string contrasena,
-            byte[] salt)
+        private byte[] GenerarHash(string contrasena, byte[] salt)
         {
-            using (Rfc2898DeriveBytes pbkdf2 =
-                   new Rfc2898DeriveBytes(
-                       contrasena,
-                       salt,
-                       100000))
+            using (Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(contrasena,salt,100000))
             {
-                return pbkdf2
-                    .GetBytes(
-                        32);
+                return pbkdf2.GetBytes( 32);
             }
         }
-
-
-        // ==========================================
-        // COMPARAR HASH
-        // ==========================================
-        private bool CompararHashes(
-            byte[] hashGuardado,
-            byte[] hashIngresado)
+        private bool CompararHashes(byte[] hashGuardado, byte[] hashIngresado)
         {
-            if (hashGuardado == null ||
-                hashIngresado == null)
+            if (hashGuardado == null || hashIngresado == null)
             {
                 return false;
             }
-
-
-            if (hashGuardado.Length !=
-                hashIngresado.Length)
+            if (hashGuardado.Length !=hashIngresado.Length)
             {
                 return false;
             }
-
-
-            return hashGuardado
-                .SequenceEqual(
-                    hashIngresado);
+            return hashGuardado.SequenceEqual( hashIngresado);
         }
-
-
-        // ==========================================
-        // CREDENCIALES INCORRECTAS
-        // ==========================================
         private void MostrarCredencialesIncorrectas()
         {
             MessageBox.Show(
@@ -730,249 +396,100 @@ namespace wfZenova
 
             LimpiarContrasena();
         }
-
-
-        // ==========================================
-        // LIMPIAR CONTRASEÑA
-        // ==========================================
         private void LimpiarContrasena()
         {
-            txtContrasena.Text =
-                "";
-
-
-            txtContrasena
-                .UseSystemPasswordChar =
-                true;
-
-
-            if (imlOjo.Images.ContainsKey(
-                "cerrado"))
+            txtContrasena.Text = "";
+            txtContrasena.UseSystemPasswordChar =true;
+            if (imlOjo.Images.ContainsKey("cerrado"))
             {
-                picVerContrasena.Image =
-                    imlOjo.Images[
-                        "cerrado"];
+                picVerContrasena.Image =imlOjo.Images["cerrado"];
             }
-
-
             txtContrasena.Focus();
         }
-
-
-        // ==========================================
-        // MOSTRAR / OCULTAR CONTRASEÑA
-        // ==========================================
         private void picVerContrasena_Click(
             object sender,
             EventArgs e)
         {
-            if (txtContrasena.Text == "" ||
-                txtContrasena.Text ==
-                "Contraseña")
+            if (txtContrasena.Text == "" ||txtContrasena.Text =="Contraseña")
             {
                 return;
             }
-
-
-            // ==========================================
-            // MOSTRAR
-            // ==========================================
-            if (txtContrasena
-                .UseSystemPasswordChar)
+            if (txtContrasena.UseSystemPasswordChar)
             {
-                txtContrasena
-                    .UseSystemPasswordChar =
-                    false;
-
-
-                if (imlOjo.Images.ContainsKey(
-                    "abierto"))
+                txtContrasena.UseSystemPasswordChar = false;
+                if (imlOjo.Images.ContainsKey("abierto"))
                 {
-                    picVerContrasena.Image =
-                        imlOjo.Images[
-                            "abierto"];
+                    picVerContrasena.Image =imlOjo.Images[ "abierto"];
                 }
             }
-
-            // ==========================================
-            // OCULTAR
-            // ==========================================
             else
             {
-                txtContrasena
-                    .UseSystemPasswordChar =
-                    true;
-
-
-                if (imlOjo.Images.ContainsKey(
-                    "cerrado"))
+                txtContrasena.UseSystemPasswordChar =true;
+                if (imlOjo.Images.ContainsKey("cerrado"))
                 {
-                    picVerContrasena.Image =
-                        imlOjo.Images[
-                            "cerrado"];
+                    picVerContrasena.Image = imlOjo.Images["cerrado"];
                 }
             }
         }
-
-
-        // ==========================================
-        // USUARIO ENTER
-        // ==========================================
         private void txtUsuario_Enter(
             object sender,
             EventArgs e)
         {
-            if (txtUsuario.Text ==
-                "Usuario")
+            if (txtUsuario.Text == "Usuario")
             {
-                txtUsuario.Text =
-                    "";
+                txtUsuario.Text = "";
 
 
-                txtUsuario.ForeColor =
-                    Color.FromArgb(
-                        83,
-                        85,
-                        175);
+                txtUsuario.ForeColor = Color.FromArgb(83,85,175);
             }
         }
-
-
-        // ==========================================
-        // USUARIO LEAVE
-        // ==========================================
-        private void txtUsuario_Leave(
-            object sender,
-            EventArgs e)
+        private void txtUsuario_Leave( object sender,EventArgs e)
         {
-            if (txtUsuario.Text ==
-                "")
+            if (txtUsuario.Text == "")
             {
-                txtUsuario.Text =
-                    "Usuario";
-
-
-                txtUsuario.ForeColor =
-                    Color.FromArgb(
-                        206,
-                        209,
-                        239);
+                txtUsuario.Text = "Usuario";
+                txtUsuario.ForeColor =Color.FromArgb( 206, 209,239);
             }
         }
-
-
-        // ==========================================
-        // CONTRASEÑA ENTER
-        // ==========================================
-        private void txtContraseña_Enter(
-            object sender,
-            EventArgs e)
+        private void txtContraseña_Enter(object sender,EventArgs e)
         {
-            if (txtContrasena.Text ==
-                "Contraseña")
+            if (txtContrasena.Text =="Contraseña")
             {
-                txtContrasena.Text =
-                    "";
-
-
-                txtContrasena.ForeColor =
-                    Color.FromArgb(
-                        83,
-                        85,
-                        175);
-
-
-                txtContrasena
-                    .UseSystemPasswordChar =
-                    true;
-
-
-                if (imlOjo.Images.ContainsKey(
-                    "cerrado"))
+                txtContrasena.Text ="";
+                txtContrasena.ForeColor =Color.FromArgb( 83,85,175);
+                txtContrasena.UseSystemPasswordChar = true;
+                if (imlOjo.Images.ContainsKey("cerrado"))
                 {
-                    picVerContrasena.Image =
-                        imlOjo.Images[
-                            "cerrado"];
+                    picVerContrasena.Image =imlOjo.Images["cerrado"];
                 }
             }
         }
-
-
-        // ==========================================
-        // CONTRASEÑA LEAVE
-        // ==========================================
-        private void txtContraseña_Leave(
-            object sender,
-            EventArgs e)
+        private void txtContraseña_Leave(object sender, EventArgs e)
         {
-            if (txtContrasena.Text ==
-                "")
+            if (txtContrasena.Text == "")
             {
-                txtContrasena.Text =
-                    "Contraseña";
-
-
-                txtContrasena.ForeColor =
-                    Color.FromArgb(
-                        206,
-                        209,
-                        239);
-
-
-                txtContrasena
-                    .UseSystemPasswordChar =
-                    false;
-
-
-                if (imlOjo.Images.ContainsKey(
-                    "cerrado"))
+                txtContrasena.Text = "Contraseña";
+                txtContrasena.ForeColor = Color.FromArgb(206,209,239);
+                txtContrasena.UseSystemPasswordChar =false;
+                if (imlOjo.Images.ContainsKey("cerrado"))
                 {
-                    picVerContrasena.Image =
-                        imlOjo.Images[
-                            "cerrado"];
+                    picVerContrasena.Image =imlOjo.Images["cerrado"];
                 }
             }
         }
-
-
-        // ==========================================
-        // ENTER PARA INICIAR SESIÓN
-        // ==========================================
-        private void txtContrasena_KeyDown(
-            object sender,
-            KeyEventArgs e)
+        private void txtContrasena_KeyDown(object sender,KeyEventArgs e)
         {
-            if (e.KeyCode ==
-                Keys.Enter)
+            if (e.KeyCode ==Keys.Enter)
             {
-                btnIniciarSesion
-                    .PerformClick();
-
-
-                e.SuppressKeyPress =
-                    true;
+                btnIniciarSesion.PerformClick();
+                e.SuppressKeyPress = true;
             }
         }
-
-
-        // ==========================================
-        // REGISTRAR
-        // TU CÓDIGO ORIGINAL
-        // ==========================================
-        private void btnRegistrar_Click(
-            object sender,
-            EventArgs e)
+        private void btnRegistrar_Click(object sender,EventArgs e)
         {
-            frmRegistroEntrenador menu =
-                new frmRegistroEntrenador();
-
-
+            frmRegistroEntrenador menu =new frmRegistroEntrenador();
             this.Hide();
-
-
             menu.ShowDialog();
-
-
             this.Close();
         }
     }

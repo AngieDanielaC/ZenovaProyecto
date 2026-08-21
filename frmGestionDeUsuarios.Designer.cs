@@ -93,6 +93,7 @@
             this.btnVer.Text = "Ver";
             this.btnVer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVer.UseVisualStyleBackColor = true;
+            this.btnVer.Visible = false;
             this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
             // 
             // btnEditar
@@ -111,6 +112,7 @@
             this.btnEditar.TabIndex = 76;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Visible = false;
             // 
             // btnActivarDesactivar
             // 

@@ -18,241 +18,124 @@ namespace wfZenova
         private int? idEntrenador;
         private bool esAdministrador;
         private int idParticipanteCompetencia = 0;
-
-        csConectaSQL conSQL =
-            new csConectaSQL();
-
-
+        csConectaSQL conSQL = new csConectaSQL();
 
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private static extern void ReleaseCapture();
 
         [DllImport("user32.dll", EntryPoint = "SendMessage")]
         private static extern void SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
         public frmRegistrarResultados()
         {
             InitializeComponent();
-
             esAdministrador = true;
             idEntrenador = null;
-
             ConfigurarFormulario();
         }
+
         public frmRegistrarResultados(int idCompetencia)
         {
             InitializeComponent();
-
             this.idCompetencia = idCompetencia;
-
             esAdministrador = true;
             idEntrenador = null;
-
             ConfigurarFormulario();
             CargarFechaCompetencia();
             CargarDeportistas();
         }
-        public frmRegistrarResultados(
-            int idCompetencia,
-            int idEntrenador)
+
+        public frmRegistrarResultados(int idCompetencia, int idEntrenador)
         {
             InitializeComponent();
-
-            this.idCompetencia =
-                idCompetencia;
-
-            this.idEntrenador =
-                idEntrenador;
-
+            this.idCompetencia = idCompetencia;
+            this.idEntrenador = idEntrenador;
             esAdministrador = false;
-
             ConfigurarFormulario();
-
             CargarFechaCompetencia();
-
             CargarDeportistas();
         }
 
         private void ConfigurarFormulario()
         {
-            // Permitir escribir para buscar
-            cmbDeportista.DropDownStyle =
-                ComboBoxStyle.DropDown;
-
-            cmbDeportista.AutoCompleteMode =
-                AutoCompleteMode.SuggestAppend;
-
-            cmbDeportista.AutoCompleteSource =
-                AutoCompleteSource.ListItems;
-
-            cmbDeportista.SelectedIndex =
-                -1;
-
+            cmbDeportista.DropDownStyle = ComboBoxStyle.DropDown;
+            cmbDeportista.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbDeportista.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cmbDeportista.SelectedIndex = -1;
             lblDeporte.Text = "";
-
             lblCategoria.Text = "";
-
             lblFechaCompetencia.Text = "";
-
             txtPrueba.Clear();
-
             txtPuestoObtenido.Clear();
-
             idParticipanteCompetencia = 0;
-
             picFoto.Image = null;
         }
 
         private void CargarFechaCompetencia()
         {
-            DataTable tabla =
-                conSQL.RetornaRegistros(
-                    @"SELECT
-                        FechaInicio,
-                        FechaFin
+            DataTable tabla = conSQL.RetornaRegistros(
+                @"SELECT FechaInicio, FechaFin
+                  FROM Competencias
+                  WHERE IdCompetencia = " + idCompetencia
+            );
 
-                      FROM Competencias
-
-                      WHERE IdCompetencia = " +
-                    idCompetencia
-                );
-
-
-            if (tabla == null ||
-                tabla.Rows.Count == 0)
+            if (tabla == null || tabla.Rows.Count == 0)
             {
-                lblFechaCompetencia.Text =
-                    "No disponible";
-
+                lblFechaCompetencia.Text = "No disponible";
                 return;
             }
 
+            DateTime fechaInicio = Convert.ToDateTime(tabla.Rows[0]["FechaInicio"]);
+            DateTime fechaFin = Convert.ToDateTime(tabla.Rows[0]["FechaFin"]);
 
-            DateTime fechaInicio =
-                Convert.ToDateTime(
-                    tabla.Rows[0]["FechaInicio"]);
-
-
-            DateTime fechaFin =
-                Convert.ToDateTime(
-                    tabla.Rows[0]["FechaFin"]);
-
-
-            if (fechaInicio.Date ==
-                fechaFin.Date)
-            {
-                lblFechaCompetencia.Text =
-                    fechaInicio
-                    .ToString("dd/MM/yyyy");
-            }
+            if (fechaInicio.Date == fechaFin.Date)
+                lblFechaCompetencia.Text = fechaInicio.ToString("dd/MM/yyyy");
             else
-            {
-                lblFechaCompetencia.Text =
-                    fechaInicio
-                    .ToString("dd/MM/yyyy")
-                    +
-                    " - "
-                    +
-                    fechaFin
-                    .ToString("dd/MM/yyyy");
-            }
+                lblFechaCompetencia.Text = fechaInicio.ToString("dd/MM/yyyy") + " - " + fechaFin.ToString("dd/MM/yyyy");
         }
+
         private void CargarDeportistas()
         {
             string filtroEntrenador = "";
 
-
-            // ==========================================
-            // ENTRENADOR:
-            // SOLO SUS DEPORTISTAS
-            // ==========================================
             if (!esAdministrador)
             {
                 filtroEntrenador =
                     @" AND EXISTS
                     (
                         SELECT 1
-
                         FROM Inscripciones I
-
-                        INNER JOIN EntrenadorDeporte ED2
-                            ON I.IdEntrenadorDeporte =
-                               ED2.IdEntrenadorDeporte
-
-                        WHERE
-                            I.IdDeportista =
-                                D.IdDeportista
-
-                            AND I.Estado =
-                                'Activo'
-
-                            AND ED2.IdEntrenador =
-                                " + idEntrenador.Value + @"
-
-                            AND ED2.IdDeporte =
-                                CD.IdDeporte
+                        INNER JOIN EntrenadorDeporte ED2 ON I.IdEntrenadorDeporte = ED2.IdEntrenadorDeporte
+                        WHERE I.IdDeportista = D.IdDeportista
+                        AND I.Estado = 'Activo'
+                        AND ED2.IdEntrenador = " + idEntrenador.Value + @"
+                        AND ED2.IdDeporte = CD.IdDeporte
                     )";
             }
 
-
             string consulta =
                 @"SELECT DISTINCT
-
                     PC.IdParticipanteCompetencia,
-
                     D.IdDeportista,
-
-                    D.Nombres + ' ' +
-                    D.Apellidos
-                        AS NombreCompleto
-
+                    D.Nombres + ' ' + D.Apellidos AS NombreCompleto
                   FROM ParticipantesCompetencia PC
+                  INNER JOIN CompetenciaDeporte CD ON PC.IdCompetenciaDeporte = CD.IdCompetenciaDeporte
+                  INNER JOIN Deportistas D ON PC.IdDeportista = D.IdDeportista
+                  WHERE CD.IdCompetencia = " + idCompetencia + @"
+                    AND PC.EstadoParticipacion = 'Inscrito'
+                    " + filtroEntrenador + @"
+                  ORDER BY NombreCompleto";
 
-                  INNER JOIN CompetenciaDeporte CD
-                      ON PC.IdCompetenciaDeporte =
-                         CD.IdCompetenciaDeporte
-
-                  INNER JOIN Deportistas D
-                      ON PC.IdDeportista =
-                         D.IdDeportista
-
-                  WHERE
-                      CD.IdCompetencia =
-                          " + idCompetencia + @"
-
-                      AND PC.EstadoParticipacion =
-                          'Inscrito'
-
-                      " + filtroEntrenador + @"
-
-                  ORDER BY
-                      NombreCompleto";
-
-
-            DataTable tabla =
-                conSQL.RetornaRegistros(
-                    consulta);
-
+            DataTable tabla = conSQL.RetornaRegistros(consulta);
 
             if (tabla == null)
                 return;
 
-
-            cmbDeportista.DataSource =
-                tabla;
-
-            cmbDeportista.DisplayMember =
-                "NombreCompleto";
-
-            cmbDeportista.ValueMember =
-                "IdParticipanteCompetencia";
-
-            cmbDeportista.SelectedIndex =
-                -1;
+            cmbDeportista.DataSource = tabla;
+            cmbDeportista.DisplayMember = "NombreCompleto";
+            cmbDeportista.ValueMember = "IdParticipanteCompetencia";
+            cmbDeportista.SelectedIndex = -1;
         }
-
-
-
-
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -262,132 +145,62 @@ namespace wfZenova
 
         private void cmbDeportista_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbDeportista.SelectedIndex == -1 ||
-                cmbDeportista.SelectedValue == null ||
-                cmbDeportista.SelectedValue
-                    is DataRowView)
+            if (cmbDeportista.SelectedIndex == -1 || cmbDeportista.SelectedValue == null || cmbDeportista.SelectedValue is DataRowView)
             {
                 LimpiarDatosDeportista();
-
                 return;
             }
 
-
-            idParticipanteCompetencia =
-                Convert.ToInt32(
-                    cmbDeportista.SelectedValue);
-
-
+            idParticipanteCompetencia = Convert.ToInt32(cmbDeportista.SelectedValue);
             CargarDatosDeportista();
         }
 
         private void CargarDatosDeportista()
         {
-            DataTable tabla =
-                conSQL.RetornaRegistros(
-                    @"SELECT
-                        D.IdDeportista,
+            DataTable tabla = conSQL.RetornaRegistros(
+                @"SELECT D.IdDeportista,
+                    D.Foto,
+                    DEP.NombreDeporte,
+                    (
+                        SELECT TOP 1 M.CategoriaEdad
+                        FROM MedicionesDeportista M
+                        WHERE M.IdDeportista = D.IdDeportista
+                        ORDER BY M.FechaMedicion DESC, M.IdMedicion DESC
+                    ) AS Categoria
+                  FROM ParticipantesCompetencia PC
+                  INNER JOIN Deportistas D ON PC.IdDeportista = D.IdDeportista
+                  INNER JOIN CompetenciaDeporte CD ON PC.IdCompetenciaDeporte = CD.IdCompetenciaDeporte
+                  INNER JOIN Deportes DEP ON CD.IdDeporte = DEP.IdDeporte
+                  WHERE PC.IdParticipanteCompetencia = " + idParticipanteCompetencia
+            );
 
-                        D.Foto,
-
-                        DEP.NombreDeporte,
-
-                        (
-                            SELECT TOP 1
-                                M.CategoriaEdad
-
-                            FROM MedicionesDeportista M
-
-                            WHERE
-                                M.IdDeportista =
-                                    D.IdDeportista
-
-                            ORDER BY
-                                M.FechaMedicion DESC,
-                                M.IdMedicion DESC
-
-                        ) AS Categoria
-
-                      FROM ParticipantesCompetencia PC
-
-                      INNER JOIN Deportistas D
-                          ON PC.IdDeportista =
-                             D.IdDeportista
-
-                      INNER JOIN CompetenciaDeporte CD
-                          ON PC.IdCompetenciaDeporte =
-                             CD.IdCompetenciaDeporte
-
-                      INNER JOIN Deportes DEP
-                          ON CD.IdDeporte =
-                             DEP.IdDeporte
-
-                      WHERE
-                          PC.IdParticipanteCompetencia =
-                          " + idParticipanteCompetencia
-                );
-
-
-            if (tabla == null ||
-                tabla.Rows.Count == 0)
+            if (tabla == null || tabla.Rows.Count == 0)
             {
                 LimpiarDatosDeportista();
-
                 return;
             }
 
+            DataRow fila = tabla.Rows[0];
 
-            DataRow fila =
-                tabla.Rows[0];
-
-
-            // ==========================================
-            // DEPORTE
-            // ==========================================
-            lblDeporte.Text =
-                fila["NombreDeporte"]
-                .ToString();
-
-
-            // ==========================================
-            // CATEGORÍA
-            // ==========================================
-            lblCategoria.Text =
-                fila["Categoria"] ==
-                DBNull.Value
-                ? "Sin medición"
-                : fila["Categoria"]
-                    .ToString();
-
-
-            // ==========================================
-            // FOTO
-            // ==========================================
+            lblDeporte.Text = fila["NombreDeporte"].ToString();
+            lblCategoria.Text = fila["Categoria"] == DBNull.Value ? "Sin medición" : fila["Categoria"].ToString();
             picFoto.Image = null;
-
 
             if (fila["Foto"] != DBNull.Value)
             {
                 try
                 {
-                    byte[] foto =
-                        (byte[])fila["Foto"];
+                    byte[] foto = (byte[])fila["Foto"];
 
-
-                    using (MemoryStream ms =
-                           new MemoryStream(foto))
+                    using (MemoryStream ms = new MemoryStream(foto))
                     {
-                        using (Image imagen =
-                               Image.FromStream(ms))
+                        using (Image imagen = Image.FromStream(ms))
                         {
-                            picFoto.Image =
-                                new Bitmap(imagen);
+                            picFoto.Image = new Bitmap(imagen);
                         }
                     }
 
-
-                    picFoto.SizeMode =
-                        PictureBoxSizeMode.Zoom;
+                    picFoto.SizeMode = PictureBoxSizeMode.Zoom;
                 }
                 catch
                 {
@@ -399,21 +212,14 @@ namespace wfZenova
         private void LimpiarDatosDeportista()
         {
             idParticipanteCompetencia = 0;
-
             lblDeporte.Text = "";
-
             lblCategoria.Text = "";
-
             picFoto.Image = null;
         }
 
         private bool ValidarCampos()
         {
-            if (cmbDeportista.SelectedIndex == -1 ||
-                cmbDeportista.SelectedValue == null ||
-                cmbDeportista.SelectedValue
-                    is DataRowView ||
-                idParticipanteCompetencia <= 0)
+            if (cmbDeportista.SelectedIndex == -1 || cmbDeportista.SelectedValue == null || cmbDeportista.SelectedValue is DataRowView || idParticipanteCompetencia <= 0)
             {
                 MessageBox.Show(
                     "Seleccione un deportista válido de la lista.",
@@ -422,10 +228,8 @@ namespace wfZenova
                     MessageBoxIcon.Warning);
 
                 cmbDeportista.Focus();
-
                 return false;
             }
-
 
             if (txtPrueba.Text.Trim() == "")
             {
@@ -436,10 +240,8 @@ namespace wfZenova
                     MessageBoxIcon.Warning);
 
                 txtPrueba.Focus();
-
                 return false;
             }
-
 
             if (txtPuestoObtenido.Text.Trim() == "")
             {
@@ -450,10 +252,8 @@ namespace wfZenova
                     MessageBoxIcon.Warning);
 
                 txtPuestoObtenido.Focus();
-
                 return false;
             }
-
 
             return true;
         }
@@ -463,25 +263,13 @@ namespace wfZenova
             if (!ValidarCampos())
                 return;
 
+            DataTable tablaExiste = conSQL.RetornaRegistros(
+                @"SELECT IdResultado
+                  FROM ResultadosCompetencia
+                  WHERE IdParticipanteCompetencia = " + idParticipanteCompetencia
+            );
 
-            // ==========================================
-            // COMPROBAR SI YA EXISTE RESULTADO
-            // ==========================================
-            DataTable tablaExiste =
-                conSQL.RetornaRegistros(
-                    @"SELECT
-                        IdResultado
-
-                      FROM ResultadosCompetencia
-
-                      WHERE
-                        IdParticipanteCompetencia =
-                        " + idParticipanteCompetencia
-                );
-
-
-            if (tablaExiste != null &&
-                tablaExiste.Rows.Count > 0)
+            if (tablaExiste != null && tablaExiste.Rows.Count > 0)
             {
                 MessageBox.Show(
                     "Este deportista ya tiene un resultado registrado en esta competencia.",
@@ -492,42 +280,17 @@ namespace wfZenova
                 return;
             }
 
-
-            // ==========================================
-            // PREPARAR DATOS
-            // ==========================================
-            string prueba =
-                txtPrueba.Text.Trim()
-                .Replace("'", "''");
-
-
-            string puesto =
-                txtPuestoObtenido.Text.Trim()
-                .Replace("'", "''");
-
+            string prueba = txtPrueba.Text.Trim().Replace("'", "''");
+            string puesto = txtPuestoObtenido.Text.Trim().Replace("'", "''");
 
             string campos =
                 "IdParticipanteCompetencia, " +
                 "Prueba, " +
                 "PuestoObtenido";
 
+            string datos = idParticipanteCompetencia + ",'" + prueba + "','" + puesto + "'";
 
-            string datos =
-                idParticipanteCompetencia +
-                ",'" +
-                prueba +
-                "','" +
-                puesto +
-                "'";
-
-
-            // ==========================================
-            // GUARDAR
-            // ==========================================
-            if (conSQL.insertDatos(
-                "ResultadosCompetencia",
-                campos,
-                datos))
+            if (conSQL.insertDatos("ResultadosCompetencia", campos, datos))
             {
                 MessageBox.Show(
                     "Resultado registrado correctamente.",
@@ -535,10 +298,7 @@ namespace wfZenova
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
-
-                this.DialogResult =
-                    DialogResult.OK;
-
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
