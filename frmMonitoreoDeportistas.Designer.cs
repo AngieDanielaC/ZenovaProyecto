@@ -246,7 +246,7 @@
             this.cmbDeporte.Name = "cmbDeporte";
             this.cmbDeporte.Size = new System.Drawing.Size(180, 25);
             this.cmbDeporte.TabIndex = 3;
-            this.cmbDeporte.SelectedIndexChanged += new System.EventHandler(this.cmbDeporte_SelectedIndexChanged);
+          
             // 
             // lblDeporte
             // 
