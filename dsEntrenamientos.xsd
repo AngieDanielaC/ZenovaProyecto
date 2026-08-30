@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsEntrenamientos" targetNamespace="http://tempuri.org/dsEntrenamientos.xsd" xmlns:mstns="http://tempuri.org/dsEntrenamientos.xsd" xmlns="http://tempuri.org/dsEntrenamientos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsEntrenamientos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsEntrenamientos" msprop:Generator_DataSetName="dsEntrenamientos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsEntrenamientos" msprop:Generator_RowEvHandlerName="dsEntrenamientosRowChangeEventHandler" msprop:Generator_RowDeletedName="dsEntrenamientosRowDeleted" msprop:Generator_RowDeletingName="dsEntrenamientosRowDeleting" msprop:Generator_RowEvArgName="dsEntrenamientosRowChangeEvent" msprop:Generator_TablePropName="_dsEntrenamientos" msprop:Generator_RowChangedName="dsEntrenamientosRowChanged" msprop:Generator_RowChangingName="dsEntrenamientosRowChanging" msprop:Generator_TableClassName="dsEntrenamientosDataTable" msprop:Generator_RowClassName="dsEntrenamientosRow" msprop:Generator_TableVarName="tabledsEntrenamientos" msprop:Generator_UserTableName="dsEntrenamientos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Deportista" msprop:Generator_ColumnPropNameInRow="Deportista" msprop:Generator_ColumnPropNameInTable="DeportistaColumn" msprop:Generator_ColumnVarNameInTable="columnDeportista" msprop:Generator_UserColumnName="Deportista" type="xs:string" minOccurs="0" />
+              <xs:element name="Deporte" msprop:Generator_ColumnPropNameInRow="Deporte" msprop:Generator_ColumnPropNameInTable="DeporteColumn" msprop:Generator_ColumnVarNameInTable="columnDeporte" msprop:Generator_UserColumnName="Deporte" type="xs:string" minOccurs="0" />
+              <xs:element name="Fecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_UserColumnName="Fecha" type="xs:string" minOccurs="0" />
+              <xs:element name="Duracion" msprop:Generator_ColumnPropNameInRow="Duracion" msprop:Generator_ColumnPropNameInTable="DuracionColumn" msprop:Generator_ColumnVarNameInTable="columnDuracion" msprop:Generator_UserColumnName="Duracion" type="xs:string" minOccurs="0" />
+              <xs:element name="TipoEntrenamiento" msprop:Generator_ColumnPropNameInRow="TipoEntrenamiento" msprop:Generator_ColumnPropNameInTable="TipoEntrenamientoColumn" msprop:Generator_ColumnVarNameInTable="columnTipoEntrenamiento" msprop:Generator_UserColumnName="TipoEntrenamiento" type="xs:string" minOccurs="0" />
+              <xs:element name="Objetivo" msprop:Generator_ColumnPropNameInRow="Objetivo" msprop:Generator_ColumnPropNameInTable="ObjetivoColumn" msprop:Generator_ColumnVarNameInTable="columnObjetivo" msprop:Generator_UserColumnName="Objetivo" type="xs:string" minOccurs="0" />
+              <xs:element name="Estado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_UserColumnName="Estado" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

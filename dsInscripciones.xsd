@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsInscripciones" targetNamespace="http://tempuri.org/dsInscripciones.xsd" xmlns:mstns="http://tempuri.org/dsInscripciones.xsd" xmlns="http://tempuri.org/dsInscripciones.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsInscripciones" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsInscripciones" msprop:Generator_DataSetName="dsInscripciones">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtInscripciones" msprop:Generator_RowEvHandlerName="dtInscripcionesRowChangeEventHandler" msprop:Generator_RowDeletedName="dtInscripcionesRowDeleted" msprop:Generator_RowDeletingName="dtInscripcionesRowDeleting" msprop:Generator_RowEvArgName="dtInscripcionesRowChangeEvent" msprop:Generator_TablePropName="dtInscripciones" msprop:Generator_RowChangedName="dtInscripcionesRowChanged" msprop:Generator_RowChangingName="dtInscripcionesRowChanging" msprop:Generator_TableClassName="dtInscripcionesDataTable" msprop:Generator_RowClassName="dtInscripcionesRow" msprop:Generator_TableVarName="tabledtInscripciones" msprop:Generator_UserTableName="dtInscripciones">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Deportista" msprop:Generator_ColumnPropNameInRow="Deportista" msprop:Generator_ColumnPropNameInTable="DeportistaColumn" msprop:Generator_ColumnVarNameInTable="columnDeportista" msprop:Generator_UserColumnName="Deportista" type="xs:string" minOccurs="0" />
+              <xs:element name="Deporte" msprop:Generator_ColumnPropNameInRow="Deporte" msprop:Generator_ColumnPropNameInTable="DeporteColumn" msprop:Generator_ColumnVarNameInTable="columnDeporte" msprop:Generator_UserColumnName="Deporte" type="xs:string" minOccurs="0" />
+              <xs:element name="Entrenador" msprop:Generator_ColumnPropNameInRow="Entrenador" msprop:Generator_ColumnPropNameInTable="EntrenadorColumn" msprop:Generator_ColumnVarNameInTable="columnEntrenador" msprop:Generator_UserColumnName="Entrenador" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaInscripcion" msprop:Generator_ColumnPropNameInRow="FechaInscripcion" msprop:Generator_ColumnPropNameInTable="FechaInscripcionColumn" msprop:Generator_ColumnVarNameInTable="columnFechaInscripcion" msprop:Generator_UserColumnName="FechaInscripcion" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Estado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_UserColumnName="Estado" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsCompetencias" targetNamespace="http://tempuri.org/dsCompetencias.xsd" xmlns:mstns="http://tempuri.org/dsCompetencias.xsd" xmlns="http://tempuri.org/dsCompetencias.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsCompetencias" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsCompetencias" msprop:Generator_DataSetName="dsCompetencias">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsCompetencias" msprop:Generator_RowEvHandlerName="dsCompetenciasRowChangeEventHandler" msprop:Generator_RowDeletedName="dsCompetenciasRowDeleted" msprop:Generator_RowDeletingName="dsCompetenciasRowDeleting" msprop:Generator_RowEvArgName="dsCompetenciasRowChangeEvent" msprop:Generator_TablePropName="_dsCompetencias" msprop:Generator_RowChangedName="dsCompetenciasRowChanged" msprop:Generator_RowChangingName="dsCompetenciasRowChanging" msprop:Generator_TableClassName="dsCompetenciasDataTable" msprop:Generator_RowClassName="dsCompetenciasRow" msprop:Generator_TableVarName="tabledsCompetencias" msprop:Generator_UserTableName="dsCompetencias">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Competencia" msprop:Generator_ColumnPropNameInRow="Competencia" msprop:Generator_ColumnPropNameInTable="CompetenciaColumn" msprop:Generator_ColumnVarNameInTable="columnCompetencia" msprop:Generator_UserColumnName="Competencia" type="xs:string" minOccurs="0" />
+              <xs:element name="Organizador" msprop:Generator_ColumnPropNameInRow="Organizador" msprop:Generator_ColumnPropNameInTable="OrganizadorColumn" msprop:Generator_ColumnVarNameInTable="columnOrganizador" msprop:Generator_UserColumnName="Organizador" type="xs:string" minOccurs="0" />
+              <xs:element name="Lugar" msprop:Generator_ColumnPropNameInRow="Lugar" msprop:Generator_ColumnPropNameInTable="LugarColumn" msprop:Generator_ColumnVarNameInTable="columnLugar" msprop:Generator_UserColumnName="Lugar" type="xs:string" minOccurs="0" />
+              <xs:element name="Nivel" msprop:Generator_ColumnPropNameInRow="Nivel" msprop:Generator_ColumnPropNameInTable="NivelColumn" msprop:Generator_ColumnVarNameInTable="columnNivel" msprop:Generator_UserColumnName="Nivel" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaInicio" msprop:Generator_ColumnPropNameInRow="FechaInicio" msprop:Generator_ColumnPropNameInTable="FechaInicioColumn" msprop:Generator_ColumnVarNameInTable="columnFechaInicio" msprop:Generator_UserColumnName="FechaInicio" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaFin" msprop:Generator_ColumnPropNameInRow="FechaFin" msprop:Generator_ColumnPropNameInTable="FechaFinColumn" msprop:Generator_ColumnVarNameInTable="columnFechaFin" msprop:Generator_UserColumnName="FechaFin" type="xs:string" minOccurs="0" />
+              <xs:element name="Estado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_UserColumnName="Estado" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

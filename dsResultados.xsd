@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsResultados" targetNamespace="http://tempuri.org/dsResultados.xsd" xmlns:mstns="http://tempuri.org/dsResultados.xsd" xmlns="http://tempuri.org/dsResultados.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsResultados" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsResultados" msprop:Generator_DataSetName="dsResultados">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsResultados" msprop:Generator_RowEvHandlerName="dsResultadosRowChangeEventHandler" msprop:Generator_RowDeletedName="dsResultadosRowDeleted" msprop:Generator_RowDeletingName="dsResultadosRowDeleting" msprop:Generator_RowEvArgName="dsResultadosRowChangeEvent" msprop:Generator_TablePropName="_dsResultados" msprop:Generator_RowChangedName="dsResultadosRowChanged" msprop:Generator_RowChangingName="dsResultadosRowChanging" msprop:Generator_TableClassName="dsResultadosDataTable" msprop:Generator_RowClassName="dsResultadosRow" msprop:Generator_TableVarName="tabledsResultados" msprop:Generator_UserTableName="dsResultados">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Deportista" msprop:Generator_ColumnPropNameInRow="Deportista" msprop:Generator_ColumnPropNameInTable="DeportistaColumn" msprop:Generator_ColumnVarNameInTable="columnDeportista" msprop:Generator_UserColumnName="Deportista" type="xs:string" minOccurs="0" />
+              <xs:element name="Competencia" msprop:Generator_ColumnPropNameInRow="Competencia" msprop:Generator_ColumnPropNameInTable="CompetenciaColumn" msprop:Generator_ColumnVarNameInTable="columnCompetencia" msprop:Generator_UserColumnName="Competencia" type="xs:string" minOccurs="0" />
+              <xs:element name="Deporte" msprop:Generator_ColumnPropNameInRow="Deporte" msprop:Generator_ColumnPropNameInTable="DeporteColumn" msprop:Generator_ColumnVarNameInTable="columnDeporte" msprop:Generator_UserColumnName="Deporte" type="xs:string" minOccurs="0" />
+              <xs:element name="Resultado" msprop:Generator_ColumnPropNameInRow="Resultado" msprop:Generator_ColumnPropNameInTable="ResultadoColumn" msprop:Generator_ColumnVarNameInTable="columnResultado" msprop:Generator_UserColumnName="Resultado" type="xs:string" minOccurs="0" />
+              <xs:element name="Posicion" msprop:Generator_ColumnPropNameInRow="Posicion" msprop:Generator_ColumnPropNameInTable="PosicionColumn" msprop:Generator_ColumnVarNameInTable="columnPosicion" msprop:Generator_UserColumnName="Posicion" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

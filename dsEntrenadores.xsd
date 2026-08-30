@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="dsDeportistas" targetNamespace="http://tempuri.org/dsDeportistas.xsd" xmlns:mstns="http://tempuri.org/dsDeportistas.xsd" xmlns="http://tempuri.org/dsDeportistas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="dsEntrenadores" targetNamespace="http://tempuri.org/dsEntrenadores.xsd" xmlns:mstns="http://tempuri.org/dsEntrenadores.xsd" xmlns="http://tempuri.org/dsEntrenadores.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -9,10 +9,10 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="dsDeportistas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsDeportistas" msprop:Generator_DataSetName="dsDeportistas">
+  <xs:element name="dsEntrenadores" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsEntrenadores" msprop:Generator_DataSetName="dsEntrenadores">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="dtDeportistas" msprop:Generator_RowEvHandlerName="dtDeportistasRowChangeEventHandler" msprop:Generator_RowDeletedName="dtDeportistasRowDeleted" msprop:Generator_RowDeletingName="dtDeportistasRowDeleting" msprop:Generator_RowEvArgName="dtDeportistasRowChangeEvent" msprop:Generator_TablePropName="dtDeportistas" msprop:Generator_RowChangedName="dtDeportistasRowChanged" msprop:Generator_RowChangingName="dtDeportistasRowChanging" msprop:Generator_TableClassName="dtDeportistasDataTable" msprop:Generator_RowClassName="dtDeportistasRow" msprop:Generator_TableVarName="tabledtDeportistas" msprop:Generator_UserTableName="dtDeportistas">
+        <xs:element name="dtEntrenadores" msprop:Generator_RowEvHandlerName="dtEntrenadoresRowChangeEventHandler" msprop:Generator_RowDeletedName="dtEntrenadoresRowDeleted" msprop:Generator_RowDeletingName="dtEntrenadoresRowDeleting" msprop:Generator_RowEvArgName="dtEntrenadoresRowChangeEvent" msprop:Generator_TablePropName="dtEntrenadores" msprop:Generator_RowChangedName="dtEntrenadoresRowChanged" msprop:Generator_RowChangingName="dtEntrenadoresRowChanging" msprop:Generator_TableClassName="dtEntrenadoresDataTable" msprop:Generator_RowClassName="dtEntrenadoresRow" msprop:Generator_TableVarName="tabledtEntrenadores" msprop:Generator_UserTableName="dtEntrenadores">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NombreCompleto" msprop:Generator_ColumnPropNameInRow="NombreCompleto" msprop:Generator_ColumnPropNameInTable="NombreCompletoColumn" msprop:Generator_ColumnVarNameInTable="columnNombreCompleto" msprop:Generator_UserColumnName="NombreCompleto" type="xs:string" minOccurs="0" />

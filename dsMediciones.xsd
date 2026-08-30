@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsMediciones" targetNamespace="http://tempuri.org/dsMediciones.xsd" xmlns:mstns="http://tempuri.org/dsMediciones.xsd" xmlns="http://tempuri.org/dsMediciones.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsMediciones" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsMediciones" msprop:Generator_DataSetName="dsMediciones">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsMediciones" msprop:Generator_RowEvHandlerName="dsMedicionesRowChangeEventHandler" msprop:Generator_RowDeletedName="dsMedicionesRowDeleted" msprop:Generator_RowDeletingName="dsMedicionesRowDeleting" msprop:Generator_RowEvArgName="dsMedicionesRowChangeEvent" msprop:Generator_TablePropName="_dsMediciones" msprop:Generator_RowChangedName="dsMedicionesRowChanged" msprop:Generator_RowChangingName="dsMedicionesRowChanging" msprop:Generator_TableClassName="dsMedicionesDataTable" msprop:Generator_RowClassName="dsMedicionesRow" msprop:Generator_TableVarName="tabledsMediciones" msprop:Generator_UserTableName="dsMediciones">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Deportista" msprop:Generator_ColumnPropNameInRow="Deportista" msprop:Generator_ColumnPropNameInTable="DeportistaColumn" msprop:Generator_ColumnVarNameInTable="columnDeportista" msprop:Generator_UserColumnName="Deportista" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaMedicion" msprop:Generator_ColumnPropNameInRow="FechaMedicion" msprop:Generator_ColumnPropNameInTable="FechaMedicionColumn" msprop:Generator_ColumnVarNameInTable="columnFechaMedicion" msprop:Generator_UserColumnName="FechaMedicion" type="xs:string" minOccurs="0" />
+              <xs:element name="Peso" msprop:Generator_ColumnPropNameInRow="Peso" msprop:Generator_ColumnPropNameInTable="PesoColumn" msprop:Generator_ColumnVarNameInTable="columnPeso" msprop:Generator_UserColumnName="Peso" type="xs:string" minOccurs="0" />
+              <xs:element name="Altura" msprop:Generator_ColumnPropNameInRow="Altura" msprop:Generator_ColumnPropNameInTable="AlturaColumn" msprop:Generator_ColumnVarNameInTable="columnAltura" msprop:Generator_UserColumnName="Altura" type="xs:string" minOccurs="0" />
+              <xs:element name="CategoriaEdad" msprop:Generator_ColumnPropNameInRow="CategoriaEdad" msprop:Generator_ColumnPropNameInTable="CategoriaEdadColumn" msprop:Generator_ColumnVarNameInTable="columnCategoriaEdad" msprop:Generator_UserColumnName="CategoriaEdad" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

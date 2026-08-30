@@ -71,6 +71,21 @@
       <DependentUpon>AgregarEjercicio.cs</DependentUpon>
     </Compile>
     <Compile Include="csConectaSQL.cs" />
+    <Compile Include="dsAsignacionesEntrenadores.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAsignacionesEntrenadores.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsBienestar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsBienestar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsCompetencias.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCompetencias.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsDeportistas.cs">
       <DependentUpon>dsDeportistas.xsd</DependentUpon>
     </Compile>
@@ -78,6 +93,49 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDeportistas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsEmpleados.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsEmpleados.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsEntrenadores.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsEntrenadores.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsEntrenamientos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsEntrenamientos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsInscripciones.cs">
+      <DependentUpon>dsInscripciones.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsInscripciones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsInscripciones.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsMediciones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsMediciones.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsParticipantes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsParticipantes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsPruebasFisicas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPruebasFisicas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsResultados.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsResultados.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -698,7 +756,51 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="rptAsignacionesEntrenadores.rdlc" />
+    <EmbeddedResource Include="rptBienestar.rdlc" />
+    <EmbeddedResource Include="rptCompetencias.rdlc" />
     <EmbeddedResource Include="rptDeportistas.rdlc" />
+    <EmbeddedResource Include="rptEmpleados.rdlc" />
+    <EmbeddedResource Include="rptEntrenadores.rdlc" />
+    <EmbeddedResource Include="rptEntrenamientos.rdlc" />
+    <EmbeddedResource Include="rptInscripciones.rdlc" />
+    <EmbeddedResource Include="rptMediciones.rdlc" />
+    <EmbeddedResource Include="rptParticipantes.rdlc" />
+    <EmbeddedResource Include="rptPruebasFisicas.rdlc" />
+    <EmbeddedResource Include="rptResultados.rdlc" />
+    <None Include="dsAsignacionesEntrenadores.xsc">
+      <DependentUpon>dsAsignacionesEntrenadores.xsd</DependentUpon>
+    </None>
+    <None Include="dsAsignacionesEntrenadores.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAsignacionesEntrenadores.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsAsignacionesEntrenadores.xss">
+      <DependentUpon>dsAsignacionesEntrenadores.xsd</DependentUpon>
+    </None>
+    <None Include="dsBienestar.xsc">
+      <DependentUpon>dsBienestar.xsd</DependentUpon>
+    </None>
+    <None Include="dsBienestar.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsBienestar.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsBienestar.xss">
+      <DependentUpon>dsBienestar.xsd</DependentUpon>
+    </None>
+    <None Include="dsCompetencias.xsc">
+      <DependentUpon>dsCompetencias.xsd</DependentUpon>
+    </None>
+    <None Include="dsCompetencias.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCompetencias.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsCompetencias.xss">
+      <DependentUpon>dsCompetencias.xsd</DependentUpon>
+    </None>
     <None Include="dsDeportistas.xsc">
       <DependentUpon>dsDeportistas.xsd</DependentUpon>
     </None>
@@ -709,6 +811,94 @@
     </None>
     <None Include="dsDeportistas.xss">
       <DependentUpon>dsDeportistas.xsd</DependentUpon>
+    </None>
+    <None Include="dsEmpleados.xsc">
+      <DependentUpon>dsEmpleados.xsd</DependentUpon>
+    </None>
+    <None Include="dsEmpleados.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsEmpleados.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsEmpleados.xss">
+      <DependentUpon>dsEmpleados.xsd</DependentUpon>
+    </None>
+    <None Include="dsEntrenadores.xsc">
+      <DependentUpon>dsEntrenadores.xsd</DependentUpon>
+    </None>
+    <None Include="dsEntrenadores.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsEntrenadores.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsEntrenadores.xss">
+      <DependentUpon>dsEntrenadores.xsd</DependentUpon>
+    </None>
+    <None Include="dsEntrenamientos.xsc">
+      <DependentUpon>dsEntrenamientos.xsd</DependentUpon>
+    </None>
+    <None Include="dsEntrenamientos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsEntrenamientos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsEntrenamientos.xss">
+      <DependentUpon>dsEntrenamientos.xsd</DependentUpon>
+    </None>
+    <None Include="dsInscripciones.xsc">
+      <DependentUpon>dsInscripciones.xsd</DependentUpon>
+    </None>
+    <None Include="dsInscripciones.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsInscripciones.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsInscripciones.xss">
+      <DependentUpon>dsInscripciones.xsd</DependentUpon>
+    </None>
+    <None Include="dsMediciones.xsc">
+      <DependentUpon>dsMediciones.xsd</DependentUpon>
+    </None>
+    <None Include="dsMediciones.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsMediciones.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsMediciones.xss">
+      <DependentUpon>dsMediciones.xsd</DependentUpon>
+    </None>
+    <None Include="dsParticipantes.xsc">
+      <DependentUpon>dsParticipantes.xsd</DependentUpon>
+    </None>
+    <None Include="dsParticipantes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsParticipantes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsParticipantes.xss">
+      <DependentUpon>dsParticipantes.xsd</DependentUpon>
+    </None>
+    <None Include="dsPruebasFisicas.xsc">
+      <DependentUpon>dsPruebasFisicas.xsd</DependentUpon>
+    </None>
+    <None Include="dsPruebasFisicas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPruebasFisicas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsPruebasFisicas.xss">
+      <DependentUpon>dsPruebasFisicas.xsd</DependentUpon>
+    </None>
+    <None Include="dsResultados.xsc">
+      <DependentUpon>dsResultados.xsd</DependentUpon>
+    </None>
+    <None Include="dsResultados.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsResultados.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsResultados.xss">
+      <DependentUpon>dsResultados.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

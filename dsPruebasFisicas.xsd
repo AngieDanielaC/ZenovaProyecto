@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsPruebasFisicas" targetNamespace="http://tempuri.org/dsPruebasFisicas.xsd" xmlns:mstns="http://tempuri.org/dsPruebasFisicas.xsd" xmlns="http://tempuri.org/dsPruebasFisicas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsPruebasFisicas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsPruebasFisicas" msprop:Generator_DataSetName="dsPruebasFisicas">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsPruebasFisicas" msprop:Generator_RowEvHandlerName="dsPruebasFisicasRowChangeEventHandler" msprop:Generator_RowDeletedName="dsPruebasFisicasRowDeleted" msprop:Generator_RowDeletingName="dsPruebasFisicasRowDeleting" msprop:Generator_RowEvArgName="dsPruebasFisicasRowChangeEvent" msprop:Generator_TablePropName="_dsPruebasFisicas" msprop:Generator_RowChangedName="dsPruebasFisicasRowChanged" msprop:Generator_RowChangingName="dsPruebasFisicasRowChanging" msprop:Generator_TableClassName="dsPruebasFisicasDataTable" msprop:Generator_RowClassName="dsPruebasFisicasRow" msprop:Generator_TableVarName="tabledsPruebasFisicas" msprop:Generator_UserTableName="dsPruebasFisicas">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Deportista" msprop:Generator_ColumnPropNameInRow="Deportista" msprop:Generator_ColumnPropNameInTable="DeportistaColumn" msprop:Generator_ColumnVarNameInTable="columnDeportista" msprop:Generator_UserColumnName="Deportista" type="xs:string" minOccurs="0" />
+              <xs:element name="Fecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_UserColumnName="Fecha" type="xs:string" minOccurs="0" />
+              <xs:element name="TipoPrueba" msprop:Generator_ColumnPropNameInRow="TipoPrueba" msprop:Generator_ColumnPropNameInTable="TipoPruebaColumn" msprop:Generator_ColumnVarNameInTable="columnTipoPrueba" msprop:Generator_UserColumnName="TipoPrueba" type="xs:string" minOccurs="0" />
+              <xs:element name="PruebaRealizada" msprop:Generator_ColumnPropNameInRow="PruebaRealizada" msprop:Generator_ColumnPropNameInTable="PruebaRealizadaColumn" msprop:Generator_ColumnVarNameInTable="columnPruebaRealizada" msprop:Generator_UserColumnName="PruebaRealizada" type="xs:string" minOccurs="0" />
+              <xs:element name="Duracion" msprop:Generator_ColumnPropNameInRow="Duracion" msprop:Generator_ColumnPropNameInTable="DuracionColumn" msprop:Generator_ColumnVarNameInTable="columnDuracion" msprop:Generator_UserColumnName="Duracion" type="xs:string" minOccurs="0" />
+              <xs:element name="RPE" msprop:Generator_ColumnPropNameInRow="RPE" msprop:Generator_ColumnPropNameInTable="RPEColumn" msprop:Generator_ColumnVarNameInTable="columnRPE" msprop:Generator_UserColumnName="RPE" type="xs:string" minOccurs="0" />
+              <xs:element name="Rendimiento" msprop:Generator_ColumnPropNameInRow="Rendimiento" msprop:Generator_ColumnPropNameInTable="RendimientoColumn" msprop:Generator_ColumnVarNameInTable="columnRendimiento" msprop:Generator_UserColumnName="Rendimiento" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

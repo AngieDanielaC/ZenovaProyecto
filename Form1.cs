@@ -680,20 +680,14 @@ namespace wfZenova
         }
 
 
-        // ==========================================
-        // GESTIÓN DE EMPLEADOS
-        // ==========================================
-        private void btnGestiondeEmpleados_Click(
-            object sender,
-            EventArgs e)
+        private void btnGestiondeEmpleados_Click( object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmGestionEmpleados());
+            OpenChildForm( new frmGestionEmpleados());
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new frmReportes());
         }
 
         private void button2_Click(object sender, EventArgs e)
