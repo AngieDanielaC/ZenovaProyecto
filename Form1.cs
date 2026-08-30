@@ -39,6 +39,7 @@ namespace wfZenova
             // Configurar menú según
             // el usuario que inició sesión
             ConfigurarPermisos();
+            panel1.Visible = false;
         }
 
 
@@ -651,6 +652,7 @@ namespace wfZenova
         {
             OpenChildForm(
                 new frmConsultaAdm());
+            panel1.Visible = !panel1.Visible;
         }
 
 
@@ -688,5 +690,35 @@ namespace wfZenova
             OpenChildForm(
                 new frmGestionEmpleados());
         }
+
+        private void btncon_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmMoniDeportistas()); 
+            panel1.Visible = false;
+        }
+
+        private void btnMonitoreoEntrenador_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = !panel1.Visible;
+        }
+
+        private void btndepormoni_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmControles());
+            panel1.Visible = false;
+        }
+
+        private void btngestiond_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmGestionTecnica());
+            panel1.Visible = false;
+        }
+
+        private void btnregisd_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmRegistroDatosMonitoreo());
+            panel1.Visible = false;
+        }
     }
+    
 }

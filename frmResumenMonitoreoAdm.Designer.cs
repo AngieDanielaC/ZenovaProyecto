@@ -71,7 +71,7 @@
             this.pnlEstadoSeguimiento = new System.Windows.Forms.Panel();
             this.pnlDeportistasRevisar = new System.Windows.Forms.Panel();
             this.lblTextoDeportistasRevisar = new System.Windows.Forms.Label();
-            this.lblDeportistasRevisar = new System.Windows.Forms.Label();
+            this.lblDeportistasPorRevisar = new System.Windows.Forms.Label();
             this.lblPuntoDeportistasRevisar = new System.Windows.Forms.Label();
             this.pnlDeportistasAlDia = new System.Windows.Forms.Panel();
             this.lblDeportistasAlDias = new System.Windows.Forms.Label();
@@ -252,7 +252,7 @@
             this.flpIndicadores.Location = new System.Drawing.Point(20, 210);
             this.flpIndicadores.Name = "flpIndicadores";
             this.flpIndicadores.Padding = new System.Windows.Forms.Padding(5);
-            this.flpIndicadores.Size = new System.Drawing.Size(894, 124);
+            this.flpIndicadores.Size = new System.Drawing.Size(860, 124);
             this.flpIndicadores.TabIndex = 3;
             this.flpIndicadores.WrapContents = false;
             // 
@@ -445,7 +445,7 @@
             this.panel1.Controls.Add(this.lblTituloSsesiones);
             this.panel1.Location = new System.Drawing.Point(20, 340);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(517, 250);
+            this.panel1.Size = new System.Drawing.Size(483, 250);
             this.panel1.TabIndex = 4;
             // 
             // dgvResumenSesiones
@@ -493,7 +493,7 @@
             this.dgvResumenSesiones.RowHeadersVisible = false;
             this.dgvResumenSesiones.RowHeadersWidth = 32;
             this.dgvResumenSesiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResumenSesiones.Size = new System.Drawing.Size(487, 180);
+            this.dgvResumenSesiones.Size = new System.Drawing.Size(453, 180);
             this.dgvResumenSesiones.TabIndex = 1;
             // 
             // colPeriodo
@@ -561,7 +561,7 @@
             // 
             this.pnlDeportistasRevisar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlDeportistasRevisar.Controls.Add(this.lblTextoDeportistasRevisar);
-            this.pnlDeportistasRevisar.Controls.Add(this.lblDeportistasRevisar);
+            this.pnlDeportistasRevisar.Controls.Add(this.lblDeportistasPorRevisar);
             this.pnlDeportistasRevisar.Controls.Add(this.lblPuntoDeportistasRevisar);
             this.pnlDeportistasRevisar.Location = new System.Drawing.Point(265, 155);
             this.pnlDeportistasRevisar.Name = "pnlDeportistasRevisar";
@@ -578,16 +578,16 @@
             this.lblTextoDeportistasRevisar.TabIndex = 2;
             this.lblTextoDeportistasRevisar.Text = "Deportistas por revisar";
             // 
-            // lblDeportistasRevisar
+            // lblDeportistasPorRevisar
             // 
-            this.lblDeportistasRevisar.AutoSize = true;
-            this.lblDeportistasRevisar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeportistasRevisar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(43)))), ((int)(((byte)(105)))));
-            this.lblDeportistasRevisar.Location = new System.Drawing.Point(55, 9);
-            this.lblDeportistasRevisar.Name = "lblDeportistasRevisar";
-            this.lblDeportistasRevisar.Size = new System.Drawing.Size(21, 23);
-            this.lblDeportistasRevisar.TabIndex = 1;
-            this.lblDeportistasRevisar.Text = "0";
+            this.lblDeportistasPorRevisar.AutoSize = true;
+            this.lblDeportistasPorRevisar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeportistasPorRevisar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(43)))), ((int)(((byte)(105)))));
+            this.lblDeportistasPorRevisar.Location = new System.Drawing.Point(55, 9);
+            this.lblDeportistasPorRevisar.Name = "lblDeportistasPorRevisar";
+            this.lblDeportistasPorRevisar.Size = new System.Drawing.Size(21, 23);
+            this.lblDeportistasPorRevisar.TabIndex = 1;
+            this.lblDeportistasPorRevisar.Text = "0";
             // 
             // lblPuntoDeportistasRevisar
             // 
@@ -843,6 +843,7 @@
             this.btnVerTodasAlertas.TabIndex = 1;
             this.btnVerTodasAlertas.Text = "Ver todas";
             this.btnVerTodasAlertas.UseVisualStyleBackColor = true;
+            this.btnVerTodasAlertas.Click += new System.EventHandler(this.btnVerTodasAlertas_Click);
             // 
             // lblTituloAlertas
             // 
@@ -960,7 +961,7 @@
         private System.Windows.Forms.Label lblPuntoEntrenadoresPendientes;
         private System.Windows.Forms.Panel pnlDeportistasRevisar;
         private System.Windows.Forms.Label lblTextoDeportistasRevisar;
-        private System.Windows.Forms.Label lblDeportistasRevisar;
+        private System.Windows.Forms.Label lblDeportistasPorRevisar;
         private System.Windows.Forms.Label lblPuntoDeportistasRevisar;
         private System.Windows.Forms.Panel pnlDeportistasAlDia;
         private System.Windows.Forms.Label lblDeportistasAlDias;
