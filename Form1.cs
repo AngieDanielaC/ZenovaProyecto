@@ -5,470 +5,244 @@ namespace wfZenova
 {
     public partial class Form1 : Form
     {
-        // FORMULARIO ACTUAL
         private Form currentForm = null;
         private Form formularioActivo = null;
 
-        // CONSTRUCTOR
         public Form1()
         {
             InitializeComponent();
         }
 
-        // LOAD
-        private void Form1_Load(
-            object sender,
-            EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            // Los submenús empiezan cerrados
-            panelSubBienestar.Visible =
-                false;
-
-            PanelSubMenoMonitoreo.Visible =
-                false;
-
-
-            // Configurar menú según
-            // el usuario que inició sesión
-            ConfigurarPermisos();
+            panelSubBienestar.Visible = false;
+            PanelSubMenoMonitoreo.Visible = false;
             panel1.Visible = false;
+
+            ConfigurarPermisos();
+
+            OpenChildForm(new frmInicio());
         }
 
-        // CONFIGURAR PERMISOS
         private void ConfigurarPermisos()
         {
-            // PRIMERO OCULTAMOS TODO
             OcultarTodosLosModulos();
 
-            // ESTOS SON PARA TODOS
-            btnCerrar.Visible =
-                true;
+            btnCerrar.Visible = true;
+            btnReportes.Visible = true;
 
-            btnReportes.Visible =
-                true;
+            string rol = frmInicioDeSesion.NombreRolActual;
 
-            // ROL ACTUAL
-            string rol =
-                frmInicioDeSesion
-                .NombreRolActual;
+            if (rol == null) rol = "";
 
+            rol = rol.Trim();
 
-            if (rol == null)
-            {
-                rol = "";
-            }
-
-
-            rol =
-                rol.Trim();
-
-            // ADMINISTRADOR
-            if (rol.Equals(
-                "Administrador",
-                StringComparison.OrdinalIgnoreCase))
+            if (rol.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
             {
                 MenuAdministrador();
             }
-
-            // SECRETARÍA
-            else if (
-                rol.Equals(
-                    "Secretaria",
-                    StringComparison.OrdinalIgnoreCase)
-                ||
-                rol.Equals(
-                    "Secretaría",
-                    StringComparison.OrdinalIgnoreCase))
+            else if (rol.Equals("Secretaria", StringComparison.OrdinalIgnoreCase) ||
+                     rol.Equals("Secretaría", StringComparison.OrdinalIgnoreCase))
             {
                 MenuSecretaria();
             }
-
-            // COORDINADOR DE COMPETENCIAS
-            else if (
-                rol.Equals(
-                    "Coordinador de Competencias",
-                    StringComparison.OrdinalIgnoreCase)
-                ||
-                rol.Equals(
-                    "Organizador/Coordinador de Competencias",
-                    StringComparison.OrdinalIgnoreCase))
+            else if (rol.Equals("Coordinador de Competencias", StringComparison.OrdinalIgnoreCase) ||
+                     rol.Equals("Organizador/Coordinador de Competencias", StringComparison.OrdinalIgnoreCase))
             {
                 MenuCoordinadorCompetencias();
             }
-
-            // ENTRENADOR
-            else if (rol.Equals(
-                "Entrenador",
-                StringComparison.OrdinalIgnoreCase))
+            else if (rol.Equals("Entrenador", StringComparison.OrdinalIgnoreCase))
             {
                 MenuEntrenador();
             }
-
-            // ROL DESCONOCIDO
             else
             {
                 MessageBox.Show(
                     "El usuario no tiene un rol válido asignado.\n\n" +
-                    "Rol recibido: " +
-                    rol,
+                    "Rol recibido: " + rol,
                     "ZENOVA",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
             }
         }
 
-        // OCULTAR TODOS LOS MÓDULOS
         private void OcultarTodosLosModulos()
         {
-            // GENERALES
-            btnInicio.Visible =
-                false;
+            btnInicio.Visible = false;
+            btnReportes.Visible = false;
+            btnBienestar.Visible = false;
+            panelSubBienestar.Visible = false;
+            button1.Visible = false;
+            btnEntrenamientos.Visible = false;
 
-            btnReportes.Visible =
-                false;
+            btnMonitoreo.Visible = false;
+            PanelSubMenoMonitoreo.Visible = false;
 
-            // ENTRENADOR
+            btnMonitoreoEntrenador.Visible = false;
+            panel1.Visible = false;
 
-            btnBienestar.Visible =
-                false;
-
-            panelSubBienestar.Visible =
-                false;
-
-            button1.Visible =
-                false;
-
-            btnEntrenamientos.Visible =
-                false;
-
-            btnMonitoreo.Visible =
-                false;
-
-            PanelSubMenoMonitoreo.Visible =
-                false;
-
-            btnDeportistas.Visible =
-                false;
-
-            // COORDINADOR
-            btnCompetencias.Visible =
-                false;
-
-            // ADMINISTRATIVOS
-            btnAsignacionAdm.Visible =
-                false;
-
-            btnDeportistasAdm.Visible =
-                false;
-
-            btnEntrenadoresAdm.Visible =
-                false;
-
-            btnGestiondeEmpleados.Visible =
-                false;
-
-            btnGestionDeUsuarios.Visible =
-                false;
-
-            btnConsultaAdm.Visible =
-                false;
+            btnDeportistas.Visible = false;
+            btnCompetencias.Visible = false;
+            btnAsignacionAdm.Visible = false;
+            btnDeportistasAdm.Visible = false;
+            btnEntrenadoresAdm.Visible = false;
+            btnGestiondeEmpleados.Visible = false;
+            btnGestionDeUsuarios.Visible = false;
         }
 
-        // ADMINISTRADOR
-        // ACCESO A TODO
         private void MenuAdministrador()
         {
-            // GENERAL
-            btnInicio.Visible =
-                true;
+            btnInicio.Visible = true;
+            btnReportes.Visible = true;
+            btnBienestar.Visible = true;
+            button1.Visible = true;
+            btnEntrenamientos.Visible = true;
 
-            btnReportes.Visible =
-                true;
+            btnMonitoreo.Visible = true;
+            PanelSubMenoMonitoreo.Visible = false;
 
-            // ENTRENADOR          
-            btnBienestar.Visible =
-                true;
+            btnMonitoreoEntrenador.Visible = false;
+            panel1.Visible = false;
 
-            button1.Visible =
-                true;
+            btnDeportistas.Visible = true;
+            btnCompetencias.Visible = true;
+            btnAsignacionAdm.Visible = true;
+            btnDeportistasAdm.Visible = true;
+            btnEntrenadoresAdm.Visible = true;
+            btnGestiondeEmpleados.Visible = true;
+            btnGestionDeUsuarios.Visible = true;
 
-            btnEntrenamientos.Visible =
-                true;
-
-            btnMonitoreo.Visible =
-                true;
-
-            btnDeportistas.Visible =
-                true;
-
-
-            // Los submenús permanecen cerrados
-            // hasta hacer clic
-            panelSubBienestar.Visible =
-                false;
-
-            PanelSubMenoMonitoreo.Visible =
-                false;
-
-            // COMPETENCIAS
-            btnCompetencias.Visible =
-                true;
-
-
-            // ADMINISTRACIÓN
-            btnAsignacionAdm.Visible =
-                true;
-
-            btnDeportistasAdm.Visible =
-                true;
-
-            btnEntrenadoresAdm.Visible =
-                true;
-
-            btnGestiondeEmpleados.Visible =
-                true;
-
-            btnGestionDeUsuarios.Visible =
-                true;
-
-            btnConsultaAdm.Visible =
-                true;
+            panelSubBienestar.Visible = false;
         }
 
-        // SECRETARÍA
-        // BOTONES ROSA
         private void MenuSecretaria()
         {
-            btnInicio.Visible =
-                true;
+            btnInicio.Visible = true;
+            btnReportes.Visible = true;
+            btnAsignacionAdm.Visible = true;
+            btnDeportistasAdm.Visible = true;
+            btnEntrenadoresAdm.Visible = true;
+            btnGestiondeEmpleados.Visible = true;
+            btnGestionDeUsuarios.Visible = true;
 
-            btnReportes.Visible =
-                true;
-
-
-            btnAsignacionAdm.Visible =
-                true;
-
-            btnDeportistasAdm.Visible =
-                true;
-
-            btnEntrenadoresAdm.Visible =
-                true;
-
-            btnGestiondeEmpleados.Visible =
-                true;
-
-            btnGestionDeUsuarios.Visible =
-                true;
+            btnMonitoreo.Visible = false;
+            btnMonitoreoEntrenador.Visible = false;
         }
 
-        // COORDINADOR DE COMPETENCIAS
-        // BOTONES AMARILLOS
         private void MenuCoordinadorCompetencias()
         {
-            btnInicio.Visible =
-                true;
+            btnInicio.Visible = true;
+            btnReportes.Visible = true;
+            btnCompetencias.Visible = true;
 
-            btnReportes.Visible =
-                true;
-
-            btnCompetencias.Visible =
-                true;
+            btnMonitoreo.Visible = false;
+            btnMonitoreoEntrenador.Visible = false;
         }
 
-        // ENTRENADOR
-        // BOTONES AZULES
         private void MenuEntrenador()
         {
-            btnInicio.Visible =
-                true;
+            btnInicio.Visible = true;
+            btnReportes.Visible = true;
+            btnDeportistas.Visible = true;
+            btnEntrenamientos.Visible = true;
+            button1.Visible = true;
+            btnBienestar.Visible = true;
 
-            btnReportes.Visible =
-                true;
+            btnMonitoreo.Visible = false;
+            PanelSubMenoMonitoreo.Visible = false;
 
-            // DEPORTISTAS
-            btnDeportistas.Visible =
-                true;
+            btnMonitoreoEntrenador.Visible = true;
+            panel1.Visible = false;
 
-            // MONITOREO
-            btnMonitoreo.Visible =
-                true;
-
-            PanelSubMenoMonitoreo.Visible =
-                false;
-
-            // ENTRENAMIENTOS
-            btnEntrenamientos.Visible =
-                true;
-
-            // COMPETENCIAS ENTRENADOR
-            // button1 abre frmCompetenciasEntrenador
-            button1.Visible =
-                true;
-
-            // BIENESTAR
-            btnBienestar.Visible =
-                true;
-
-            panelSubBienestar.Visible =
-                false;
-
+            panelSubBienestar.Visible = false;
         }
 
-        // ABRIR FORMULARIO HIJO
-        private void OpenChildForm(
-            Form childForm)
+        private void OpenChildForm(Form childForm)
         {
-            if (currentForm != null)
-            {
-                currentForm.Close();
-            }
+            if (currentForm != null) currentForm.Close();
 
-
-            currentForm =
-                childForm;
-
-
-            childForm.TopLevel =
-                false;
-
-            childForm.FormBorderStyle =
-                FormBorderStyle.None;
-
-            childForm.Dock =
-                DockStyle.Fill;
-
+            currentForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
 
             PanelChildForm.Controls.Clear();
-
-            PanelChildForm.Controls.Add(
-                childForm);
-
-            PanelChildForm.Tag =
-                childForm;
-
+            PanelChildForm.Controls.Add(childForm);
+            PanelChildForm.Tag = childForm;
 
             childForm.BringToFront();
-
             childForm.Show();
         }
 
-        // MONITOREO
-        private void btnMonitoreo_Click(
-            object sender,
-            EventArgs e)
+        private void btnMonitoreo_Click(object sender, EventArgs e)
         {
-            PanelSubMenoMonitoreo.Visible =
-                !PanelSubMenoMonitoreo.Visible;
+            PanelSubMenoMonitoreo.Visible = !PanelSubMenoMonitoreo.Visible;
 
-
-            // Si abrimos monitoreo,
-            // cerramos bienestar
             if (PanelSubMenoMonitoreo.Visible)
             {
-                panelSubBienestar.Visible =
-                    false;
+                panelSubBienestar.Visible = false;
+                panel1.Visible = false;
             }
         }
 
-
-        private void btnControl_Click(
-            object sender,
-            EventArgs e)
+        private void btnControl_Click(object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmResumenMonitoreoAdm());
+            OpenChildForm(new frmResumenMonitoreoAdm());
         }
 
-
-        private void btnDepor_Click(
-            object sender,
-            EventArgs e)
+        private void btnDepor_Click(object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmMonitoreoEntrenadores());
+            OpenChildForm(new frmMonitoreoEntrenadores());
         }
 
-
-        private void btnGestion_Click(
-            object sender,
-            EventArgs e)
+        private void btnGestion_Click(object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmMonitoreoDeportistas());
+            OpenChildForm(new frmMonitoreoDeportistas());
         }
 
-
-        private void btnRegistrodeDatos_Click(
-            object sender,
-            EventArgs e)
+        private void btnRegistrodeDatos_Click(object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmAlertasMonitoreo());
+            OpenChildForm(new frmAlertasMonitoreo());
         }
 
-        // BIENESTAR
-        private void btnBienestar_Click(
-            object sender,
-            EventArgs e)
+        private void btnBienestar_Click(object sender, EventArgs e)
         {
-            panelSubBienestar.Visible =
-                !panelSubBienestar.Visible;
+            panelSubBienestar.Visible = !panelSubBienestar.Visible;
 
-
-            // Si abrimos bienestar,
-            // cerramos monitoreo
             if (panelSubBienestar.Visible)
             {
-                PanelSubMenoMonitoreo.Visible =
-                    false;
+                PanelSubMenoMonitoreo.Visible = false;
+                panel1.Visible = false;
             }
         }
 
-
-        private void btnRiesgo_Click(
-            object sender,
-            EventArgs e)
+        private void btnRiesgo_Click(object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmRiego());
+            OpenChildForm(new frmRiego());
         }
 
-
-        private void btnGasto_Click(
-            object sender,
-            EventArgs e)
+        private void btnGasto_Click(object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmGastoCalorico());
+            OpenChildForm(new frmGastoCalorico());
         }
 
-
-        private void btnVisualizar_Click(
-            object sender,
-            EventArgs e)
+        private void btnVisualizar_Click(object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmVisualizarDatosBienestar());
+            OpenChildForm(new frmVisualizarDatosBienestar());
         }
 
-        // INICIO
-        private void btnInicio_Click(
-            object sender,
-            EventArgs e)
+        private void btnInicio_Click(object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmInicio());
+            OpenChildForm(new frmInicio());
         }
 
-        // DEPORTISTAS ENTRENADOR
-        private void btnDeportistas_Click(
-            object sender,
-            EventArgs e)
+        private void btnDeportistas_Click(object sender, EventArgs e)
         {
-            if (frmInicioDeSesion.NombreRolActual == "Entrenador" && frmInicioDeSesion.IdEntrenadorActual.HasValue)
+            if (frmInicioDeSesion.NombreRolActual == "Entrenador" &&
+                frmInicioDeSesion.IdEntrenadorActual.HasValue)
             {
-                OpenChildForm(new frmDeportistas(frmInicioDeSesion.IdEntrenadorActual.Value));
+                OpenChildForm(new frmDeportistas(
+                    frmInicioDeSesion.IdEntrenadorActual.Value));
             }
             else
             {
@@ -476,80 +250,49 @@ namespace wfZenova
             }
         }
 
-
-        // ENTRENAMIENTOS
-        private void btnEntrenamientos_Click(
-            object sender,
-            EventArgs e)
+        private void btnEntrenamientos_Click(object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmEntrenamientos());
+            OpenChildForm(new frmEntrenamientos());
         }
 
-
-        // COMPETENCIAS
-        // ADMIN / COORDINADOR
-        private void btnCompetencias_Click(
-            object sender,
-            EventArgs e)
+        private void btnCompetencias_Click(object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmCompetencias());
+            OpenChildForm(new frmCompetencias());
         }
 
-        // DEPORTISTAS ADMINISTRACIÓN
-        private void btnDeportistasAdm_Click(
-            object sender,
-            EventArgs e)
+        private void btnDeportistasAdm_Click(object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmDepAdm());
+            OpenChildForm(new frmDepAdm());
         }
 
-        // ENTRENADORES ADMINISTRACIÓN
-        private void btnEntrenadoresAdm_Click(
-            object sender,
-            EventArgs e)
+        private void btnEntrenadoresAdm_Click(object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmEntrenadorAdm());
+            OpenChildForm(new frmEntrenadorAdm());
         }
 
-        // ASIGNACIONES
-        private void btnAsignacionAdm_Click(
-            object sender,
-            EventArgs e)
+        private void btnAsignacionAdm_Click(object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmAsignacionesAdm());
+            OpenChildForm(new frmAsignacionesAdm());
         }
 
-        // CONSULTAS
-        // SOLO ADMINISTRADOR
-        private void btnConsultaAdm_Click(
-            object sender,
-            EventArgs e)
+        private void btnConsultaAdm_Click(object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmConsultaAdm());
+            OpenChildForm(new frmConsultaAdm());
             panel1.Visible = !panel1.Visible;
         }
 
-        // GESTIÓN DE USUARIOS
-        private void btnGestionDeUsuarios_Click(
-            object sender,
-            EventArgs e)
+        private void btnGestionDeUsuarios_Click(object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmGestionDeUsuarios());
+            OpenChildForm(new frmGestionDeUsuarios());
         }
 
-        // COMPETENCIAS ENTRENADOR
-        private void button1_Click( object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (frmInicioDeSesion.NombreRolActual == "Entrenador" && frmInicioDeSesion.IdEntrenadorActual.HasValue)
+            if (frmInicioDeSesion.NombreRolActual == "Entrenador" &&
+                frmInicioDeSesion.IdEntrenadorActual.HasValue)
             {
-                OpenChildForm(new frmCompetenciasEntrenador(frmInicioDeSesion.IdEntrenadorActual.Value));
+                OpenChildForm(new frmCompetenciasEntrenador(
+                    frmInicioDeSesion.IdEntrenadorActual.Value));
             }
             else
             {
@@ -557,10 +300,9 @@ namespace wfZenova
             }
         }
 
-
-        private void btnGestiondeEmpleados_Click( object sender, EventArgs e)
+        private void btnGestiondeEmpleados_Click(object sender, EventArgs e)
         {
-            OpenChildForm( new frmGestionEmpleados());
+            OpenChildForm(new frmGestionEmpleados());
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
@@ -570,19 +312,28 @@ namespace wfZenova
 
         private void button2_Click(object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmCronogramaEntrenador(frmInicioDeSesion.IdEntrenadorActual.Value));
+            if (frmInicioDeSesion.IdEntrenadorActual.HasValue)
+            {
+                OpenChildForm(new frmCronogramaEntrenador(
+                    frmInicioDeSesion.IdEntrenadorActual.Value));
+            }
         }
 
         private void btncon_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmMoniDeportistas()); 
+            OpenChildForm(new frmMoniDeportistas());
             panel1.Visible = false;
         }
 
         private void btnMonitoreoEntrenador_Click(object sender, EventArgs e)
         {
             panel1.Visible = !panel1.Visible;
+
+            if (panel1.Visible)
+            {
+                PanelSubMenoMonitoreo.Visible = false;
+                panelSubBienestar.Visible = false;
+            }
         }
 
         private void btndepormoni_Click(object sender, EventArgs e)
@@ -610,8 +361,17 @@ namespace wfZenova
 
         private void btnConsultaAdm_Click_1(object sender, EventArgs e)
         {
+        }
 
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            frmInicioDeSesion frm = new frmInicioDeSesion();
+            frm.Show();
+            this.Close();
+        }
+
+        private void PanelChildForm_Paint(object sender, PaintEventArgs e)
+        {
         }
     }
-    
 }

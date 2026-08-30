@@ -307,23 +307,27 @@ namespace wfZenova
 
         private void CargarPruebaFisica(int idDeportista)
         {
-            string consulta = "select top 1 " + "Rendimiento, NivelTecnico " + "from PruebasFisicas " + "where IdDeportista = " +
-                idDeportista + " order by Fecha desc, IdPrueba desc";
+            string consulta = "select top 1 Rendimiento, NivelTecnico " +
+                              "from PruebasFisicas " +
+                              "where IdDeportista = " + idDeportista +
+                              " order by Fecha desc, IdPrueba desc";
 
             DataTable datos = conSQL.RetornaRegistros(consulta);
 
             if (datos != null && datos.Rows.Count > 0)
             {
-                decimal rendimiento = Convert.ToDecimal( datos.Rows[0]["Rendimiento"]);
+                decimal rendimiento = datos.Rows[0]["Rendimiento"] == DBNull.Value
+                    ? 0
+                    : Convert.ToDecimal(datos.Rows[0]["Rendimiento"]);
 
-                decimal nivelTecnico = Convert.ToDecimal( datos.Rows[0]["NivelTecnico"]);
+                decimal nivelTecnico = datos.Rows[0]["NivelTecnico"] == DBNull.Value
+                    ? 0
+                    : Convert.ToDecimal(datos.Rows[0]["NivelTecnico"]);
 
                 label29.Text = rendimiento.ToString("0") + "%";
-
                 label35.Text = nivelTecnico.ToString("0.0") + " / 10";
 
-                int ancho = Convert.ToInt32( panel2.Width *rendimiento / 100);
-
+                int ancho = Convert.ToInt32(panel2.Width * rendimiento / 100);
                 panel3.Width = Math.Min(panel2.Width, ancho);
             }
             else

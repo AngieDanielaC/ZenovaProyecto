@@ -1200,6 +1200,11 @@
     <None Include="Resources\InicioImagen2.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icoAsistencia.png" />
+    <None Include="Resources\icoCro.png" />
+    <None Include="Resources\icoGestionUsuarios.png" />
+    <None Include="Resources\icoGestionUsuarios2.png" />
+    <None Include="Resources\icoCro2.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

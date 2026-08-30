@@ -29,40 +29,40 @@
         private void InitializeComponent()
         {
             this.pnlMenuLateral = new System.Windows.Forms.Panel();
-            this.btnAsistencia = new System.Windows.Forms.Button();
-            this.btnCronograma = new System.Windows.Forms.Button();
-            this.btnReportes = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnregisd = new System.Windows.Forms.Button();
             this.btngestiond = new System.Windows.Forms.Button();
             this.btndepormoni = new System.Windows.Forms.Button();
             this.btncon = new System.Windows.Forms.Button();
             this.btnMonitoreoEntrenador = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.panelSubBienestar = new System.Windows.Forms.Panel();
             this.btnVisualizar = new System.Windows.Forms.Button();
             this.btnGasto = new System.Windows.Forms.Button();
             this.btnRiesgo = new System.Windows.Forms.Button();
-            this.btnBienestar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnCompetencias = new System.Windows.Forms.Button();
-            this.btnEntrenamientos = new System.Windows.Forms.Button();
             this.PanelSubMenoMonitoreo = new System.Windows.Forms.Panel();
             this.btnRegistrodeDatos = new System.Windows.Forms.Button();
             this.btnGestion = new System.Windows.Forms.Button();
             this.btnDepor = new System.Windows.Forms.Button();
             this.btnControl = new System.Windows.Forms.Button();
+            this.btnGestiondeEmpleados = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.PanelChildForm = new System.Windows.Forms.Panel();
+            this.btnReportes = new System.Windows.Forms.Button();
+            this.btnAsistencia = new System.Windows.Forms.Button();
+            this.btnCronograma = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnBienestar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnCompetencias = new System.Windows.Forms.Button();
+            this.btnEntrenamientos = new System.Windows.Forms.Button();
             this.btnMonitoreo = new System.Windows.Forms.Button();
             this.btnDeportistas = new System.Windows.Forms.Button();
             this.btnAsignacionAdm = new System.Windows.Forms.Button();
             this.btnDeportistasAdm = new System.Windows.Forms.Button();
             this.btnEntrenadoresAdm = new System.Windows.Forms.Button();
-            this.btnGestiondeEmpleados = new System.Windows.Forms.Button();
             this.btnGestionDeUsuarios = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
-            this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.PanelChildForm = new System.Windows.Forms.Panel();
             this.pnlMenuLateral.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelSubBienestar.SuspendLayout();
@@ -75,9 +75,9 @@
             // 
             this.pnlMenuLateral.AutoScroll = true;
             this.pnlMenuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(63)))), ((int)(((byte)(112)))));
+            this.pnlMenuLateral.Controls.Add(this.btnReportes);
             this.pnlMenuLateral.Controls.Add(this.btnAsistencia);
             this.pnlMenuLateral.Controls.Add(this.btnCronograma);
-            this.pnlMenuLateral.Controls.Add(this.btnReportes);
             this.pnlMenuLateral.Controls.Add(this.panel1);
             this.pnlMenuLateral.Controls.Add(this.btnMonitoreoEntrenador);
             this.pnlMenuLateral.Controls.Add(this.btnCerrar);
@@ -101,63 +101,6 @@
             this.pnlMenuLateral.Name = "pnlMenuLateral";
             this.pnlMenuLateral.Size = new System.Drawing.Size(250, 749);
             this.pnlMenuLateral.TabIndex = 0;
-            // 
-            // btnAsistencia
-            // 
-            this.btnAsistencia.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAsistencia.FlatAppearance.BorderSize = 0;
-            this.btnAsistencia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.btnAsistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAsistencia.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsistencia.ForeColor = System.Drawing.Color.White;
-            this.btnAsistencia.Image = global::wfZenova.Properties.Resources._6;
-            this.btnAsistencia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAsistencia.Location = new System.Drawing.Point(0, 1205);
-            this.btnAsistencia.Name = "btnAsistencia";
-            this.btnAsistencia.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnAsistencia.Size = new System.Drawing.Size(233, 45);
-            this.btnAsistencia.TabIndex = 23;
-            this.btnAsistencia.Text = "Asistencia";
-            this.btnAsistencia.UseVisualStyleBackColor = true;
-            this.btnAsistencia.Click += new System.EventHandler(this.btnAsistencia_Click);
-            // 
-            // btnCronograma
-            // 
-            this.btnCronograma.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCronograma.FlatAppearance.BorderSize = 0;
-            this.btnCronograma.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.btnCronograma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCronograma.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCronograma.ForeColor = System.Drawing.Color.White;
-            this.btnCronograma.Image = global::wfZenova.Properties.Resources._5;
-            this.btnCronograma.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCronograma.Location = new System.Drawing.Point(0, 1160);
-            this.btnCronograma.Name = "btnCronograma";
-            this.btnCronograma.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnCronograma.Size = new System.Drawing.Size(233, 45);
-            this.btnCronograma.TabIndex = 20;
-            this.btnCronograma.Text = "Cronograma";
-            this.btnCronograma.UseVisualStyleBackColor = true;
-            this.btnCronograma.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnReportes
-            // 
-            this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReportes.FlatAppearance.BorderSize = 0;
-            this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportes.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportes.ForeColor = System.Drawing.Color.White;
-            this.btnReportes.Image = global::wfZenova.Properties.Resources._6;
-            this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(0, 1115);
-            this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnReportes.Size = new System.Drawing.Size(233, 45);
-            this.btnReportes.TabIndex = 22;
-            this.btnReportes.Text = "Reportes";
-            this.btnReportes.UseVisualStyleBackColor = true;
-            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // panel1
             // 
@@ -263,24 +206,6 @@
             this.btnMonitoreoEntrenador.UseVisualStyleBackColor = true;
             this.btnMonitoreoEntrenador.Click += new System.EventHandler(this.btnMonitoreoEntrenador_Click);
             // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.Image = global::wfZenova.Properties.Resources._9;
-            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrar.Location = new System.Drawing.Point(0, 1250);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnCerrar.Size = new System.Drawing.Size(233, 45);
-            this.btnCerrar.TabIndex = 11;
-            this.btnCerrar.Text = "Cerrar Sesión";
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            // 
             // panelSubBienestar
             // 
             this.panelSubBienestar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(81)))), ((int)(((byte)(132)))));
@@ -347,82 +272,6 @@
             this.btnRiesgo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRiesgo.UseVisualStyleBackColor = true;
             this.btnRiesgo.Click += new System.EventHandler(this.btnRiesgo_Click);
-            // 
-            // btnBienestar
-            // 
-            this.btnBienestar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBienestar.FlatAppearance.BorderSize = 0;
-            this.btnBienestar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.btnBienestar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBienestar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBienestar.ForeColor = System.Drawing.Color.White;
-            this.btnBienestar.Image = global::wfZenova.Properties.Resources._7;
-            this.btnBienestar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBienestar.Location = new System.Drawing.Point(0, 743);
-            this.btnBienestar.Name = "btnBienestar";
-            this.btnBienestar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnBienestar.Size = new System.Drawing.Size(233, 45);
-            this.btnBienestar.TabIndex = 7;
-            this.btnBienestar.Text = "Bienestar";
-            this.btnBienestar.UseVisualStyleBackColor = true;
-            this.btnBienestar.Click += new System.EventHandler(this.btnBienestar_Click);
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::wfZenova.Properties.Resources._4;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 698);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(233, 45);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Competencias";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnCompetencias
-            // 
-            this.btnCompetencias.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCompetencias.FlatAppearance.BorderSize = 0;
-            this.btnCompetencias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.btnCompetencias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCompetencias.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCompetencias.ForeColor = System.Drawing.Color.White;
-            this.btnCompetencias.Image = global::wfZenova.Properties.Resources._4;
-            this.btnCompetencias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCompetencias.Location = new System.Drawing.Point(0, 653);
-            this.btnCompetencias.Name = "btnCompetencias";
-            this.btnCompetencias.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnCompetencias.Size = new System.Drawing.Size(233, 45);
-            this.btnCompetencias.TabIndex = 6;
-            this.btnCompetencias.Text = "Gestión de \r\nCompetencias";
-            this.btnCompetencias.UseVisualStyleBackColor = true;
-            this.btnCompetencias.Click += new System.EventHandler(this.btnCompetencias_Click);
-            // 
-            // btnEntrenamientos
-            // 
-            this.btnEntrenamientos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEntrenamientos.FlatAppearance.BorderSize = 0;
-            this.btnEntrenamientos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.btnEntrenamientos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEntrenamientos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntrenamientos.ForeColor = System.Drawing.Color.White;
-            this.btnEntrenamientos.Image = global::wfZenova.Properties.Resources._3;
-            this.btnEntrenamientos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEntrenamientos.Location = new System.Drawing.Point(0, 608);
-            this.btnEntrenamientos.Name = "btnEntrenamientos";
-            this.btnEntrenamientos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnEntrenamientos.Size = new System.Drawing.Size(233, 45);
-            this.btnEntrenamientos.TabIndex = 5;
-            this.btnEntrenamientos.Text = "Entrenamientos";
-            this.btnEntrenamientos.UseVisualStyleBackColor = true;
-            this.btnEntrenamientos.Click += new System.EventHandler(this.btnEntrenamientos_Click);
             // 
             // PanelSubMenoMonitoreo
             // 
@@ -509,6 +358,198 @@
             this.btnControl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnControl.UseVisualStyleBackColor = true;
             this.btnControl.Click += new System.EventHandler(this.btnControl_Click);
+            // 
+            // btnGestiondeEmpleados
+            // 
+            this.btnGestiondeEmpleados.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGestiondeEmpleados.FlatAppearance.BorderSize = 0;
+            this.btnGestiondeEmpleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
+            this.btnGestiondeEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestiondeEmpleados.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestiondeEmpleados.ForeColor = System.Drawing.Color.White;
+            this.btnGestiondeEmpleados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGestiondeEmpleados.Location = new System.Drawing.Point(0, 173);
+            this.btnGestiondeEmpleados.Name = "btnGestiondeEmpleados";
+            this.btnGestiondeEmpleados.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnGestiondeEmpleados.Size = new System.Drawing.Size(233, 45);
+            this.btnGestiondeEmpleados.TabIndex = 19;
+            this.btnGestiondeEmpleados.Text = "Gestión de Empleados";
+            this.btnGestiondeEmpleados.UseVisualStyleBackColor = true;
+            this.btnGestiondeEmpleados.Click += new System.EventHandler(this.btnGestiondeEmpleados_Click);
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.AutoScroll = true;
+            this.panelLogo.BackColor = System.Drawing.Color.White;
+            this.panelLogo.Controls.Add(this.pictureBox1);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(233, 83);
+            this.panelLogo.TabIndex = 0;
+            // 
+            // PanelChildForm
+            // 
+            this.PanelChildForm.BackColor = System.Drawing.Color.White;
+            this.PanelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelChildForm.ForeColor = System.Drawing.Color.White;
+            this.PanelChildForm.Location = new System.Drawing.Point(250, 0);
+            this.PanelChildForm.Name = "PanelChildForm";
+            this.PanelChildForm.Size = new System.Drawing.Size(1033, 749);
+            this.PanelChildForm.TabIndex = 1;
+            this.PanelChildForm.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelChildForm_Paint);
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportes.FlatAppearance.BorderSize = 0;
+            this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.ForeColor = System.Drawing.Color.White;
+            this.btnReportes.Image = global::wfZenova.Properties.Resources._6;
+            this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportes.Location = new System.Drawing.Point(0, 1205);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnReportes.Size = new System.Drawing.Size(233, 45);
+            this.btnReportes.TabIndex = 22;
+            this.btnReportes.Text = "Reportes";
+            this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
+            // 
+            // btnAsistencia
+            // 
+            this.btnAsistencia.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAsistencia.FlatAppearance.BorderSize = 0;
+            this.btnAsistencia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
+            this.btnAsistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsistencia.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsistencia.ForeColor = System.Drawing.Color.White;
+            this.btnAsistencia.Image = global::wfZenova.Properties.Resources.icoAsistencia;
+            this.btnAsistencia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAsistencia.Location = new System.Drawing.Point(0, 1160);
+            this.btnAsistencia.Name = "btnAsistencia";
+            this.btnAsistencia.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnAsistencia.Size = new System.Drawing.Size(233, 45);
+            this.btnAsistencia.TabIndex = 23;
+            this.btnAsistencia.Text = "Asistencia";
+            this.btnAsistencia.UseVisualStyleBackColor = true;
+            this.btnAsistencia.Click += new System.EventHandler(this.btnAsistencia_Click);
+            // 
+            // btnCronograma
+            // 
+            this.btnCronograma.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCronograma.FlatAppearance.BorderSize = 0;
+            this.btnCronograma.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
+            this.btnCronograma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCronograma.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCronograma.ForeColor = System.Drawing.Color.White;
+            this.btnCronograma.Image = global::wfZenova.Properties.Resources.icoCro2;
+            this.btnCronograma.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCronograma.Location = new System.Drawing.Point(0, 1115);
+            this.btnCronograma.Name = "btnCronograma";
+            this.btnCronograma.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnCronograma.Size = new System.Drawing.Size(233, 45);
+            this.btnCronograma.TabIndex = 20;
+            this.btnCronograma.Text = "    Cronograma";
+            this.btnCronograma.UseVisualStyleBackColor = true;
+            this.btnCronograma.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Image = global::wfZenova.Properties.Resources._9;
+            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrar.Location = new System.Drawing.Point(0, 1250);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnCerrar.Size = new System.Drawing.Size(233, 45);
+            this.btnCerrar.TabIndex = 11;
+            this.btnCerrar.Text = "Cerrar Sesión";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // btnBienestar
+            // 
+            this.btnBienestar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBienestar.FlatAppearance.BorderSize = 0;
+            this.btnBienestar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
+            this.btnBienestar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBienestar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBienestar.ForeColor = System.Drawing.Color.White;
+            this.btnBienestar.Image = global::wfZenova.Properties.Resources._7;
+            this.btnBienestar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBienestar.Location = new System.Drawing.Point(0, 743);
+            this.btnBienestar.Name = "btnBienestar";
+            this.btnBienestar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnBienestar.Size = new System.Drawing.Size(233, 45);
+            this.btnBienestar.TabIndex = 7;
+            this.btnBienestar.Text = "Bienestar";
+            this.btnBienestar.UseVisualStyleBackColor = true;
+            this.btnBienestar.Click += new System.EventHandler(this.btnBienestar_Click);
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = global::wfZenova.Properties.Resources._4;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 698);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(233, 45);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Competencias";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnCompetencias
+            // 
+            this.btnCompetencias.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCompetencias.FlatAppearance.BorderSize = 0;
+            this.btnCompetencias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
+            this.btnCompetencias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompetencias.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompetencias.ForeColor = System.Drawing.Color.White;
+            this.btnCompetencias.Image = global::wfZenova.Properties.Resources._4;
+            this.btnCompetencias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCompetencias.Location = new System.Drawing.Point(0, 653);
+            this.btnCompetencias.Name = "btnCompetencias";
+            this.btnCompetencias.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnCompetencias.Size = new System.Drawing.Size(233, 45);
+            this.btnCompetencias.TabIndex = 6;
+            this.btnCompetencias.Text = "Gestión de \r\nCompetencias";
+            this.btnCompetencias.UseVisualStyleBackColor = true;
+            this.btnCompetencias.Click += new System.EventHandler(this.btnCompetencias_Click);
+            // 
+            // btnEntrenamientos
+            // 
+            this.btnEntrenamientos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEntrenamientos.FlatAppearance.BorderSize = 0;
+            this.btnEntrenamientos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
+            this.btnEntrenamientos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntrenamientos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrenamientos.ForeColor = System.Drawing.Color.White;
+            this.btnEntrenamientos.Image = global::wfZenova.Properties.Resources._3;
+            this.btnEntrenamientos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEntrenamientos.Location = new System.Drawing.Point(0, 608);
+            this.btnEntrenamientos.Name = "btnEntrenamientos";
+            this.btnEntrenamientos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnEntrenamientos.Size = new System.Drawing.Size(233, 45);
+            this.btnEntrenamientos.TabIndex = 5;
+            this.btnEntrenamientos.Text = "Entrenamientos";
+            this.btnEntrenamientos.UseVisualStyleBackColor = true;
+            this.btnEntrenamientos.Click += new System.EventHandler(this.btnEntrenamientos_Click);
             // 
             // btnMonitoreo
             // 
@@ -605,39 +646,22 @@
             this.btnEntrenadoresAdm.UseVisualStyleBackColor = true;
             this.btnEntrenadoresAdm.Click += new System.EventHandler(this.btnEntrenadoresAdm_Click);
             // 
-            // btnGestiondeEmpleados
-            // 
-            this.btnGestiondeEmpleados.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGestiondeEmpleados.FlatAppearance.BorderSize = 0;
-            this.btnGestiondeEmpleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.btnGestiondeEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestiondeEmpleados.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGestiondeEmpleados.ForeColor = System.Drawing.Color.White;
-            this.btnGestiondeEmpleados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestiondeEmpleados.Location = new System.Drawing.Point(0, 173);
-            this.btnGestiondeEmpleados.Name = "btnGestiondeEmpleados";
-            this.btnGestiondeEmpleados.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnGestiondeEmpleados.Size = new System.Drawing.Size(233, 45);
-            this.btnGestiondeEmpleados.TabIndex = 19;
-            this.btnGestiondeEmpleados.Text = "Gestión de Empleados";
-            this.btnGestiondeEmpleados.UseVisualStyleBackColor = true;
-            this.btnGestiondeEmpleados.Click += new System.EventHandler(this.btnGestiondeEmpleados_Click);
-            // 
             // btnGestionDeUsuarios
             // 
             this.btnGestionDeUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnGestionDeUsuarios.FlatAppearance.BorderSize = 0;
             this.btnGestionDeUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
             this.btnGestionDeUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionDeUsuarios.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestionDeUsuarios.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestionDeUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btnGestionDeUsuarios.Image = global::wfZenova.Properties.Resources.icoGestionUsuarios2;
             this.btnGestionDeUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGestionDeUsuarios.Location = new System.Drawing.Point(0, 128);
             this.btnGestionDeUsuarios.Name = "btnGestionDeUsuarios";
             this.btnGestionDeUsuarios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnGestionDeUsuarios.Size = new System.Drawing.Size(233, 45);
             this.btnGestionDeUsuarios.TabIndex = 17;
-            this.btnGestionDeUsuarios.Text = "     Gestión de Usuarios";
+            this.btnGestionDeUsuarios.Text = "       Gestión de Usuarios";
             this.btnGestionDeUsuarios.UseVisualStyleBackColor = true;
             this.btnGestionDeUsuarios.Click += new System.EventHandler(this.btnGestionDeUsuarios_Click);
             // 
@@ -660,17 +684,6 @@
             this.btnInicio.UseVisualStyleBackColor = true;
             this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             // 
-            // panelLogo
-            // 
-            this.panelLogo.AutoScroll = true;
-            this.panelLogo.BackColor = System.Drawing.Color.White;
-            this.panelLogo.Controls.Add(this.pictureBox1);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(233, 83);
-            this.panelLogo.TabIndex = 0;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::wfZenova.Properties.Resources.LogoMenu;
@@ -680,16 +693,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // PanelChildForm
-            // 
-            this.PanelChildForm.BackColor = System.Drawing.Color.White;
-            this.PanelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelChildForm.ForeColor = System.Drawing.Color.White;
-            this.PanelChildForm.Location = new System.Drawing.Point(250, 0);
-            this.PanelChildForm.Name = "PanelChildForm";
-            this.PanelChildForm.Size = new System.Drawing.Size(1033, 749);
-            this.PanelChildForm.TabIndex = 1;
             // 
             // Form1
             // 
@@ -704,6 +707,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlMenuLateral.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

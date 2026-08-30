@@ -623,6 +623,16 @@ namespace wfZenova.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icoAsistencia {
+            get {
+                object obj = ResourceManager.GetObject("icoAsistencia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icoClave {
             get {
                 object obj = ResourceManager.GetObject("icoClave", resourceCulture);
@@ -643,6 +653,26 @@ namespace wfZenova.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icoCro {
+            get {
+                object obj = ResourceManager.GetObject("icoCro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icoCro2 {
+            get {
+                object obj = ResourceManager.GetObject("icoCro2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icoDesactivo {
             get {
                 object obj = ResourceManager.GetObject("icoDesactivo", resourceCulture);
@@ -656,6 +686,26 @@ namespace wfZenova.Properties {
         internal static System.Drawing.Bitmap icoEditar {
             get {
                 object obj = ResourceManager.GetObject("icoEditar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icoGestionUsuarios {
+            get {
+                object obj = ResourceManager.GetObject("icoGestionUsuarios", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icoGestionUsuarios2 {
+            get {
+                object obj = ResourceManager.GetObject("icoGestionUsuarios2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
