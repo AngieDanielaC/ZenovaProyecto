@@ -168,9 +168,9 @@ namespace wfZenova
                 txtObservaciones.Text;
 
             string sentencia = @"INSERT INTO PruebasFisicas
-                    (IdDeportista, IdEntrenador, Fecha, HoraInicio, Lugar, DuracionMin, Intentos, TipoPrueba, PruebaRealizada, DistanciaRecorrida, TiempoTotal, RPE, Clasificacion, TieneDolor, Observaciones)
+                    (IdDeportista, IdEntrenador, Fecha, HoraInicio, Lugar, Duracion, Intentos, TipoPrueba, PruebaRealizada, DistanciaRecorrida, TiempoTotal, RPE, Clasificacion, TieneDolor, Observaciones)
                     VALUES
-                    (@IdDeportista, @IdEntrenador, @Fecha, @HoraInicio, @Lugar, @DuracionMin, @Intentos, @TipoPrueba, @PruebaRealizada, @DistanciaRecorrida, @TiempoTotal, @RPE, @Clasificacion, @TieneDolor, @Observaciones)";
+                    (@IdDeportista, @IdEntrenador, @Fecha, @HoraInicio, @Lugar, @Duracion, @Intentos, @TipoPrueba, @PruebaRealizada, @DistanciaRecorrida, @TiempoTotal, @RPE, @Clasificacion, @TieneDolor, @Observaciones)";
 
             SqlParameter[] parametros = new SqlParameter[]
             {
@@ -203,7 +203,7 @@ namespace wfZenova
                         : lugar
                 },
 
-                new SqlParameter("@DuracionMin", SqlDbType.Int)
+                new SqlParameter("@Duracion", SqlDbType.Int)
                 {
                     Value = duracion
                 },

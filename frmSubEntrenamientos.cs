@@ -402,7 +402,6 @@ namespace wfZenova
 
             ActualizarContadorEjercicios();
         }
-
         private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
@@ -499,7 +498,6 @@ namespace wfZenova
 
             dgvEjercicios.ClearSelection();
         }
-
         private void button2_Click_1(object sender, EventArgs e)
         {
 

@@ -20,10 +20,6 @@ namespace wfZenova
 
             this.idEntrenador = idEntrenador;
         }
-        public frmCronogramaEntrenador()
-        {
-            InitializeComponent();
-        }
         private void frmCronogramaEntrenador_Load(object sender, EventArgs e)
         {
             //Mostrar fecha actual
@@ -369,7 +365,6 @@ namespace wfZenova
         }
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
-
             //Validar actividad seleccionada
             if (dgvAsignaciones.CurrentRow == null)
             {

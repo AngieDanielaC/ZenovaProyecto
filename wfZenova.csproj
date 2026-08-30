@@ -263,35 +263,17 @@
     <Compile Include="frmMonitoreoEntrenadores.Designer.cs">
       <DependentUpon>frmMonitoreoEntrenadores.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMotAsistencia.cs">
+    <Compile Include="frmAsistencia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMotAsistencia.Designer.cs">
-      <DependentUpon>frmMotAsistencia.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmMotDestacado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMotDestacado.Designer.cs">
-      <DependentUpon>frmMotDestacado.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmMotivacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMotivacion.Designer.cs">
-      <DependentUpon>frmMotivacion.cs</DependentUpon>
+    <Compile Include="frmAsistencia.Designer.cs">
+      <DependentUpon>frmAsistencia.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMotivoDesactivacion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMotivoDesactivacion.Designer.cs">
       <DependentUpon>frmMotivoDesactivacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmMotRecordatorios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMotRecordatorios.Designer.cs">
-      <DependentUpon>frmMotRecordatorios.cs</DependentUpon>
     </Compile>
     <Compile Include="frmNuevoDepAdm.cs">
       <SubType>Form</SubType>
@@ -559,20 +541,11 @@
     <EmbeddedResource Include="frmMonitoreoEntrenadores.resx">
       <DependentUpon>frmMonitoreoEntrenadores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMotAsistencia.resx">
-      <DependentUpon>frmMotAsistencia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMotDestacado.resx">
-      <DependentUpon>frmMotDestacado.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMotivacion.resx">
-      <DependentUpon>frmMotivacion.cs</DependentUpon>
+    <EmbeddedResource Include="frmAsistencia.resx">
+      <DependentUpon>frmAsistencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMotivoDesactivacion.resx">
       <DependentUpon>frmMotivoDesactivacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMotRecordatorios.resx">
-      <DependentUpon>frmMotRecordatorios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoDepAdm.resx">
       <DependentUpon>frmNuevoDepAdm.cs</DependentUpon>
