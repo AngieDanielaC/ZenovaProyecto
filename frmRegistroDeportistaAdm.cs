@@ -176,15 +176,15 @@ namespace wfZenova
 
         private void frmRegistroDeportistaAdm_Load(object sender, EventArgs e)
         {
-            // Parentesco
+           
             cmbParentesco.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbParentesco.SelectedIndex = -1;
 
-            // Fecha de nacimiento
+            
             dtpFechaNacimiento.MinDate = new DateTime(1900, 1, 1);
             dtpFechaNacimiento.MaxDate = DateTime.Today.AddDays(-1);
 
-            // Límites de caracteres
+           
             txtNombres.MaxLength = 50;
             txtApellidos.MaxLength = 50;
             txtCedula.MaxLength = 10;
@@ -194,7 +194,7 @@ namespace wfZenova
             txtNombreContacto.MaxLength = 100;
             txtTelefonoEmergencia.MaxLength = 10;
 
-            // Evita que la fotografía se deforme
+           
             picFoto.SizeMode = PictureBoxSizeMode.Zoom;
 
         }

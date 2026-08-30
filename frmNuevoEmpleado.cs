@@ -445,5 +445,10 @@ namespace wfZenova
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xF012, 0);
         }
+
+        private void frmNuevoEmpleado_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
