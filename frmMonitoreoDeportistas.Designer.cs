@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlEncabezado = new System.Windows.Forms.Panel();
             this.pnlLinea = new System.Windows.Forms.Label();
             this.lblSubtitulo = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.picDeportistas = new System.Windows.Forms.PictureBox();
             this.pnlFiltros = new System.Windows.Forms.Panel();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.cmbSeguimiento = new System.Windows.Forms.ComboBox();
             this.lblSeguimiento = new System.Windows.Forms.Label();
             this.cmbEntrenador = new System.Windows.Forms.ComboBox();
@@ -49,18 +51,22 @@
             this.lblTextoSinActividad = new System.Windows.Forms.Label();
             this.lblSinRegistro = new System.Windows.Forms.Label();
             this.pnlColorSinActividad = new System.Windows.Forms.Label();
+            this.picSinRegistro = new System.Windows.Forms.PictureBox();
             this.pnlDeportistasRevisar = new System.Windows.Forms.Panel();
             this.lblTextoPendientes = new System.Windows.Forms.Label();
             this.lblDeportistasRevisar = new System.Windows.Forms.Label();
             this.pnlColorPendientes = new System.Windows.Forms.Label();
+            this.picDeportistasRevisar = new System.Windows.Forms.PictureBox();
             this.pnlTotalDeportistas = new System.Windows.Forms.Panel();
             this.lblTextoTotal = new System.Windows.Forms.Label();
             this.lblTotalDeportistas = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.picTotalDeportistas = new System.Windows.Forms.PictureBox();
             this.pnlDeportistasDia = new System.Windows.Forms.Panel();
             this.lblTextoDia = new System.Windows.Forms.Label();
             this.lblDeportistasDia = new System.Windows.Forms.Label();
             this.pnlColorDia = new System.Windows.Forms.Label();
+            this.picDeportistasDia = new System.Windows.Forms.PictureBox();
             this.pnlDetalleDeportistas = new System.Windows.Forms.Panel();
             this.dgvDeportistasMonitoreo = new System.Windows.Forms.DataGridView();
             this.lblDetalleDeportistas = new System.Windows.Forms.Label();
@@ -74,26 +80,20 @@
             this.colUltimaMedicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSeguimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colVerDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.picSinRegistro = new System.Windows.Forms.PictureBox();
-            this.picDeportistasRevisar = new System.Windows.Forms.PictureBox();
-            this.picTotalDeportistas = new System.Windows.Forms.PictureBox();
-            this.picDeportistasDia = new System.Windows.Forms.PictureBox();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.picDeportistas = new System.Windows.Forms.PictureBox();
             this.pnlEncabezado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDeportistas)).BeginInit();
             this.pnlFiltros.SuspendLayout();
             this.pnlTarjetas.SuspendLayout();
             this.pnlSinRegistro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSinRegistro)).BeginInit();
             this.pnlDeportistasRevisar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDeportistasRevisar)).BeginInit();
             this.pnlTotalDeportistas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picTotalDeportistas)).BeginInit();
             this.pnlDeportistasDia.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDeportistasDia)).BeginInit();
             this.pnlDetalleDeportistas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeportistasMonitoreo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSinRegistro)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDeportistasRevisar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picTotalDeportistas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDeportistasDia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDeportistas)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlEncabezado
@@ -139,6 +139,16 @@
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Monitoreo de Deportistas\r\n";
             // 
+            // picDeportistas
+            // 
+            this.picDeportistas.Image = global::wfZenova.Properties.Resources.icono_deportistas;
+            this.picDeportistas.Location = new System.Drawing.Point(30, 15);
+            this.picDeportistas.Name = "picDeportistas";
+            this.picDeportistas.Size = new System.Drawing.Size(85, 85);
+            this.picDeportistas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picDeportistas.TabIndex = 0;
+            this.picDeportistas.TabStop = false;
+            // 
             // pnlFiltros
             // 
             this.pnlFiltros.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -157,6 +167,26 @@
             this.pnlFiltros.Name = "pnlFiltros";
             this.pnlFiltros.Size = new System.Drawing.Size(1154, 85);
             this.pnlFiltros.TabIndex = 2;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(221)))));
+            this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnActualizar.FlatAppearance.BorderSize = 0;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.ForeColor = System.Drawing.Color.White;
+            this.btnActualizar.Image = global::wfZenova.Properties.Resources.converted_image__1_;
+            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActualizar.Location = new System.Drawing.Point(970, 19);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.btnActualizar.Size = new System.Drawing.Size(118, 53);
+            this.btnActualizar.TabIndex = 8;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // cmbSeguimiento
             // 
@@ -216,6 +246,7 @@
             this.cmbDeporte.Name = "cmbDeporte";
             this.cmbDeporte.Size = new System.Drawing.Size(180, 25);
             this.cmbDeporte.TabIndex = 3;
+            this.cmbDeporte.SelectedIndexChanged += new System.EventHandler(this.cmbDeporte_SelectedIndexChanged);
             // 
             // lblDeporte
             // 
@@ -300,6 +331,17 @@
             this.pnlColorSinActividad.TabIndex = 0;
             this.pnlColorSinActividad.Text = "label1";
             // 
+            // picSinRegistro
+            // 
+            this.picSinRegistro.BackColor = System.Drawing.Color.Transparent;
+            this.picSinRegistro.Image = global::wfZenova.Properties.Resources.icono_sin_actividad;
+            this.picSinRegistro.Location = new System.Drawing.Point(18, 22);
+            this.picSinRegistro.Name = "picSinRegistro";
+            this.picSinRegistro.Size = new System.Drawing.Size(55, 55);
+            this.picSinRegistro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picSinRegistro.TabIndex = 3;
+            this.picSinRegistro.TabStop = false;
+            // 
             // pnlDeportistasRevisar
             // 
             this.pnlDeportistasRevisar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -341,6 +383,17 @@
             this.pnlColorPendientes.Size = new System.Drawing.Size(6, 98);
             this.pnlColorPendientes.TabIndex = 0;
             this.pnlColorPendientes.Text = "label1";
+            // 
+            // picDeportistasRevisar
+            // 
+            this.picDeportistasRevisar.BackColor = System.Drawing.Color.Transparent;
+            this.picDeportistasRevisar.Image = global::wfZenova.Properties.Resources.icono_alertas;
+            this.picDeportistasRevisar.Location = new System.Drawing.Point(18, 22);
+            this.picDeportistasRevisar.Name = "picDeportistasRevisar";
+            this.picDeportistasRevisar.Size = new System.Drawing.Size(55, 55);
+            this.picDeportistasRevisar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picDeportistasRevisar.TabIndex = 3;
+            this.picDeportistasRevisar.TabStop = false;
             // 
             // pnlTotalDeportistas
             // 
@@ -384,6 +437,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
+            // picTotalDeportistas
+            // 
+            this.picTotalDeportistas.BackColor = System.Drawing.Color.Transparent;
+            this.picTotalDeportistas.Image = global::wfZenova.Properties.Resources.icono_entrenadores;
+            this.picTotalDeportistas.Location = new System.Drawing.Point(18, 22);
+            this.picTotalDeportistas.Name = "picTotalDeportistas";
+            this.picTotalDeportistas.Size = new System.Drawing.Size(55, 55);
+            this.picTotalDeportistas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picTotalDeportistas.TabIndex = 3;
+            this.picTotalDeportistas.TabStop = false;
+            // 
             // pnlDeportistasDia
             // 
             this.pnlDeportistasDia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -426,6 +490,17 @@
             this.pnlColorDia.TabIndex = 0;
             this.pnlColorDia.Text = "label1";
             // 
+            // picDeportistasDia
+            // 
+            this.picDeportistasDia.BackColor = System.Drawing.Color.Transparent;
+            this.picDeportistasDia.Image = global::wfZenova.Properties.Resources.icono_cumplimiento;
+            this.picDeportistasDia.Location = new System.Drawing.Point(18, 22);
+            this.picDeportistasDia.Name = "picDeportistasDia";
+            this.picDeportistasDia.Size = new System.Drawing.Size(55, 55);
+            this.picDeportistasDia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picDeportistasDia.TabIndex = 3;
+            this.picDeportistasDia.TabStop = false;
+            // 
             // pnlDetalleDeportistas
             // 
             this.pnlDetalleDeportistas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -444,8 +519,8 @@
             this.dgvDeportistasMonitoreo.AllowUserToAddRows = false;
             this.dgvDeportistasMonitoreo.AllowUserToDeleteRows = false;
             this.dgvDeportistasMonitoreo.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
-            this.dgvDeportistasMonitoreo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
+            this.dgvDeportistasMonitoreo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDeportistasMonitoreo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -453,14 +528,14 @@
             this.dgvDeportistasMonitoreo.BackgroundColor = System.Drawing.Color.White;
             this.dgvDeportistasMonitoreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDeportistasMonitoreo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(221)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDeportistasMonitoreo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(221)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDeportistasMonitoreo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDeportistasMonitoreo.ColumnHeadersHeight = 40;
             this.dgvDeportistasMonitoreo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDeportistasMonitoreo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -474,14 +549,14 @@
             this.colUltimaMedicion,
             this.colSeguimiento,
             this.colVerDetalle});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(31)))), ((int)(((byte)(107)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(254)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(31)))), ((int)(((byte)(107)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDeportistasMonitoreo.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(31)))), ((int)(((byte)(107)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(254)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(31)))), ((int)(((byte)(107)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDeportistasMonitoreo.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDeportistasMonitoreo.EnableHeadersVisualStyles = false;
             this.dgvDeportistasMonitoreo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.dgvDeportistasMonitoreo.Location = new System.Drawing.Point(15, 55);
@@ -515,11 +590,12 @@
             // 
             // colDeportista
             // 
-            this.colDeportista.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDeportista.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colDeportista.DataPropertyName = "Deportista";
             this.colDeportista.HeaderText = "Deportista";
             this.colDeportista.Name = "colDeportista";
             this.colDeportista.ReadOnly = true;
+            this.colDeportista.Width = 230;
             // 
             // colEdad
             // 
@@ -589,115 +665,42 @@
             this.colVerDetalle.UseColumnTextForButtonValue = true;
             this.colVerDetalle.Width = 80;
             // 
-            // picSinRegistro
-            // 
-            this.picSinRegistro.BackColor = System.Drawing.Color.Transparent;
-            this.picSinRegistro.Image = global::wfZenova.Properties.Resources.icono_sin_actividad;
-            this.picSinRegistro.Location = new System.Drawing.Point(18, 22);
-            this.picSinRegistro.Name = "picSinRegistro";
-            this.picSinRegistro.Size = new System.Drawing.Size(55, 55);
-            this.picSinRegistro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picSinRegistro.TabIndex = 3;
-            this.picSinRegistro.TabStop = false;
-            // 
-            // picDeportistasRevisar
-            // 
-            this.picDeportistasRevisar.BackColor = System.Drawing.Color.Transparent;
-            this.picDeportistasRevisar.Image = global::wfZenova.Properties.Resources.icono_alertas;
-            this.picDeportistasRevisar.Location = new System.Drawing.Point(18, 22);
-            this.picDeportistasRevisar.Name = "picDeportistasRevisar";
-            this.picDeportistasRevisar.Size = new System.Drawing.Size(55, 55);
-            this.picDeportistasRevisar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picDeportistasRevisar.TabIndex = 3;
-            this.picDeportistasRevisar.TabStop = false;
-            // 
-            // picTotalDeportistas
-            // 
-            this.picTotalDeportistas.BackColor = System.Drawing.Color.Transparent;
-            this.picTotalDeportistas.Image = global::wfZenova.Properties.Resources.icono_entrenadores;
-            this.picTotalDeportistas.Location = new System.Drawing.Point(18, 22);
-            this.picTotalDeportistas.Name = "picTotalDeportistas";
-            this.picTotalDeportistas.Size = new System.Drawing.Size(55, 55);
-            this.picTotalDeportistas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picTotalDeportistas.TabIndex = 3;
-            this.picTotalDeportistas.TabStop = false;
-            // 
-            // picDeportistasDia
-            // 
-            this.picDeportistasDia.BackColor = System.Drawing.Color.Transparent;
-            this.picDeportistasDia.Image = global::wfZenova.Properties.Resources.icono_cumplimiento;
-            this.picDeportistasDia.Location = new System.Drawing.Point(18, 22);
-            this.picDeportistasDia.Name = "picDeportistasDia";
-            this.picDeportistasDia.Size = new System.Drawing.Size(55, 55);
-            this.picDeportistasDia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picDeportistasDia.TabIndex = 3;
-            this.picDeportistasDia.TabStop = false;
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(221)))));
-            this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnActualizar.FlatAppearance.BorderSize = 0;
-            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActualizar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.ForeColor = System.Drawing.Color.White;
-            this.btnActualizar.Image = global::wfZenova.Properties.Resources.converted_image__1_;
-            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnActualizar.Location = new System.Drawing.Point(970, 19);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
-            this.btnActualizar.Size = new System.Drawing.Size(118, 53);
-            this.btnActualizar.TabIndex = 8;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            // 
-            // picDeportistas
-            // 
-            this.picDeportistas.Image = global::wfZenova.Properties.Resources.icono_deportistas;
-            this.picDeportistas.Location = new System.Drawing.Point(30, 15);
-            this.picDeportistas.Name = "picDeportistas";
-            this.picDeportistas.Size = new System.Drawing.Size(85, 85);
-            this.picDeportistas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picDeportistas.TabIndex = 0;
-            this.picDeportistas.TabStop = false;
-            // 
             // frmMonitoreoDeportistas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1234, 768);
+            this.ClientSize = new System.Drawing.Size(1234, 749);
             this.Controls.Add(this.pnlDetalleDeportistas);
             this.Controls.Add(this.pnlTarjetas);
             this.Controls.Add(this.pnlFiltros);
             this.Controls.Add(this.pnlEncabezado);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMonitoreoDeportistas";
             this.Text = "frmMonitoreoDeportistas";
             this.pnlEncabezado.ResumeLayout(false);
             this.pnlEncabezado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDeportistas)).EndInit();
             this.pnlFiltros.ResumeLayout(false);
             this.pnlFiltros.PerformLayout();
             this.pnlTarjetas.ResumeLayout(false);
             this.pnlSinRegistro.ResumeLayout(false);
             this.pnlSinRegistro.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSinRegistro)).EndInit();
             this.pnlDeportistasRevisar.ResumeLayout(false);
             this.pnlDeportistasRevisar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDeportistasRevisar)).EndInit();
             this.pnlTotalDeportistas.ResumeLayout(false);
             this.pnlTotalDeportistas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picTotalDeportistas)).EndInit();
             this.pnlDeportistasDia.ResumeLayout(false);
             this.pnlDeportistasDia.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDeportistasDia)).EndInit();
             this.pnlDetalleDeportistas.ResumeLayout(false);
             this.pnlDetalleDeportistas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeportistasMonitoreo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSinRegistro)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDeportistasRevisar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picTotalDeportistas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDeportistasDia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDeportistas)).EndInit();
             this.ResumeLayout(false);
 
         }

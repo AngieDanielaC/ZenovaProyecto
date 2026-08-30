@@ -35,7 +35,9 @@
             this.pnlLinea = new System.Windows.Forms.Label();
             this.lblSubtitulo = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.picEntrenar = new System.Windows.Forms.PictureBox();
             this.pnlFiltros = new System.Windows.Forms.Panel();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.cmbSeguimiento = new System.Windows.Forms.ComboBox();
             this.lblSeguimiento = new System.Windows.Forms.Label();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
@@ -45,56 +47,54 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.pnlTarjetas = new System.Windows.Forms.Panel();
-            this.pnlTotalEntrenadores = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblTotalEntrenadores = new System.Windows.Forms.Label();
-            this.lblTextoTotal = new System.Windows.Forms.Label();
-            this.nlEntrenadoresDia = new System.Windows.Forms.Panel();
-            this.lblTextoDia = new System.Windows.Forms.Label();
-            this.lblEntrenadoresDia = new System.Windows.Forms.Label();
-            this.pnlColorDia = new System.Windows.Forms.Label();
-            this.pnlEntrenadoresPendientes = new System.Windows.Forms.Panel();
-            this.lblTextoPendientes = new System.Windows.Forms.Label();
-            this.lblEntrenadoresPendientes = new System.Windows.Forms.Label();
-            this.pnlColorPendientes = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTextoSinActividad = new System.Windows.Forms.Label();
             this.lblSinActividad = new System.Windows.Forms.Label();
             this.pnlColorSinActividad = new System.Windows.Forms.Label();
-            this.pnlDetalleEntrenadores = new System.Windows.Forms.Panel();
-            this.lblDetalleEntrenadores = new System.Windows.Forms.Label();
-            this.dgvEntrenadoresMonitoreo = new System.Windows.Forms.DataGridView();
-            this.colVerDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colSeguimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUltimaActividad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCumplimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRealizadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProgramadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDeportistas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDeporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEntrenador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIdEntrenador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.picSinActividad = new System.Windows.Forms.PictureBox();
+            this.pnlEntrenadoresPendientes = new System.Windows.Forms.Panel();
+            this.lblTextoPendientes = new System.Windows.Forms.Label();
+            this.lblEntrenadoresPendientes = new System.Windows.Forms.Label();
+            this.pnlColorPendientes = new System.Windows.Forms.Label();
             this.picEntrenadoresPendientes = new System.Windows.Forms.PictureBox();
+            this.pnlTotalEntrenadores = new System.Windows.Forms.Panel();
+            this.lblTextoTotal = new System.Windows.Forms.Label();
+            this.lblTotalEntrenadores = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.nlEntrenadoresDia = new System.Windows.Forms.Panel();
+            this.lblTextoDia = new System.Windows.Forms.Label();
+            this.lblEntrenadoresDia = new System.Windows.Forms.Label();
+            this.pnlColorDia = new System.Windows.Forms.Label();
             this.picEntrenadoresDia = new System.Windows.Forms.PictureBox();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.picEntrenar = new System.Windows.Forms.PictureBox();
+            this.pnlDetalleEntrenadores = new System.Windows.Forms.Panel();
+            this.dgvEntrenadoresMonitoreo = new System.Windows.Forms.DataGridView();
+            this.colIdEntrenador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEntrenador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDeporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDeportistas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProgramadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRealizadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCumplimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUltimaActividad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSeguimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colVerDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.lblDetalleEntrenadores = new System.Windows.Forms.Label();
             this.pnlEncabezado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picEntrenar)).BeginInit();
             this.pnlFiltros.SuspendLayout();
             this.pnlTarjetas.SuspendLayout();
-            this.pnlTotalEntrenadores.SuspendLayout();
-            this.nlEntrenadoresDia.SuspendLayout();
-            this.pnlEntrenadoresPendientes.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSinActividad)).BeginInit();
+            this.pnlEntrenadoresPendientes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picEntrenadoresPendientes)).BeginInit();
+            this.pnlTotalEntrenadores.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.nlEntrenadoresDia.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picEntrenadoresDia)).BeginInit();
             this.pnlDetalleEntrenadores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntrenadoresMonitoreo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSinActividad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEntrenadoresPendientes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEntrenadoresDia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEntrenar)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlEncabezado
@@ -140,6 +140,16 @@
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Monitoreo de Entrenadores";
             // 
+            // picEntrenar
+            // 
+            this.picEntrenar.Image = global::wfZenova.Properties.Resources.icono_entrenadores;
+            this.picEntrenar.Location = new System.Drawing.Point(30, 15);
+            this.picEntrenar.Name = "picEntrenar";
+            this.picEntrenar.Size = new System.Drawing.Size(85, 85);
+            this.picEntrenar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picEntrenar.TabIndex = 0;
+            this.picEntrenar.TabStop = false;
+            // 
             // pnlFiltros
             // 
             this.pnlFiltros.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -158,6 +168,26 @@
             this.pnlFiltros.Name = "pnlFiltros";
             this.pnlFiltros.Size = new System.Drawing.Size(1154, 85);
             this.pnlFiltros.TabIndex = 1;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(221)))));
+            this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnActualizar.FlatAppearance.BorderSize = 0;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.ForeColor = System.Drawing.Color.White;
+            this.btnActualizar.Image = global::wfZenova.Properties.Resources.converted_image__1_;
+            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActualizar.Location = new System.Drawing.Point(970, 19);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.btnActualizar.Size = new System.Drawing.Size(118, 53);
+            this.btnActualizar.TabIndex = 8;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // cmbSeguimiento
             // 
@@ -261,89 +291,58 @@
             this.pnlTarjetas.Size = new System.Drawing.Size(1154, 115);
             this.pnlTarjetas.TabIndex = 2;
             // 
-            // pnlTotalEntrenadores
+            // panel2
             // 
-            this.pnlTotalEntrenadores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlTotalEntrenadores.Controls.Add(this.lblTextoTotal);
-            this.pnlTotalEntrenadores.Controls.Add(this.lblTotalEntrenadores);
-            this.pnlTotalEntrenadores.Controls.Add(this.label1);
-            this.pnlTotalEntrenadores.Controls.Add(this.pictureBox1);
-            this.pnlTotalEntrenadores.Location = new System.Drawing.Point(0, 5);
-            this.pnlTotalEntrenadores.Name = "pnlTotalEntrenadores";
-            this.pnlTotalEntrenadores.Size = new System.Drawing.Size(270, 100);
-            this.pnlTotalEntrenadores.TabIndex = 0;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.lblTextoSinActividad);
+            this.panel2.Controls.Add(this.lblSinActividad);
+            this.panel2.Controls.Add(this.pnlColorSinActividad);
+            this.panel2.Controls.Add(this.picSinActividad);
+            this.panel2.Location = new System.Drawing.Point(861, 5);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(270, 100);
+            this.panel2.TabIndex = 6;
             // 
-            // label1
+            // lblTextoSinActividad
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(225)))));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(6, 98);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.lblTextoSinActividad.AutoSize = true;
+            this.lblTextoSinActividad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(150)))));
+            this.lblTextoSinActividad.Location = new System.Drawing.Point(79, 52);
+            this.lblTextoSinActividad.Name = "lblTextoSinActividad";
+            this.lblTextoSinActividad.Size = new System.Drawing.Size(179, 17);
+            this.lblTextoSinActividad.TabIndex = 5;
+            this.lblTextoSinActividad.Text = "Entrenadores sin actividad";
             // 
-            // lblTotalEntrenadores
+            // lblSinActividad
             // 
-            this.lblTotalEntrenadores.AutoSize = true;
-            this.lblTotalEntrenadores.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalEntrenadores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(31)))), ((int)(((byte)(107)))));
-            this.lblTotalEntrenadores.Location = new System.Drawing.Point(90, 17);
-            this.lblTotalEntrenadores.Name = "lblTotalEntrenadores";
-            this.lblTotalEntrenadores.Size = new System.Drawing.Size(24, 25);
-            this.lblTotalEntrenadores.TabIndex = 4;
-            this.lblTotalEntrenadores.Text = "0";
+            this.lblSinActividad.AutoSize = true;
+            this.lblSinActividad.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSinActividad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(37)))), ((int)(((byte)(42)))));
+            this.lblSinActividad.Location = new System.Drawing.Point(90, 17);
+            this.lblSinActividad.Name = "lblSinActividad";
+            this.lblSinActividad.Size = new System.Drawing.Size(24, 25);
+            this.lblSinActividad.TabIndex = 4;
+            this.lblSinActividad.Text = "0";
             // 
-            // lblTextoTotal
+            // pnlColorSinActividad
             // 
-            this.lblTextoTotal.AutoSize = true;
-            this.lblTextoTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(150)))));
-            this.lblTextoTotal.Location = new System.Drawing.Point(90, 52);
-            this.lblTextoTotal.Name = "lblTextoTotal";
-            this.lblTextoTotal.Size = new System.Drawing.Size(149, 17);
-            this.lblTextoTotal.TabIndex = 5;
-            this.lblTextoTotal.Text = "Total de entrenadores";
+            this.pnlColorSinActividad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(37)))), ((int)(((byte)(42)))));
+            this.pnlColorSinActividad.Location = new System.Drawing.Point(0, 0);
+            this.pnlColorSinActividad.Name = "pnlColorSinActividad";
+            this.pnlColorSinActividad.Size = new System.Drawing.Size(6, 98);
+            this.pnlColorSinActividad.TabIndex = 0;
+            this.pnlColorSinActividad.Text = "label1";
             // 
-            // nlEntrenadoresDia
+            // picSinActividad
             // 
-            this.nlEntrenadoresDia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nlEntrenadoresDia.Controls.Add(this.lblTextoDia);
-            this.nlEntrenadoresDia.Controls.Add(this.lblEntrenadoresDia);
-            this.nlEntrenadoresDia.Controls.Add(this.pnlColorDia);
-            this.nlEntrenadoresDia.Controls.Add(this.picEntrenadoresDia);
-            this.nlEntrenadoresDia.Location = new System.Drawing.Point(285, 5);
-            this.nlEntrenadoresDia.Name = "nlEntrenadoresDia";
-            this.nlEntrenadoresDia.Size = new System.Drawing.Size(270, 100);
-            this.nlEntrenadoresDia.TabIndex = 0;
-            // 
-            // lblTextoDia
-            // 
-            this.lblTextoDia.AutoSize = true;
-            this.lblTextoDia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(150)))));
-            this.lblTextoDia.Location = new System.Drawing.Point(90, 52);
-            this.lblTextoDia.Name = "lblTextoDia";
-            this.lblTextoDia.Size = new System.Drawing.Size(133, 17);
-            this.lblTextoDia.TabIndex = 5;
-            this.lblTextoDia.Text = "Entrenadores al día";
-            // 
-            // lblEntrenadoresDia
-            // 
-            this.lblEntrenadoresDia.AutoSize = true;
-            this.lblEntrenadoresDia.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntrenadoresDia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(31)))), ((int)(((byte)(107)))));
-            this.lblEntrenadoresDia.Location = new System.Drawing.Point(90, 17);
-            this.lblEntrenadoresDia.Name = "lblEntrenadoresDia";
-            this.lblEntrenadoresDia.Size = new System.Drawing.Size(24, 25);
-            this.lblEntrenadoresDia.TabIndex = 4;
-            this.lblEntrenadoresDia.Text = "0";
-            // 
-            // pnlColorDia
-            // 
-            this.pnlColorDia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(184)))), ((int)(((byte)(78)))));
-            this.pnlColorDia.Location = new System.Drawing.Point(0, 0);
-            this.pnlColorDia.Name = "pnlColorDia";
-            this.pnlColorDia.Size = new System.Drawing.Size(6, 98);
-            this.pnlColorDia.TabIndex = 0;
-            this.pnlColorDia.Text = "label1";
+            this.picSinActividad.BackColor = System.Drawing.Color.Transparent;
+            this.picSinActividad.Image = global::wfZenova.Properties.Resources.icono_sin_actividad;
+            this.picSinActividad.Location = new System.Drawing.Point(18, 22);
+            this.picSinActividad.Name = "picSinActividad";
+            this.picSinActividad.Size = new System.Drawing.Size(55, 55);
+            this.picSinActividad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picSinActividad.TabIndex = 3;
+            this.picSinActividad.TabStop = false;
             // 
             // pnlEntrenadoresPendientes
             // 
@@ -387,47 +386,122 @@
             this.pnlColorPendientes.TabIndex = 0;
             this.pnlColorPendientes.Text = "label1";
             // 
-            // panel2
+            // picEntrenadoresPendientes
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.lblTextoSinActividad);
-            this.panel2.Controls.Add(this.lblSinActividad);
-            this.panel2.Controls.Add(this.pnlColorSinActividad);
-            this.panel2.Controls.Add(this.picSinActividad);
-            this.panel2.Location = new System.Drawing.Point(861, 5);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(270, 100);
-            this.panel2.TabIndex = 6;
+            this.picEntrenadoresPendientes.BackColor = System.Drawing.Color.Transparent;
+            this.picEntrenadoresPendientes.Image = global::wfZenova.Properties.Resources.icono_alertas;
+            this.picEntrenadoresPendientes.Location = new System.Drawing.Point(18, 22);
+            this.picEntrenadoresPendientes.Name = "picEntrenadoresPendientes";
+            this.picEntrenadoresPendientes.Size = new System.Drawing.Size(55, 55);
+            this.picEntrenadoresPendientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picEntrenadoresPendientes.TabIndex = 3;
+            this.picEntrenadoresPendientes.TabStop = false;
             // 
-            // lblTextoSinActividad
+            // pnlTotalEntrenadores
             // 
-            this.lblTextoSinActividad.AutoSize = true;
-            this.lblTextoSinActividad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(150)))));
-            this.lblTextoSinActividad.Location = new System.Drawing.Point(79, 52);
-            this.lblTextoSinActividad.Name = "lblTextoSinActividad";
-            this.lblTextoSinActividad.Size = new System.Drawing.Size(179, 17);
-            this.lblTextoSinActividad.TabIndex = 5;
-            this.lblTextoSinActividad.Text = "Entrenadores sin actividad";
+            this.pnlTotalEntrenadores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlTotalEntrenadores.Controls.Add(this.lblTextoTotal);
+            this.pnlTotalEntrenadores.Controls.Add(this.lblTotalEntrenadores);
+            this.pnlTotalEntrenadores.Controls.Add(this.label1);
+            this.pnlTotalEntrenadores.Controls.Add(this.pictureBox1);
+            this.pnlTotalEntrenadores.Location = new System.Drawing.Point(0, 5);
+            this.pnlTotalEntrenadores.Name = "pnlTotalEntrenadores";
+            this.pnlTotalEntrenadores.Size = new System.Drawing.Size(270, 100);
+            this.pnlTotalEntrenadores.TabIndex = 0;
             // 
-            // lblSinActividad
+            // lblTextoTotal
             // 
-            this.lblSinActividad.AutoSize = true;
-            this.lblSinActividad.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSinActividad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(37)))), ((int)(((byte)(42)))));
-            this.lblSinActividad.Location = new System.Drawing.Point(90, 17);
-            this.lblSinActividad.Name = "lblSinActividad";
-            this.lblSinActividad.Size = new System.Drawing.Size(24, 25);
-            this.lblSinActividad.TabIndex = 4;
-            this.lblSinActividad.Text = "0";
+            this.lblTextoTotal.AutoSize = true;
+            this.lblTextoTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(150)))));
+            this.lblTextoTotal.Location = new System.Drawing.Point(90, 52);
+            this.lblTextoTotal.Name = "lblTextoTotal";
+            this.lblTextoTotal.Size = new System.Drawing.Size(149, 17);
+            this.lblTextoTotal.TabIndex = 5;
+            this.lblTextoTotal.Text = "Total de entrenadores";
             // 
-            // pnlColorSinActividad
+            // lblTotalEntrenadores
             // 
-            this.pnlColorSinActividad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(37)))), ((int)(((byte)(42)))));
-            this.pnlColorSinActividad.Location = new System.Drawing.Point(0, 0);
-            this.pnlColorSinActividad.Name = "pnlColorSinActividad";
-            this.pnlColorSinActividad.Size = new System.Drawing.Size(6, 98);
-            this.pnlColorSinActividad.TabIndex = 0;
-            this.pnlColorSinActividad.Text = "label1";
+            this.lblTotalEntrenadores.AutoSize = true;
+            this.lblTotalEntrenadores.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalEntrenadores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(31)))), ((int)(((byte)(107)))));
+            this.lblTotalEntrenadores.Location = new System.Drawing.Point(90, 17);
+            this.lblTotalEntrenadores.Name = "lblTotalEntrenadores";
+            this.lblTotalEntrenadores.Size = new System.Drawing.Size(24, 25);
+            this.lblTotalEntrenadores.TabIndex = 4;
+            this.lblTotalEntrenadores.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(225)))));
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(6, 98);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::wfZenova.Properties.Resources.icono_entrenadores;
+            this.pictureBox1.Location = new System.Drawing.Point(18, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(55, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // nlEntrenadoresDia
+            // 
+            this.nlEntrenadoresDia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nlEntrenadoresDia.Controls.Add(this.lblTextoDia);
+            this.nlEntrenadoresDia.Controls.Add(this.lblEntrenadoresDia);
+            this.nlEntrenadoresDia.Controls.Add(this.pnlColorDia);
+            this.nlEntrenadoresDia.Controls.Add(this.picEntrenadoresDia);
+            this.nlEntrenadoresDia.Location = new System.Drawing.Point(285, 5);
+            this.nlEntrenadoresDia.Name = "nlEntrenadoresDia";
+            this.nlEntrenadoresDia.Size = new System.Drawing.Size(270, 100);
+            this.nlEntrenadoresDia.TabIndex = 0;
+            // 
+            // lblTextoDia
+            // 
+            this.lblTextoDia.AutoSize = true;
+            this.lblTextoDia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(150)))));
+            this.lblTextoDia.Location = new System.Drawing.Point(90, 52);
+            this.lblTextoDia.Name = "lblTextoDia";
+            this.lblTextoDia.Size = new System.Drawing.Size(133, 17);
+            this.lblTextoDia.TabIndex = 5;
+            this.lblTextoDia.Text = "Entrenadores al día";
+            // 
+            // lblEntrenadoresDia
+            // 
+            this.lblEntrenadoresDia.AutoSize = true;
+            this.lblEntrenadoresDia.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEntrenadoresDia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(31)))), ((int)(((byte)(107)))));
+            this.lblEntrenadoresDia.Location = new System.Drawing.Point(90, 17);
+            this.lblEntrenadoresDia.Name = "lblEntrenadoresDia";
+            this.lblEntrenadoresDia.Size = new System.Drawing.Size(24, 25);
+            this.lblEntrenadoresDia.TabIndex = 4;
+            this.lblEntrenadoresDia.Text = "0";
+            // 
+            // pnlColorDia
+            // 
+            this.pnlColorDia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(184)))), ((int)(((byte)(78)))));
+            this.pnlColorDia.Location = new System.Drawing.Point(0, 0);
+            this.pnlColorDia.Name = "pnlColorDia";
+            this.pnlColorDia.Size = new System.Drawing.Size(6, 98);
+            this.pnlColorDia.TabIndex = 0;
+            this.pnlColorDia.Text = "label1";
+            // 
+            // picEntrenadoresDia
+            // 
+            this.picEntrenadoresDia.BackColor = System.Drawing.Color.Transparent;
+            this.picEntrenadoresDia.Image = global::wfZenova.Properties.Resources.icono_cumplimiento;
+            this.picEntrenadoresDia.Location = new System.Drawing.Point(18, 22);
+            this.picEntrenadoresDia.Name = "picEntrenadoresDia";
+            this.picEntrenadoresDia.Size = new System.Drawing.Size(55, 55);
+            this.picEntrenadoresDia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picEntrenadoresDia.TabIndex = 3;
+            this.picEntrenadoresDia.TabStop = false;
             // 
             // pnlDetalleEntrenadores
             // 
@@ -441,17 +515,6 @@
             this.pnlDetalleEntrenadores.Name = "pnlDetalleEntrenadores";
             this.pnlDetalleEntrenadores.Size = new System.Drawing.Size(1154, 369);
             this.pnlDetalleEntrenadores.TabIndex = 3;
-            // 
-            // lblDetalleEntrenadores
-            // 
-            this.lblDetalleEntrenadores.AutoSize = true;
-            this.lblDetalleEntrenadores.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetalleEntrenadores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(31)))), ((int)(((byte)(107)))));
-            this.lblDetalleEntrenadores.Location = new System.Drawing.Point(20, 15);
-            this.lblDetalleEntrenadores.Name = "lblDetalleEntrenadores";
-            this.lblDetalleEntrenadores.Size = new System.Drawing.Size(192, 19);
-            this.lblDetalleEntrenadores.TabIndex = 0;
-            this.lblDetalleEntrenadores.Text = "Detalle de Entrenadores";
             // 
             // dgvEntrenadoresMonitoreo
             // 
@@ -509,6 +572,76 @@
             this.dgvEntrenadoresMonitoreo.Size = new System.Drawing.Size(1122, 294);
             this.dgvEntrenadoresMonitoreo.TabIndex = 1;
             // 
+            // colIdEntrenador
+            // 
+            this.colIdEntrenador.DataPropertyName = "ID";
+            this.colIdEntrenador.HeaderText = "ID";
+            this.colIdEntrenador.Name = "colIdEntrenador";
+            this.colIdEntrenador.ReadOnly = true;
+            // 
+            // colEntrenador
+            // 
+            this.colEntrenador.DataPropertyName = "Entrenador";
+            this.colEntrenador.HeaderText = "Entrenador";
+            this.colEntrenador.Name = "colEntrenador";
+            this.colEntrenador.ReadOnly = true;
+            // 
+            // colDeporte
+            // 
+            this.colDeporte.DataPropertyName = "Deporte";
+            this.colDeporte.HeaderText = "Deporte";
+            this.colDeporte.Name = "colDeporte";
+            this.colDeporte.ReadOnly = true;
+            // 
+            // colEstado
+            // 
+            this.colEstado.DataPropertyName = "Estado";
+            this.colEstado.HeaderText = "Estado";
+            this.colEstado.Name = "colEstado";
+            this.colEstado.ReadOnly = true;
+            // 
+            // colDeportistas
+            // 
+            this.colDeportistas.DataPropertyName = "Deportista";
+            this.colDeportistas.HeaderText = "Deportistas";
+            this.colDeportistas.Name = "colDeportistas";
+            this.colDeportistas.ReadOnly = true;
+            // 
+            // colProgramadas
+            // 
+            this.colProgramadas.DataPropertyName = "Programdas";
+            this.colProgramadas.HeaderText = "Programadas";
+            this.colProgramadas.Name = "colProgramadas";
+            this.colProgramadas.ReadOnly = true;
+            // 
+            // colRealizadas
+            // 
+            this.colRealizadas.DataPropertyName = "Realizadas";
+            this.colRealizadas.HeaderText = "Realizadas";
+            this.colRealizadas.Name = "colRealizadas";
+            this.colRealizadas.ReadOnly = true;
+            // 
+            // colCumplimiento
+            // 
+            this.colCumplimiento.DataPropertyName = "Cumplimiento";
+            this.colCumplimiento.HeaderText = "Cumplimiento";
+            this.colCumplimiento.Name = "colCumplimiento";
+            this.colCumplimiento.ReadOnly = true;
+            // 
+            // colUltimaActividad
+            // 
+            this.colUltimaActividad.DataPropertyName = "Última Actividad";
+            this.colUltimaActividad.HeaderText = "Última Actividad";
+            this.colUltimaActividad.Name = "colUltimaActividad";
+            this.colUltimaActividad.ReadOnly = true;
+            // 
+            // colSeguimiento
+            // 
+            this.colSeguimiento.DataPropertyName = "Seguimiento";
+            this.colSeguimiento.HeaderText = "Seguimiento";
+            this.colSeguimiento.Name = "colSeguimiento";
+            this.colSeguimiento.ReadOnly = true;
+            // 
             // colVerDetalle
             // 
             this.colVerDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -518,148 +651,16 @@
             this.colVerDetalle.Text = "Ver";
             this.colVerDetalle.UseColumnTextForButtonValue = true;
             // 
-            // colSeguimiento
+            // lblDetalleEntrenadores
             // 
-            this.colSeguimiento.DataPropertyName = "Seguimiento";
-            this.colSeguimiento.HeaderText = "Seguimiento";
-            this.colSeguimiento.Name = "colSeguimiento";
-            this.colSeguimiento.ReadOnly = true;
-            // 
-            // colUltimaActividad
-            // 
-            this.colUltimaActividad.DataPropertyName = "Última Actividad";
-            this.colUltimaActividad.HeaderText = "Última Actividad";
-            this.colUltimaActividad.Name = "colUltimaActividad";
-            this.colUltimaActividad.ReadOnly = true;
-            // 
-            // colCumplimiento
-            // 
-            this.colCumplimiento.DataPropertyName = "Cumplimiento";
-            this.colCumplimiento.HeaderText = "Cumplimiento";
-            this.colCumplimiento.Name = "colCumplimiento";
-            this.colCumplimiento.ReadOnly = true;
-            // 
-            // colRealizadas
-            // 
-            this.colRealizadas.DataPropertyName = "Realizadas";
-            this.colRealizadas.HeaderText = "Realizadas";
-            this.colRealizadas.Name = "colRealizadas";
-            this.colRealizadas.ReadOnly = true;
-            // 
-            // colProgramadas
-            // 
-            this.colProgramadas.DataPropertyName = "Programdas";
-            this.colProgramadas.HeaderText = "Programadas";
-            this.colProgramadas.Name = "colProgramadas";
-            this.colProgramadas.ReadOnly = true;
-            // 
-            // colDeportistas
-            // 
-            this.colDeportistas.DataPropertyName = "Deportista";
-            this.colDeportistas.HeaderText = "Deportistas";
-            this.colDeportistas.Name = "colDeportistas";
-            this.colDeportistas.ReadOnly = true;
-            // 
-            // colEstado
-            // 
-            this.colEstado.DataPropertyName = "Estado";
-            this.colEstado.HeaderText = "Estado";
-            this.colEstado.Name = "colEstado";
-            this.colEstado.ReadOnly = true;
-            // 
-            // colDeporte
-            // 
-            this.colDeporte.DataPropertyName = "Deporte";
-            this.colDeporte.HeaderText = "Deporte";
-            this.colDeporte.Name = "colDeporte";
-            this.colDeporte.ReadOnly = true;
-            // 
-            // colEntrenador
-            // 
-            this.colEntrenador.DataPropertyName = "Entrenador";
-            this.colEntrenador.HeaderText = "Entrenador";
-            this.colEntrenador.Name = "colEntrenador";
-            this.colEntrenador.ReadOnly = true;
-            // 
-            // colIdEntrenador
-            // 
-            this.colIdEntrenador.DataPropertyName = "ID";
-            this.colIdEntrenador.HeaderText = "ID";
-            this.colIdEntrenador.Name = "colIdEntrenador";
-            this.colIdEntrenador.ReadOnly = true;
-            // 
-            // picSinActividad
-            // 
-            this.picSinActividad.BackColor = System.Drawing.Color.Transparent;
-            this.picSinActividad.Image = global::wfZenova.Properties.Resources.icono_sin_actividad;
-            this.picSinActividad.Location = new System.Drawing.Point(18, 22);
-            this.picSinActividad.Name = "picSinActividad";
-            this.picSinActividad.Size = new System.Drawing.Size(55, 55);
-            this.picSinActividad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picSinActividad.TabIndex = 3;
-            this.picSinActividad.TabStop = false;
-            // 
-            // picEntrenadoresPendientes
-            // 
-            this.picEntrenadoresPendientes.BackColor = System.Drawing.Color.Transparent;
-            this.picEntrenadoresPendientes.Image = global::wfZenova.Properties.Resources.icono_alertas;
-            this.picEntrenadoresPendientes.Location = new System.Drawing.Point(18, 22);
-            this.picEntrenadoresPendientes.Name = "picEntrenadoresPendientes";
-            this.picEntrenadoresPendientes.Size = new System.Drawing.Size(55, 55);
-            this.picEntrenadoresPendientes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picEntrenadoresPendientes.TabIndex = 3;
-            this.picEntrenadoresPendientes.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::wfZenova.Properties.Resources.icono_entrenadores;
-            this.pictureBox1.Location = new System.Drawing.Point(18, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(55, 55);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // picEntrenadoresDia
-            // 
-            this.picEntrenadoresDia.BackColor = System.Drawing.Color.Transparent;
-            this.picEntrenadoresDia.Image = global::wfZenova.Properties.Resources.icono_cumplimiento;
-            this.picEntrenadoresDia.Location = new System.Drawing.Point(18, 22);
-            this.picEntrenadoresDia.Name = "picEntrenadoresDia";
-            this.picEntrenadoresDia.Size = new System.Drawing.Size(55, 55);
-            this.picEntrenadoresDia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picEntrenadoresDia.TabIndex = 3;
-            this.picEntrenadoresDia.TabStop = false;
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(63)))), ((int)(((byte)(221)))));
-            this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnActualizar.FlatAppearance.BorderSize = 0;
-            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActualizar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.ForeColor = System.Drawing.Color.White;
-            this.btnActualizar.Image = global::wfZenova.Properties.Resources.converted_image__1_;
-            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnActualizar.Location = new System.Drawing.Point(970, 19);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
-            this.btnActualizar.Size = new System.Drawing.Size(118, 53);
-            this.btnActualizar.TabIndex = 8;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            // 
-            // picEntrenar
-            // 
-            this.picEntrenar.Image = global::wfZenova.Properties.Resources.icono_entrenadores;
-            this.picEntrenar.Location = new System.Drawing.Point(30, 15);
-            this.picEntrenar.Name = "picEntrenar";
-            this.picEntrenar.Size = new System.Drawing.Size(85, 85);
-            this.picEntrenar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picEntrenar.TabIndex = 0;
-            this.picEntrenar.TabStop = false;
+            this.lblDetalleEntrenadores.AutoSize = true;
+            this.lblDetalleEntrenadores.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetalleEntrenadores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(31)))), ((int)(((byte)(107)))));
+            this.lblDetalleEntrenadores.Location = new System.Drawing.Point(20, 15);
+            this.lblDetalleEntrenadores.Name = "lblDetalleEntrenadores";
+            this.lblDetalleEntrenadores.Size = new System.Drawing.Size(192, 19);
+            this.lblDetalleEntrenadores.TabIndex = 0;
+            this.lblDetalleEntrenadores.Text = "Detalle de Entrenadores";
             // 
             // frmMonitoreoEntrenadores
             // 
@@ -667,7 +668,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1234, 768);
+            this.ClientSize = new System.Drawing.Size(1234, 749);
             this.Controls.Add(this.pnlDetalleEntrenadores);
             this.Controls.Add(this.pnlTarjetas);
             this.Controls.Add(this.pnlFiltros);
@@ -679,25 +680,25 @@
             this.Text = "frmMonitoreoEntrenadores";
             this.pnlEncabezado.ResumeLayout(false);
             this.pnlEncabezado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picEntrenar)).EndInit();
             this.pnlFiltros.ResumeLayout(false);
             this.pnlFiltros.PerformLayout();
             this.pnlTarjetas.ResumeLayout(false);
-            this.pnlTotalEntrenadores.ResumeLayout(false);
-            this.pnlTotalEntrenadores.PerformLayout();
-            this.nlEntrenadoresDia.ResumeLayout(false);
-            this.nlEntrenadoresDia.PerformLayout();
-            this.pnlEntrenadoresPendientes.ResumeLayout(false);
-            this.pnlEntrenadoresPendientes.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSinActividad)).EndInit();
+            this.pnlEntrenadoresPendientes.ResumeLayout(false);
+            this.pnlEntrenadoresPendientes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picEntrenadoresPendientes)).EndInit();
+            this.pnlTotalEntrenadores.ResumeLayout(false);
+            this.pnlTotalEntrenadores.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.nlEntrenadoresDia.ResumeLayout(false);
+            this.nlEntrenadoresDia.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picEntrenadoresDia)).EndInit();
             this.pnlDetalleEntrenadores.ResumeLayout(false);
             this.pnlDetalleEntrenadores.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntrenadoresMonitoreo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSinActividad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEntrenadoresPendientes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEntrenadoresDia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEntrenar)).EndInit();
             this.ResumeLayout(false);
 
         }
