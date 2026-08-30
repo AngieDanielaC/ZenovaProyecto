@@ -5,25 +5,17 @@ namespace wfZenova
 {
     public partial class Form1 : Form
     {
-        // ==========================================
         // FORMULARIO ACTUAL
-        // ==========================================
         private Form currentForm = null;
         private Form formularioActivo = null;
 
-
-        // ==========================================
         // CONSTRUCTOR
-        // ==========================================
         public Form1()
         {
             InitializeComponent();
         }
 
-
-        // ==========================================
         // LOAD
-        // ==========================================
         private void Form1_Load(
             object sender,
             EventArgs e)
@@ -42,31 +34,20 @@ namespace wfZenova
             panel1.Visible = false;
         }
 
-
-        // ==========================================
         // CONFIGURAR PERMISOS
-        // ==========================================
         private void ConfigurarPermisos()
         {
-            // ==========================================
             // PRIMERO OCULTAMOS TODO
-            // ==========================================
             OcultarTodosLosModulos();
 
-
-            // ==========================================
             // ESTOS SON PARA TODOS
-            // ==========================================
             btnCerrar.Visible =
                 true;
 
             btnReportes.Visible =
                 true;
 
-
-            // ==========================================
             // ROL ACTUAL
-            // ==========================================
             string rol =
                 frmInicioDeSesion
                 .NombreRolActual;
@@ -81,10 +62,7 @@ namespace wfZenova
             rol =
                 rol.Trim();
 
-
-            // ==========================================
             // ADMINISTRADOR
-            // ==========================================
             if (rol.Equals(
                 "Administrador",
                 StringComparison.OrdinalIgnoreCase))
@@ -92,9 +70,7 @@ namespace wfZenova
                 MenuAdministrador();
             }
 
-            // ==========================================
             // SECRETARÍA
-            // ==========================================
             else if (
                 rol.Equals(
                     "Secretaria",
@@ -107,9 +83,7 @@ namespace wfZenova
                 MenuSecretaria();
             }
 
-            // ==========================================
             // COORDINADOR DE COMPETENCIAS
-            // ==========================================
             else if (
                 rol.Equals(
                     "Coordinador de Competencias",
@@ -122,9 +96,7 @@ namespace wfZenova
                 MenuCoordinadorCompetencias();
             }
 
-            // ==========================================
             // ENTRENADOR
-            // ==========================================
             else if (rol.Equals(
                 "Entrenador",
                 StringComparison.OrdinalIgnoreCase))
@@ -132,9 +104,7 @@ namespace wfZenova
                 MenuEntrenador();
             }
 
-            // ==========================================
             // ROL DESCONOCIDO
-            // ==========================================
             else
             {
                 MessageBox.Show(
@@ -147,25 +117,17 @@ namespace wfZenova
             }
         }
 
-
-        // ==========================================
         // OCULTAR TODOS LOS MÓDULOS
-        // ==========================================
         private void OcultarTodosLosModulos()
         {
-            // ==========================================
             // GENERALES
-            // ==========================================
             btnInicio.Visible =
                 false;
 
             btnReportes.Visible =
                 false;
 
-
-            // ==========================================
             // ENTRENADOR
-            // ==========================================
 
             btnBienestar.Visible =
                 false;
@@ -188,17 +150,11 @@ namespace wfZenova
             btnDeportistas.Visible =
                 false;
 
-
-            // ==========================================
             // COORDINADOR
-            // ==========================================
             btnCompetencias.Visible =
                 false;
 
-
-            // ==========================================
             // ADMINISTRATIVOS
-            // ==========================================
             btnAsignacionAdm.Visible =
                 false;
 
@@ -218,28 +174,18 @@ namespace wfZenova
                 false;
         }
 
-
-        // ==========================================
         // ADMINISTRADOR
         // ACCESO A TODO
-        // ==========================================
         private void MenuAdministrador()
         {
-            // ==========================================
             // GENERAL
-            // ==========================================
             btnInicio.Visible =
                 true;
 
             btnReportes.Visible =
                 true;
 
-
-            // ==========================================
-            // ENTRENADOR
-            // ==========================================
-            
-
+            // ENTRENADOR          
             btnBienestar.Visible =
                 true;
 
@@ -264,17 +210,12 @@ namespace wfZenova
             PanelSubMenoMonitoreo.Visible =
                 false;
 
-
-            // ==========================================
             // COMPETENCIAS
-            // ==========================================
             btnCompetencias.Visible =
                 true;
 
 
-            // ==========================================
             // ADMINISTRACIÓN
-            // ==========================================
             btnAsignacionAdm.Visible =
                 true;
 
@@ -294,11 +235,8 @@ namespace wfZenova
                 true;
         }
 
-
-        // ==========================================
         // SECRETARÍA
         // BOTONES ROSA
-        // ==========================================
         private void MenuSecretaria()
         {
             btnInicio.Visible =
@@ -324,11 +262,8 @@ namespace wfZenova
                 true;
         }
 
-
-        // ==========================================
         // COORDINADOR DE COMPETENCIAS
         // BOTONES AMARILLOS
-        // ==========================================
         private void MenuCoordinadorCompetencias()
         {
             btnInicio.Visible =
@@ -341,11 +276,8 @@ namespace wfZenova
                 true;
         }
 
-
-        // ==========================================
         // ENTRENADOR
         // BOTONES AZULES
-        // ==========================================
         private void MenuEntrenador()
         {
             btnInicio.Visible =
@@ -354,42 +286,27 @@ namespace wfZenova
             btnReportes.Visible =
                 true;
 
-
-            // ==========================================
             // DEPORTISTAS
-            // ==========================================
             btnDeportistas.Visible =
                 true;
 
-
-            // ==========================================
             // MONITOREO
-            // ==========================================
             btnMonitoreo.Visible =
                 true;
 
             PanelSubMenoMonitoreo.Visible =
                 false;
 
-
-            // ==========================================
             // ENTRENAMIENTOS
-            // ==========================================
             btnEntrenamientos.Visible =
                 true;
 
-
-            // ==========================================
             // COMPETENCIAS ENTRENADOR
             // button1 abre frmCompetenciasEntrenador
-            // ==========================================
             button1.Visible =
                 true;
 
-
-            // ==========================================
             // BIENESTAR
-            // ==========================================
             btnBienestar.Visible =
                 true;
 
@@ -398,10 +315,7 @@ namespace wfZenova
 
         }
 
-
-        // ==========================================
         // ABRIR FORMULARIO HIJO
-        // ==========================================
         private void OpenChildForm(
             Form childForm)
         {
@@ -439,10 +353,7 @@ namespace wfZenova
             childForm.Show();
         }
 
-
-        // ==========================================
         // MONITOREO
-        // ==========================================
         private void btnMonitoreo_Click(
             object sender,
             EventArgs e)
@@ -496,10 +407,7 @@ namespace wfZenova
                 new frmAlertasMonitoreo());
         }
 
-
-        // ==========================================
         // BIENESTAR
-        // ==========================================
         private void btnBienestar_Click(
             object sender,
             EventArgs e)
@@ -544,10 +452,7 @@ namespace wfZenova
                 new frmVisualizarDatosBienestar());
         }
 
-
-        // ==========================================
         // INICIO
-        // ==========================================
         private void btnInicio_Click(
             object sender,
             EventArgs e)
@@ -556,10 +461,7 @@ namespace wfZenova
                 new frmInicio());
         }
 
-
-        // ==========================================
         // DEPORTISTAS ENTRENADOR
-        // ==========================================
         private void btnDeportistas_Click(
             object sender,
             EventArgs e)
@@ -569,9 +471,7 @@ namespace wfZenova
         }
 
 
-        // ==========================================
         // ENTRENAMIENTOS
-        // ==========================================
         private void btnEntrenamientos_Click(
             object sender,
             EventArgs e)
@@ -581,10 +481,8 @@ namespace wfZenova
         }
 
 
-        // ==========================================
         // COMPETENCIAS
         // ADMIN / COORDINADOR
-        // ==========================================
         private void btnCompetencias_Click(
             object sender,
             EventArgs e)
@@ -593,22 +491,7 @@ namespace wfZenova
                 new frmCompetencias());
         }
 
-
-        // ==========================================
-        // MOTIVACIÓN
-        // ==========================================
-        private void btnMotivacion_Click(
-            object sender,
-            EventArgs e)
-        {
-            OpenChildForm(
-                new frmMotivacion());
-        }
-
-
-        // ==========================================
         // DEPORTISTAS ADMINISTRACIÓN
-        // ==========================================
         private void btnDeportistasAdm_Click(
             object sender,
             EventArgs e)
@@ -617,10 +500,7 @@ namespace wfZenova
                 new frmDepAdm());
         }
 
-
-        // ==========================================
         // ENTRENADORES ADMINISTRACIÓN
-        // ==========================================
         private void btnEntrenadoresAdm_Click(
             object sender,
             EventArgs e)
@@ -629,10 +509,7 @@ namespace wfZenova
                 new frmEntrenadorAdm());
         }
 
-
-        // ==========================================
         // ASIGNACIONES
-        // ==========================================
         private void btnAsignacionAdm_Click(
             object sender,
             EventArgs e)
@@ -641,11 +518,8 @@ namespace wfZenova
                 new frmAsignacionesAdm());
         }
 
-
-        // ==========================================
         // CONSULTAS
         // SOLO ADMINISTRADOR
-        // ==========================================
         private void btnConsultaAdm_Click(
             object sender,
             EventArgs e)
@@ -655,10 +529,7 @@ namespace wfZenova
             panel1.Visible = !panel1.Visible;
         }
 
-
-        // ==========================================
         // GESTIÓN DE USUARIOS
-        // ==========================================
         private void btnGestionDeUsuarios_Click(
             object sender,
             EventArgs e)
@@ -667,10 +538,7 @@ namespace wfZenova
                 new frmGestionDeUsuarios());
         }
 
-
-        // ==========================================
         // COMPETENCIAS ENTRENADOR
-        // ==========================================
         private void button1_Click(
             object sender,
             EventArgs e)
@@ -693,7 +561,7 @@ namespace wfZenova
         private void button2_Click(object sender, EventArgs e)
         {
             OpenChildForm(
-                new frmCronogramaEntrenador(1));
+                new frmCronogramaEntrenador(frmInicioDeSesion.IdEntrenadorActual.Value));
         }
 
         private void btncon_Click(object sender, EventArgs e)
@@ -723,6 +591,11 @@ namespace wfZenova
         {
             OpenChildForm(new frmRegistroDatosMonitoreo());
             panel1.Visible = false;
+        }
+
+        private void btnAsistencia_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmAsistencia());
         }
     }
     
