@@ -89,6 +89,8 @@
             this.colSeries = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRepeticiones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPeso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtMolestias = new System.Windows.Forms.TextBox();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -114,19 +116,19 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(63)))), ((int)(((byte)(112)))));
-            this.label7.Location = new System.Drawing.Point(20, 216);
+            this.label7.Location = new System.Drawing.Point(24, 212);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 16);
+            this.label7.Size = new System.Drawing.Size(127, 18);
             this.label7.TabIndex = 11;
             this.label7.Text = "Total ejercicios: ";
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.label20);
             this.panel3.Controls.Add(this.panel7);
+            this.panel3.Controls.Add(this.label20);
             this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.radioButton12);
             this.panel3.Controls.Add(this.radioButton11);
@@ -135,6 +137,7 @@
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.comboBox7);
             this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.label19);
             this.panel3.Location = new System.Drawing.Point(85, 528);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(478, 213);
@@ -154,7 +157,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel7.Controls.Add(this.label19);
+            this.panel7.Controls.Add(this.txtMolestias);
             this.panel7.ForeColor = System.Drawing.SystemColors.Control;
             this.panel7.Location = new System.Drawing.Point(11, 169);
             this.panel7.Name = "panel7";
@@ -167,7 +170,7 @@
             this.label19.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label19.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(63)))), ((int)(((byte)(112)))));
-            this.label19.Location = new System.Drawing.Point(14, 10);
+            this.label19.Location = new System.Drawing.Point(204, 124);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(45, 16);
             this.label19.TabIndex = 10;
@@ -371,6 +374,7 @@
             // 
             // comboBox7
             // 
+            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox7.FormattingEnabled = true;
             this.comboBox7.Items.AddRange(new object[] {
             "Excelente",
@@ -409,8 +413,9 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.t);
+            this.panel4.Controls.Add(this.panel5);
             this.panel4.Location = new System.Drawing.Point(684, 528);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(413, 213);
@@ -419,7 +424,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel5.Controls.Add(this.t);
+            this.panel5.Controls.Add(this.txtObservaciones);
             this.panel5.ForeColor = System.Drawing.SystemColors.Control;
             this.panel5.Location = new System.Drawing.Point(23, 49);
             this.panel5.Name = "panel5";
@@ -432,7 +437,7 @@
             this.t.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.t.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.t.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(63)))), ((int)(((byte)(112)))));
-            this.t.Location = new System.Drawing.Point(14, 10);
+            this.t.Location = new System.Drawing.Point(59, 16);
             this.t.Name = "t";
             this.t.Size = new System.Drawing.Size(45, 16);
             this.t.TabIndex = 10;
@@ -449,6 +454,7 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "EDITAR";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // label1
             // 
@@ -463,13 +469,13 @@
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(68)))), ((int)(((byte)(112)))));
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(59)))), ((int)(((byte)(227)))));
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(872, 33);
+            this.button4.Location = new System.Drawing.Point(862, 33);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(158, 29);
+            this.button4.Size = new System.Drawing.Size(168, 29);
             this.button4.TabIndex = 20;
             this.button4.Text = "Guardar entrenamiento";
             this.button4.UseVisualStyleBackColor = false;
@@ -490,11 +496,11 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Black;
             this.label15.Location = new System.Drawing.Point(763, 50);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(45, 16);
+            this.label15.Size = new System.Drawing.Size(52, 17);
             this.label15.TabIndex = 19;
             this.label15.Text = "Estado";
             // 
@@ -503,7 +509,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(647, 69);
+            this.label14.Location = new System.Drawing.Point(642, 69);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(48, 16);
             this.label14.TabIndex = 18;
@@ -512,11 +518,11 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(569, 108);
+            this.label13.Location = new System.Drawing.Point(564, 119);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(119, 15);
+            this.label13.Size = new System.Drawing.Size(143, 17);
             this.label13.TabIndex = 17;
             this.label13.Text = "Objetivo de la sesión";
             // 
@@ -526,9 +532,9 @@
             this.comboBox6.Items.AddRange(new object[] {
             "Fuerza de tren inferior",
             "Fuerza de tren superior"});
-            this.comboBox6.Location = new System.Drawing.Point(1079, 171);
+            this.comboBox6.Location = new System.Drawing.Point(838, 81);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(159, 21);
+            this.comboBox6.Size = new System.Drawing.Size(10, 21);
             this.comboBox6.TabIndex = 15;
             this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
             // 
@@ -548,11 +554,11 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(569, 50);
+            this.label12.Location = new System.Drawing.Point(564, 50);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(57, 15);
+            this.label12.Size = new System.Drawing.Size(67, 17);
             this.label12.TabIndex = 16;
             this.label12.Text = "Duración";
             // 
@@ -565,6 +571,7 @@
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.comboBox6);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
@@ -575,6 +582,7 @@
             this.panel1.Controls.Add(this.txtDuracion);
             this.panel1.Controls.Add(this.cboTipoEntrenamiento);
             this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Location = new System.Drawing.Point(135, 68);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(916, 191);
@@ -582,7 +590,7 @@
             // 
             // txtObjetivo
             // 
-            this.txtObjetivo.Location = new System.Drawing.Point(572, 124);
+            this.txtObjetivo.Location = new System.Drawing.Point(567, 139);
             this.txtObjetivo.Name = "txtObjetivo";
             this.txtObjetivo.Size = new System.Drawing.Size(155, 20);
             this.txtObjetivo.TabIndex = 22;
@@ -590,7 +598,7 @@
             // checkedListBox3
             // 
             this.checkedListBox3.FormattingEnabled = true;
-            this.checkedListBox3.Location = new System.Drawing.Point(54, 68);
+            this.checkedListBox3.Location = new System.Drawing.Point(47, 68);
             this.checkedListBox3.Name = "checkedListBox3";
             this.checkedListBox3.Size = new System.Drawing.Size(199, 34);
             this.checkedListBox3.TabIndex = 21;
@@ -598,22 +606,22 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(296, 108);
+            this.label11.Location = new System.Drawing.Point(273, 119);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(83, 15);
+            this.label11.Size = new System.Drawing.Size(98, 17);
             this.label11.TabIndex = 14;
             this.label11.Text = "Hora de inicio";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(296, 50);
+            this.label10.Location = new System.Drawing.Point(273, 50);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 15);
+            this.label10.Size = new System.Drawing.Size(47, 17);
             this.label10.TabIndex = 13;
             this.label10.Text = "Fecha";
             // 
@@ -621,7 +629,7 @@
             // 
             this.dtpFecha.CustomFormat = "dd/MM/yyyy";
             this.dtpFecha.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFecha.Location = new System.Drawing.Point(289, 66);
+            this.dtpFecha.Location = new System.Drawing.Point(276, 70);
             this.dtpFecha.MaxDate = new System.DateTime(2027, 12, 31, 0, 0, 0, 0);
             this.dtpFecha.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpFecha.Name = "dtpFecha";
@@ -632,22 +640,22 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(51, 108);
+            this.label9.Location = new System.Drawing.Point(44, 119);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(127, 15);
+            this.label9.Size = new System.Drawing.Size(155, 17);
             this.label9.TabIndex = 11;
             this.label9.Text = "Tipo de entrenamiento";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(51, 50);
+            this.label8.Location = new System.Drawing.Point(44, 50);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 15);
+            this.label8.Size = new System.Drawing.Size(80, 17);
             this.label8.TabIndex = 10;
             this.label8.Text = "Deportistas";
             // 
@@ -656,7 +664,7 @@
             this.cboHoraInicio.FormattingEnabled = true;
             this.cboHoraInicio.Items.AddRange(new object[] {
             "08:30 AM"});
-            this.cboHoraInicio.Location = new System.Drawing.Point(289, 124);
+            this.cboHoraInicio.Location = new System.Drawing.Point(274, 139);
             this.cboHoraInicio.Name = "cboHoraInicio";
             this.cboHoraInicio.Size = new System.Drawing.Size(159, 21);
             this.cboHoraInicio.TabIndex = 9;
@@ -666,7 +674,7 @@
             this.txtDuracion.FormattingEnabled = true;
             this.txtDuracion.Items.AddRange(new object[] {
             "60"});
-            this.txtDuracion.Location = new System.Drawing.Point(572, 66);
+            this.txtDuracion.Location = new System.Drawing.Point(567, 67);
             this.txtDuracion.Name = "txtDuracion";
             this.txtDuracion.Size = new System.Drawing.Size(69, 21);
             this.txtDuracion.TabIndex = 8;
@@ -677,7 +685,7 @@
             this.cboTipoEntrenamiento.Items.AddRange(new object[] {
             "Fuerza",
             "Agilidad"});
-            this.cboTipoEntrenamiento.Location = new System.Drawing.Point(49, 124);
+            this.cboTipoEntrenamiento.Location = new System.Drawing.Point(47, 139);
             this.cboTipoEntrenamiento.Name = "cboTipoEntrenamiento";
             this.cboTipoEntrenamiento.Size = new System.Drawing.Size(159, 21);
             this.cboTipoEntrenamiento.TabIndex = 7;
@@ -699,9 +707,9 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Deportista 1",
             "Deportista 2"});
-            this.comboBox1.Location = new System.Drawing.Point(1057, 133);
+            this.comboBox1.Location = new System.Drawing.Point(865, 69);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(159, 21);
+            this.comboBox1.Size = new System.Drawing.Size(10, 21);
             this.comboBox1.TabIndex = 6;
             // 
             // panel2
@@ -791,6 +799,22 @@
             this.colPeso.HeaderText = "Peso (Kg)";
             this.colPeso.Name = "colPeso";
             // 
+            // txtMolestias
+            // 
+            this.txtMolestias.Location = new System.Drawing.Point(11, 3);
+            this.txtMolestias.Multiline = true;
+            this.txtMolestias.Name = "txtMolestias";
+            this.txtMolestias.Size = new System.Drawing.Size(339, 25);
+            this.txtMolestias.TabIndex = 0;
+            // 
+            // txtObservaciones
+            // 
+            this.txtObservaciones.Location = new System.Drawing.Point(9, 12);
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.Size = new System.Drawing.Size(339, 114);
+            this.txtObservaciones.TabIndex = 1;
+            // 
             // frmSubEntrenamientos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -803,10 +827,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.comboBox6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.comboBox1);
             this.ForeColor = System.Drawing.Color.Turquoise;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSubEntrenamientos";
@@ -895,5 +917,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colRepeticiones;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPeso;
         private System.Windows.Forms.TextBox txtObjetivo;
+        private System.Windows.Forms.TextBox txtMolestias;
+        private System.Windows.Forms.TextBox txtObservaciones;
     }
 }

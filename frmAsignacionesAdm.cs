@@ -479,19 +479,7 @@ namespace wfZenova
             cmbDeportista.ValueMember = "IdDeportista";
             cmbDeportista.SelectedIndex = -1;
         }
-        private void CargarEntrenadores()
-        {
-            DataTable dt = conSQL.RetornaRegistros(@"
-                SELECT IdEntrenador, Nombres
-                FROM Entrenadores
-                ORDER BY Nombres");
-
-            cmbEntrenador.DataSource = dt;
-            cmbEntrenador.DisplayMember = "Nombres";
-            cmbEntrenador.ValueMember = "IdEntrenador";
-            cmbEntrenador.SelectedIndex = -1;
-        }
-
+        
         private void cmbEntrenador_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
@@ -521,6 +509,11 @@ namespace wfZenova
         }
 
         private void dgvAsignaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lblNombreDeportista_Click(object sender, EventArgs e)
         {
 
         }

@@ -17,11 +17,13 @@ namespace wfZenova
         public string Repeticiones { get; private set; }
         public string Peso { get; private set; }
 
+        //Agregar ejercicio
         public AgregarEjercicio()
         {
             InitializeComponent();
         }
 
+        //Editar ejercicio
         public AgregarEjercicio(string nombre, string series, string repeticiones, string peso) : this()
         {
             textBox1.Text = nombre;
@@ -33,23 +35,86 @@ namespace wfZenova
             this.Text = "Editar ejercicio";
         }
 
+        //Guardar ejercicio
         private void button4_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text))
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                MessageBox.Show("Por favor ingrese al menos el nombre y las series del ejercicio.");
+                MessageBox.Show(
+                    "Debe ingresar el nombre del ejercicio.",
+                    "Campos incompletos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
                 return;
             }
 
-            NombreEjercicio = textBox1.Text;
-            Series = textBox2.Text;
-            Repeticiones = textBox4.Text;
-            Peso = string.IsNullOrWhiteSpace(textBox3.Text) ? "0" : textBox3.Text;
+            if (string.IsNullOrWhiteSpace(textBox2.Text))
+            {
+                MessageBox.Show(
+                    "Debe ingresar las series.",
+                    "Campos incompletos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
 
+            //Validar series
+            if (!int.TryParse(textBox2.Text, out int series))
+            {
+                MessageBox.Show(
+                    "Las series deben ser un número entero.",
+                    "Dato inválido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            //Validar repeticiones
+            if (!string.IsNullOrWhiteSpace(textBox4.Text) &&
+                !int.TryParse(textBox4.Text, out int repeticiones))
+            {
+                MessageBox.Show(
+                    "Las repeticiones deben ser un número entero.",
+                    "Dato inválido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            //Validar peso
+            if (!string.IsNullOrWhiteSpace(textBox3.Text) &&
+                !decimal.TryParse(textBox3.Text, out decimal peso))
+            {
+                MessageBox.Show(
+                    "El peso debe ser un número.",
+                    "Dato inválido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            NombreEjercicio = textBox1.Text.Trim();
+            Series = textBox2.Text.Trim();
+
+            Repeticiones = string.IsNullOrWhiteSpace(textBox4.Text)
+                ? "0"
+                : textBox4.Text.Trim();
+
+            Peso = string.IsNullOrWhiteSpace(textBox3.Text)
+                ? "0"
+                : textBox3.Text.Trim();
+
+            //Solo llega aquí si todo está correcto
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
+        //Cancelar
         private void button5_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;

@@ -43,12 +43,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.btnPruebas = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.btnPruebas = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -100,7 +100,7 @@
             // 
             // btnContEntrenamiento
             // 
-            this.btnContEntrenamiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(63)))), ((int)(((byte)(112)))));
+            this.btnContEntrenamiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(59)))), ((int)(((byte)(227)))));
             this.btnContEntrenamiento.FlatAppearance.BorderSize = 0;
             this.btnContEntrenamiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContEntrenamiento.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -259,21 +259,6 @@
             this.panel9.Size = new System.Drawing.Size(292, 149);
             this.panel9.TabIndex = 1;
             // 
-            // btnPruebas
-            // 
-            this.btnPruebas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(39)))), ((int)(((byte)(23)))));
-            this.btnPruebas.FlatAppearance.BorderSize = 0;
-            this.btnPruebas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPruebas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPruebas.ForeColor = System.Drawing.Color.White;
-            this.btnPruebas.Location = new System.Drawing.Point(40, 238);
-            this.btnPruebas.Name = "btnPruebas";
-            this.btnPruebas.Size = new System.Drawing.Size(145, 25);
-            this.btnPruebas.TabIndex = 16;
-            this.btnPruebas.Text = "CONTINUAR";
-            this.btnPruebas.UseVisualStyleBackColor = false;
-            this.btnPruebas.Click += new System.EventHandler(this.btnPruebas_Click);
-            // 
             // label27
             // 
             this.label27.AutoSize = true;
@@ -329,6 +314,21 @@
             this.label22.TabIndex = 10;
             this.label22.Text = "Resultados";
             // 
+            // btnPruebas
+            // 
+            this.btnPruebas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(39)))), ((int)(((byte)(23)))));
+            this.btnPruebas.FlatAppearance.BorderSize = 0;
+            this.btnPruebas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPruebas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPruebas.ForeColor = System.Drawing.Color.White;
+            this.btnPruebas.Location = new System.Drawing.Point(40, 238);
+            this.btnPruebas.Name = "btnPruebas";
+            this.btnPruebas.Size = new System.Drawing.Size(145, 25);
+            this.btnPruebas.TabIndex = 16;
+            this.btnPruebas.Text = "CONTINUAR";
+            this.btnPruebas.UseVisualStyleBackColor = false;
+            this.btnPruebas.Click += new System.EventHandler(this.btnPruebas_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -365,7 +365,7 @@
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(63)))), ((int)(((byte)(112)))));
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(59)))), ((int)(((byte)(227)))));
             this.panel6.Location = new System.Drawing.Point(169, 315);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(377, 33);
@@ -610,6 +610,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmEntrenamientos";
             this.Text = "frmEntrenamientos";
+            this.Load += new System.EventHandler(this.frmEntrenamientos_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

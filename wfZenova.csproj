@@ -119,6 +119,18 @@
     <Compile Include="frmControles.Designer.cs">
       <DependentUpon>frmControles.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCronogramaActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCronogramaActividad.Designer.cs">
+      <DependentUpon>frmCronogramaActividad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCronogramaEntrenador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCronogramaEntrenador.Designer.cs">
+      <DependentUpon>frmCronogramaEntrenador.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDatosDeportivos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -474,6 +486,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmControles.resx">
       <DependentUpon>frmControles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCronogramaActividad.resx">
+      <DependentUpon>frmCronogramaActividad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCronogramaEntrenador.resx">
+      <DependentUpon>frmCronogramaEntrenador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDatosDeportivos.resx">
       <DependentUpon>frmDatosDeportivos.cs</DependentUpon>

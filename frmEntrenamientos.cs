@@ -89,5 +89,10 @@ namespace wfZenova
 
             this.Close();
         }
+
+        private void frmEntrenamientos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

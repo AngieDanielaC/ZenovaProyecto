@@ -56,6 +56,7 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelChildForm = new System.Windows.Forms.Panel();
+            this.btnCronograma = new System.Windows.Forms.Button();
             this.pnlMenuLateral.SuspendLayout();
             this.panelSubBienestar.SuspendLayout();
             this.PanelSubMenoMonitoreo.SuspendLayout();
@@ -67,6 +68,7 @@
             // 
             this.pnlMenuLateral.AutoScroll = true;
             this.pnlMenuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(63)))), ((int)(((byte)(112)))));
+            this.pnlMenuLateral.Controls.Add(this.btnCronograma);
             this.pnlMenuLateral.Controls.Add(this.btnConsultaAdm);
             this.pnlMenuLateral.Controls.Add(this.btnCerrar);
             this.pnlMenuLateral.Controls.Add(this.btnReportes);
@@ -120,7 +122,7 @@
             this.btnCerrar.ForeColor = System.Drawing.Color.White;
             this.btnCerrar.Image = global::wfZenova.Properties.Resources._9;
             this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrar.Location = new System.Drawing.Point(0, 998);
+            this.btnCerrar.Location = new System.Drawing.Point(0, 1043);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnCerrar.Size = new System.Drawing.Size(233, 45);
@@ -145,6 +147,7 @@
             this.btnReportes.TabIndex = 10;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // panelSubBienestar
             // 
@@ -555,6 +558,25 @@
             this.PanelChildForm.Size = new System.Drawing.Size(1033, 749);
             this.PanelChildForm.TabIndex = 1;
             // 
+            // btnCronograma
+            // 
+            this.btnCronograma.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCronograma.FlatAppearance.BorderSize = 0;
+            this.btnCronograma.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
+            this.btnCronograma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCronograma.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCronograma.ForeColor = System.Drawing.Color.White;
+            this.btnCronograma.Image = global::wfZenova.Properties.Resources._5;
+            this.btnCronograma.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCronograma.Location = new System.Drawing.Point(0, 998);
+            this.btnCronograma.Name = "btnCronograma";
+            this.btnCronograma.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnCronograma.Size = new System.Drawing.Size(233, 45);
+            this.btnCronograma.TabIndex = 20;
+            this.btnCronograma.Text = "Cronograma";
+            this.btnCronograma.UseVisualStyleBackColor = true;
+            this.btnCronograma.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -608,6 +630,7 @@
         private System.Windows.Forms.Button btnGestionDeUsuarios;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnGestiondeEmpleados;
+        private System.Windows.Forms.Button btnCronograma;
     }
 }
 

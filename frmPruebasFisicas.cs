@@ -14,51 +14,69 @@ namespace wfZenova
     public partial class frmPruebasFisicas : Form
     {
         private csConectaSQL bd = new csConectaSQL();
+        private int idEntrenador;
 
+        //Inicializar formulario
         public frmPruebasFisicas()
         {
             InitializeComponent();
-            // Nota: la suscripción a Load ya se hace en el Designer (this.Load += ...frmPruebasFisicas_Load).
-            // Se elimina la duplicada que había aquí para evitar que el evento se dispare dos veces.
+
             this.button4.Click += new EventHandler(button4_Click);
             this.button5.Click += new EventHandler(button5_Click);
             this.radioButton11.CheckedChanged += new EventHandler(RadioButtonDolor_CheckedChanged);
             this.radioButton12.CheckedChanged += new EventHandler(RadioButtonDolor_CheckedChanged);
         }
 
+        //Volver a entrenamientos
         private void btnVolver_Click(object sender, EventArgs e)
         {
             Control contenedor = this.Parent;
 
             if (contenedor == null)
-            {
-                MessageBox.Show("No se encontró el contenedor del formulario.");
                 return;
-            }
 
-            frmEntrenamientos frmSubCompetencia = new frmEntrenamientos();
+            frmEntrenamientos frm = new frmEntrenamientos();
 
-            frmSubCompetencia.TopLevel = false;
-            frmSubCompetencia.FormBorderStyle = FormBorderStyle.None;
-            frmSubCompetencia.Dock = DockStyle.Fill;
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
 
-            contenedor.Controls.Remove(this);
-            contenedor.Controls.Add(frmSubCompetencia);
+            contenedor.Controls.Clear();
+            contenedor.Controls.Add(frm);
 
-            frmSubCompetencia.Show();
-
-            this.Close();
+            frm.Show();
         }
 
+        //Cargar formulario
         private void frmPruebasFisicas_Load(object sender, EventArgs e)
         {
             CargarDeportistas();
             ConfigurarEstadoInicial();
         }
 
+        //Cargar deportistas activos
         private void CargarDeportistas()
         {
-            DataTable dt = bd.RetornaRegistros("SELECT IdDeportista, Nombres + ' ' + Apellidos AS NombreCompleto FROM Deportistas WHERE Estado = 'Activo'");
+            if (frmInicioDeSesion.IdEntrenadorActual == null)
+            {
+                MessageBox.Show(
+                    "La sesión actual no está asociada a un entrenador.",
+                    "Atención",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            idEntrenador = frmInicioDeSesion.IdEntrenadorActual.Value;
+
+            DataTable dt = bd.RetornaRegistros(
+                "SELECT IdDeportista, " +
+                "Nombres + ' ' + Apellidos AS NombreCompleto " +
+                "FROM Deportistas " +
+                "WHERE Estado = 1"
+            );
+
             if (dt != null)
             {
                 comboBox15.DataSource = dt;
@@ -68,106 +86,209 @@ namespace wfZenova
             }
         }
 
+        //Configurar valores iniciales
         private void ConfigurarEstadoInicial()
         {
             dateTimePicker2.Value = DateTime.Now;
             radioButton12.Checked = true;
-            label23.Text = "Sin observaciones registradas.";
+            txtObservaciones.Text = "Sin observaciones registradas.";
         }
 
+        //Controlar opción de dolor o molestia
         private void RadioButtonDolor_CheckedChanged(object sender, EventArgs e)
         {
             bool presentaDolor = radioButton11.Checked;
             panel5.Enabled = presentaDolor;
-
-            if (!presentaDolor)
-            {
-                label23.Text = "El deportista no presenta molestias.";
-            }
         }
 
+        //Guardar prueba física
         private void button4_Click(object sender, EventArgs e)
         {
+            //Validar deportista seleccionado
             if (comboBox15.SelectedValue == null)
             {
-                MessageBox.Show("Por favor, seleccione un deportista.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(comboBox10.Text))
-            {
-                MessageBox.Show("Seleccione o ingrese la prueba realizada.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Por favor, seleccione un deportista.",
+                    "Atención",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
                 return;
             }
 
             int idDeportista = Convert.ToInt32(comboBox15.SelectedValue);
+
+            if (string.IsNullOrWhiteSpace(comboBox10.Text))
+            {
+                MessageBox.Show(
+                    "Seleccione o ingrese la prueba realizada.",
+                    "Atención",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
             DateTime fecha = dateTimePicker2.Value.Date;
 
-            // --- Mapeo corregido según las etiquetas reales del formulario ---
-            // label31 "Fecha" -> dateTimePicker2 (ok)
-            // label33 "Deportista" -> comboBox15 (ok)
-            // label30 "Hora de inicio" -> comboBox12 (antes se leía mal desde comboBox14)
-            // label29 "Duración" -> comboBox13 (antes se leía mal desde comboBox12)
-            // label32 "Lugar de la prueba" -> comboBox14 (antes se leía mal desde comboBox13)
-            // label28 "Tipo de prueba" -> comboBox11 (ok)
-            // label26 "Prueba realizada" -> comboBox10 (ok)
-            // label25 "Intentos" -> comboBox9 (ok)
             string horaInicio = comboBox12.Text;
-            int duracion = int.TryParse(comboBox13.Text, out int d) ? d : 0;
+
+            int duracion =
+                int.TryParse(comboBox13.Text, out int d) ? d : 0;
+
             string lugar = comboBox14.Text;
-            // -------------------------------------------------------------
 
             string tipoPrueba = comboBox11.Text;
             string pruebaRealizada = comboBox10.Text;
-            int intentos = int.TryParse(comboBox9.Text, out int i) ? i : 1;
 
-            decimal distancia = decimal.TryParse(textBox1.Text, out decimal dist) ? dist : 0;
-            int tiempoTotal = int.TryParse(textBox2.Text, out int tt) ? tt : 0;
-            int rpe = int.TryParse(textBox3.Text, out int r) ? r : 0;
+            int intentos =
+                int.TryParse(comboBox9.Text, out int i) ? i : 1;
+
+            decimal distancia =
+                decimal.TryParse(textBox1.Text, out decimal dist)
+                ? dist
+                : 0;
+
+            int tiempoTotal =
+                int.TryParse(textBox2.Text, out int tt)
+                ? tt
+                : 0;
+
+            int rpe =
+                int.TryParse(textBox3.Text, out int r)
+                ? r
+                : 0;
+
             string clasificacion = comboBox8.Text;
 
-            int tieneDolor = radioButton11.Checked ? 1 : 0;
-            string obsGenerales = label23.Text;
+            int tieneDolor =
+                radioButton11.Checked ? 1 : 0;
+
+            string obsGenerales =
+                txtObservaciones.Text;
 
             string sentencia = @"INSERT INTO PruebasFisicas
-                (IdDeportista, Fecha, HoraInicio, Lugar, DuracionMin, Intentos, TipoPrueba, PruebaRealizada, DistanciaRecorrida, TiempoTotal, RPE, Clasificacion, TieneDolor, Observaciones)
-                VALUES
-                (@IdDeportista, @Fecha, @HoraInicio, @Lugar, @DuracionMin, @Intentos, @TipoPrueba, @PruebaRealizada, @DistanciaRecorrida, @TiempoTotal, @RPE, @Clasificacion, @TieneDolor, @Observaciones)";
+                    (IdDeportista, IdEntrenador, Fecha, HoraInicio, Lugar, DuracionMin, Intentos, TipoPrueba, PruebaRealizada, DistanciaRecorrida, TiempoTotal, RPE, Clasificacion, TieneDolor, Observaciones)
+                    VALUES
+                    (@IdDeportista, @IdEntrenador, @Fecha, @HoraInicio, @Lugar, @DuracionMin, @Intentos, @TipoPrueba, @PruebaRealizada, @DistanciaRecorrida, @TiempoTotal, @RPE, @Clasificacion, @TieneDolor, @Observaciones)";
 
             SqlParameter[] parametros = new SqlParameter[]
             {
-                new SqlParameter("@IdDeportista", SqlDbType.Int) { Value = idDeportista },
-                new SqlParameter("@Fecha", SqlDbType.Date) { Value = fecha },
-                new SqlParameter("@HoraInicio", SqlDbType.NVarChar, 50) { Value = string.IsNullOrEmpty(horaInicio) ? (object)DBNull.Value : horaInicio },
-                new SqlParameter("@Lugar", SqlDbType.NVarChar, 100) { Value = string.IsNullOrEmpty(lugar) ? (object)DBNull.Value : lugar },
-                new SqlParameter("@DuracionMin", SqlDbType.Int) { Value = duracion },
-                new SqlParameter("@Intentos", SqlDbType.Int) { Value = intentos },
-                new SqlParameter("@TipoPrueba", SqlDbType.NVarChar, 100) { Value = string.IsNullOrEmpty(tipoPrueba) ? (object)DBNull.Value : tipoPrueba },
-                new SqlParameter("@PruebaRealizada", SqlDbType.NVarChar, 100) { Value = pruebaRealizada },
-                new SqlParameter("@DistanciaRecorrida", SqlDbType.Decimal) { Value = distancia },
-                new SqlParameter("@TiempoTotal", SqlDbType.Int) { Value = tiempoTotal },
-                new SqlParameter("@RPE", SqlDbType.Int) { Value = rpe },
-                new SqlParameter("@Clasificacion", SqlDbType.NVarChar, 50) { Value = string.IsNullOrEmpty(clasificacion) ? (object)DBNull.Value : clasificacion },
-                new SqlParameter("@TieneDolor", SqlDbType.Bit) { Value = tieneDolor },
-                new SqlParameter("@Observaciones", SqlDbType.NVarChar, -1) { Value = string.IsNullOrEmpty(obsGenerales) ? (object)DBNull.Value : obsGenerales }
+                new SqlParameter("@IdDeportista", SqlDbType.Int)
+                {
+                    Value = idDeportista
+                },
+
+                new SqlParameter("@IdEntrenador", SqlDbType.Int)
+                {
+                    Value = idEntrenador
+                },
+
+                new SqlParameter("@Fecha", SqlDbType.Date)
+                {
+                    Value = fecha
+                },
+
+                new SqlParameter("@HoraInicio", SqlDbType.NVarChar, 50)
+                {
+                    Value = string.IsNullOrWhiteSpace(horaInicio)
+                        ? (object)DBNull.Value
+                        : horaInicio
+                },
+
+                new SqlParameter("@Lugar", SqlDbType.NVarChar, 100)
+                {
+                    Value = string.IsNullOrWhiteSpace(lugar)
+                        ? (object)DBNull.Value
+                        : lugar
+                },
+
+                new SqlParameter("@DuracionMin", SqlDbType.Int)
+                {
+                    Value = duracion
+                },
+
+                new SqlParameter("@Intentos", SqlDbType.Int)
+                {
+                    Value = intentos
+                },
+
+                new SqlParameter("@TipoPrueba", SqlDbType.NVarChar, 100)
+                {
+                    Value = string.IsNullOrWhiteSpace(tipoPrueba)
+                        ? (object)DBNull.Value
+                        : tipoPrueba
+                },
+
+                new SqlParameter("@PruebaRealizada", SqlDbType.NVarChar, 100)
+                {
+                    Value = pruebaRealizada
+                },
+
+                new SqlParameter("@DistanciaRecorrida", SqlDbType.Decimal)
+                {
+                    Value = distancia
+                },
+
+                new SqlParameter("@TiempoTotal", SqlDbType.Int)
+                {
+                    Value = tiempoTotal
+                },
+
+                new SqlParameter("@RPE", SqlDbType.Int)
+                {
+                    Value = rpe
+                },
+
+                new SqlParameter("@Clasificacion", SqlDbType.NVarChar, 50)
+                {
+                    Value = string.IsNullOrWhiteSpace(clasificacion)
+                        ? (object)DBNull.Value
+                        : clasificacion
+                },
+
+                new SqlParameter("@TieneDolor", SqlDbType.Bit)
+                {
+                    Value = tieneDolor
+                },
+
+                new SqlParameter("@Observaciones", SqlDbType.NVarChar, -1)
+                {
+                    Value = string.IsNullOrWhiteSpace(obsGenerales)
+                        ? (object)DBNull.Value
+                        : obsGenerales
+                }
             };
 
             if (bd.EjecutaSentenciaParametros(sentencia, parametros))
             {
-                MessageBox.Show("¡Prueba física registrada exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(
+                    "¡Prueba física registrada exitosamente!",
+                    "Éxito",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
                 LimpiarFormulario();
             }
             else
             {
-                MessageBox.Show("Ocurrió un error al intentar guardar el registro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Ocurrió un error al intentar guardar el registro.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
 
+        //Cancelar y limpiar formulario
         private void button5_Click(object sender, EventArgs e)
         {
             LimpiarFormulario();
         }
 
+        //Limpiar campos
         private void LimpiarFormulario()
         {
             comboBox15.SelectedIndex = -1;
@@ -186,7 +307,12 @@ namespace wfZenova
             dateTimePicker2.Value = DateTime.Now;
 
             radioButton12.Checked = true;
-            label23.Text = "Sin observaciones registradas.";
+            txtObservaciones.Text = "Sin observaciones.";
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

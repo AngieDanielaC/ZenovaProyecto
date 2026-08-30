@@ -22,15 +22,39 @@ namespace wfZenova
             this.button5.Click += new EventHandler(button5_Click);
         }
 
+        //Cargar formulario
         private void frmSubEntrenamientos_Load(object sender, EventArgs e)
         {
             CargarDeportistas();
             ConfigurarColumnasDgvEjercicios();
         }
 
+        //Cargar deportistas asignados al entrenador
         private void CargarDeportistas()
         {
-            DataTable dt = bd.RetornaRegistros("SELECT IdDeportista, Nombres + ' ' + Apellidos AS NombreCompleto FROM Deportistas WHERE Estado = 'Activo'");
+            if (frmInicioDeSesion.IdEntrenadorActual == null)
+            {
+                MessageBox.Show("La sesión actual no está asociada a un entrenador.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int idEntrenador = frmInicioDeSesion.IdEntrenadorActual.Value;
+
+            DataTable dt = bd.RetornaRegistros($@"
+                SELECT DISTINCT
+                    D.IdDeportista,
+                    D.Nombres + ' ' + D.Apellidos AS NombreCompleto
+                FROM Deportistas D
+                INNER JOIN Inscripciones I
+                    ON D.IdDeportista = I.IdDeportista
+                INNER JOIN EntrenadorDeporte ED
+                    ON I.IdEntrenadorDeporte = ED.IdEntrenadorDeporte
+                WHERE D.Estado = 1
+                  AND ED.IdEntrenador = {idEntrenador}
+                  AND ED.Activo = 1
+                  AND I.Estado <> 'Finalizado'
+                ORDER BY NombreCompleto");
+
             if (dt != null)
             {
                 checkedListBox3.DataSource = dt;
@@ -39,14 +63,12 @@ namespace wfZenova
             }
         }
 
+        //Agregar ejercicio
         private void button1_Click(object sender, EventArgs e)
         {
             AgregarEjercicio modal = new AgregarEjercicio();
             if (modal.ShowDialog() == DialogResult.OK)
             {
-                if (!ValidarNumericos(modal.Series, modal.Repeticiones, modal.Peso))
-                    return;
-
                 dgvEjercicios.Rows.Add(
                     modal.NombreEjercicio,
                     modal.Series,
@@ -57,6 +79,7 @@ namespace wfZenova
             }
         }
 
+        //Editar ejercicio
         private void button2_Click(object sender, EventArgs e)
         {
             if (dgvEjercicios.CurrentRow == null || dgvEjercicios.CurrentRow.IsNewRow)
@@ -76,9 +99,6 @@ namespace wfZenova
 
             if (modal.ShowDialog() == DialogResult.OK)
             {
-                if (!ValidarNumericos(modal.Series, modal.Repeticiones, modal.Peso))
-                    return;
-
                 fila.Cells["colNombre"].Value = modal.NombreEjercicio;
                 fila.Cells["colSeries"].Value = modal.Series;
                 fila.Cells["colRepeticiones"].Value = modal.Repeticiones;
@@ -86,6 +106,7 @@ namespace wfZenova
             }
         }
 
+        //Eliminar ejercicio
         private void button3_Click(object sender, EventArgs e)
         {
             if (dgvEjercicios.CurrentRow != null && !dgvEjercicios.CurrentRow.IsNewRow)
@@ -99,29 +120,7 @@ namespace wfZenova
             }
         }
 
-        private bool ValidarNumericos(string series, string repeticiones, string peso)
-        {
-            if (!int.TryParse(series, out _))
-            {
-                MessageBox.Show("El campo 'Series' debe ser un número entero.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            if (!string.IsNullOrWhiteSpace(repeticiones) && !int.TryParse(repeticiones, out _))
-            {
-                MessageBox.Show("El campo 'Repeticiones' debe ser un número entero.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            if (!decimal.TryParse(peso, out _))
-            {
-                MessageBox.Show("El campo 'Peso' debe ser un número.", "Dato inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
+        //Actualizar total de ejercicios
         private void ActualizarContadorEjercicios()
         {
             int total = dgvEjercicios.Rows.Count;
@@ -129,8 +128,69 @@ namespace wfZenova
             label7.Text = "Total ejercicios: " + total;
         }
 
+        //Guardar entrenamiento
         private void button4_Click(object sender, EventArgs e)
         {
+            //Validar estado
+            if (chkCompletado.CheckedItems.Count == 0)
+            {
+                MessageBox.Show(
+                    "Debe seleccionar un estado.",
+                    "Campos incompletos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            if (chkCompletado.CheckedItems.Count > 1)
+            {
+                MessageBox.Show(
+                    "Solo puede seleccionar un estado.",
+                    "Estado inválido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            //Validar nivel de esfuerzo
+            int rpe = ObtenerNivelEsfuerzo();
+
+            if (rpe == 0)
+            {
+                MessageBox.Show(
+                    "Debe seleccionar el nivel de esfuerzo.",
+                    "Campos incompletos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            //Validar dolor o molestia
+            if (!radioButton11.Checked && !radioButton12.Checked)
+            {
+                MessageBox.Show(
+                    "Debe indicar si existe dolor o molestia.",
+                    "Campos incompletos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            //Si tiene dolor, debe seleccionar la zona
+            if (radioButton11.Checked && comboBox7.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Debe seleccionar la zona del dolor.",
+                    "Campos incompletos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
             if (checkedListBox3.CheckedItems.Count == 0)
             {
                 MessageBox.Show("Debe seleccionar al menos un deportista de la lista.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -149,7 +209,7 @@ namespace wfZenova
                 return;
             }
 
-            int idEntrenadorDep = frmInicioDeSesion.IdEntrenadorActual.Value;
+            int idEntrenador = frmInicioDeSesion.IdEntrenadorActual.Value;
 
             DateTime fecha = dtpFecha.Value.Date;
             string hora = cboHoraInicio.Text;
@@ -161,12 +221,10 @@ namespace wfZenova
                 ? chkCompletado.CheckedItems[0].ToString()
                 : "Incompleto";
 
-            int rpe = ObtenerNivelEsfuerzo();
-
             int tieneDolor = radioButton11.Checked ? 1 : 0;
             string zonaDolor = comboBox7.Text;
-            string comentario = label19.Text;
-            string observaciones = t.Text;
+            string comentario = txtMolestias.Text;
+            string observaciones = txtObservaciones.Text;
 
             string sentenciaSesion = @"INSERT INTO SesionesEntrenamiento
                 (IdDeportista, IdEntrenadorDeporte, Fecha, HoraInicio, Duracion, TipoEntrenamiento, Objetivo, Estado, NivelEsfuerzo, TieneDolor, ZonaDolor, ComentarioMolestia, Observaciones)
@@ -185,6 +243,25 @@ namespace wfZenova
             {
                 DataRowView filaDeportista = (DataRowView)item;
                 int idDeportista = Convert.ToInt32(filaDeportista["IdDeportista"]);
+
+                DataTable dtRelacion = bd.RetornaRegistros($@"
+                    SELECT TOP 1 I.IdEntrenadorDeporte
+                    FROM Inscripciones I
+                    INNER JOIN EntrenadorDeporte ED
+                        ON I.IdEntrenadorDeporte = ED.IdEntrenadorDeporte
+                    WHERE I.IdDeportista = {idDeportista}
+                      AND ED.IdEntrenador = {idEntrenador}
+                      AND ED.Activo = 1
+                      AND I.Estado <> 'Finalizado'
+                    ORDER BY I.FechaInicio DESC");
+
+                if (dtRelacion == null || dtRelacion.Rows.Count == 0)
+                {
+                    MessageBox.Show($"No se encontró una inscripción activa del deportista con Id {idDeportista} para este entrenador.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    continue;
+                }
+
+                int idEntrenadorDep = Convert.ToInt32(dtRelacion.Rows[0]["IdEntrenadorDeporte"]);
 
                 SqlParameter[] paramsSesion = new SqlParameter[]
                 {
@@ -243,6 +320,7 @@ namespace wfZenova
             }
         }
 
+        //Obtener nivel de esfuerzo
         private int ObtenerNivelEsfuerzo()
         {
             if (radioButton1.Checked) return 1;
@@ -258,16 +336,33 @@ namespace wfZenova
             return 0;
         }
 
+        //Limpiar formulario
         private void button5_Click(object sender, EventArgs e)
         {
             LimpiarFormulario();
         }
 
+        //Volver a entrenamientos
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Control contenedor = this.Parent;
+
+            if (contenedor == null)
+                return;
+
+            frmEntrenamientos frm = new frmEntrenamientos();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            contenedor.Controls.Clear();
+            contenedor.Controls.Add(frm);
+
+            frm.Show();
         }
 
+        //Limpiar campos del formulario
         private void LimpiarFormulario()
         {
             dgvEjercicios.Rows.Clear();
@@ -300,7 +395,7 @@ namespace wfZenova
             radioButton9.Checked = false;
             radioButton10.Checked = false;
 
-            radioButton12.Checked = true; 
+            radioButton12.Checked = true;
 
             label19.Text = "Texto...";
             t.Text = "Texto...";
@@ -311,17 +406,103 @@ namespace wfZenova
         private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
-
+        //Configurar tabla de ejercicios
         private void ConfigurarColumnasDgvEjercicios()
         {
             dgvEjercicios.Columns.Clear();
 
-            dgvEjercicios.Columns.Add("colNombre", "Ejercicio");
-            dgvEjercicios.Columns.Add("colSeries", "Series");
-            dgvEjercicios.Columns.Add("colRepeticiones", "Repeticiones");
-            dgvEjercicios.Columns.Add("colPeso", "Peso (Kg)");
-            dgvEjercicios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvEjercicios.Columns.Add("colNombre", "EJERCICIO");
+            dgvEjercicios.Columns.Add("colSeries", "SERIES");
+            dgvEjercicios.Columns.Add("colRepeticiones", "REPETICIONES");
+            dgvEjercicios.Columns.Add("colPeso", "PESO (KG)");
+
+            //ESTILO GENERAL
+            dgvEjercicios.BackgroundColor = Color.White;
+            dgvEjercicios.BorderStyle = BorderStyle.None;
+
+            dgvEjercicios.CellBorderStyle =
+                DataGridViewCellBorderStyle.SingleHorizontal;
+
+            dgvEjercicios.GridColor =
+                Color.FromArgb(235, 235, 235);
+
+            dgvEjercicios.RowHeadersVisible = false;
+
             dgvEjercicios.AllowUserToAddRows = false;
+            dgvEjercicios.AllowUserToDeleteRows = false;
+            dgvEjercicios.AllowUserToResizeRows = false;
+            dgvEjercicios.AllowUserToResizeColumns = false;
+
+            dgvEjercicios.ReadOnly = true;
+            dgvEjercicios.MultiSelect = false;
+
+            dgvEjercicios.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
+            dgvEjercicios.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvEjercicios.RowTemplate.Height = 45;
+
+            //ENCABEZADO
+            dgvEjercicios.EnableHeadersVisualStyles = false;
+
+            dgvEjercicios.ColumnHeadersBorderStyle =
+                DataGridViewHeaderBorderStyle.None;
+
+            dgvEjercicios.ColumnHeadersDefaultCellStyle.BackColor =
+                ColorTranslator.FromHtml("#333FDD");
+
+            dgvEjercicios.ColumnHeadersDefaultCellStyle.ForeColor =
+                Color.White;
+
+            dgvEjercicios.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Century Gothic", 11F, FontStyle.Bold);
+
+            dgvEjercicios.ColumnHeadersDefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            dgvEjercicios.ColumnHeadersHeight = 50;
+
+            dgvEjercicios.ColumnHeadersHeightSizeMode =
+                DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
+            //FILAS
+            dgvEjercicios.DefaultCellStyle.BackColor = Color.White;
+
+            dgvEjercicios.DefaultCellStyle.ForeColor =
+                Color.FromArgb(25, 30, 60);
+
+            dgvEjercicios.DefaultCellStyle.Font =
+                new Font("Century Gothic", 10F, FontStyle.Regular);
+
+            dgvEjercicios.DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            dgvEjercicios.DefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(235, 238, 255);
+
+            dgvEjercicios.DefaultCellStyle.SelectionForeColor =
+                Color.FromArgb(25, 30, 60);
+
+            //TAMAÑO DE COLUMNAS
+            dgvEjercicios.Columns["colNombre"].FillWeight = 40;
+            dgvEjercicios.Columns["colSeries"].FillWeight = 20;
+            dgvEjercicios.Columns["colRepeticiones"].FillWeight = 20;
+            dgvEjercicios.Columns["colPeso"].FillWeight = 20;
+
+            //Quitar ordenamiento de columnas
+            foreach (DataGridViewColumn columna in dgvEjercicios.Columns)
+            {
+                columna.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            dgvEjercicios.ClearSelection();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

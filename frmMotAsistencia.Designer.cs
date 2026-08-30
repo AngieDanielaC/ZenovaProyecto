@@ -59,7 +59,6 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnVolver = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -91,7 +90,7 @@
             this.lblName.BackColor = System.Drawing.Color.White;
             this.lblName.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.Black;
-            this.lblName.Location = new System.Drawing.Point(168, 28);
+            this.lblName.Location = new System.Drawing.Point(103, 30);
             this.lblName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(248, 32);
@@ -198,7 +197,7 @@
             this.panel3.Controls.Add(this.dataGridView3);
             this.panel3.Location = new System.Drawing.Point(816, 134);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(276, 295);
+            this.panel3.Size = new System.Drawing.Size(352, 289);
             this.panel3.TabIndex = 32;
             // 
             // button3
@@ -208,7 +207,7 @@
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(229, 4);
+            this.button3.Location = new System.Drawing.Point(303, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(34, 34);
             this.button3.TabIndex = 25;
@@ -229,7 +228,7 @@
             this.dataGridView3.Location = new System.Drawing.Point(17, 40);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.Size = new System.Drawing.Size(246, 245);
+            this.dataGridView3.Size = new System.Drawing.Size(320, 245);
             this.dataGridView3.TabIndex = 24;
             // 
             // dataGridViewTextBoxColumn4
@@ -249,7 +248,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.White;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(887, 100);
+            this.label5.Location = new System.Drawing.Point(916, 100);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(164, 25);
@@ -356,7 +355,7 @@
             this.panel4.Controls.Add(this.dataGridView4);
             this.panel4.Location = new System.Drawing.Point(816, 440);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(276, 295);
+            this.panel4.Size = new System.Drawing.Size(352, 295);
             this.panel4.TabIndex = 35;
             // 
             // button4
@@ -366,7 +365,7 @@
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(229, 4);
+            this.button4.Location = new System.Drawing.Point(303, 4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(34, 34);
             this.button4.TabIndex = 26;
@@ -387,7 +386,7 @@
             this.dataGridView4.Location = new System.Drawing.Point(17, 40);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersVisible = false;
-            this.dataGridView4.Size = new System.Drawing.Size(246, 245);
+            this.dataGridView4.Size = new System.Drawing.Size(320, 245);
             this.dataGridView4.TabIndex = 24;
             // 
             // dataGridViewTextBoxColumn5
@@ -405,7 +404,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::wfZenova.Properties.Resources.MotivacionImg21;
-            this.pictureBox1.Location = new System.Drawing.Point(88, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(32, 6);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(68, 68);
@@ -424,26 +423,12 @@
             this.pictureBox2.TabIndex = 29;
             this.pictureBox2.TabStop = false;
             // 
-            // btnVolver
-            // 
-            this.btnVolver.BackgroundImage = global::wfZenova.Properties.Resources.btnVolver;
-            this.btnVolver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnVolver.FlatAppearance.BorderSize = 0;
-            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVolver.Location = new System.Drawing.Point(23, 19);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(56, 41);
-            this.btnVolver.TabIndex = 37;
-            this.btnVolver.UseVisualStyleBackColor = true;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
             // frmMotAsistencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 768);
-            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblName);
@@ -508,6 +493,5 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button btnVolver;
     }
 }
