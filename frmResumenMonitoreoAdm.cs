@@ -21,26 +21,23 @@ namespace wfZenova
 
         private void frmResumenMonitoreoAdm_Load(object sender, EventArgs e)
         {
-            dgvAlertasRecientes.RowsDefaultCellStyle.ForeColor = Color.Black;
-            dgvAlertasRecientes.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
-
-            dgvResumenSesiones.RowsDefaultCellStyle.ForeColor = Color.Black;
-            dgvResumenSesiones.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
-
             ConfigurarFiltros();
             CargarEntrenadoresActivos();
             CargarDeportistasSeguimiento();
             CargarResumenSesiones();
             CargarAlertasPendientes();
             CargarDeportes();
-            CargarAlertasRecientes();
 
         }
         private void CargarResumenSesiones()
         {
-            string periodo = cmbPeriodo.SelectedItem == null ? "Este mes": cmbPeriodo.SelectedItem.ToString();
+            string periodo = cmbPeriodo.SelectedItem == null
+                ? "Este mes"
+                : cmbPeriodo.SelectedItem.ToString();
 
-            string deporte = cbmDeporte.SelectedItem == null ? "Todos": cbmDeporte.SelectedItem.ToString();
+            string deporte = cbmDeporte.SelectedItem == null
+                ? "Todos"
+                : cbmDeporte.SelectedItem.ToString();
 
             DateTime hoy = DateTime.Today;
             DateTime fechaInicio;
@@ -48,28 +45,50 @@ namespace wfZenova
 
             if (periodo == "Últimos 3 meses")
             {
-                fechaInicio = new DateTime( hoy.Year, hoy.Month, 1).AddMonths(-2);
+                fechaInicio = new DateTime(
+                    hoy.Year,
+                    hoy.Month,
+                    1).AddMonths(-2);
 
-                fechaFin = new DateTime( hoy.Year, hoy.Month,  1).AddMonths(1);
+                fechaFin = new DateTime(
+                    hoy.Year,
+                    hoy.Month,
+                    1).AddMonths(1);
             }
             else if (periodo == "Este año")
             {
-                fechaInicio = new DateTime( hoy.Year, 1, 1);
+                fechaInicio = new DateTime(
+                    hoy.Year,
+                    1,
+                    1);
 
                 fechaFin = fechaInicio.AddYears(1);
             }
             else
             {
-                fechaInicio = new DateTime( hoy.Year,hoy.Month, 1);
+                fechaInicio = new DateTime(
+                    hoy.Year,
+                    hoy.Month,
+                    1);
 
                 fechaFin = fechaInicio.AddMonths(1);
             }
 
-            string consulta =  "select " + "count(*) as Programadas, " + "isnull(sum(case " +
-                "when lower(ltrim(rtrim(isnull(s.Estado, '')))) = 'realizada' " + "then 1 else 0 end), 0) as Realizadas " +
-                "from SesionesEntrenamiento s " + "inner join EntrenadorDeporte ed " +  "on s.IdEntrenadorDeporte = ed.IdEntrenadorDeporte " +
-                "inner join Deportes d " + "on ed.IdDeporte = d.IdDeporte " + "where s.Fecha >= '" + fechaInicio.ToString("yyyyMMdd") + "' " +
-                "and s.Fecha < '" +  fechaFin.ToString("yyyyMMdd") + "' ";
+            string consulta =
+                "select " +
+                "count(*) as Programadas, " +
+                "isnull(sum(case " +
+                "when lower(ltrim(rtrim(isnull(s.Estado, '')))) = 'realizada' " +
+                "then 1 else 0 end), 0) as Realizadas " +
+                "from SesionesEntrenamiento s " +
+                "inner join EntrenadorDeporte ed " +
+                "on s.IdEntrenadorDeporte = ed.IdEntrenadorDeporte " +
+                "inner join Deportes d " +
+                "on ed.IdDeporte = d.IdDeporte " +
+                "where s.Fecha >= '" +
+                fechaInicio.ToString("yyyyMMdd") + "' " +
+                "and s.Fecha < '" +
+                fechaFin.ToString("yyyyMMdd") + "' ";
 
             if (deporte != "Todos")
             {
@@ -111,7 +130,12 @@ namespace wfZenova
 
             resumen.Columns.Add( "Cumplimiento",typeof(string));
 
-            resumen.Rows.Add( periodo,  programadas, realizadas, pendientes, cumplimiento + "%"
+            resumen.Rows.Add(
+                periodo,
+                programadas,
+                realizadas,
+                pendientes,
+                cumplimiento + "%"
             );
 
             dgvResumenSesiones.AutoGenerateColumns = false;
@@ -131,9 +155,13 @@ namespace wfZenova
         }
         private void CargarEntrenadoresActivos()
         {
-            string periodo = cmbPeriodo.SelectedItem == null ? "Este mes" : cmbPeriodo.SelectedItem.ToString();
+            string periodo = cmbPeriodo.SelectedItem == null
+        ? "Este mes"
+        : cmbPeriodo.SelectedItem.ToString();
 
-            string deporte = cbmDeporte.SelectedItem == null ? "Todos" : cbmDeporte.SelectedItem.ToString();
+            string deporte = cbmDeporte.SelectedItem == null
+                ? "Todos"
+                : cbmDeporte.SelectedItem.ToString();
 
             DateTime hoy = DateTime.Today;
             DateTime fechaInicio;
@@ -141,34 +169,69 @@ namespace wfZenova
 
             if (periodo == "Últimos 3 meses")
             {
-                fechaInicio = new DateTime(hoy.Year, hoy.Month, 1).AddMonths(-2);
+                fechaInicio = new DateTime(
+                    hoy.Year,
+                    hoy.Month,
+                    1).AddMonths(-2);
 
-                fechaFin = new DateTime(hoy.Year, hoy.Month, 1).AddMonths(1);
+                fechaFin = new DateTime(
+                    hoy.Year,
+                    hoy.Month,
+                    1).AddMonths(1);
             }
             else if (periodo == "Este año")
             {
-                fechaInicio = new DateTime(hoy.Year, 1, 1);
+                fechaInicio = new DateTime(
+                    hoy.Year,
+                    1,
+                    1);
 
                 fechaFin = fechaInicio.AddYears(1);
             }
             else
             {
-                fechaInicio = new DateTime(hoy.Year, hoy.Month, 1);
+                fechaInicio = new DateTime(
+                    hoy.Year,
+                    hoy.Month,
+                    1);
 
                 fechaFin = fechaInicio.AddMonths(1);
             }
-            string consulta = "select " + "count(distinct e.IdEntrenador) as Total, " + "count(distinct case " +
-            "when s.IdSesion is not null " + "then e.IdEntrenador end) as AlDia " + "from Entrenadores e " +
-            "left join EntrenadorDeporte ed " + "on e.IdEntrenador = ed.IdEntrenador " + "and ed.Activo = 1 " + "left join Deportes d " +
-            "on ed.IdDeporte = d.IdDeporte " + "left join SesionesEntrenamiento s " + "on ed.IdEntrenadorDeporte = " +
-            "s.IdEntrenadorDeporte " + "and s.Fecha >= '" + fechaInicio.ToString("yyyyMMdd") + "' " + "and s.Fecha < '" +  fechaFin.ToString("yyyyMMdd") + "' " +
-            "and lower(ltrim(rtrim(isnull(s.Estado, '')))) " +  "= 'realizada' " +  "where upper(ltrim(rtrim(e.EstadoEntrenador))) " + "= 'ACTIVO' ";
+            string consulta =
+             "select " +
+             "count(distinct e.IdEntrenador) as Total, " +
+             "count(distinct case " +
+            "when s.IdSesion is not null " +
+            "then e.IdEntrenador end) as AlDia " +
+            "from Entrenadores e " +
+
+            "left join EntrenadorDeporte ed " +
+            "on e.IdEntrenador = ed.IdEntrenador " +
+            "and ed.Activo = 1 " +
+
+            "left join Deportes d " +
+            "on ed.IdDeporte = d.IdDeporte " +
+
+            "left join SesionesEntrenamiento s " +
+            "on ed.IdEntrenadorDeporte = " +
+            "s.IdEntrenadorDeporte " +
+
+            "and s.Fecha >= '" + fechaInicio.ToString("yyyyMMdd") + "' " +
+
+            "and s.Fecha < '" +  fechaFin.ToString("yyyyMMdd") + "' " +
+
+            "and lower(ltrim(rtrim(isnull(s.Estado, '')))) " +  "= 'realizada' " +
+
+            "where upper(ltrim(rtrim(e.EstadoEntrenador))) " + "= 'ACTIVO' ";
 
             if (deporte != "Todos")
             {
-                string deporteSeguro =  deporte.Replace("'", "''");
+                string deporteSeguro =
+                    deporte.Replace("'", "''");
 
-                consulta += "and d.NombreDeporte = N'" +  deporteSeguro + "' ";
+                consulta +=
+                    "and d.NombreDeporte = N'" +
+                    deporteSeguro + "' ";
             }
 
             DataTable datos =   conSQL.RetornaRegistros(consulta);
@@ -195,118 +258,52 @@ namespace wfZenova
 
         private void CargarDeportistasSeguimiento()
         {
-            string periodo = cmbPeriodo.SelectedItem == null ? "Este mes": cmbPeriodo.SelectedItem.ToString();
-            string deporte = cbmDeporte.SelectedItem == null ? "Todos": cbmDeporte.SelectedItem.ToString();
-            DateTime hoy = DateTime.Today;
-            DateTime fechaInicio;
-            DateTime fechaFin;
-            if (periodo == "Últimos 3 meses")
-            {
-                fechaInicio = new DateTime( hoy.Year, hoy.Month, 1).AddMonths(-2);
-
-                fechaFin = new DateTime( hoy.Year, hoy.Month, 1).AddMonths(1);
-            }
-            else if (periodo == "Este año")
-            {
-                fechaInicio = new DateTime(hoy.Year, 1, 1);
-                fechaFin = fechaInicio.AddYears(1);
-            }
-            else
-            {
-                fechaInicio = new DateTime(hoy.Year, hoy.Month, 1);
-
-                fechaFin = fechaInicio.AddMonths(1);
-            }
-            string consulta = "select count(*) as Total, " + "isnull(sum(case when p.IdDeportista is not null " + "then 1 else 0 end), 0) as AlDia " +
-            "from Deportistas d " +"left join " + "(select distinct IdDeportista " +"from PruebasFisicas " +"where Fecha >= '" +
-             fechaInicio.ToString("yyyyMMdd") + "' " +"and Fecha < '" +fechaFin.ToString("yyyyMMdd") + "') p " +"on d.IdDeportista = p.IdDeportista " +
-             "where d.Estado = 1";
-            if (deporte != "Todos")
-            {
-                string deporteSeguro = deporte.Replace("'", "''");
-
-                consulta +=
-                    " and exists (" +
-                    "select 1 from Inscripciones i " +
-                    "inner join EntrenadorDeporte ed " +
-                    "on i.IdEntrenadorDeporte = ed.IdEntrenadorDeporte " +
-                    "inner join Deportes dep " +
-                    "on ed.IdDeporte = dep.IdDeporte " +
-                    "where i.IdDeportista = d.IdDeportista " +
-                    "and dep.NombreDeporte = N'" + deporteSeguro + "'" +
-                    ")";
-            }
+            string consulta =
+                "select count(*) as Total " +
+                "from Deportistas " +
+                "where Estado = 1";
 
             DataTable datos = conSQL.RetornaRegistros(consulta);
 
-            int total = 0;
-            int alDia = 0;
-
             if (datos != null && datos.Rows.Count > 0)
             {
-                total = Convert.ToInt32(datos.Rows[0]["Total"]);
-                alDia = Convert.ToInt32(datos.Rows[0]["AlDia"]);
+                lblTotalDeportistas.Text =datos.Rows[0]["Total"].ToString();
             }
-
-            int porRevisar = Math.Max(0, total - alDia);
-            lblTotalDeportistas.Text = total.ToString();
-
-            lblDeportistasAlDia.Text = alDia.ToString();
-
-            lblDeportistasPorRevisar.Text = porRevisar.ToString();
+            else
+            {
+                lblTotalDeportistas.Text = "0";
+            }
         }
 
         private void CargarAlertasPendientes()
         {
-            string periodo = cmbPeriodo.SelectedItem == null? "Este mes" : cmbPeriodo.SelectedItem.ToString();
+            string consulta =
+                "select count(*) as Total " +
+                "from AlertasMonitoreo " +
+                "where lower(ltrim(rtrim(Estado))) = 'pendiente'";
 
-            string deporte = cbmDeporte.SelectedItem == null  ? "Todos" : cbmDeporte.SelectedItem.ToString();
-
-            DateTime hoy = DateTime.Today;
-            DateTime fechaInicio;
-            DateTime fechaFin;
-
-            if (periodo == "Últimos 3 meses")
-            {
-                fechaInicio = new DateTime(hoy.Year, hoy.Month, 1).AddMonths(-2);
-                fechaFin = new DateTime(hoy.Year, hoy.Month, 1).AddMonths(1);
-            }
-            else if (periodo == "Este año")
-            {
-                fechaInicio = new DateTime(hoy.Year, 1, 1);
-                fechaFin = fechaInicio.AddYears(1);
-            }
-            else
-            {
-                fechaInicio = new DateTime(hoy.Year, hoy.Month, 1);
-                fechaFin = fechaInicio.AddMonths(1);
-            }
-
-            string consulta =  "select count(*) as Total " +"from AlertasMonitoreo a " + "where lower(ltrim(rtrim(isnull(a.Estado, '')))) = 'pendiente' " +
-                "and a.Fecha >= '" + fechaInicio.ToString("yyyyMMdd") + "' " +  "and a.Fecha < '" + fechaFin.ToString("yyyyMMdd") + "' ";
-
-            if (deporte != "Todos")
-            {
-                string deporteSeguro = deporte.Replace("'", "''");
-
-                consulta += "and exists (" + "select 1 from Inscripciones i " + "inner join EntrenadorDeporte ed " + "on i.IdEntrenadorDeporte = ed.IdEntrenadorDeporte " +
-                    "inner join Deportes dep " + "on ed.IdDeporte = dep.IdDeporte " +"where i.IdDeportista = a.IdDeportista " +
-                    "and dep.NombreDeporte = N'" + deporteSeguro + "'" +")";
-            }
-
-            DataTable datos = conSQL.RetornaRegistros(consulta);
+            DataTable datos =  conSQL.RetornaRegistros(consulta);
 
             if (datos != null && datos.Rows.Count > 0)
-                lblTotalAlertas.Text = datos.Rows[0]["Total"].ToString();
+            {
+                lblTotalAlertas.Text =
+                    datos.Rows[0]["Total"].ToString();
+            }
             else
+            {
                 lblTotalAlertas.Text = "0";
+            }
         }
         private void CargarDeportes()
         {
             cbmDeporte.Items.Clear();
             cbmDeporte.Items.Add("Todos");
 
-            string consulta =  "select NombreDeporte " + "from Deportes " + "where Activo = 1 " + "order by NombreDeporte";
+            string consulta =
+                "select NombreDeporte " +
+                "from Deportes " +
+                "where Activo = 1 " +
+                "order by NombreDeporte";
 
             DataTable datos = conSQL.RetornaRegistros(consulta);
 
@@ -327,102 +324,6 @@ namespace wfZenova
             CargarDeportistasSeguimiento();
             CargarResumenSesiones();
             CargarAlertasPendientes();
-            CargarAlertasRecientes();
-        }
-
-        private void CargarAlertasRecientes()
-        {
-            string periodo = cmbPeriodo.SelectedItem == null ? "Este mes" : cmbPeriodo.SelectedItem.ToString();
-
-            string deporte = cbmDeporte.SelectedItem == null ? "Todos" : cbmDeporte.SelectedItem.ToString();
-
-            DateTime hoy = DateTime.Today;
-            DateTime fechaInicio;
-            DateTime fechaFin;
-
-            if (periodo == "Últimos 3 meses")
-            {
-                fechaInicio = new DateTime(hoy.Year, hoy.Month, 1).AddMonths(-2);
-                fechaFin = new DateTime(hoy.Year, hoy.Month, 1).AddMonths(1);
-            }
-            else if (periodo == "Este año")
-            {
-                fechaInicio = new DateTime(hoy.Year, 1, 1);
-                fechaFin = fechaInicio.AddYears(1);
-            }
-            else
-            {
-                fechaInicio = new DateTime(hoy.Year, hoy.Month, 1);
-                fechaFin = fechaInicio.AddMonths(1);
-            }
-
-            string consulta = "select top 5 a.Tipo, a.Persona, a.Motivo, " + "a.Fecha, a.Prioridad " + "from AlertasMonitoreo a " +
-                "where lower(ltrim(rtrim(isnull(a.Estado, '')))) = 'pendiente' " + "and a.Fecha >= '" + fechaInicio.ToString("yyyyMMdd") + "' " +
-                "and a.Fecha < '" + fechaFin.ToString("yyyyMMdd") + "' ";
-
-            if (deporte != "Todos")
-            {
-                string deporteSeguro = deporte.Replace("'", "''");
-
-                consulta += "and exists (" + "select 1 from Inscripciones i " + "inner join EntrenadorDeporte ed " +
-                    "on i.IdEntrenadorDeporte = ed.IdEntrenadorDeporte " + "inner join Deportes dep " +"on ed.IdDeporte = dep.IdDeporte " +
-                    "where i.IdDeportista = a.IdDeportista " + "and dep.NombreDeporte = N'" + deporteSeguro + "'" + ") ";
-            }
-
-            consulta += "order by a.Fecha desc, a.IdAlerta desc";
-
-            DataTable datos = conSQL.RetornaRegistros(consulta);
-
-            dgvAlertasRecientes.AutoGenerateColumns = false;
-            dgvAlertasRecientes.DataSource = datos;
-        }
-        private void btnVerTodasAlertas_Click(object sender, EventArgs e)
-        {
-            string periodo = cmbPeriodo.SelectedItem == null ? "Este mes" : cmbPeriodo.SelectedItem.ToString();
-
-            string deporte = cbmDeporte.SelectedItem == null ? "Todos" : cbmDeporte.SelectedItem.ToString();
-
-            DateTime hoy = DateTime.Today;
-            DateTime fechaInicio;
-            DateTime fechaFin;
-
-            if (periodo == "Últimos 3 meses")
-            {
-                fechaInicio = new DateTime(hoy.Year, hoy.Month, 1).AddMonths(-2);
-                fechaFin = new DateTime(hoy.Year, hoy.Month, 1).AddMonths(1);
-            }
-            else if (periodo == "Este año")
-            {
-                fechaInicio = new DateTime(hoy.Year, 1, 1);
-                fechaFin = fechaInicio.AddYears(1);
-            }
-            else
-            {
-                fechaInicio = new DateTime(hoy.Year, hoy.Month, 1);
-                fechaFin = fechaInicio.AddMonths(1);
-            }
-            string consulta =  "select a.Tipo, a.Persona, a.Motivo, a.Fecha, a.Prioridad " +"from AlertasMonitoreo a " +
-                  "where lower(ltrim(rtrim(isnull(a.Estado, '')))) = 'pendiente' " +"and a.Fecha >= '" + fechaInicio.ToString("yyyyMMdd") + "' " +
-                  "and a.Fecha < '" + fechaFin.ToString("yyyyMMdd") + "' ";
-
-            if (deporte != "Todos")
-            {
-                string deporteSeguro = deporte.Replace("'", "''");
-
-                consulta += "and exists (" +  "select 1 from Inscripciones i " + "inner join EntrenadorDeporte ed " +
-                    "on i.IdEntrenadorDeporte = ed.IdEntrenadorDeporte " + "inner join Deportes dep " +
-                    "on ed.IdDeporte = dep.IdDeporte " + "where i.IdDeportista = a.IdDeportista " +
-                    "and dep.NombreDeporte = N'" + deporteSeguro + "'" + ") ";
-            }
-
-            consulta += "order by a.Fecha desc, a.IdAlerta desc";
-
-            DataTable datos = conSQL.RetornaRegistros(consulta);
-
-            dgvAlertasRecientes.AutoGenerateColumns = false;
-            dgvAlertasRecientes.DataSource = datos;
-
-
         }
     }
 }

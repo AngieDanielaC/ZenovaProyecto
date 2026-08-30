@@ -61,7 +61,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -95,6 +94,7 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel13.SuspendLayout();
@@ -102,7 +102,6 @@
             this.panel12.SuspendLayout();
             this.panel26.SuspendLayout();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel14.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel18.SuspendLayout();
@@ -119,6 +118,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -345,7 +345,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(68, 140);
+            this.label36.Location = new System.Drawing.Point(77, 137);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(143, 18);
             this.label36.TabIndex = 65;
@@ -451,16 +451,13 @@
             this.textBox1.Size = new System.Drawing.Size(147, 27);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Buscar Atleta...";
-            this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
-            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(235, 94);
+            this.label23.Location = new System.Drawing.Point(235, 86);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(94, 18);
             this.label23.TabIndex = 45;
@@ -476,22 +473,12 @@
             this.panel11.Size = new System.Drawing.Size(256, 44);
             this.panel11.TabIndex = 44;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::wfZenova.Properties.Resources.luparoja;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(54, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(45, 86);
+            this.label1.Location = new System.Drawing.Point(25, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(184, 28);
             this.label1.TabIndex = 43;
@@ -828,6 +815,16 @@
             this.label28.TabIndex = 12;
             this.label28.Text = "RECUPERACIÓN";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::wfZenova.Properties.Resources.luparoja;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(54, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::wfZenova.Properties.Resources.raBlanco;
@@ -895,7 +892,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmGestionTecnica";
             this.Text = "frmGestionTecnica";
-            this.Load += new System.EventHandler(this.frmGestionTecnica_Load);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.panel28.ResumeLayout(false);
@@ -904,7 +900,6 @@
             this.panel26.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
@@ -925,6 +920,7 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);

@@ -34,6 +34,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -54,24 +55,14 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.flpAlertas = new System.Windows.Forms.FlowLayoutPanel();
-            this.dgvEvaluaciones = new System.Windows.Forms.DataGridView();
-            this.colDeportista = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colResultado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flpEventos = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblIntensidad = new System.Windows.Forms.Label();
-            this.lblNivelEsfuerzo = new System.Windows.Forms.Label();
-            this.pnlIntensidadFondo = new System.Windows.Forms.Panel();
-            this.pnlIntensidad = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel14.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEvaluaciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label19
@@ -140,6 +131,18 @@
             this.label14.TabIndex = 28;
             this.label14.Text = "PLANIFICACIÓN Y PROXIMOS EVENTOS";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(668, 61);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(353, 16);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Deportista                   Test                     Resultado                 E" +
+    "stado";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -200,8 +203,8 @@
             this.panel14.BackColor = System.Drawing.Color.White;
             this.panel14.BackgroundImage = global::wfZenova.Properties.Resources.raBlanco;
             this.panel14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel14.Controls.Add(this.dgvEvaluaciones);
-            this.panel14.Controls.Add(this.flpAlertas);
+            this.panel14.Controls.Add(this.pictureBox2);
+            this.panel14.Controls.Add(this.label9);
             this.panel14.Controls.Add(this.label8);
             this.panel14.Controls.Add(this.label6);
             this.panel14.Controls.Add(this.label7);
@@ -345,7 +348,7 @@
             this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
             this.panel13.Location = new System.Drawing.Point(0, 0);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(81, 12);
+            this.panel13.Size = new System.Drawing.Size(81, 21);
             this.panel13.TabIndex = 0;
             // 
             // label1
@@ -359,101 +362,14 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "RESUMEN DE CONTROLES";
             // 
-            // flpAlertas
+            // pictureBox2
             // 
-            this.flpAlertas.AutoScroll = true;
-            this.flpAlertas.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpAlertas.Location = new System.Drawing.Point(46, 101);
-            this.flpAlertas.Name = "flpAlertas";
-            this.flpAlertas.Size = new System.Drawing.Size(260, 160);
-            this.flpAlertas.TabIndex = 15;
-            // 
-            // dgvEvaluaciones
-            // 
-            this.dgvEvaluaciones.AllowUserToAddRows = false;
-            this.dgvEvaluaciones.AllowUserToDeleteRows = false;
-            this.dgvEvaluaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvEvaluaciones.BackgroundColor = System.Drawing.Color.White;
-            this.dgvEvaluaciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvEvaluaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEvaluaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colDeportista,
-            this.colTest,
-            this.colResultado,
-            this.colEstado});
-            this.dgvEvaluaciones.Location = new System.Drawing.Point(632, 72);
-            this.dgvEvaluaciones.Name = "dgvEvaluaciones";
-            this.dgvEvaluaciones.RowHeadersVisible = false;
-            this.dgvEvaluaciones.Size = new System.Drawing.Size(500, 170);
-            this.dgvEvaluaciones.TabIndex = 16;
-            // 
-            // colDeportista
-            // 
-            this.colDeportista.HeaderText = "Deportista";
-            this.colDeportista.Name = "colDeportista";
-            // 
-            // colTest
-            // 
-            this.colTest.HeaderText = "Test";
-            this.colTest.Name = "colTest";
-            // 
-            // colResultado
-            // 
-            this.colResultado.HeaderText = "Resultado";
-            this.colResultado.Name = "colResultado";
-            // 
-            // colEstado
-            // 
-            this.colEstado.HeaderText = "Estado";
-            this.colEstado.Name = "colEstado";
-            // 
-            // flpEventos
-            // 
-            this.flpEventos.AutoScroll = true;
-            this.flpEventos.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpEventos.Location = new System.Drawing.Point(53, 635);
-            this.flpEventos.Name = "flpEventos";
-            this.flpEventos.Size = new System.Drawing.Size(360, 100);
-            this.flpEventos.TabIndex = 33;
-            this.flpEventos.WrapContents = false;
-            // 
-            // lblIntensidad
-            // 
-            this.lblIntensidad.AutoSize = true;
-            this.lblIntensidad.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIntensidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.lblIntensidad.Location = new System.Drawing.Point(971, 649);
-            this.lblIntensidad.Name = "lblIntensidad";
-            this.lblIntensidad.Size = new System.Drawing.Size(62, 30);
-            this.lblIntensidad.TabIndex = 34;
-            this.lblIntensidad.Text = "0/10";
-            // 
-            // lblNivelEsfuerzo
-            // 
-            this.lblNivelEsfuerzo.AutoSize = true;
-            this.lblNivelEsfuerzo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNivelEsfuerzo.ForeColor = System.Drawing.Color.Black;
-            this.lblNivelEsfuerzo.Location = new System.Drawing.Point(967, 688);
-            this.lblNivelEsfuerzo.Name = "lblNivelEsfuerzo";
-            this.lblNivelEsfuerzo.Size = new System.Drawing.Size(66, 15);
-            this.lblNivelEsfuerzo.TabIndex = 35;
-            this.lblNivelEsfuerzo.Text = "Sin registro";
-            // 
-            // pnlIntensidadFondo
-            // 
-            this.pnlIntensidadFondo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            this.pnlIntensidadFondo.Location = new System.Drawing.Point(892, 718);
-            this.pnlIntensidadFondo.Name = "pnlIntensidadFondo";
-            this.pnlIntensidadFondo.Size = new System.Drawing.Size(220, 10);
-            this.pnlIntensidadFondo.TabIndex = 37;
-            // 
-            // pnlIntensidad
-            // 
-            this.pnlIntensidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
-            this.pnlIntensidad.Location = new System.Drawing.Point(892, 718);
-            this.pnlIntensidad.Name = "pnlIntensidad";
-            this.pnlIntensidad.Size = new System.Drawing.Size(100, 10);
-            this.pnlIntensidad.TabIndex = 0;
+            this.pictureBox2.Location = new System.Drawing.Point(659, 80);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(368, 11);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 14;
+            this.pictureBox2.TabStop = false;
             // 
             // frmMoniDeportistas
             // 
@@ -461,10 +377,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 768);
-            this.Controls.Add(this.pnlIntensidad);
-            this.Controls.Add(this.lblNivelEsfuerzo);
-            this.Controls.Add(this.lblIntensidad);
-            this.Controls.Add(this.flpEventos);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
@@ -478,11 +390,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pnlIntensidadFondo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMoniDeportistas";
             this.Text = "frmMoniDeportistas";
-            this.Load += new System.EventHandler(this.frmMoniDeportistas_Load);
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.panel11.ResumeLayout(false);
@@ -493,7 +403,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEvaluaciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -507,6 +417,8 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label10;
@@ -527,16 +439,5 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.FlowLayoutPanel flpAlertas;
-        private System.Windows.Forms.DataGridView dgvEvaluaciones;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDeportista;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTest;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colResultado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
-        private System.Windows.Forms.FlowLayoutPanel flpEventos;
-        private System.Windows.Forms.Label lblIntensidad;
-        private System.Windows.Forms.Label lblNivelEsfuerzo;
-        private System.Windows.Forms.Panel pnlIntensidadFondo;
-        private System.Windows.Forms.Panel pnlIntensidad;
     }
 }

@@ -416,6 +416,10 @@ namespace wfZenova
             }
         }
 
+
+
+        
+
         private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
         {
             CargarDeportistas(txtBuscar.Text);

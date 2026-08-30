@@ -69,6 +69,7 @@
             this.picAlertasPendientes = new System.Windows.Forms.PictureBox();
             this.pnlListadoAlertas = new System.Windows.Forms.Panel();
             this.dgvAlertasMonitoreo = new System.Windows.Forms.DataGridView();
+            this.lblListadoAlertas = new System.Windows.Forms.Label();
             this.colIdAlerta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTipp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,7 +78,6 @@
             this.colPrioridad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRevisar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.lblListadoAlertas = new System.Windows.Forms.Label();
             this.pnlEncabezado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAlertas)).BeginInit();
             this.pnlFiltros.SuspendLayout();
@@ -568,6 +568,17 @@
             this.dgvAlertasMonitoreo.Size = new System.Drawing.Size(1122, 275);
             this.dgvAlertasMonitoreo.TabIndex = 1;
             // 
+            // lblListadoAlertas
+            // 
+            this.lblListadoAlertas.AutoSize = true;
+            this.lblListadoAlertas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListadoAlertas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(31)))), ((int)(((byte)(107)))));
+            this.lblListadoAlertas.Location = new System.Drawing.Point(20, 15);
+            this.lblListadoAlertas.Name = "lblListadoAlertas";
+            this.lblListadoAlertas.Size = new System.Drawing.Size(143, 19);
+            this.lblListadoAlertas.TabIndex = 0;
+            this.lblListadoAlertas.Text = "Listado de Alertas";
+            // 
             // colIdAlerta
             // 
             this.colIdAlerta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -636,33 +647,21 @@
             this.colRevisar.UseColumnTextForButtonValue = true;
             this.colRevisar.Width = 85;
             // 
-            // lblListadoAlertas
-            // 
-            this.lblListadoAlertas.AutoSize = true;
-            this.lblListadoAlertas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListadoAlertas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(31)))), ((int)(((byte)(107)))));
-            this.lblListadoAlertas.Location = new System.Drawing.Point(20, 15);
-            this.lblListadoAlertas.Name = "lblListadoAlertas";
-            this.lblListadoAlertas.Size = new System.Drawing.Size(143, 19);
-            this.lblListadoAlertas.TabIndex = 0;
-            this.lblListadoAlertas.Text = "Listado de Alertas";
-            // 
             // frmAlertasMonitoreo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1254, 749);
+            this.ClientSize = new System.Drawing.Size(1254, 768);
             this.Controls.Add(this.pnlListadoAlertas);
             this.Controls.Add(this.pnlTarjetas);
             this.Controls.Add(this.pnlFiltros);
             this.Controls.Add(this.pnlEncabezado);
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmAlertasMonitoreo";
             this.Text = "frmAlertasMonitoreo";
-            this.Load += new System.EventHandler(this.frmAlertasMonitoreo_Load);
             this.pnlEncabezado.ResumeLayout(false);
             this.pnlEncabezado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAlertas)).EndInit();
