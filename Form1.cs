@@ -607,6 +607,11 @@ namespace wfZenova
         {
             OpenChildForm(new frmAsistencia());
         }
+
+        private void btnConsultaAdm_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

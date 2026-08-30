@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 
@@ -15,32 +9,60 @@ namespace wfZenova
     {
         csConectaSQL conSQL = new csConectaSQL();
         string cadena;
+
         public frmReportes()
         {
             InitializeComponent();
         }
+
         private void frmReportes_Load(object sender, EventArgs e)
         {
-            cmbTipoReporte.Items.Add("Deportistas");
-            cmbTipoReporte.SelectedIndex = 0;
-            cmbTipoReporte.Items.Add("Inscripciones");
-            cmbTipoReporte.Items.Add("Entrenadores"); 
-            cmbTipoReporte.Items.Add("Asignación Entrenadores");
-            cmbTipoReporte.Items.Add("Competencias");
-            cmbTipoReporte.Items.Add("Participantes Competencia"); 
-                cmbTipoReporte.Items.Add("Resultados Competencias"); 
-                cmbTipoReporte.Items.Add("Entrenamientos"); 
-            cmbTipoReporte.Items.Add("Pruebas Físicas");
-            cmbTipoReporte.Items.Add("Mediciones Corporales");
-            cmbTipoReporte.Items.Add("Bienestar");
-            cmbTipoReporte.Items.Add("Empleados");
+            cmbTipoReporte.Items.Clear();
 
+            if (frmInicioDeSesion.NombreRolActual == "Administrador")
+            {
+                cmbTipoReporte.Items.Add("Deportistas");
+                cmbTipoReporte.Items.Add("Inscripciones");
+                cmbTipoReporte.Items.Add("Entrenadores");
+                cmbTipoReporte.Items.Add("Asignación Entrenadores");
+                cmbTipoReporte.Items.Add("Competencias");
+                cmbTipoReporte.Items.Add("Participantes Competencia");
+                cmbTipoReporte.Items.Add("Resultados Competencias");
+                cmbTipoReporte.Items.Add("Entrenamientos");
+                cmbTipoReporte.Items.Add("Pruebas Físicas");
+                cmbTipoReporte.Items.Add("Mediciones Corporales");
+                cmbTipoReporte.Items.Add("Bienestar");
+                cmbTipoReporte.Items.Add("Empleados");
+            }
+            else if (frmInicioDeSesion.NombreRolActual == "Secretaria")
+            {
+                cmbTipoReporte.Items.Add("Deportistas");
+                cmbTipoReporte.Items.Add("Inscripciones");
+                cmbTipoReporte.Items.Add("Entrenadores");
+                cmbTipoReporte.Items.Add("Empleados");
+            }
+            else if (frmInicioDeSesion.NombreRolActual == "Coordinador de Competencias")
+            {
+                cmbTipoReporte.Items.Add("Competencias");
+                cmbTipoReporte.Items.Add("Participantes Competencia");
+                cmbTipoReporte.Items.Add("Resultados Competencias");
+            }
+            else if (frmInicioDeSesion.NombreRolActual == "Entrenador")
+            {
+                cmbTipoReporte.Items.Add("Entrenamientos");
+                cmbTipoReporte.Items.Add("Pruebas Físicas");
+                cmbTipoReporte.Items.Add("Mediciones Corporales");
+                cmbTipoReporte.Items.Add("Bienestar");
+            }
+
+            if (cmbTipoReporte.Items.Count > 0)
+                cmbTipoReporte.SelectedIndex = 0;
         }
+
         private void CargarReporteDeportistas()
         {
             csConectaSQL oConSQL = new csConectaSQL();
             DataTable dt = new DataTable();
-
             ReportDataSource dataset;
 
             rvwReporte.LocalReport.DataSources.Clear();
@@ -60,14 +82,13 @@ namespace wfZenova
 
             rvwReporte.LocalReport.DataSources.Add(dataset);
             rvwReporte.LocalReport.Refresh();
-
             rvwReporte.RefreshReport();
         }
+
         private void CargarReporteInscripciones()
         {
             csConectaSQL oConSQL = new csConectaSQL();
             DataTable dt = new DataTable();
-
             ReportDataSource dataset;
 
             rvwReporte.LocalReport.DataSources.Clear();
@@ -94,11 +115,11 @@ namespace wfZenova
             rvwReporte.LocalReport.Refresh();
             rvwReporte.RefreshReport();
         }
+
         private void CargarReporteEntrenadores()
         {
             csConectaSQL oConSQL = new csConectaSQL();
             DataTable dt = new DataTable();
-
             ReportDataSource dataset;
 
             rvwReporte.LocalReport.DataSources.Clear();
@@ -125,7 +146,6 @@ namespace wfZenova
         {
             csConectaSQL oConSQL = new csConectaSQL();
             DataTable dt = new DataTable();
-
             ReportDataSource dataset;
 
             rvwReporte.LocalReport.DataSources.Clear();
@@ -151,11 +171,11 @@ namespace wfZenova
             rvwReporte.LocalReport.Refresh();
             rvwReporte.RefreshReport();
         }
+
         private void CargarReporteCompetencias()
         {
             csConectaSQL oConSQL = new csConectaSQL();
             DataTable dt = new DataTable();
-
             ReportDataSource dataset;
 
             rvwReporte.LocalReport.DataSources.Clear();
@@ -186,7 +206,6 @@ namespace wfZenova
         {
             csConectaSQL oConSQL = new csConectaSQL();
             DataTable dt = new DataTable();
-
             ReportDataSource dataset;
 
             rvwReporte.LocalReport.DataSources.Clear();
@@ -219,7 +238,6 @@ namespace wfZenova
         {
             csConectaSQL oConSQL = new csConectaSQL();
             DataTable dt = new DataTable();
-
             ReportDataSource dataset;
 
             rvwReporte.LocalReport.DataSources.Clear();
@@ -248,11 +266,11 @@ namespace wfZenova
             rvwReporte.LocalReport.Refresh();
             rvwReporte.RefreshReport();
         }
+
         private void CargarReporteEntrenamientos()
         {
             csConectaSQL oConSQL = new csConectaSQL();
             DataTable dt = new DataTable();
-
             ReportDataSource dataset;
 
             rvwReporte.LocalReport.DataSources.Clear();
@@ -266,8 +284,16 @@ namespace wfZenova
                      "from SesionesEntrenamiento S " +
                      "inner join Deportistas D on S.IdDeportista = D.IdDeportista " +
                      "inner join EntrenadorDeporte ED on S.IdEntrenadorDeporte = ED.IdEntrenadorDeporte " +
-                     "inner join Deportes DEP on ED.IdDeporte = DEP.IdDeporte " +
-                     "order by S.Fecha desc";
+                     "inner join Deportes DEP on ED.IdDeporte = DEP.IdDeporte ";
+
+            if (frmInicioDeSesion.NombreRolActual == "Entrenador" &&
+                frmInicioDeSesion.IdEntrenadorActual.HasValue)
+            {
+                cadena += "where ED.IdEntrenador = " +
+                          frmInicioDeSesion.IdEntrenadorActual.Value + " ";
+            }
+
+            cadena += "order by S.Fecha desc";
 
             dt = oConSQL.RetornaRegistros(cadena);
 
@@ -282,7 +308,6 @@ namespace wfZenova
         {
             csConectaSQL oConSQL = new csConectaSQL();
             DataTable dt = new DataTable();
-
             ReportDataSource dataset;
 
             rvwReporte.LocalReport.DataSources.Clear();
@@ -293,8 +318,20 @@ namespace wfZenova
             cadena = "select D.Nombres + ' ' + D.Apellidos as Deportista, " +
                      "P.Fecha, P.TipoPrueba, P.PruebaRealizada, P.Duracion, P.RPE, P.Rendimiento " +
                      "from PruebasFisicas P " +
-                     "inner join Deportistas D on P.IdDeportista = D.IdDeportista " +
-                     "order by P.Fecha desc";
+                     "inner join Deportistas D on P.IdDeportista = D.IdDeportista ";
+
+            if (frmInicioDeSesion.NombreRolActual == "Entrenador" &&
+                frmInicioDeSesion.IdEntrenadorActual.HasValue)
+            {
+                cadena += "inner join Inscripciones I on D.IdDeportista = I.IdDeportista " +
+                          "inner join EntrenadorDeporte ED on I.IdEntrenadorDeporte = ED.IdEntrenadorDeporte " +
+                          "where ED.IdEntrenador = " +
+                          frmInicioDeSesion.IdEntrenadorActual.Value + " " +
+                          "and I.Estado = 'Activo' " +
+                          "and ED.Activo = 1 ";
+            }
+
+            cadena += "order by P.Fecha desc";
 
             dt = oConSQL.RetornaRegistros(cadena);
 
@@ -304,11 +341,11 @@ namespace wfZenova
             rvwReporte.LocalReport.Refresh();
             rvwReporte.RefreshReport();
         }
+
         private void CargarReporteMediciones()
         {
             csConectaSQL oConSQL = new csConectaSQL();
             DataTable dt = new DataTable();
-
             ReportDataSource dataset;
 
             rvwReporte.LocalReport.DataSources.Clear();
@@ -319,8 +356,20 @@ namespace wfZenova
             cadena = "select D.Nombres + ' ' + D.Apellidos as Deportista, " +
                      "M.FechaMedicion, M.Peso, M.Altura, M.CategoriaEdad " +
                      "from MedicionesDeportista M " +
-                     "inner join Deportistas D on M.IdDeportista = D.IdDeportista " +
-                     "order by M.FechaMedicion desc";
+                     "inner join Deportistas D on M.IdDeportista = D.IdDeportista ";
+
+            if (frmInicioDeSesion.NombreRolActual == "Entrenador" &&
+                frmInicioDeSesion.IdEntrenadorActual.HasValue)
+            {
+                cadena += "inner join Inscripciones I on D.IdDeportista = I.IdDeportista " +
+                          "inner join EntrenadorDeporte ED on I.IdEntrenadorDeporte = ED.IdEntrenadorDeporte " +
+                          "where ED.IdEntrenador = " +
+                          frmInicioDeSesion.IdEntrenadorActual.Value + " " +
+                          "and I.Estado = 'Activo' " +
+                          "and ED.Activo = 1 ";
+            }
+
+            cadena += "order by M.FechaMedicion desc";
 
             dt = oConSQL.RetornaRegistros(cadena);
 
@@ -335,7 +384,6 @@ namespace wfZenova
         {
             csConectaSQL oConSQL = new csConectaSQL();
             DataTable dt = new DataTable();
-
             ReportDataSource dataset;
 
             rvwReporte.LocalReport.DataSources.Clear();
@@ -344,16 +392,33 @@ namespace wfZenova
                 "wfZenova.rptBienestar.rdlc";
 
             cadena = "select D.Nombres + ' ' + D.Apellidos as Deportista, " +
-                     "G.GastoCal as GastoCalorico, " +
-                     "R.Riesgo, " +
-                     "R.horas_de_sueño as HorasSueno, " +
-                     "M.Peso " +
+                     "isnull(cast(G.GastoCal as varchar), 'Sin registro') as GastoCalorico, " +
+                     "isnull(R.Riesgo, 'Sin evaluar') as RiesgoLesion, " +
+                     "isnull(cast(R.horas_de_sueño as varchar), 'Sin registro') as HorasSueno, " +
+                     "(select top 1 M.Peso from MedicionesDeportista M " +
+                     "where M.IdDeportista = D.IdDeportista " +
+                     "order by M.FechaMedicion desc) as Peso " +
                      "from Deportistas D " +
                      "left join GastoCalorico G on D.IdDeportista = G.IdDeportista " +
-                     "left join RiesgoFatiga R on D.IdDeportista = R.IdDeportista " +
-                     "left join MedicionesDeportista M on D.IdDeportista = M.IdDeportista " +
-                     "where D.Estado = 1 " +
-                     "order by D.Nombres, D.Apellidos";
+                     "left join RiesgoFatiga R on D.IdDeportista = R.IdDeportista ";
+
+            if (frmInicioDeSesion.NombreRolActual == "Entrenador" &&
+                frmInicioDeSesion.IdEntrenadorActual.HasValue)
+            {
+                cadena += "inner join Inscripciones I on D.IdDeportista = I.IdDeportista " +
+                          "inner join EntrenadorDeporte ED on I.IdEntrenadorDeporte = ED.IdEntrenadorDeporte " +
+                          "where D.Estado = 1 " +
+                          "and ED.IdEntrenador = " +
+                          frmInicioDeSesion.IdEntrenadorActual.Value + " " +
+                          "and I.Estado = 'Activo' " +
+                          "and ED.Activo = 1 ";
+            }
+            else
+            {
+                cadena += "where D.Estado = 1 ";
+            }
+
+            cadena += "order by D.Nombres, D.Apellidos";
 
             dt = oConSQL.RetornaRegistros(cadena);
 
@@ -368,7 +433,6 @@ namespace wfZenova
         {
             csConectaSQL oConSQL = new csConectaSQL();
             DataTable dt = new DataTable();
-
             ReportDataSource dataset;
 
             rvwReporte.LocalReport.DataSources.Clear();
@@ -407,6 +471,7 @@ namespace wfZenova
 
             if (cmbTipoReporte.Text == "Asignación Entrenadores")
                 CargarReporteAsignacionesEntrenadores();
+
             if (cmbTipoReporte.Text == "Competencias")
                 CargarReporteCompetencias();
 
@@ -421,14 +486,15 @@ namespace wfZenova
 
             if (cmbTipoReporte.Text == "Pruebas Físicas")
                 CargarReportePruebasFisicas();
+
             if (cmbTipoReporte.Text == "Mediciones Corporales")
                 CargarReporteMediciones();
+
             if (cmbTipoReporte.Text == "Bienestar")
                 CargarReporteBienestar();
 
             if (cmbTipoReporte.Text == "Empleados")
                 CargarReporteEmpleados();
         }
-
     }
 }

@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace wfZenova
@@ -17,17 +12,18 @@ namespace wfZenova
         private bool esAdministrador;
         csConectaSQL conSQL = new csConectaSQL();
 
-
         public frmDeportistas(int idEntrenador)
         {
             InitializeComponent();
 
             this.idEntrenador = idEntrenador;
+            esAdministrador = false;
 
             ConfigurarTablaDeportistas();
             CargarFiltros();
             CargarDeportistas();
         }
+
         public frmDeportistas()
         {
             InitializeComponent();
@@ -42,146 +38,60 @@ namespace wfZenova
 
         private void ConfigurarTablaDeportistas()
         {
-            // ==========================================
-            // LIMPIAR TABLA
-            // ==========================================
             dgvDeportistas.Columns.Clear();
             dgvDeportistas.Rows.Clear();
 
-
-            // ==========================================
-            // COLUMNA FOTO
-            // ==========================================
-            DataGridViewImageColumn colFoto =
-                new DataGridViewImageColumn();
-
+            DataGridViewImageColumn colFoto = new DataGridViewImageColumn();
             colFoto.Name = "Foto";
             colFoto.HeaderText = "FOTO";
-            colFoto.ImageLayout =
-                DataGridViewImageCellLayout.Zoom;
+            colFoto.ImageLayout = DataGridViewImageCellLayout.Zoom;
 
             dgvDeportistas.Columns.Add(colFoto);
 
+            dgvDeportistas.Columns.Add("Nombre", "NOMBRE");
+            dgvDeportistas.Columns.Add("Edad", "EDAD");
+            dgvDeportistas.Columns.Add("Deporte", "DEPORTE");
+            dgvDeportistas.Columns.Add("CategoriaEdad", "CATEGORÍA (EDAD)");
+            dgvDeportistas.Columns.Add("UltimaMedicion", "ÚLTIMA MEDICIÓN");
 
-            // ==========================================
-            // DEMÁS COLUMNAS
-            // ==========================================
-            dgvDeportistas.Columns.Add(
-                "Nombre",
-                "NOMBRE");
+            dgvDeportistas.BackgroundColor = Color.White;
+            dgvDeportistas.BorderStyle = BorderStyle.None;
+            dgvDeportistas.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvDeportistas.GridColor = Color.FromArgb(235, 235, 245);
+            dgvDeportistas.RowHeadersVisible = false;
 
-            dgvDeportistas.Columns.Add(
-                "Edad",
-                "EDAD");
+            dgvDeportistas.AllowUserToAddRows = false;
+            dgvDeportistas.AllowUserToDeleteRows = false;
+            dgvDeportistas.AllowUserToResizeRows = false;
+            dgvDeportistas.AllowUserToResizeColumns = false;
 
-            dgvDeportistas.Columns.Add(
-                "Deporte",
-                "DEPORTE");
+            dgvDeportistas.ReadOnly = true;
+            dgvDeportistas.MultiSelect = false;
+            dgvDeportistas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvDeportistas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            dgvDeportistas.Columns.Add(
-                "CategoriaEdad",
-                "CATEGORÍA (EDAD)");
-
-            dgvDeportistas.Columns.Add(
-                "UltimaMedicion",
-                "ÚLTIMA MEDICIÓN");
-
-            dgvDeportistas.Columns.Add(
-                "Estado",
-                "ESTADO");
-
-
-            // ==========================================
-            // CONFIGURACIÓN GENERAL
-            // ==========================================
-            dgvDeportistas.BackgroundColor =
-                Color.White;
-
-            dgvDeportistas.BorderStyle =
-                BorderStyle.None;
-
-            dgvDeportistas.CellBorderStyle =
-                DataGridViewCellBorderStyle.SingleHorizontal;
-
-            dgvDeportistas.GridColor =
-                Color.FromArgb(235, 235, 245);
-
-            dgvDeportistas.RowHeadersVisible =
-                false;
-
-            dgvDeportistas.AllowUserToAddRows =
-                false;
-
-            dgvDeportistas.AllowUserToDeleteRows =
-                false;
-
-            dgvDeportistas.AllowUserToResizeRows =
-                false;
-
-            dgvDeportistas.AllowUserToResizeColumns =
-                false;
-
-            dgvDeportistas.ReadOnly =
-                true;
-
-            dgvDeportistas.MultiSelect =
-                false;
-
-            dgvDeportistas.SelectionMode =
-                DataGridViewSelectionMode.FullRowSelect;
-
-            dgvDeportistas.AutoSizeColumnsMode =
-                DataGridViewAutoSizeColumnsMode.Fill;
-
-
-            // ==========================================
-            // ENCABEZADO
-            // ==========================================
-            dgvDeportistas.EnableHeadersVisualStyles =
-                false;
-
-            dgvDeportistas.ColumnHeadersDefaultCellStyle.BackColor =
-                Color.FromArgb(35, 55, 215);
-
-            dgvDeportistas.ColumnHeadersDefaultCellStyle.ForeColor =
-                Color.White;
-
+            dgvDeportistas.EnableHeadersVisualStyles = false;
+            dgvDeportistas.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(35, 55, 215);
+            dgvDeportistas.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgvDeportistas.ColumnHeadersDefaultCellStyle.Font =
-                new Font(
-                    "Century Gothic",
-                    9F,
-                    FontStyle.Bold);
+                new Font("Century Gothic", 9F, FontStyle.Bold);
 
             dgvDeportistas.ColumnHeadersDefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
 
-            dgvDeportistas.ColumnHeadersHeight =
-                45;
-
+            dgvDeportistas.ColumnHeadersHeight = 45;
             dgvDeportistas.ColumnHeadersHeightSizeMode =
                 DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 
             dgvDeportistas.ColumnHeadersBorderStyle =
                 DataGridViewHeaderBorderStyle.None;
 
+            dgvDeportistas.RowTemplate.Height = 55;
 
-            // ==========================================
-            // FILAS
-            // ==========================================
-            dgvDeportistas.RowTemplate.Height =
-                55;
-
-            dgvDeportistas.DefaultCellStyle.BackColor =
-                Color.White;
-
-            dgvDeportistas.DefaultCellStyle.ForeColor =
-                Color.FromArgb(25, 40, 95);
-
+            dgvDeportistas.DefaultCellStyle.BackColor = Color.White;
+            dgvDeportistas.DefaultCellStyle.ForeColor = Color.FromArgb(25, 40, 95);
             dgvDeportistas.DefaultCellStyle.Font =
-                new Font(
-                    "Century Gothic",
-                    9F,
-                    FontStyle.Regular);
+                new Font("Century Gothic", 9F, FontStyle.Regular);
 
             dgvDeportistas.DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
@@ -192,54 +102,21 @@ namespace wfZenova
             dgvDeportistas.DefaultCellStyle.SelectionForeColor =
                 Color.FromArgb(25, 40, 95);
 
+            dgvDeportistas.Columns["Foto"].FillWeight = 50;
+            dgvDeportistas.Columns["Nombre"].FillWeight = 130;
+            dgvDeportistas.Columns["Edad"].FillWeight = 55;
+            dgvDeportistas.Columns["Deporte"].FillWeight = 130;
+            dgvDeportistas.Columns["CategoriaEdad"].FillWeight = 100;
+            dgvDeportistas.Columns["UltimaMedicion"].FillWeight = 100;
 
-            // ==========================================
-            // TAMAÑOS DE COLUMNAS
-            // ==========================================
-            dgvDeportistas.Columns["Foto"]
-                .FillWeight = 50;
-
-            dgvDeportistas.Columns["Nombre"]
-                .FillWeight = 130;
-
-            dgvDeportistas.Columns["Edad"]
-                .FillWeight = 55;
-
-            dgvDeportistas.Columns["Deporte"]
-                .FillWeight = 90;
-
-            dgvDeportistas.Columns["CategoriaEdad"]
-                .FillWeight = 100;
-
-            dgvDeportistas.Columns["UltimaMedicion"]
-                .FillWeight = 100;
-
-            dgvDeportistas.Columns["Estado"]
-                .FillWeight = 70;
-
-
-            // ==========================================
-            // ALINEACIONES
-            // ==========================================
-            dgvDeportistas.Columns["Nombre"]
-                .DefaultCellStyle.Alignment =
+            dgvDeportistas.Columns["Nombre"].DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleLeft;
 
-            dgvDeportistas.Columns["Foto"]
-                .DefaultCellStyle.Alignment =
+            dgvDeportistas.Columns["Foto"].DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
 
+            dgvDeportistas.Columns["Foto"].DefaultCellStyle.NullValue = null;
 
-            // ==========================================
-            // CONFIGURACIÓN FOTO
-            // ==========================================
-            dgvDeportistas.Columns["Foto"]
-                .DefaultCellStyle.NullValue = null;
-
-
-            // ==========================================
-            // QUITAR SELECCIÓN INICIAL
-            // ==========================================
             dgvDeportistas.ClearSelection();
         }
 
@@ -247,141 +124,87 @@ namespace wfZenova
         {
             DataTable tabla;
 
-            // ==========================================
-            // ADMINISTRADOR
-            // VE TODOS LOS DEPORTISTAS
-            // ==========================================
             if (esAdministrador)
             {
                 tabla = conSQL.RetornaRegistros(
                     @"SELECT
-                D.IdDeportista,
-                D.Foto,
-                D.Nombres + ' ' + D.Apellidos AS NombreCompleto,
-                D.FechaNacimiento,
-                DEP.NombreDeporte,
+                        D.IdDeportista,
+                        D.Foto,
+                        D.Nombres + ' ' + D.Apellidos AS NombreCompleto,
+                        D.FechaNacimiento,
 
-                (
-                    SELECT MAX(M.FechaMedicion)
-                    FROM MedicionesDeportista M
-                    WHERE M.IdDeportista = D.IdDeportista
-                ) AS UltimaMedicion,
+                        (
+                            SELECT MAX(M.FechaMedicion)
+                            FROM MedicionesDeportista M
+                            WHERE M.IdDeportista = D.IdDeportista
+                        ) AS UltimaMedicion,
 
-                (
-                    SELECT TOP 1 M.CategoriaEdad
-                    FROM MedicionesDeportista M
-                    WHERE M.IdDeportista = D.IdDeportista
-                    ORDER BY
-                        M.FechaMedicion DESC,
-                        M.IdMedicion DESC
-                ) AS CategoriaEdad
+                        (
+                            SELECT TOP 1 M.CategoriaEdad
+                            FROM MedicionesDeportista M
+                            WHERE M.IdDeportista = D.IdDeportista
+                            ORDER BY M.FechaMedicion DESC, M.IdMedicion DESC
+                        ) AS CategoriaEdad
 
-              FROM Deportistas D
-
-              LEFT JOIN Inscripciones I
-                  ON D.IdDeportista = I.IdDeportista
-                  AND I.Estado = 'Activo'
-
-              LEFT JOIN EntrenadorDeporte ED
-                  ON I.IdEntrenadorDeporte =
-                     ED.IdEntrenadorDeporte
-
-              LEFT JOIN Deportes DEP
-                  ON ED.IdDeporte =
-                     DEP.IdDeporte
-
-              WHERE D.Estado = 1
-
-              ORDER BY
-                  D.Nombres,
-                  D.Apellidos"
-                );
+                    FROM Deportistas D
+                    WHERE D.Estado = 1
+                    ORDER BY D.Nombres, D.Apellidos");
             }
-
-            // ==========================================
-            // ENTRENADOR
-            // SOLO VE SUS DEPORTISTAS
-            // ==========================================
             else
             {
                 tabla = conSQL.RetornaRegistros(
                     @"SELECT
-                D.IdDeportista,
-                D.Foto,
-                D.Nombres + ' ' + D.Apellidos AS NombreCompleto,
-                D.FechaNacimiento,
-                DEP.NombreDeporte,
+                        D.IdDeportista,
+                        D.Foto,
+                        D.Nombres + ' ' + D.Apellidos AS NombreCompleto,
+                        D.FechaNacimiento,
 
-                (
-                    SELECT MAX(M.FechaMedicion)
-                    FROM MedicionesDeportista M
-                    WHERE M.IdDeportista = D.IdDeportista
-                ) AS UltimaMedicion,
+                        (
+                            SELECT MAX(M.FechaMedicion)
+                            FROM MedicionesDeportista M
+                            WHERE M.IdDeportista = D.IdDeportista
+                        ) AS UltimaMedicion,
 
-                (
-                    SELECT TOP 1 M.CategoriaEdad
-                    FROM MedicionesDeportista M
-                    WHERE M.IdDeportista = D.IdDeportista
-                    ORDER BY
-                        M.FechaMedicion DESC,
-                        M.IdMedicion DESC
-                ) AS CategoriaEdad
+                        (
+                            SELECT TOP 1 M.CategoriaEdad
+                            FROM MedicionesDeportista M
+                            WHERE M.IdDeportista = D.IdDeportista
+                            ORDER BY M.FechaMedicion DESC, M.IdMedicion DESC
+                        ) AS CategoriaEdad
 
-              FROM Deportistas D
+                    FROM Deportistas D
+                    WHERE D.Estado = 1
 
-              INNER JOIN Inscripciones I
-                  ON D.IdDeportista =
-                     I.IdDeportista
+                    AND EXISTS
+                    (
+                        SELECT 1
+                        FROM Inscripciones I
+                        INNER JOIN EntrenadorDeporte ED
+                            ON I.IdEntrenadorDeporte = ED.IdEntrenadorDeporte
 
-              INNER JOIN EntrenadorDeporte ED
-                  ON I.IdEntrenadorDeporte =
-                     ED.IdEntrenadorDeporte
+                        WHERE I.IdDeportista = D.IdDeportista
+                        AND I.Estado = 'Activo'
+                        AND ED.Activo = 1
+                        AND ED.IdEntrenador = " + idEntrenador.Value + @"
+                    )
 
-              INNER JOIN Deportes DEP
-                  ON ED.IdDeporte =
-                     DEP.IdDeporte
-
-              WHERE
-                  D.Estado = 1
-                  AND I.Estado = 'Activo'
-                  AND ED.IdEntrenador = " +
-                          idEntrenador.Value +
-
-                      @" ORDER BY
-                    D.Nombres,
-                    D.Apellidos"
-                );
+                    ORDER BY D.Nombres, D.Apellidos");
             }
 
+            if (tabla == null) return;
 
-            // ==========================================
-            // VERIFICAR RESULTADO
-            // ==========================================
-            if (tabla == null)
-                return;
-
-
-            // ==========================================
-            // LIMPIAR TABLA
-            // ==========================================
             dgvDeportistas.Rows.Clear();
 
-
-            // ==========================================
-            // RECORRER DEPORTISTAS
-            // ==========================================
             foreach (DataRow fila in tabla.Rows)
             {
-                // ==========================================
-                // CALCULAR EDAD
-                // ==========================================
+                int idDeportista =
+                    Convert.ToInt32(fila["IdDeportista"]);
+
                 DateTime fechaNacimiento =
-                    Convert.ToDateTime(
-                        fila["FechaNacimiento"]);
+                    Convert.ToDateTime(fila["FechaNacimiento"]);
 
                 int edad =
-                    DateTime.Today.Year -
-                    fechaNacimiento.Year;
+                    DateTime.Today.Year - fechaNacimiento.Year;
 
                 if (fechaNacimiento.Date >
                     DateTime.Today.AddYears(-edad))
@@ -389,10 +212,6 @@ namespace wfZenova
                     edad--;
                 }
 
-
-                // ==========================================
-                // FOTO
-                // ==========================================
                 Image foto = null;
 
                 if (fila["Foto"] != DBNull.Value)
@@ -419,28 +238,14 @@ namespace wfZenova
                     }
                 }
 
+                string deportes =
+                    ObtenerDeportesDeportista(idDeportista);
 
-                // ==========================================
-                // DEPORTE
-                // ==========================================
-                string deporte =
-                    fila["NombreDeporte"] == DBNull.Value
-                    ? "Sin asignar"
-                    : fila["NombreDeporte"].ToString();
-
-
-                // ==========================================
-                // CATEGORÍA
-                // ==========================================
                 string categoriaEdad =
                     fila["CategoriaEdad"] == DBNull.Value
                     ? "Sin medición"
                     : fila["CategoriaEdad"].ToString();
 
-
-                // ==========================================
-                // ÚLTIMA MEDICIÓN
-                // ==========================================
                 string ultimaMedicion =
                     fila["UltimaMedicion"] == DBNull.Value
                     ? "Sin mediciones"
@@ -448,29 +253,78 @@ namespace wfZenova
                         fila["UltimaMedicion"])
                       .ToString("dd/MM/yyyy");
 
-
-                // ==========================================
-                // AGREGAR FILA
-                // ==========================================
                 int indice =
                     dgvDeportistas.Rows.Add(
                         foto,
                         fila["NombreCompleto"].ToString(),
                         edad,
-                        deporte,
+                        deportes,
                         categoriaEdad,
                         ultimaMedicion
                     );
 
-
-                // Guardamos el ID real del deportista
                 dgvDeportistas.Rows[indice].Tag =
-                    Convert.ToInt32(
-                        fila["IdDeportista"]);
+                    idDeportista;
             }
 
-
             dgvDeportistas.ClearSelection();
+        }
+
+        private string ObtenerDeportesDeportista(int idDeportista)
+        {
+            string query;
+
+            if (esAdministrador)
+            {
+                query =
+                    @"SELECT DISTINCT DEP.NombreDeporte
+                      FROM Inscripciones I
+                      INNER JOIN EntrenadorDeporte ED
+                          ON I.IdEntrenadorDeporte = ED.IdEntrenadorDeporte
+                      INNER JOIN Deportes DEP
+                          ON ED.IdDeporte = DEP.IdDeporte
+                      WHERE I.IdDeportista = " + idDeportista + @"
+                      AND I.Estado = 'Activo'
+                      AND ED.Activo = 1
+                      ORDER BY DEP.NombreDeporte";
+            }
+            else
+            {
+                query =
+                    @"SELECT DISTINCT DEP.NombreDeporte
+                      FROM Inscripciones I
+                      INNER JOIN EntrenadorDeporte ED
+                          ON I.IdEntrenadorDeporte = ED.IdEntrenadorDeporte
+                      INNER JOIN Deportes DEP
+                          ON ED.IdDeporte = DEP.IdDeporte
+                      WHERE I.IdDeportista = " + idDeportista + @"
+                      AND I.Estado = 'Activo'
+                      AND ED.Activo = 1
+                      AND ED.IdEntrenador = " + idEntrenador.Value + @"
+                      ORDER BY DEP.NombreDeporte";
+            }
+
+            DataTable tablaDeportes =
+                conSQL.RetornaRegistros(query);
+
+            if (tablaDeportes == null ||
+                tablaDeportes.Rows.Count == 0)
+            {
+                return "Sin asignar";
+            }
+
+            string deportes = "";
+
+            foreach (DataRow fila in tablaDeportes.Rows)
+            {
+                if (deportes != "")
+                    deportes += ", ";
+
+                deportes +=
+                    fila["NombreDeporte"].ToString();
+            }
+
+            return deportes;
         }
 
         private void btnVer_Click(object sender, EventArgs e)
@@ -517,6 +371,7 @@ namespace wfZenova
                 new frmDatosDeportivos(idDeportista);
 
             frm.ShowDialog();
+
             CargarDeportistas();
         }
 
@@ -543,25 +398,40 @@ namespace wfZenova
             frm.ShowDialog();
         }
 
-
         private void CargarFiltros()
         {
-            // ==========================================
-            // FILTRO DE DEPORTES
-            // ==========================================
-            DataTable tablaDeportes =
-                conSQL.RetornaRegistros(
-                    @"SELECT
-                IdDeporte,
-                NombreDeporte
-              FROM Deportes
-              WHERE Activo = 1
-              ORDER BY NombreDeporte"
-                );
+            DataTable tablaDeportes;
+
+            if (esAdministrador)
+            {
+                tablaDeportes =
+                    conSQL.RetornaRegistros(
+                        @"SELECT
+                            IdDeporte,
+                            NombreDeporte
+                          FROM Deportes
+                          WHERE Activo = 1
+                          ORDER BY NombreDeporte");
+            }
+            else
+            {
+                tablaDeportes =
+                    conSQL.RetornaRegistros(
+                        @"SELECT DISTINCT
+                            D.IdDeporte,
+                            D.NombreDeporte
+                          FROM Deportes D
+                          INNER JOIN EntrenadorDeporte ED
+                              ON D.IdDeporte = ED.IdDeporte
+                          WHERE D.Activo = 1
+                          AND ED.Activo = 1
+                          AND ED.IdEntrenador = " +
+                          idEntrenador.Value +
+                          @" ORDER BY D.NombreDeporte");
+            }
 
             if (tablaDeportes != null)
             {
-                // Agregar opción TODOS
                 DataRow filaTodos =
                     tablaDeportes.NewRow();
 
@@ -587,21 +457,16 @@ namespace wfZenova
                     ComboBoxStyle.DropDownList;
             }
 
-
-            // ==========================================
-            // FILTRO DE ESTADO
-            // ==========================================
             cmbFiltroEstado.Items.Clear();
-
             cmbFiltroEstado.Items.Add("Todos");
             cmbFiltroEstado.Items.Add("Activo");
             cmbFiltroEstado.Items.Add("Inactivo");
 
             cmbFiltroEstado.SelectedIndex = 0;
-
             cmbFiltroEstado.DropDownStyle =
                 ComboBoxStyle.DropDownList;
         }
+
         private void AplicarFiltros()
         {
             string buscar =
@@ -619,23 +484,20 @@ namespace wfZenova
                 ? "Todos"
                 : cmbFiltroEstado.Text;
 
-
             foreach (DataGridViewRow fila
                      in dgvDeportistas.Rows)
             {
                 if (fila.IsNewRow)
                     continue;
 
-
                 string nombre =
                     fila.Cells["Nombre"]
                     .Value?.ToString()
                     .ToLower() ?? "";
 
-                string deporteFila =
+                string deportesFila =
                     fila.Cells["Deporte"]
                     .Value?.ToString() ?? "";
-
 
                 bool cumpleBusqueda =
                     buscar == "" ||
@@ -643,15 +505,11 @@ namespace wfZenova
 
                 bool cumpleDeporte =
                     deporte == "Todos" ||
-                    deporteFila == deporte;
+                    deportesFila.Contains(deporte);
 
-
-                // Por ahora los deportistas que mostramos
-                // son los activos.
                 bool cumpleEstado =
                     estado == "Todos" ||
                     estado == "Activo";
-
 
                 fila.Visible =
                     cumpleBusqueda &&
@@ -661,6 +519,7 @@ namespace wfZenova
 
             dgvDeportistas.ClearSelection();
         }
+
         private void txtBuscarDeportista_TextChanged(object sender, EventArgs e)
         {
             AplicarFiltros();
