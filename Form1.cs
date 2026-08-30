@@ -321,8 +321,7 @@ namespace wfZenova
 
         private void btncon_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmMoniDeportistas());
-            panel1.Visible = false;
+          
         }
 
         private void btnMonitoreoEntrenador_Click(object sender, EventArgs e)
@@ -338,8 +337,7 @@ namespace wfZenova
 
         private void btndepormoni_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmControles());
-            panel1.Visible = false;
+          
         }
 
         private void btngestiond_Click(object sender, EventArgs e)

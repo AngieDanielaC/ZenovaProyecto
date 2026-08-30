@@ -52,8 +52,10 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dsDeportistas1 = new wfZenova.dsDeportistas();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsDeportistas1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSeleccionarFoto
@@ -320,6 +322,11 @@
             this.panel1.TabIndex = 144;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
+            // dsDeportistas1
+            // 
+            this.dsDeportistas1.DataSetName = "dsDeportistas";
+            this.dsDeportistas1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // frmNuevoEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,6 +363,7 @@
             this.Load += new System.EventHandler(this.frmNuevoEmpleado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsDeportistas1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,5 +395,6 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Panel panel1;
+        private dsDeportistas dsDeportistas1;
     }
 }

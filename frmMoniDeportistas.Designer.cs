@@ -40,6 +40,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.dgvEvaluaciones = new System.Windows.Forms.DataGridView();
+            this.colDeportista = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colResultado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flpAlertas = new System.Windows.Forms.FlowLayoutPanel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -54,24 +60,18 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.flpAlertas = new System.Windows.Forms.FlowLayoutPanel();
-            this.dgvEvaluaciones = new System.Windows.Forms.DataGridView();
-            this.colDeportista = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colResultado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flpEventos = new System.Windows.Forms.FlowLayoutPanel();
             this.lblIntensidad = new System.Windows.Forms.Label();
             this.lblNivelEsfuerzo = new System.Windows.Forms.Label();
             this.pnlIntensidadFondo = new System.Windows.Forms.Panel();
             this.pnlIntensidad = new System.Windows.Forms.Panel();
             this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEvaluaciones)).BeginInit();
             this.panel11.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEvaluaciones)).BeginInit();
             this.SuspendLayout();
             // 
             // label19
@@ -169,9 +169,9 @@
             this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(57, 40);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(119, 56);
+            this.label10.Size = new System.Drawing.Size(92, 56);
             this.label10.TabIndex = 7;
-            this.label10.Text = "87%";
+            this.label10.Text = "0%";
             // 
             // label5
             // 
@@ -210,6 +210,54 @@
             this.panel14.Size = new System.Drawing.Size(1191, 302);
             this.panel14.TabIndex = 26;
             // 
+            // dgvEvaluaciones
+            // 
+            this.dgvEvaluaciones.AllowUserToAddRows = false;
+            this.dgvEvaluaciones.AllowUserToDeleteRows = false;
+            this.dgvEvaluaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvEvaluaciones.BackgroundColor = System.Drawing.Color.White;
+            this.dgvEvaluaciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvEvaluaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEvaluaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colDeportista,
+            this.colTest,
+            this.colResultado,
+            this.colEstado});
+            this.dgvEvaluaciones.Location = new System.Drawing.Point(632, 72);
+            this.dgvEvaluaciones.Name = "dgvEvaluaciones";
+            this.dgvEvaluaciones.RowHeadersVisible = false;
+            this.dgvEvaluaciones.Size = new System.Drawing.Size(500, 170);
+            this.dgvEvaluaciones.TabIndex = 16;
+            // 
+            // colDeportista
+            // 
+            this.colDeportista.HeaderText = "Deportista";
+            this.colDeportista.Name = "colDeportista";
+            // 
+            // colTest
+            // 
+            this.colTest.HeaderText = "Test";
+            this.colTest.Name = "colTest";
+            // 
+            // colResultado
+            // 
+            this.colResultado.HeaderText = "Resultado";
+            this.colResultado.Name = "colResultado";
+            // 
+            // colEstado
+            // 
+            this.colEstado.HeaderText = "Estado";
+            this.colEstado.Name = "colEstado";
+            // 
+            // flpAlertas
+            // 
+            this.flpAlertas.AutoScroll = true;
+            this.flpAlertas.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpAlertas.Location = new System.Drawing.Point(46, 101);
+            this.flpAlertas.Name = "flpAlertas";
+            this.flpAlertas.Size = new System.Drawing.Size(486, 160);
+            this.flpAlertas.TabIndex = 15;
+            // 
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -224,7 +272,7 @@
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(34)))), ((int)(((byte)(29)))));
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(81, 21);
+            this.panel10.Size = new System.Drawing.Size(10, 21);
             this.panel10.TabIndex = 0;
             // 
             // panel7
@@ -258,9 +306,9 @@
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(53, 40);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(105, 77);
+            this.label11.Size = new System.Drawing.Size(69, 77);
             this.label11.TabIndex = 8;
-            this.label11.Text = "03";
+            this.label11.Text = "0";
             // 
             // label4
             // 
@@ -293,9 +341,9 @@
             this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(51, 45);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(105, 77);
+            this.label12.Size = new System.Drawing.Size(69, 77);
             this.label12.TabIndex = 9;
-            this.label12.Text = "22";
+            this.label12.Text = "0";
             // 
             // label3
             // 
@@ -358,54 +406,6 @@
             this.label1.Size = new System.Drawing.Size(296, 28);
             this.label1.TabIndex = 21;
             this.label1.Text = "RESUMEN DE CONTROLES";
-            // 
-            // flpAlertas
-            // 
-            this.flpAlertas.AutoScroll = true;
-            this.flpAlertas.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpAlertas.Location = new System.Drawing.Point(46, 101);
-            this.flpAlertas.Name = "flpAlertas";
-            this.flpAlertas.Size = new System.Drawing.Size(260, 160);
-            this.flpAlertas.TabIndex = 15;
-            // 
-            // dgvEvaluaciones
-            // 
-            this.dgvEvaluaciones.AllowUserToAddRows = false;
-            this.dgvEvaluaciones.AllowUserToDeleteRows = false;
-            this.dgvEvaluaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvEvaluaciones.BackgroundColor = System.Drawing.Color.White;
-            this.dgvEvaluaciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvEvaluaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEvaluaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colDeportista,
-            this.colTest,
-            this.colResultado,
-            this.colEstado});
-            this.dgvEvaluaciones.Location = new System.Drawing.Point(632, 72);
-            this.dgvEvaluaciones.Name = "dgvEvaluaciones";
-            this.dgvEvaluaciones.RowHeadersVisible = false;
-            this.dgvEvaluaciones.Size = new System.Drawing.Size(500, 170);
-            this.dgvEvaluaciones.TabIndex = 16;
-            // 
-            // colDeportista
-            // 
-            this.colDeportista.HeaderText = "Deportista";
-            this.colDeportista.Name = "colDeportista";
-            // 
-            // colTest
-            // 
-            this.colTest.HeaderText = "Test";
-            this.colTest.Name = "colTest";
-            // 
-            // colResultado
-            // 
-            this.colResultado.HeaderText = "Resultado";
-            this.colResultado.Name = "colResultado";
-            // 
-            // colEstado
-            // 
-            this.colEstado.HeaderText = "Estado";
-            this.colEstado.Name = "colEstado";
             // 
             // flpEventos
             // 
@@ -485,6 +485,7 @@
             this.Load += new System.EventHandler(this.frmMoniDeportistas_Load);
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEvaluaciones)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -493,7 +494,6 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEvaluaciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

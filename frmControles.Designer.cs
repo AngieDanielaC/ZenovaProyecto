@@ -172,7 +172,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(197, 37);
             this.button4.TabIndex = 14;
-            this.button4.Text = "BAJA MÉDICA";
+            this.button4.Text = "EN ALERTA ";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -188,7 +188,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(197, 37);
             this.button3.TabIndex = 13;
-            this.button3.Text = "EN RECUPERACIÓN";
+            this.button3.Text = "INACTIVOS";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -265,9 +265,9 @@
             this.label25.ForeColor = System.Drawing.Color.Black;
             this.label25.Location = new System.Drawing.Point(3, 52);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(78, 56);
+            this.label25.Size = new System.Drawing.Size(51, 56);
             this.label25.TabIndex = 5;
-            this.label25.Text = "22";
+            this.label25.Text = "0";
             // 
             // label21
             // 
@@ -308,11 +308,11 @@
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.Black;
-            this.label26.Location = new System.Drawing.Point(3, 58);
+            this.label26.Location = new System.Drawing.Point(3, 52);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(78, 56);
+            this.label26.Size = new System.Drawing.Size(51, 56);
             this.label26.TabIndex = 6;
-            this.label26.Text = "28";
+            this.label26.Text = "0";
             // 
             // label22
             // 
@@ -355,9 +355,9 @@
             this.label27.ForeColor = System.Drawing.Color.Black;
             this.label27.Location = new System.Drawing.Point(3, 53);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(78, 56);
+            this.label27.Size = new System.Drawing.Size(51, 56);
             this.label27.TabIndex = 6;
-            this.label27.Text = "04";
+            this.label27.Text = "0";
             // 
             // label23
             // 
@@ -400,9 +400,9 @@
             this.label28.ForeColor = System.Drawing.Color.Black;
             this.label28.Location = new System.Drawing.Point(3, 52);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(78, 56);
+            this.label28.Size = new System.Drawing.Size(51, 56);
             this.label28.TabIndex = 6;
-            this.label28.Text = "02";
+            this.label28.Text = "0";
             // 
             // label24
             // 
