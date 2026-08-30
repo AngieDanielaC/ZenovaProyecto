@@ -466,8 +466,14 @@ namespace wfZenova
             object sender,
             EventArgs e)
         {
-            OpenChildForm(
-                new frmDeportistas());
+            if (frmInicioDeSesion.NombreRolActual == "Entrenador" && frmInicioDeSesion.IdEntrenadorActual.HasValue)
+            {
+                OpenChildForm(new frmDeportistas(frmInicioDeSesion.IdEntrenadorActual.Value));
+            }
+            else
+            {
+                OpenChildForm(new frmDeportistas());
+            }
         }
 
 
@@ -539,12 +545,16 @@ namespace wfZenova
         }
 
         // COMPETENCIAS ENTRENADOR
-        private void button1_Click(
-            object sender,
-            EventArgs e)
+        private void button1_Click( object sender, EventArgs e)
         {
-            OpenChildForm(
-                new frmCompetenciasEntrenador());
+            if (frmInicioDeSesion.NombreRolActual == "Entrenador" && frmInicioDeSesion.IdEntrenadorActual.HasValue)
+            {
+                OpenChildForm(new frmCompetenciasEntrenador(frmInicioDeSesion.IdEntrenadorActual.Value));
+            }
+            else
+            {
+                OpenChildForm(new frmCompetenciasEntrenador());
+            }
         }
 
 
