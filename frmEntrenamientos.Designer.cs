@@ -105,7 +105,7 @@
             this.btnContEntrenamiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContEntrenamiento.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContEntrenamiento.ForeColor = System.Drawing.Color.White;
-            this.btnContEntrenamiento.Location = new System.Drawing.Point(43, 195);
+            this.btnContEntrenamiento.Location = new System.Drawing.Point(60, 103);
             this.btnContEntrenamiento.Name = "btnContEntrenamiento";
             this.btnContEntrenamiento.Size = new System.Drawing.Size(142, 25);
             this.btnContEntrenamiento.TabIndex = 14;
@@ -248,6 +248,7 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.panel9.Controls.Add(this.btnPruebas);
             this.panel9.Controls.Add(this.label27);
             this.panel9.Controls.Add(this.label26);
             this.panel9.Controls.Add(this.label25);
@@ -321,7 +322,7 @@
             this.btnPruebas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPruebas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPruebas.ForeColor = System.Drawing.Color.White;
-            this.btnPruebas.Location = new System.Drawing.Point(40, 238);
+            this.btnPruebas.Location = new System.Drawing.Point(84, 103);
             this.btnPruebas.Name = "btnPruebas";
             this.btnPruebas.Size = new System.Drawing.Size(145, 25);
             this.btnPruebas.TabIndex = 16;
@@ -375,6 +376,7 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel8.Controls.Add(this.label21);
+            this.panel8.Controls.Add(this.btnContEntrenamiento);
             this.panel8.Controls.Add(this.label20);
             this.panel8.Controls.Add(this.label19);
             this.panel8.Controls.Add(this.label18);
@@ -595,8 +597,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1250, 768);
-            this.Controls.Add(this.btnPruebas);
-            this.Controls.Add(this.btnContEntrenamiento);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);

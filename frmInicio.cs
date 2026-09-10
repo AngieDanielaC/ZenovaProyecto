@@ -226,7 +226,7 @@ namespace wfZenova
 
         private void CargarDeportistasRiesgoAdministrador()
         {
-            lblDeportistasRiesgo.Text = ObtenerValor(
+            dep.Text = ObtenerValor(
                 @"select count(distinct idDeportista) as Total
                 from RiesgoFatiga
                 where Riesgo = 'Alto'");
@@ -234,7 +234,7 @@ namespace wfZenova
 
         private void CargarDeportistasRiesgoEntrenador(int idEntrenador)
         {
-            lblDeportistasRiesgo.Text = ObtenerValor(
+            dep.Text = ObtenerValor(
                 @"select count(distinct R.idDeportista) as Total
                 from RiesgoFatiga R
                 inner join Deportistas D

@@ -50,15 +50,17 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.lblDeportistasRiesgo = new System.Windows.Forms.Label();
+            this.dep = new System.Windows.Forms.Label();
             this.lblBienestarPromedio = new System.Windows.Forms.Label();
             this.lblRendimientoGeneral = new System.Windows.Forms.Label();
             this.lblCumplimientoEntrenamientos = new System.Windows.Forms.Label();
-            this.lblPromedioDeportistas = new System.Windows.Forms.Label();
+            this.lblDeportistasRiesgo = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblBienvenida
@@ -336,18 +338,19 @@
             this.label18.TabIndex = 22;
             this.label18.Text = "Cumplimiento de \r\nentrenamientos";
             // 
-            // lblDeportistasRiesgo
+            // dep
             // 
-            this.lblDeportistasRiesgo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblDeportistasRiesgo.AutoSize = true;
-            this.lblDeportistasRiesgo.BackColor = System.Drawing.Color.White;
-            this.lblDeportistasRiesgo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeportistasRiesgo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(7)))), ((int)(((byte)(63)))));
-            this.lblDeportistasRiesgo.Location = new System.Drawing.Point(1025, 578);
-            this.lblDeportistasRiesgo.Name = "lblDeportistasRiesgo";
-            this.lblDeportistasRiesgo.Size = new System.Drawing.Size(170, 18);
-            this.lblDeportistasRiesgo.TabIndex = 23;
-            this.lblDeportistasRiesgo.Text = "Deportistas con riesgo";
+            this.dep.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dep.AutoSize = true;
+            this.dep.BackColor = System.Drawing.Color.White;
+            this.dep.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(7)))), ((int)(((byte)(63)))));
+            this.dep.Location = new System.Drawing.Point(110, 21);
+            this.dep.Name = "dep";
+            this.dep.Size = new System.Drawing.Size(170, 18);
+            this.dep.TabIndex = 23;
+            this.dep.Text = "Deportistas con riesgo";
+            this.dep.Visible = false;
             // 
             // lblBienestarPromedio
             // 
@@ -388,18 +391,28 @@
             this.lblCumplimientoEntrenamientos.TabIndex = 26;
             this.lblCumplimientoEntrenamientos.Text = "0%";
             // 
-            // lblPromedioDeportistas
+            // lblDeportistasRiesgo
             // 
-            this.lblPromedioDeportistas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblPromedioDeportistas.AutoSize = true;
-            this.lblPromedioDeportistas.BackColor = System.Drawing.Color.White;
-            this.lblPromedioDeportistas.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPromedioDeportistas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(7)))), ((int)(((byte)(63)))));
-            this.lblPromedioDeportistas.Location = new System.Drawing.Point(1096, 597);
-            this.lblPromedioDeportistas.Name = "lblPromedioDeportistas";
-            this.lblPromedioDeportistas.Size = new System.Drawing.Size(72, 44);
-            this.lblPromedioDeportistas.TabIndex = 27;
-            this.lblPromedioDeportistas.Text = "0%";
+            this.lblDeportistasRiesgo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDeportistasRiesgo.AutoSize = true;
+            this.lblDeportistasRiesgo.BackColor = System.Drawing.Color.White;
+            this.lblDeportistasRiesgo.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeportistasRiesgo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(7)))), ((int)(((byte)(63)))));
+            this.lblDeportistasRiesgo.Location = new System.Drawing.Point(181, 40);
+            this.lblDeportistasRiesgo.Name = "lblDeportistasRiesgo";
+            this.lblDeportistasRiesgo.Size = new System.Drawing.Size(72, 44);
+            this.lblDeportistasRiesgo.TabIndex = 27;
+            this.lblDeportistasRiesgo.Text = "0%";
+            this.lblDeportistasRiesgo.Visible = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblDeportistasRiesgo);
+            this.panel1.Controls.Add(this.dep);
+            this.panel1.Location = new System.Drawing.Point(915, 557);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(316, 143);
+            this.panel1.TabIndex = 28;
             // 
             // frmInicio
             // 
@@ -407,11 +420,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 768);
-            this.Controls.Add(this.lblPromedioDeportistas);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblCumplimientoEntrenamientos);
             this.Controls.Add(this.lblRendimientoGeneral);
             this.Controls.Add(this.lblBienestarPromedio);
-            this.Controls.Add(this.lblDeportistasRiesgo);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
@@ -442,6 +454,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -471,10 +485,11 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label lblDeportistasRiesgo;
+        private System.Windows.Forms.Label dep;
         private System.Windows.Forms.Label lblBienestarPromedio;
         private System.Windows.Forms.Label lblRendimientoGeneral;
         private System.Windows.Forms.Label lblCumplimientoEntrenamientos;
-        private System.Windows.Forms.Label lblPromedioDeportistas;
+        private System.Windows.Forms.Label lblDeportistasRiesgo;
+        private System.Windows.Forms.Panel panel1;
     }
 }
