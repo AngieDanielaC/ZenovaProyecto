@@ -33,34 +33,40 @@
             this.lblName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.dgvAsistencia = new System.Windows.Forms.DataGridView();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.da = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.dgvPorcentajeVespertino = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.casilla = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvAsistenciaVespertino = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.dgvAsistencia = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -69,33 +75,27 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.dgvPorcentaje = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.da = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPorcentaje = new System.Windows.Forms.DataGridView();
-            this.dgvAsistenciaVespertino = new System.Windows.Forms.DataGridView();
-            this.dgvPorcentajeVespertino = new System.Windows.Forms.DataGridView();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAsistencia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.da)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPorcentajeVespertino)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAsistenciaVespertino)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAsistencia)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.da)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPorcentaje)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAsistenciaVespertino)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPorcentajeVespertino)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -154,6 +154,194 @@
             this.panel1.Size = new System.Drawing.Size(682, 599);
             this.panel1.TabIndex = 31;
             // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnGuardar.BackgroundImage")));
+            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.Transparent;
+            this.btnGuardar.Location = new System.Drawing.Point(506, 6);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(161, 33);
+            this.btnGuardar.TabIndex = 175;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // dgvAsistencia
+            // 
+            this.dgvAsistencia.AllowUserToAddRows = false;
+            this.dgvAsistencia.AllowUserToDeleteRows = false;
+            this.dgvAsistencia.AllowUserToResizeColumns = false;
+            this.dgvAsistencia.AllowUserToResizeRows = false;
+            this.dgvAsistencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAsistencia.EnableHeadersVisualStyles = false;
+            this.dgvAsistencia.Location = new System.Drawing.Point(19, 49);
+            this.dgvAsistencia.MultiSelect = false;
+            this.dgvAsistencia.Name = "dgvAsistencia";
+            this.dgvAsistencia.Size = new System.Drawing.Size(648, 536);
+            this.dgvAsistencia.TabIndex = 174;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AllowUserToResizeColumns = false;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn3});
+            this.dataGridView3.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataGridView3.Location = new System.Drawing.Point(553, 180);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersVisible = false;
+            this.dataGridView3.Size = new System.Drawing.Size(89, 78);
+            this.dataGridView3.TabIndex = 24;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Porcentaje";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // da
+            // 
+            this.da.AllowUserToAddRows = false;
+            this.da.AllowUserToDeleteRows = false;
+            this.da.AllowUserToResizeColumns = false;
+            this.da.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.da.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.da.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.da.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10});
+            this.da.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.da.Location = new System.Drawing.Point(583, 114);
+            this.da.Name = "da";
+            this.da.RowHeadersVisible = false;
+            this.da.Size = new System.Drawing.Size(59, 60);
+            this.da.TabIndex = 24;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "Porcentaje";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(241)))), ((int)(((byte)(252)))));
+            this.button1.BackgroundImage = global::wfZenova.Properties.Resources.MotivacionExpandir;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(608, 86);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(34, 34);
+            this.button1.TabIndex = 21;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BackgroundImage = global::wfZenova.Properties.Resources.cuaCeleste;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Controls.Add(this.dgvPorcentajeVespertino);
+            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.dataGridView4);
+            this.panel4.Controls.Add(this.button4);
+            this.panel4.Location = new System.Drawing.Point(862, 393);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(43, 28);
+            this.panel4.TabIndex = 35;
+            // 
+            // dgvPorcentajeVespertino
+            // 
+            this.dgvPorcentajeVespertino.AllowUserToAddRows = false;
+            this.dgvPorcentajeVespertino.AllowUserToDeleteRows = false;
+            this.dgvPorcentajeVespertino.AllowUserToResizeColumns = false;
+            this.dgvPorcentajeVespertino.AllowUserToResizeRows = false;
+            this.dgvPorcentajeVespertino.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPorcentajeVespertino.EnableHeadersVisualStyles = false;
+            this.dgvPorcentajeVespertino.Location = new System.Drawing.Point(17, 40);
+            this.dgvPorcentajeVespertino.MultiSelect = false;
+            this.dgvPorcentajeVespertino.Name = "dgvPorcentajeVespertino";
+            this.dgvPorcentajeVespertino.ReadOnly = true;
+            this.dgvPorcentajeVespertino.Size = new System.Drawing.Size(320, 245);
+            this.dgvPorcentajeVespertino.TabIndex = 176;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(241)))), ((int)(((byte)(252)))));
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(15, 10);
+            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(154, 25);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "% ASISTENCIA";
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.AllowUserToAddRows = false;
+            this.dataGridView4.AllowUserToDeleteRows = false;
+            this.dataGridView4.AllowUserToResizeColumns = false;
+            this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView4.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
+            this.dataGridView4.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataGridView4.Location = new System.Drawing.Point(17, 40);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowHeadersVisible = false;
+            this.dataGridView4.Size = new System.Drawing.Size(320, 245);
+            this.dataGridView4.TabIndex = 24;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Porcentaje";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(241)))), ((int)(((byte)(252)))));
+            this.button4.BackgroundImage = global::wfZenova.Properties.Resources.MotivacionExpandir;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(289, 67);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(34, 34);
+            this.button4.TabIndex = 26;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -191,19 +379,6 @@
             this.casilla.Name = "casilla";
             this.casilla.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.casilla.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(241)))), ((int)(((byte)(252)))));
-            this.button1.BackgroundImage = global::wfZenova.Properties.Resources.MotivacionExpandir;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(608, 86);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 34);
-            this.button1.TabIndex = 21;
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // label4
             // 
@@ -244,36 +419,6 @@
             this.button3.TabIndex = 25;
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.AllowUserToResizeColumns = false;
-            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn3});
-            this.dataGridView3.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView3.Location = new System.Drawing.Point(553, 180);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.Size = new System.Drawing.Size(89, 78);
-            this.dataGridView3.TabIndex = 24;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Porcentaje";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -299,6 +444,34 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(49, 35);
             this.panel2.TabIndex = 34;
+            // 
+            // dgvAsistenciaVespertino
+            // 
+            this.dgvAsistenciaVespertino.AllowUserToAddRows = false;
+            this.dgvAsistenciaVespertino.AllowUserToDeleteRows = false;
+            this.dgvAsistenciaVespertino.AllowUserToResizeColumns = false;
+            this.dgvAsistenciaVespertino.AllowUserToResizeRows = false;
+            this.dgvAsistenciaVespertino.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAsistenciaVespertino.EnableHeadersVisualStyles = false;
+            this.dgvAsistenciaVespertino.Location = new System.Drawing.Point(17, 34);
+            this.dgvAsistenciaVespertino.MultiSelect = false;
+            this.dgvAsistenciaVespertino.Name = "dgvAsistenciaVespertino";
+            this.dgvAsistenciaVespertino.ReadOnly = true;
+            this.dgvAsistenciaVespertino.Size = new System.Drawing.Size(648, 251);
+            this.dgvAsistenciaVespertino.TabIndex = 175;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(241)))), ((int)(((byte)(252)))));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(15, 7);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(118, 23);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "VESPERTINO";
             // 
             // button2
             // 
@@ -351,89 +524,6 @@
             this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewCheckBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(241)))), ((int)(((byte)(252)))));
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(15, 7);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 23);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "VESPERTINO";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(241)))), ((int)(((byte)(252)))));
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(15, 10);
-            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(154, 25);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "% ASISTENCIA";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.BackgroundImage = global::wfZenova.Properties.Resources.cuaCeleste;
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Controls.Add(this.dgvPorcentajeVespertino);
-            this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(this.dataGridView4);
-            this.panel4.Controls.Add(this.button4);
-            this.panel4.Location = new System.Drawing.Point(862, 393);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(43, 28);
-            this.panel4.TabIndex = 35;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(241)))), ((int)(((byte)(252)))));
-            this.button4.BackgroundImage = global::wfZenova.Properties.Resources.MotivacionExpandir;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(289, 67);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(34, 34);
-            this.button4.TabIndex = 26;
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.AllowUserToAddRows = false;
-            this.dataGridView4.AllowUserToDeleteRows = false;
-            this.dataGridView4.AllowUserToResizeColumns = false;
-            this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView4.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
-            this.dataGridView4.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView4.Location = new System.Drawing.Point(17, 40);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowHeadersVisible = false;
-            this.dataGridView4.Size = new System.Drawing.Size(320, 245);
-            this.dataGridView4.TabIndex = 24;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Porcentaje";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::wfZenova.Properties.Resources.MotivacionImg21;
@@ -455,20 +545,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 29;
             this.pictureBox2.TabStop = false;
-            // 
-            // dgvAsistencia
-            // 
-            this.dgvAsistencia.AllowUserToAddRows = false;
-            this.dgvAsistencia.AllowUserToDeleteRows = false;
-            this.dgvAsistencia.AllowUserToResizeColumns = false;
-            this.dgvAsistencia.AllowUserToResizeRows = false;
-            this.dgvAsistencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAsistencia.EnableHeadersVisualStyles = false;
-            this.dgvAsistencia.Location = new System.Drawing.Point(19, 49);
-            this.dgvAsistencia.MultiSelect = false;
-            this.dgvAsistencia.Name = "dgvAsistencia";
-            this.dgvAsistencia.Size = new System.Drawing.Size(648, 536);
-            this.dgvAsistencia.TabIndex = 174;
             // 
             // panel5
             // 
@@ -558,6 +634,21 @@
             this.panel7.Size = new System.Drawing.Size(367, 598);
             this.panel7.TabIndex = 36;
             // 
+            // dgvPorcentaje
+            // 
+            this.dgvPorcentaje.AllowUserToAddRows = false;
+            this.dgvPorcentaje.AllowUserToDeleteRows = false;
+            this.dgvPorcentaje.AllowUserToResizeColumns = false;
+            this.dgvPorcentaje.AllowUserToResizeRows = false;
+            this.dgvPorcentaje.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPorcentaje.EnableHeadersVisualStyles = false;
+            this.dgvPorcentaje.Location = new System.Drawing.Point(17, 48);
+            this.dgvPorcentaje.MultiSelect = false;
+            this.dgvPorcentaje.Name = "dgvPorcentaje";
+            this.dgvPorcentaje.ReadOnly = true;
+            this.dgvPorcentaje.Size = new System.Drawing.Size(339, 534);
+            this.dgvPorcentaje.TabIndex = 175;
+            // 
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(241)))), ((int)(((byte)(252)))));
@@ -584,97 +675,6 @@
             this.label8.TabIndex = 23;
             this.label8.Text = "% ASISTENCIA";
             // 
-            // da
-            // 
-            this.da.AllowUserToAddRows = false;
-            this.da.AllowUserToDeleteRows = false;
-            this.da.AllowUserToResizeColumns = false;
-            this.da.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.da.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.da.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.da.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10});
-            this.da.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.da.Location = new System.Drawing.Point(583, 114);
-            this.da.Name = "da";
-            this.da.RowHeadersVisible = false;
-            this.da.Size = new System.Drawing.Size(59, 60);
-            this.da.TabIndex = 24;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "Porcentaje";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dgvPorcentaje
-            // 
-            this.dgvPorcentaje.AllowUserToAddRows = false;
-            this.dgvPorcentaje.AllowUserToDeleteRows = false;
-            this.dgvPorcentaje.AllowUserToResizeColumns = false;
-            this.dgvPorcentaje.AllowUserToResizeRows = false;
-            this.dgvPorcentaje.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPorcentaje.EnableHeadersVisualStyles = false;
-            this.dgvPorcentaje.Location = new System.Drawing.Point(17, 48);
-            this.dgvPorcentaje.MultiSelect = false;
-            this.dgvPorcentaje.Name = "dgvPorcentaje";
-            this.dgvPorcentaje.ReadOnly = true;
-            this.dgvPorcentaje.Size = new System.Drawing.Size(339, 534);
-            this.dgvPorcentaje.TabIndex = 175;
-            // 
-            // dgvAsistenciaVespertino
-            // 
-            this.dgvAsistenciaVespertino.AllowUserToAddRows = false;
-            this.dgvAsistenciaVespertino.AllowUserToDeleteRows = false;
-            this.dgvAsistenciaVespertino.AllowUserToResizeColumns = false;
-            this.dgvAsistenciaVespertino.AllowUserToResizeRows = false;
-            this.dgvAsistenciaVespertino.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAsistenciaVespertino.EnableHeadersVisualStyles = false;
-            this.dgvAsistenciaVespertino.Location = new System.Drawing.Point(17, 34);
-            this.dgvAsistenciaVespertino.MultiSelect = false;
-            this.dgvAsistenciaVespertino.Name = "dgvAsistenciaVespertino";
-            this.dgvAsistenciaVespertino.ReadOnly = true;
-            this.dgvAsistenciaVespertino.Size = new System.Drawing.Size(648, 251);
-            this.dgvAsistenciaVespertino.TabIndex = 175;
-            // 
-            // dgvPorcentajeVespertino
-            // 
-            this.dgvPorcentajeVespertino.AllowUserToAddRows = false;
-            this.dgvPorcentajeVespertino.AllowUserToDeleteRows = false;
-            this.dgvPorcentajeVespertino.AllowUserToResizeColumns = false;
-            this.dgvPorcentajeVespertino.AllowUserToResizeRows = false;
-            this.dgvPorcentajeVespertino.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPorcentajeVespertino.EnableHeadersVisualStyles = false;
-            this.dgvPorcentajeVespertino.Location = new System.Drawing.Point(17, 40);
-            this.dgvPorcentajeVespertino.MultiSelect = false;
-            this.dgvPorcentajeVespertino.Name = "dgvPorcentajeVespertino";
-            this.dgvPorcentajeVespertino.ReadOnly = true;
-            this.dgvPorcentajeVespertino.Size = new System.Drawing.Size(320, 245);
-            this.dgvPorcentajeVespertino.TabIndex = 176;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnGuardar.BackgroundImage")));
-            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.Transparent;
-            this.btnGuardar.Location = new System.Drawing.Point(506, 6);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(161, 33);
-            this.btnGuardar.TabIndex = 175;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
             // frmAsistencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -696,28 +696,28 @@
             this.Load += new System.EventHandler(this.frmAsistencia_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAsistencia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.da)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPorcentajeVespertino)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAsistenciaVespertino)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAsistencia)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.da)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPorcentaje)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAsistenciaVespertino)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPorcentajeVespertino)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

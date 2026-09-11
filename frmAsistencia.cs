@@ -26,6 +26,7 @@ namespace wfZenova
             ConfigurarDgvPorcentaje(dgvPorcentaje);
 
             CargarDeportistas();
+            CargarPorcentajes();    
         }
 
         //Configurar DataGridView de asistencia
@@ -212,40 +213,33 @@ namespace wfZenova
             dgv.ClearSelection();
         }
 
-        //Cargar deportistas asignados al entrenador
+        //Cargar deportistas
         private void CargarDeportistas()
         {
-            if (frmInicioDeSesion.IdEntrenadorActual == null)
+            string filtroEntrenador = "";
+
+            //Si hay entrenador, mostrar solo sus deportistas
+            if (frmInicioDeSesion.IdEntrenadorActual != null)
             {
-                MessageBox.Show(
-                    "La sesión actual no está asociada a un entrenador.",
-                    "Atención",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-                return;
+                int idEntrenador =
+                    frmInicioDeSesion.IdEntrenadorActual.Value;
+
+                filtroEntrenador =
+                    $"AND ED.IdEntrenador = {idEntrenador}";
             }
 
-            idEntrenador = frmInicioDeSesion.IdEntrenadorActual.Value;
-
             DataTable dt = conSQL.RetornaRegistros($@"
-            SELECT DISTINCT
-                D.IdDeportista,
-                D.Nombres + ' ' + D.Apellidos AS NombreCompleto
-            FROM Deportistas D
-
-            INNER JOIN Inscripciones I
-                ON D.IdDeportista = I.IdDeportista
-
-            INNER JOIN EntrenadorDeporte ED
-                ON I.IdEntrenadorDeporte = ED.IdEntrenadorDeporte
-
-            WHERE ED.IdEntrenador = {idEntrenador}
-                AND D.Estado = 1
+                SELECT DISTINCT
+                    D.IdDeportista,
+                    D.Nombres + ' ' + D.Apellidos AS NombreCompleto
+                FROM Deportistas D
+                INNER JOIN Inscripciones I ON D.IdDeportista = I.IdDeportista
+                INNER JOIN EntrenadorDeporte ED ON I.IdEntrenadorDeporte = ED.IdEntrenadorDeporte
+                WHERE D.Estado = 1
                 AND ED.Activo = 1
                 AND I.Estado <> 'Finalizado'
-
-            ORDER BY NombreCompleto");
+                {filtroEntrenador}
+                ORDER BY NombreCompleto");
 
             dgvAsistencia.Rows.Clear();
 
@@ -386,7 +380,53 @@ namespace wfZenova
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
             );
+
+            CargarPorcentajes();
         }
 
-    }
+            //Cargar porcentaje de asistencia
+        private void CargarPorcentajes()
+        {
+            string filtroEntrenador = "";
+
+            //Si hay entrenador, mostrar solo sus registros
+            if (frmInicioDeSesion.IdEntrenadorActual != null)
+            {
+                int idEntrenador =
+                    frmInicioDeSesion.IdEntrenadorActual.Value;
+
+                filtroEntrenador =
+                    $"WHERE A.IdEntrenador = {idEntrenador}";
+            }
+
+            DataTable dt = conSQL.RetornaRegistros($@"
+                SELECT
+                    A.IdDeportista,
+                    D.Nombres + ' ' + D.Apellidos AS Nombre,
+                    COUNT(*) AS TotalRegistros,
+                    SUM(CASE WHEN A.Presente = 1 THEN 1 ELSE 0 END) AS Asistencias,
+                    CAST(
+                        SUM(CASE WHEN A.Presente = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS DECIMAL(5,2)) AS Porcentaje
+                FROM Asistencias A
+
+                INNER JOIN Deportistas D
+                    ON A.IdDeportista = D.IdDeportista
+                    {filtroEntrenador}
+
+                GROUP BY A.IdDeportista, D.Nombres, D.Apellidos
+                ORDER BY Nombre");
+
+            dgvPorcentaje.Rows.Clear();
+
+            foreach (DataRow fila in dt.Rows)
+            {
+                dgvPorcentaje.Rows.Add(
+                    fila["Nombre"],
+                    fila["Porcentaje"] + "%"
+                );
+            }
+
+            dgvPorcentaje.ClearSelection();
+        }
+    }    
 }
