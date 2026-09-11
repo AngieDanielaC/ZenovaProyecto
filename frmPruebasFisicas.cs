@@ -57,25 +57,27 @@ namespace wfZenova
         //Cargar deportistas activos
         private void CargarDeportistas()
         {
-            if (frmInicioDeSesion.IdEntrenadorActual == null)
+            string filtroEntrenador = "";
+
+            //Si hay entrenador, mostrar solo sus deportistas
+            if (frmInicioDeSesion.IdEntrenadorActual != null)
             {
-                MessageBox.Show(
-                    "La sesión actual no está asociada a un entrenador.",
-                    "Atención",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-                return;
+                idEntrenador = frmInicioDeSesion.IdEntrenadorActual.Value;
+
+                filtroEntrenador =
+                    $"AND ED.IdEntrenador = {idEntrenador}";
             }
 
-            idEntrenador = frmInicioDeSesion.IdEntrenadorActual.Value;
-
-            DataTable dt = bd.RetornaRegistros(
-                "SELECT IdDeportista, " +
-                "Nombres + ' ' + Apellidos AS NombreCompleto " +
-                "FROM Deportistas " +
-                "WHERE Estado = 1"
-            );
+            DataTable dt = bd.RetornaRegistros($@"
+                SELECT DISTINCT D.IdDeportista, D.Nombres + ' ' + D.Apellidos AS NombreCompleto
+                FROM Deportistas D
+                INNER JOIN Inscripciones I ON D.IdDeportista = I.IdDeportista
+                INNER JOIN EntrenadorDeporte ED ON I.IdEntrenadorDeporte = ED.IdEntrenadorDeporte   
+                WHERE D.Estado = 1
+                AND ED.Activo = 1
+                AND I.Estado <> 'Finalizado'
+                {filtroEntrenador}
+                ORDER BY NombreCompleto");
 
             if (dt != null)
             {

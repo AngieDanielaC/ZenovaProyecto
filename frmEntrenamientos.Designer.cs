@@ -92,7 +92,7 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label24.Location = new System.Drawing.Point(103, 75);
+            this.label24.Location = new System.Drawing.Point(103, 83);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(92, 15);
             this.label24.TabIndex = 12;
@@ -105,7 +105,7 @@
             this.btnContEntrenamiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContEntrenamiento.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContEntrenamiento.ForeColor = System.Drawing.Color.White;
-            this.btnContEntrenamiento.Location = new System.Drawing.Point(60, 103);
+            this.btnContEntrenamiento.Location = new System.Drawing.Point(60, 112);
             this.btnContEntrenamiento.Name = "btnContEntrenamiento";
             this.btnContEntrenamiento.Size = new System.Drawing.Size(142, 25);
             this.btnContEntrenamiento.TabIndex = 14;
@@ -265,11 +265,12 @@
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label27.Location = new System.Drawing.Point(79, 65);
+            this.label27.Location = new System.Drawing.Point(79, 77);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(18, 25);
             this.label27.TabIndex = 15;
             this.label27.Text = ".";
+            this.label27.Click += new System.EventHandler(this.label27_Click);
             // 
             // label26
             // 
@@ -322,7 +323,7 @@
             this.btnPruebas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPruebas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPruebas.ForeColor = System.Drawing.Color.White;
-            this.btnPruebas.Location = new System.Drawing.Point(84, 103);
+            this.btnPruebas.Location = new System.Drawing.Point(84, 112);
             this.btnPruebas.Name = "btnPruebas";
             this.btnPruebas.Size = new System.Drawing.Size(145, 25);
             this.btnPruebas.TabIndex = 16;
@@ -376,8 +377,8 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel8.Controls.Add(this.label21);
-            this.panel8.Controls.Add(this.btnContEntrenamiento);
             this.panel8.Controls.Add(this.label20);
+            this.panel8.Controls.Add(this.btnContEntrenamiento);
             this.panel8.Controls.Add(this.label19);
             this.panel8.Controls.Add(this.label18);
             this.panel8.Controls.Add(this.label17);

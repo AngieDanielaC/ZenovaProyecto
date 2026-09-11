@@ -29,38 +29,35 @@ namespace wfZenova
             ConfigurarColumnasDgvEjercicios();
         }
 
-        //Cargar deportistas asignados al entrenador
+        //Cargar deportistas
         private void CargarDeportistas()
         {
-            if (frmInicioDeSesion.IdEntrenadorActual == null)
-            {
-                MessageBox.Show("La sesión actual no está asociada a un entrenador.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            string filtroEntrenador = "";
 
-            int idEntrenador = frmInicioDeSesion.IdEntrenadorActual.Value;
+            //Si hay entrenador, mostrar solo sus deportistas
+            if (frmInicioDeSesion.IdEntrenadorActual != null)
+            {
+                int idEntrenador =
+                    frmInicioDeSesion.IdEntrenadorActual.Value;
+
+                filtroEntrenador =
+                    $"AND ED.IdEntrenador = {idEntrenador}";
+            }
 
             DataTable dt = bd.RetornaRegistros($@"
-                SELECT DISTINCT
-                    D.IdDeportista,
-                    D.Nombres + ' ' + D.Apellidos AS NombreCompleto
+                SELECT DISTINCT D.IdDeportista, D.Nombres + ' ' + D.Apellidos AS NombreCompleto
                 FROM Deportistas D
-                INNER JOIN Inscripciones I
-                    ON D.IdDeportista = I.IdDeportista
-                INNER JOIN EntrenadorDeporte ED
-                    ON I.IdEntrenadorDeporte = ED.IdEntrenadorDeporte
+                INNER JOIN Inscripciones I ON D.IdDeportista = I.IdDeportista
+                INNER JOIN EntrenadorDeporte ED ON I.IdEntrenadorDeporte = ED.IdEntrenadorDeporte
                 WHERE D.Estado = 1
-                  AND ED.IdEntrenador = {idEntrenador}
-                  AND ED.Activo = 1
-                  AND I.Estado <> 'Finalizado'
+                AND ED.Activo = 1
+                AND I.Estado <> 'Finalizado'
+                {filtroEntrenador}
                 ORDER BY NombreCompleto");
 
-            if (dt != null)
-            {
-                checkedListBox3.DataSource = dt;
-                checkedListBox3.DisplayMember = "NombreCompleto";
-                checkedListBox3.ValueMember = "IdDeportista";
-            }
+            checkedListBox3.DataSource = dt;
+            checkedListBox3.DisplayMember = "NombreCompleto";
+            checkedListBox3.ValueMember = "IdDeportista";
         }
 
         //Agregar ejercicio
