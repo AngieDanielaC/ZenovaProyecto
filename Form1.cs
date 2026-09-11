@@ -317,6 +317,10 @@ namespace wfZenova
                 OpenChildForm(new frmCronogramaEntrenador(
                     frmInicioDeSesion.IdEntrenadorActual.Value));
             }
+            else
+            {
+                OpenChildForm(new frmCronogramaEntrenador());
+            }
         }
 
         private void btncon_Click(object sender, EventArgs e)
